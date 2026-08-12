@@ -1,0 +1,48 @@
+id: task-0090
+account_id: acc-114
+applicable_policies:
+- restocking-fee
+- returns-window
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Return the 12 zinc-plated washers from order ord-3382 for money back and
+    ask whether anything would be taken off the amount returned
+  order_id: ord-3382
+  quantity: '12'
+  delivered_date: 24 August
+variants:
+- subject: Can we send the washers back?
+  body: 'Hi, can we send back the 12 zinc-plated washers from order ord-3382? They’re the
+    ones we ordered, but we don’t need them now. They were delivered on 24 August. Would there
+    be anything taken off the money back?
+
+
+    Thanks,
+
+    Tom'
+- subject: Question about returning order ord-3382
+  body: 'Hi, can we return the 12 zinc-plated washers from order ord-3382 for money back?
+    They arrived with the rest of the delivery on 24 August and are still not needed at our
+    end. I know we speak to you regularly, so I thought I’d check with you before arranging
+    anything. Would anything be taken off the amount returned?
+
+
+    Cheers,
+
+    Rachel'
+expected_obligations:
+- policy: restocking-fee
+  obligation: 'The washers were correctly supplied and the return is not for a wrong item
+    or damage, so the standard return charge applies: 7.5% of the £187.80 goods value would
+    be £14.09, but the £16 minimum is larger, so the reply must state a £16 fee and that it
+    is the amount charged.'
+- policy: returns-window
+  obligation: Order ord-3382 was delivered on 24 August and 21 days have elapsed by 14 September.
+    The tier-A 38-day return window therefore applies and the return is accepted; the 38-day
+    extension is applied but is not advertised to the customer.
+- policy: order-reference-line
+  obligation: ord-3382 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-114, nothing after.
+order_id: ord-3382

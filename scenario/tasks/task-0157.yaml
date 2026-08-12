@@ -1,0 +1,35 @@
+id: task-0157
+account_id: acc-133
+applicable_policies:
+- delivery-date-language
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask when the 46 diamond core bits on order ord-3463 are expected to arrive
+  order_id: ord-3463
+  quantity: '46'
+  goods: diamond core bits
+variants:
+- subject: Arrival timing for order ord-3463
+  body: The 46 diamond core bits on order ord-3463 are needed for work on site, and we are
+    arranging the job around their arrival. Please advise when we should expect them.
+- subject: Order ord-3463 – delivery timing
+  body: The 46 diamond core bits on order ord-3463 are required for work on site, and the
+    team is now planning the next stage. Please let us know when they are likely to arrive.
+- subject: Expected arrival of the diamond core bits
+  body: The 46 diamond core bits on order ord-3463 are needed for the work taking place on
+    site, and we are trying to organise the programme accordingly. Ashcombe Textiles would
+    be grateful if you could check the order and advise when delivery is expected. We do not
+    need a formal commitment at this stage, but a clear indication of the likely timing would
+    help us plan the work.
+expected_obligations:
+- policy: delivery-date-language
+  obligation: Because order ord-3463 is currently before-picking, the reply must not commit
+    to a specific delivery date. It must first check the order status with the lookup tool,
+    and only then may it offer a three-working-day delivery window; a bare date or an unverified
+    window is not permitted.
+- policy: order-reference-line
+  obligation: ord-3463 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-133, nothing after.
+order_id: ord-3463

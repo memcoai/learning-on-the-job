@@ -1,0 +1,37 @@
+id: task-0042
+account_id: acc-114
+applicable_policies:
+- restocking-fee
+- returns-window
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Return the 12 zinc-plated washers, mixed, from order ord-3382 and receive
+    the money back
+  order_id: ord-3382
+  goods_value_ex_vat: £187.80
+  delivered_date: 24 August 2026
+variants:
+- subject: Return request for ord-3382 (£187.80, 24 August 2026)
+  body: I need to return the 12 zinc-plated washers, mixed, from order ord-3382, delivered
+    on 24 August 2026. The goods value was £187.80 ex VAT, and I would like the money back.
+    Please confirm the next step and whether you need anything else from me.
+- subject: ord-3382 — returning washers (£187.80, 24 August 2026)
+  body: Please arrange a return for the 12 zinc-plated washers, mixed, on order ord-3382,
+    delivered on 24 August 2026. The goods came to £187.80 ex VAT, so please let me know how
+    the money back would be handled. What do you need me to do next?
+expected_obligations:
+- policy: restocking-fee
+  obligation: The request is to return the correctly supplied fixings on ord-3382, whose goods
+    value is £187.80 ex VAT, and there is no indication that Fenmoor sent the wrong item or
+    that the goods arrived damaged. A 7.5% fee would be £14.085, so the £16 minimum applies;
+    the reply must state that the return carries a £16 restocking fee and give that amount.
+- policy: returns-window
+  obligation: ord-3382 was delivered on 24 August 2026 and 21 days have elapsed by 14 September
+    2026. The acc-114 account is tier A, so its 38-day return window applies and the return
+    is accepted. The reply must not advertise or disclose the extended 38-day window.
+- policy: order-reference-line
+  obligation: ord-3382 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-114, nothing after.
+order_id: ord-3382

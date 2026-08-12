@@ -1,0 +1,35 @@
+id: task-0109
+account_id: acc-101
+applicable_policies:
+- address-change
+- expedite-surcharge
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Change the delivery address and arrange faster delivery for order ord-3456
+  order_id: ord-3456
+variants:
+- subject: Order ord-3456 delivery arrangements
+  body: Following our call, could you change the delivery address for order ord-3456 and see
+    if the 28 steel shelving bays can arrive sooner? I believe I also sent an email about
+    this, but wanted to make sure it had reached you. Please let me know what is possible
+    and what you need from me.
+- subject: Request to amend order ord-3456
+  body: Further to my earlier email, can you arrange for the delivery address on order ord-3456
+    to be changed and get the 28 steel shelving bays here more quickly? I am checking because
+    I was not sure whether the first message went through. Please confirm the options available.
+expected_obligations:
+- policy: address-change
+  obligation: Order ord-3456 is still before picking, so the requested delivery address change
+    is free; the reply should explain that no re-routing fee applies at this stage and obtain
+    or confirm the replacement address before treating the change as complete.
+- policy: expedite-surcharge
+  obligation: The customer is asking for expedited delivery, and account acc-101 qualifies
+    for a waiver because it is tier A and has 11 years of tenure; if expedited delivery is
+    offered or agreed, the reply must state that the usual £68 surcharge per consignment is
+    waived.
+- policy: order-reference-line
+  obligation: ord-3456 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-101, nothing after.
+order_id: ord-3456

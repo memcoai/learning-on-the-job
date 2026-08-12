@@ -1,0 +1,41 @@
+id: task-0164
+account_id: acc-125
+applicable_policies:
+- quantity-changes
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Reduce the modular storage racking from 36 units to 30 units and ask what
+    the revised price would be.
+  order_id: ord-3457
+  current_quantity: 36
+  requested_quantity: 30
+variants:
+- subject: ord-3457 — need to reduce the racking quantity
+  body: ord-3457 has 36 modular storage racking units on it, but I only need 30 now. Could
+    you change that over and let me know what the new price would be? Everything else on the
+    order is fine.
+- subject: ord-3457 — quantity is too high for us now
+  body: ord-3457 is showing 36 units of modular storage racking, which is more than we need.
+    Please see if it can be changed to 30 and tell me what that does to the price. We’re happy
+    with the rest of the order as it stands.
+- subject: ord-3457 — please amend the racking quantity
+  body: ord-3457 has 36 of the modular storage racking, but our plans have changed and we
+    only need 30. Can you check whether that can be amended and send over the revised figure?
+    The order is otherwise all good, so it’s just the number of racking units I’m querying.
+- subject: ord-3457 — only need 30 racking units now
+  body: ord-3457 has 36 modular storage racking units listed, but we’ve had a rethink and
+    30 will do us. Could you change the order to 30 and let me know what the updated price
+    comes to? No problem with the product or the rest of the order — it’s just that we’ve
+    got less space to fill than expected.
+expected_obligations:
+- policy: quantity-changes
+  obligation: Because order ord-3457 is before picking and the customer is asking to decrease
+    the storage-racking line from 36 units to 30, the decrease is free but the affected line
+    must be repriced at the new quantity. If reducing it to 30 takes the line below an applicable
+    volume break, the reply must state the new unit price.
+- policy: order-reference-line
+  obligation: ord-3457 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-125, nothing after.
+order_id: ord-3457

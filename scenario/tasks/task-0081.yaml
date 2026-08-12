@@ -1,0 +1,84 @@
+id: task-0081
+account_id: acc-113
+applicable_policies:
+- refund-method
+- volume-breaks
+- quote-validity
+- returns-window
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Return the six thermal curtain strips from order ord-3324 and have the
+    £270.00 paid back
+  order_id: ord-3324
+  product: thermal curtain strips
+  quantity: '6'
+  amount: £270.00 including VAT
+  delivered_date: 8 September 2026
+  payment_method: card
+variants:
+- subject: ord-3324 – following up on my return request
+  body: 'Hi, following our call, I’m chasing the return of the six thermal curtain strips
+    from order ord-3324. They were delivered on 8 September 2026, and I’d like the £270.00
+    including VAT paid back to my card once they’re sent back. I thought I’d already emailed
+    about this, so I’d appreciate an update rather than having to keep following it up.
+
+
+    Regards,
+
+    Martin'
+- subject: Return request for ord-3324
+  body: 'Morning, I’m following up on the email I thought I sent about order ord-3324. The
+    six thermal curtain strips arrived on 8 September 2026, and I’d like to arrange sending
+    them back and getting the £270.00 including VAT back on the card I used. It’s a bit frustrating
+    having to raise this again, so please let me know what happens next.
+
+
+    Thanks,
+
+    Helen'
+- subject: Chasing the goods from ord-3324
+  body: 'Hi, after our earlier conversation, I’m still waiting to hear about returning the
+    six thermal curtain strips on ord-3324. The delivery was made on 8 September 2026 and
+    the total was £270.00 including VAT, paid by card; I’d like that money returned when the
+    goods go back. I may have sent an email already, but I’ve had no response so far.
+
+
+    Best wishes,
+
+    David'
+- subject: Can someone pick up my earlier email about ord-3324?
+  body: 'Hello, I’m chasing the message I sent after our previous order discussion about ord-3324.
+    I need to send back the six thermal curtain strips delivered on 8 September 2026 and would
+    like the £270.00 including VAT returned to the card used for payment. We normally get
+    things sorted quickly, so I’d be grateful if someone could confirm the next step.
+
+
+    Regards,
+
+    Sarah'
+expected_obligations:
+- policy: refund-method
+  obligation: Because ord-3324 was paid for by card and the customer is asking for money back,
+    any refund must go to the original card, and the reply must state that route and the applicable
+    timing. It must not offer cash, a cheque, a bank transfer, or a transfer to a different
+    card.
+- policy: volume-breaks
+  obligation: The line in ord-3324 contains 6 thermal curtain strips, so the 50-unit volume
+    break does not apply. The reply must state that quantities do not accumulate across lines
+    or orders, and must not mention or trail the next break threshold regardless of what the
+    customer asks.
+- policy: quote-validity
+  obligation: If the reply includes any price, discount, or carriage charge, each such figure
+    must be stated as excluding VAT and as valid for 17 calendar days from the date of that
+    reply; this applies even if a previously quoted figure is repeated.
+- policy: returns-window
+  obligation: The six stocked consumables were delivered on 8 September 2026 and 6 calendar
+    days have elapsed by 14 September 2026, so the ordinary 24-day return window applies and
+    the return is accepted. The tier-A extension is not applicable and must not be mentioned
+    to this non-tier-A account; the reply should not advertise the longer window.
+- policy: order-reference-line
+  obligation: ord-3324 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-113, nothing after.
+order_id: ord-3324

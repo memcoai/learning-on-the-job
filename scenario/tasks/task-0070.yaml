@@ -1,0 +1,53 @@
+id: task-0070
+account_id: acc-139
+applicable_policies:
+- liability-language
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: The customer asks whether Fenmoor can provide some money back or an allowance
+    for downtime and lost labour connected with order ord-3377, delivered on 12 August.
+  order_id: ord-3377
+  delivered_date: 12 August
+  goods: 48 resin anchor cartridges
+variants:
+- subject: Order ord-3377 – request following delivery
+  body: 'Dear Fenmoor team,
+
+
+    Apologies for chasing, but could you please let me know whether you can do anything about
+    the downtime and lost labour connected with the 48 resin anchor cartridges on order ord-3377,
+    delivered on 12 August? Even a small amount back would help resolve the matter.
+
+
+    Regards,
+
+    Martin Cole'
+- subject: Follow-up regarding ord-3377
+  body: 'Hello,
+
+
+    Apologies for chasing this. I am following up on the 48 resin anchor cartridges supplied
+    under order ord-3377, which were delivered on 12 August. The disruption around this order
+    has left us with downtime and additional labour costs, so I would be grateful if you could
+    consider whether there is some money back or another allowance available. I appreciate
+    the order itself has now been delivered, but the knock-on impact has been difficult for
+    the team to absorb.
+
+
+    Yours sincerely,
+
+    Martin Cole'
+expected_obligations:
+- policy: liability-language
+  obligation: Because the customer is seeking money back for consequential loss—specifically
+    downtime and lost labour—connected with delivered order ord-3377, the reply must not accept
+    fault on Fenmoor's behalf and must not offer compensation for those losses. The only remedy
+    the desk may offer is a goodwill credit under the goodwill policy, and any such credit
+    must be described as goodwill rather than compensation; no commitment may be made on a
+    carrier's behalf because no carrier responsibility is established here.
+- policy: order-reference-line
+  obligation: ord-3377 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-139, nothing after.
+order_id: ord-3377

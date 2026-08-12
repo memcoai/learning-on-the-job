@@ -1,0 +1,43 @@
+id: task-0167
+account_id: acc-112
+applicable_policies:
+- partial-shipment
+- quote-validity
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Send the 35 rolls of masking tape ahead of the 26 guillotine blades, confirm
+    when the blades will follow, and explain whether sending them separately adds a delivery
+    charge.
+  order_id: ord-3416
+  estimated_delivery: 29 September 2026
+variants:
+- subject: Tape needed before the blades — ord-3416
+  body: The masking tape is needed before the guillotine blades arrive. For order ord-3416,
+    can you send the 35 rolls of tape ahead and send the 26 blades when they come in? The
+    order is showing 29 September 2026 for delivery. Please confirm whether sending the items
+    separately adds a delivery charge; the invoice arrangement is fine.
+- subject: Can the tape come first? ord-3416
+  body: We need the 35 rolls of masking tape sooner than the 26 guillotine blades. For ord-3416,
+    can you send the tape now and the blades later, and let me know when the blades are expected?
+    I can see 29 September 2026 shown for delivery. Please also confirm whether there would
+    be an extra delivery charge for sending the order in two consignments. Invoice payment
+    is still fine for us.
+expected_obligations:
+- policy: partial-shipment
+  obligation: The guillotine blades on ord-3416 have an 11-working-day backorder, which is
+    beyond nine working days, and the customer has asked for the goods to be sent separately.
+    The reply must offer the 35 rolls of masking tape to ship now and the 26 guillotine blades
+    to follow with an estimate of 29 September 2026, state the £22 consignment fee because
+    acc-112 is tier B rather than tier A, and confirm that carriage is charged once for the
+    whole order.
+- policy: quote-validity
+  obligation: Because the reply must quote the £22 consignment fee and may quote any other
+    price or carriage charge, every such figure must be stated as excluding VAT and as valid
+    for 17 calendar days from the date of that reply, including any repeated order or delivery
+    figure.
+- policy: order-reference-line
+  obligation: ord-3416 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-112, nothing after.
+order_id: ord-3416

@@ -1,0 +1,28 @@
+id: task-0105
+account_id: acc-112
+applicable_policies:
+- address-change
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Change the delivery address for order ord-3320
+  order_id: ord-3320
+variants:
+- subject: Change delivery address — ord-3320
+  body: 'Can you change the delivery address for order ord-3320?
+
+    Please let me know where to send the new address details.'
+- subject: Delivery address update for ord-3320
+  body: 'Can the delivery address on ord-3320 be changed?
+
+    I can provide the replacement address once you confirm where to send it.'
+expected_obligations:
+- policy: address-change
+  obligation: Because order ord-3320 is still before picking, the address change is free;
+    the reply should obtain or confirm the replacement delivery address and must not apply
+    or mention the £35 re-routing fee.
+- policy: order-reference-line
+  obligation: ord-3320 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-112, nothing after.
+order_id: ord-3320

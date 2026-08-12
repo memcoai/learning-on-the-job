@@ -1,0 +1,64 @@
+id: task-0139
+account_id: acc-127
+applicable_policies:
+- carrier-selection
+- address-change
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Change the delivery address for the order and send it using Larkmead Conservation
+    Studios' own carrier
+  order_id: ord-3465
+variants:
+- subject: ord-3465 – delivery arrangements are wrong
+  body: 'Hi,
+
+
+    ord-3465 has the wrong delivery arrangements. Please change the delivery address and send
+    it with our own carrier instead. Please confirm once both changes have been made.
+
+
+    Regards,
+
+    Helen'
+- subject: ord-3465 – please amend delivery
+  body: 'Morning,
+
+
+    ord-3465 needs the delivery address changing, and I need you to use our own carrier rather
+    than your usual arrangement. Please sort this before it goes out and let me know when
+    done.
+
+
+    Thanks,
+
+    Tom'
+- subject: ord-3465 – address and carrier issue
+  body: 'Hi,
+
+
+    ord-3465 has two delivery issues. Please change the delivery address and arrange for our
+    own carrier to handle the delivery instead. This is the cordless impact drivers order,
+    so please make sure the amendment is attached to the correct order. I need confirmation
+    once the address and carrier details have been updated.
+
+
+    Regards,
+
+    Rachel'
+expected_obligations:
+- policy: carrier-selection
+  obligation: Because the customer has asked to use its own carrier for ord-3465, and the
+    order's goods value is £3,767.70 excluding VAT, which is above £1,400 excluding VAT, the
+    reply must decline that carrier request without exception and offer signed-for delivery
+    as the alternative. It must not explain the decision as a cost decision or invite the
+    customer to arrange its own collection.
+- policy: address-change
+  obligation: Because ord-3465 is currently before picking, the requested delivery-address
+    change is free and may be confirmed without stating a re-routing fee. The reply must not
+    apply or mention the £35 fee, which only applies from picking until dispatch.
+- policy: order-reference-line
+  obligation: ord-3465 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-127, nothing after.
+order_id: ord-3465

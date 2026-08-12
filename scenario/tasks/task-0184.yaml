@@ -1,0 +1,38 @@
+id: task-0184
+account_id: acc-133
+applicable_policies:
+- cancellation-cutoff
+- payment-terms-by-tier
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Cancel the dispatched order and allow more time to pay the invoice
+  order_id: ord-3435
+variants:
+- subject: Request to cancel a delivery and extend payment time
+  body: Hello, the delivery has already gone out, but we now need to cancel it. The order
+    number is ord-3435. Could you advise what we should do about the shipment, and whether
+    we may have a little longer to settle the invoice? Regards, Helen
+- subject: Problem with an order already sent
+  body: Hi, we need to cancel a delivery that has already been sent. This relates to order
+    ord-3435. Please let me know how this can be dealt with, and whether there is any possibility
+    of having extra time to pay the invoice. Kind regards, Martin
+- subject: Order cancellation and invoice payment
+  body: Good morning, we have had a change of requirements and need to cancel the delivery,
+    although it has already left your premises. The relevant order is ord-3435. Would you
+    please explain the next steps and confirm whether we can have a little longer before paying
+    the invoice? Thanks in advance, Priya
+expected_obligations:
+- policy: cancellation-cutoff
+  obligation: Because order ord-3435 is already dispatched, it cannot be cancelled; route
+    the customer to the returns process and never offer to stop, recall or intercept the shipment.
+- policy: payment-terms-by-tier
+  obligation: Because account acc-133 is tier-B, the applicable payment terms are 21 days
+    from invoice; state those terms when addressing the request, do not offer extended, negotiated
+    or one-off terms or move the invoice due date, and pass the request for changed terms
+    to credit control with a two-working-day response commitment.
+- policy: order-reference-line
+  obligation: ord-3435 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-133, nothing after.
+order_id: ord-3435

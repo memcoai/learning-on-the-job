@@ -1,0 +1,63 @@
+id: task-0094
+account_id: acc-131
+applicable_policies:
+- cancellation-cutoff
+- address-change
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Change the delivery address for order ord-3452; if that cannot be done,
+    cancel the order instead
+  order_id: ord-3452
+variants:
+- subject: Quick chase on order ord-3452
+  body: 'Hi Tom,
+
+
+    Sorry to chase, but could you change the delivery address for order ord-3452? If that
+    can''t be done, please cancel the order instead.
+
+
+    Thanks, Dave'
+- subject: Order ord-3452
+  body: 'Morning,
+
+
+    Sorry for chasing this up. Can you update the delivery address on order ord-3452, or cancel
+    it instead if needed?
+
+
+    Cheers, Sarah'
+- subject: A quick one about ord-3452
+  body: 'Hi Megan,
+
+
+    Sorry to chase, but I need the delivery address changed for order ord-3452. If that isn''t
+    possible, could you cancel the order instead?
+
+
+    Regards, Paul'
+- subject: Can you help with order ord-3452?
+  body: 'Hello James,
+
+
+    Apologies for chasing. Could you change the delivery address on order ord-3452? If not,
+    please cancel it instead.
+
+
+    Thanks in advance,
+
+    Helen'
+expected_obligations:
+- policy: cancellation-cutoff
+  obligation: Order ord-3452 is before picking, so its cancellation is free; the reply must
+    confirm or process the cancellation without applying or stating a cancellation fee.
+- policy: address-change
+  obligation: Order ord-3452 is before picking, so changing its delivery address is free;
+    the reply must confirm or process the address change without applying or stating a re-routing
+    fee.
+- policy: order-reference-line
+  obligation: ord-3452 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-131, nothing after.
+order_id: ord-3452

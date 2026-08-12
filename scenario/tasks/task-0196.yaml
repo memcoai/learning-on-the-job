@@ -1,0 +1,65 @@
+id: task-0196
+account_id: acc-108
+applicable_policies:
+- expedite-surcharge
+- goodwill-credit
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: The customer wants order ord-3455 sent out urgently and asks whether Fenmoor
+    can do something about the trouble caused by it still being picked.
+  order_id: ord-3455
+variants:
+- subject: 'Urgent: ord-3455'
+  body: 'Hi there,
+
+
+    Sorry for chasing, but ord-3455 is still showing as being picked and it’s holding us up.
+    Can you get it sent out urgently, and is there anything you can do about the hassle?
+
+
+    Cheers,
+
+    Dave'
+- subject: ord-3455 — quick one
+  body: 'Morning,
+
+
+    Sorry to chase again. ord-3455 still seems to be in picking, so could you get it moving
+    urgently? Also, can you do anything for us over the trouble this has caused?
+
+
+    Thanks,
+
+    Sarah'
+- subject: Can you help with ord-3455?
+  body: 'Hi,
+
+
+    Apologies for chasing, but ord-3455 hasn’t got beyond picking yet. Could you send it out
+    urgently, and perhaps do something off for the inconvenience?
+
+
+    Regards,
+
+    Mark'
+expected_obligations:
+- policy: expedite-surcharge
+  obligation: The customer is asking for urgent delivery of ord-3455, so any expedited delivery
+    offered or agreed must state the £68 surcharge per consignment. acc-108 is tier B with
+    five years' tenure, so the surcharge cannot be waived; the order value and urgency do
+    not qualify for a waiver.
+- policy: goodwill-credit
+  obligation: The customer reports trouble caused by ord-3455 remaining in picking, engaging
+    the service-failure goodwill rule. The supplied records do not state how many goodwill
+    credits acc-108 has received in the preceding twelve months, so a further credit must
+    not be presented as a desk decision until that count is confirmed and, if the account
+    is at or beyond the two-credit limit, must be put to the order-desk manager for sign-off.
+    Any credit offered may be no more than £180 per incident, must name its amount, must be
+    account credit only rather than cash or a card refund, and must not be framed as compensation
+    for consequential loss.
+- policy: order-reference-line
+  obligation: ord-3455 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-108, nothing after.
+order_id: ord-3455

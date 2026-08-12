@@ -1,0 +1,49 @@
+id: task-0014
+account_id: acc-120
+applicable_policies:
+- address-change
+- expedite-surcharge
+- order-release-threshold
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Change the delivery address for order ord-3413 and send it urgently
+  order_id: ord-3413
+  order_total_inc_vat: £3,013.08
+  payment_amount_inc_vat: £2,711.77
+  payment_date: 10 September 2026
+variants:
+- subject: Order ord-3413
+  body: Please change the delivery address for order ord-3413 and send it urgently. I paid
+    £2,711.77 towards the £3,013.08 total on 10 September 2026 — please let me know what happens
+    next.
+- subject: Urgent delivery request — ord-3413
+  body: Could you update the delivery address on ord-3413 and arrange the quickest delivery
+    available? The total is £3,013.08 and I made a £2,711.77 payment on 10 September 2026.
+- subject: Change of address for ord-3413
+  body: I need the delivery address changed for order ord-3413, and would like it sent as
+    urgently as possible. The order total is £3,013.08; £2,711.77 was paid on 10 September
+    2026.
+- subject: Ord-3413 delivery
+  body: Please update the delivery address on ord-3413 and advise whether it can be sent urgently.
+    I have paid £2,711.77 against the £3,013.08 total, on 10 September 2026.
+expected_obligations:
+- policy: address-change
+  obligation: Because order ord-3413 is currently picking and has not been dispatched, the
+    reply may process the address change but must ask for the new address if needed and state
+    the £35 re-routing fee before the change is confirmed.
+- policy: expedite-surcharge
+  obligation: Because acc-120 is a tier-A account, if expedited delivery is offered or agreed
+    for ord-3413, the reply must state the £68 per-consignment surcharge and explicitly say
+    that it is waived; the customer's urgency, order value and volume do not otherwise qualify
+    for a waiver.
+- policy: order-release-threshold
+  obligation: The settled payment received for ord-3413 is £2,711.77, leaving £0.002 still
+    required for release against the £3,013.08 order total, so release does not yet follow.
+    The reply must confirm the settled amount and remaining balance, must not count any uncleared
+    funds, must not quote the 90% figure, and must give no dispatch commitment or timing.
+- policy: order-reference-line
+  obligation: ord-3413 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-120, nothing after.
+order_id: ord-3413

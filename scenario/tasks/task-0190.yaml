@@ -1,0 +1,49 @@
+id: task-0190
+account_id: acc-126
+applicable_policies:
+- refund-method
+- returns-window
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Return the 24 units of 48mm masking tape from order ord-3388 and receive
+    the money back
+  order_id: ord-3388
+  item: Masking tape, 48mm
+  quantity: 24
+  delivered_date: 31 August
+variants:
+- subject: Returning order ord-3388
+  body: 'Can I send back the 24 units of 48mm masking tape from order ord-3388 and get the
+    money back?
+
+    They were delivered on 31 August.'
+- subject: Order ord-3388 – masking tape
+  body: 'May I return the 24 units of 48mm masking tape on order ord-3388 for my money back?
+
+    The delivery arrived on 31 August.'
+- subject: Request about order ord-3388
+  body: 'Could you let me know whether I can return the 24 units of 48mm masking tape from
+    order ord-3388 and have the money returned?
+
+    This was delivered on 31 August.'
+- subject: Masking tape return – ord-3388
+  body: 'Can the 24 units of 48mm masking tape from order ord-3388 be sent back for a refund?
+
+    The order was delivered on 31 August.'
+expected_obligations:
+- policy: refund-method
+  obligation: Because order ord-3388 was paid for by card and account acc-126 is trading rather
+    than closing, any refund must go to the original card. The reply must state that route
+    and the applicable timing, and must not offer cash, a cheque, an account credit, or a
+    transfer to another card.
+- policy: returns-window
+  obligation: Because order ord-3388 was delivered on 31 August and 14 days have elapsed by
+    14 September, the return is within the ordinary 24-day window and is accepted. Account
+    acc-126 is not tier A, so the ordinary window governs; the 38-day extension is applied
+    only to tier-A accounts and must not be mentioned.
+- policy: order-reference-line
+  obligation: ord-3388 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-126, nothing after.
+order_id: ord-3388

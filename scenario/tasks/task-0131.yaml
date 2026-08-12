@@ -1,0 +1,70 @@
+id: task-0131
+account_id: acc-103
+applicable_policies:
+- third-party-privacy
+- delivery-date-language
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: An update on when order ord-3445 is likely to arrive, plus information
+    about the prices, terms and contact for a sister company's order
+  order_id: ord-3445
+variants:
+- subject: ord-3445 still not picked
+  body: 'Hi,
+
+
+    ord-3445 still appears not to have been picked. Please could you let me know when it is
+    likely to arrive? I also need to check the price and terms Fenmoor has given our sister
+    company, and who I should speak to about that account.
+
+
+    Regards,
+
+    Helen'
+- subject: Update needed on ord-3445
+  body: 'Hello,
+
+
+    ord-3445 does not seem to have moved forward, so could you advise when we should expect
+    delivery? Separately, please could you confirm the price and trading terms for our sister
+    company''s order and provide the relevant contact there?
+
+
+    Thanks,
+
+    Martin'
+- subject: ord-3445 delivery and related account query
+  body: 'Good morning,
+
+
+    ord-3445 still appears not to have been picked, and I need an update on when it is likely
+    to arrive. We are trying to coordinate work at our marine service site, so a clear indication
+    of the expected timing would help.
+
+
+    I would also like to ask about the price and terms Fenmoor has provided to our sister
+    company, together with the name of the person dealing with that account. Please let me
+    know how we should obtain that information.
+
+
+    Regards,
+
+    Sarah'
+expected_obligations:
+- policy: third-party-privacy
+  obligation: Because the writer is asking about another account's prices, terms and contact
+    and only claims that it is a sister company, the reply must not confirm, quote or discuss
+    that account's orders, prices, terms or contacts, must not confirm whether the account
+    exists or trades with Fenmoor, and must ask the account in question to contact the desk
+    directly.
+- policy: delivery-date-language
+  obligation: Because order ord-3445 is recorded as before-picking, the reply must first check
+    the order's status with the lookup tool before giving any timing, and may then offer only
+    a three-working-day delivery window; it must not commit to a specific delivery date or
+    give a bare date.
+- policy: order-reference-line
+  obligation: ord-3445 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-103, nothing after.
+order_id: ord-3445

@@ -1,0 +1,59 @@
+id: task-0009
+account_id: acc-125
+applicable_policies:
+- expedite-surcharge
+- cancellation-cutoff
+- order-release-threshold
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Cancel order ord-3410, or send it urgently if cancellation is not possible
+  order_id: ord-3410
+  order_total_inc_vat: £2,489.52
+  payments: £1,587.40 settled on 2 September and £726.85 paid on 12 September but not yet
+    settled
+variants:
+- subject: Order ord-3410
+  body: 'Hi,
+
+
+    Please cancel order ord-3410 if you still can. If not, could you send it urgently instead?
+    The order total is £2,489.52; £1,587.40 was settled on 2 September and £726.85 was paid
+    on 12 September but is still pending.
+
+
+    Regards,
+
+    Martin'
+- subject: Request regarding ord-3410
+  body: 'Morning,
+
+
+    Could you cancel ord-3410, or arrange urgent delivery if it has gone too far for that?
+    The total is £2,489.52. We settled £1,587.40 on 2 September, and the further £726.85 paid
+    on 12 September has not settled yet.
+
+
+    Thanks,
+
+    Helen'
+expected_obligations:
+- policy: expedite-surcharge
+  obligation: Because Halloway Glazing has six years' tenure, the £68 expedited-delivery surcharge
+    may be waived; if expedited delivery is offered or agreed, the reply must state that the
+    surcharge is waived rather than silently omitting it.
+- policy: cancellation-cutoff
+  obligation: Because ord-3410 is currently in picking and not yet dispatched, cancellation
+    is still possible but carries a fee of 6% of the £2,489.52 order value including VAT,
+    subject to the £25 minimum; the reply must state the applicable fee before confirming
+    cancellation.
+- policy: order-release-threshold
+  obligation: Because only the £1,587.40 payment settled on 2 September counts and the £726.85
+    payment from 12 September is uncleared, the settled total is £1,587.40 and a further £653.17
+    is required for release; release does not follow yet, and the reply must not quote the
+    90% threshold or give dispatch timing.
+- policy: order-reference-line
+  obligation: ord-3410 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-125, nothing after.
+order_id: ord-3410

@@ -1,0 +1,46 @@
+id: task-0045
+account_id: acc-142
+applicable_policies:
+- carrier-selection
+- quote-validity
+- volume-breaks
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Confirm whether the £11.50 delivery charge and the expected delivery date
+    still apply, offer a better rate for the 21 washers, and allow Cranleigh Dyeworks to use
+    its own carrier
+  order_id: ord-3392
+  quantity: 21 washers
+  delivery_charge: £11.50
+  estimated_delivery: 11 October
+variants:
+- subject: Order ord-3392
+  body: On order ord-3392, can you confirm whether the £11.50 delivery charge still applies
+    and whether delivery is still expected on 11 October? We have 21 washers on the order—can
+    you give us a better rate for that quantity? We would also like to use our own carrier.
+- subject: Check on delivery and pricing for ord-3392
+  body: Please check order ord-3392. The order shows a £11.50 delivery charge and an expected
+    delivery date of 11 October; are those still current? There are 21 washers on the order,
+    so please see whether there is a better rate available for the quantity. We would also
+    prefer to use our own carrier rather than have one selected for us.
+expected_obligations:
+- policy: carrier-selection
+  obligation: Because the customer has requested to use its own carrier and order ord-3392
+    is worth £253.89 excluding VAT, which is below £1,400 excluding VAT, the reply must decline
+    the request without offering an alternative. It must not explain carrier selection as
+    a cost decision or invite the customer to arrange collection.
+- policy: quote-validity
+  obligation: Because the customer has asked for confirmation of the £11.50 delivery charge,
+    any reply that quotes or repeats that carriage charge must state that it is excluding
+    VAT and valid for 17 calendar days from the date of that reply.
+- policy: volume-breaks
+  obligation: Because the order line contains 21 washers, no volume price break applies. The
+    reply must explain that volume quantities are not accumulated across lines or orders,
+    and must not mention or trail any next break threshold or how many more units would be
+    needed.
+- policy: order-reference-line
+  obligation: ord-3392 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-142, nothing after.
+order_id: ord-3392

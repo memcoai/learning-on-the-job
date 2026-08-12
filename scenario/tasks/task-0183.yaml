@@ -1,0 +1,59 @@
+id: task-0183
+account_id: acc-109
+applicable_policies:
+- restocking-fee
+- quote-validity
+- returns-window
+- refund-method
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Return the four sample vial trays because they are no longer needed and
+    receive the money back by bank transfer
+  order_id: ord-3322
+  quantity: '4'
+  item: sample vial trays
+  delivered_date: 2 September 2026
+  invoice_total_inc_vat: £480
+variants:
+- subject: Returning sample vial trays
+  body: We no longer need the four sample vial trays and would like to send them back for
+    the money back. This relates to order ord-3322, delivered on 2 September 2026, with an
+    invoice total of £480 including VAT. Nothing was wrong with the delivery; the items are
+    simply no longer required. Please let me know whether you can arrange the return and pay
+    the money back by bank transfer, as Lanthorne Labs is closing.
+- subject: Request to send back order
+  body: The four sample vial trays are no longer needed, so I would like to return them and
+    receive the money back. The order number is ord-3322, delivered on 2 September 2026, and
+    the invoice total was £480 including VAT. This is not because the wrong goods arrived
+    or because anything was damaged. Could you explain how to send them back and arrange payment
+    by bank transfer, please?
+- subject: Order ord-3322 — items no longer required
+  body: We have no further use for the four sample vial trays and would like to send them
+    back for a refund. They were supplied under order ord-3322 and delivered on 2 September
+    2026; the invoice total is £480 including VAT. The delivery was fine, but the goods are
+    no longer needed as the account is being closed. Please advise on the return arrangements
+    and whether the money can be sent by bank transfer.
+expected_obligations:
+- policy: restocking-fee
+  obligation: The goods were correctly supplied and the customer has not reported a wrong
+    item or damage, so the standard 7.5% restocking fee applies to the £380 goods value. The
+    reply must state that the fee is £28.50, and that it is not waived.
+- policy: quote-validity
+  obligation: Because the reply must quote the £28.50 restocking fee, that quoted amount must
+    be stated as excluding VAT and as valid for 17 calendar days from the date of the reply.
+- policy: returns-window
+  obligation: The order was delivered on 2 September 2026 and 12 calendar days have elapsed
+    by 14 September 2026, so the ordinary 24-day return window for this non-tier-A account
+    governs and the return is accepted. The tier-A extension to 38 days is applied as unavailable
+    here but must not be mentioned to the customer.
+- policy: refund-method
+  obligation: 'ord-3322 was paid by invoice and acc-109 is closing, so the exception to the
+    usual invoice-credit route applies: the refund must be issued by bank transfer within
+    twelve working days. The reply must state that route and timing and must not offer cash,
+    a cheque, or a transfer to a different card.'
+- policy: order-reference-line
+  obligation: ord-3322 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-109, nothing after.
+order_id: ord-3322

@@ -1,0 +1,39 @@
+id: task-0119
+account_id: acc-119
+applicable_policies:
+- quote-validity
+- expedite-surcharge
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask whether the order can arrive sooner than the current delivery estimate
+    and what extra delivery charge would apply
+  order_reference: ord-3443
+  order_issue: The order is still waiting for stock and is showing delivery on 24 September
+  item_and_quantity: 33 folding ear defenders
+variants:
+- subject: ord-3443 still waiting for stock
+  body: ord-3443 is still waiting for stock, with delivery showing as 24 September. Can you
+    get the 33 folding ear defenders here sooner? If there is an extra delivery charge for
+    doing that, please let me know.
+- subject: ord-3443 — request for earlier delivery
+  body: ord-3443 is still waiting for stock and the delivery date is showing as 24 September,
+    which is rather later than we need. Please check whether the 33 folding ear defenders
+    can be sent sooner. I appreciate stock is holding things up, but I would like to know
+    whether an earlier delivery is possible and, if so, what extra delivery charge would apply.
+expected_obligations:
+- policy: quote-validity
+  obligation: Because the customer is asking about the cost of an earlier delivery, any price,
+    discount or carriage charge quoted in the reply must be stated as excluding VAT and as
+    valid for 17 calendar days from the date of that reply; this applies each time a figure
+    is quoted, including if a previously quoted figure is repeated.
+- policy: expedite-surcharge
+  obligation: Because order ord-3443 is awaiting stock and the customer is asking for delivery
+    sooner than 24 September, any expedited delivery offered or agreed carries a £68 surcharge
+    per consignment; acc-119 is a tier-A account, so the surcharge must be waived and the
+    reply must explicitly say that it is waived rather than silently omitting it.
+- policy: order-reference-line
+  obligation: ord-3443 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-119, nothing after.
+order_id: ord-3443

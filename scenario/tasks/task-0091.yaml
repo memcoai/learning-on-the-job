@@ -1,0 +1,80 @@
+id: task-0091
+account_id: acc-125
+applicable_policies:
+- complaint-route
+- delivery-date-language
+- order-release-threshold
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Confirmation of what is happening with order ord-3410, when it is likely
+    to leave, and how to raise dissatisfaction as a complaint
+  order_id: ord-3410
+  payment_1_amount: £1,587.40
+  payment_1_date: 2 September
+  payment_2_amount: £726.85
+  payment_2_date: 12 September
+variants:
+- subject: Question about order ord-3410
+  body: 'Hi, could you please confirm what is happening with order ord-3410 and when it is
+    likely to leave? I paid £1,587.40 on 2 September and sent a further £726.85 on 12 September,
+    so I am concerned that the order has not moved on. I am unhappy with the lack of clarity
+    and would like to know how I can raise this as a complaint.
+
+
+    Regards,
+
+    Martin Cole'
+- subject: Please clarify order ord-3410
+  body: 'Morning, could you please tell me what is happening with order ord-3410 and when
+    it may leave your premises? We paid £1,587.40 on 2 September and sent another £726.85
+    on 12 September, but I have not had a clear update. I am disappointed with the situation
+    and would also like to know how to make a formal complaint.
+
+
+    Kind regards,
+
+    Elaine Porter'
+- subject: Update requested on ord-3410
+  body: 'Hello, could you confirm the position with order ord-3410 and give me some idea of
+    when it is likely to leave? The payments were £1,587.40 on 2 September and £726.85 on
+    12 September, and I am concerned that there has been no clear progress. Please also tell
+    me who I should contact if I want to complain about this.
+
+
+    Yours sincerely,
+
+    David Mercer'
+- subject: Concern about order progress
+  body: 'Hi, could you please explain what is happening with order ord-3410 and when we might
+    expect it to leave? I paid £1,587.40 on 2 September and a further £726.85 on 12 September,
+    so the present lack of information is becoming frustrating. I would appreciate details
+    of the person or route for making a complaint as well.
+
+
+    Thanks,
+
+    Rachel Hughes'
+expected_obligations:
+- policy: complaint-route
+  obligation: The customer has stated dissatisfaction and asked how to complain about order
+    ord-3410, so the reply must name Rowan Ellis, the order-desk manager, as the complaints
+    route and state that Rowan will respond within two working days, alongside addressing
+    the payment and order query.
+- policy: delivery-date-language
+  obligation: The customer asks when ord-3410 is likely to leave and the order record shows
+    status picking, so the reply must not commit to a specific delivery or dispatch date;
+    a three-working-day window may be offered only after the order status has been checked
+    with the lookup tool, and any such window must not override the release restriction.
+- policy: order-release-threshold
+  obligation: 'For ord-3410, only the settled payment of £1,587.40 counts; the £726.85 payment
+    dated 12 September is uncleared and must not count. Because the settled amount is below
+    the applied 90% release threshold, release does not follow yet: the reply must confirm
+    the settled total of £1,587.40 and state that £653.17 more is required for release, without
+    committing to dispatch or giving dispatch timing. The 90% figure is applied but must never
+    be quoted to the customer.'
+- policy: order-reference-line
+  obligation: ord-3410 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-125, nothing after.
+order_id: ord-3410

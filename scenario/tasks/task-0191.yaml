@@ -1,0 +1,48 @@
+id: task-0191
+account_id: acc-101
+applicable_policies:
+- cancellation-cutoff
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Cancel the order for 12 bespoke bench frames
+  order_id: ord-3458
+  order_total_inc_vat: £3,581.04
+variants:
+- subject: Request to cancel order ord-3458
+  body: 'Hello,
+
+
+    Following up on my email earlier, please could you cancel order ord-3458 for the 12 bespoke
+    bench frames? The order total is £3,581.04 including VAT. I have reviewed the quantities
+    and no longer need the frames for the project. Please let me know what you need from me
+    to arrange this.
+
+
+    Regards,
+
+    Martin Cole'
+- subject: Please cancel ord-3458
+  body: 'Hi,
+
+
+    Further to our earlier call, I would like to ask for order ord-3458 to be cancelled. It
+    is for 12 bespoke bench frames, with a total of £3,581.04 including VAT. The requirements
+    for the job have changed, so we will not be going ahead with these items. Please confirm
+    that you have received this request and advise on the next steps.
+
+
+    Thanks,
+
+    Rachel Morton'
+expected_obligations:
+- policy: cancellation-cutoff
+  obligation: Because order ord-3458 is currently in picking, it is in the period from picking
+    until dispatch, so a cancellation fee of 6% of the order value including VAT, subject
+    to the £25 minimum, applies; on the recorded total of £3,581.04 including VAT this is
+    £214.86, and the fee must be stated before the cancellation is confirmed.
+- policy: order-reference-line
+  obligation: ord-3458 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-101, nothing after.
+order_id: ord-3458

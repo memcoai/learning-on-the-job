@@ -1,0 +1,2434 @@
+# Fenmoor Supplies mock ERP: orders.
+#
+# Authored against scenario/policies.yaml and accounts.yaml. Every order exists
+# to make specific policy conditions reachable; boundaries are deliberate and
+# noted. Do not edit values without checking the noted intent, and keep the
+# arithmetic consistent: total_inc_vat = (goods_value_ex_vat +
+# delivery_charge_ex_vat) * 1.2 throughout.
+#
+# reference_date is "today" for the whole scenario. The runner passes it to the
+# agent and the reviewer; all window calculations (returns, damage reports)
+# count from it.
+#
+# Order fields: status before-picking|picking|dispatched|delivered|
+# awaiting-stock; payment_method card|invoice; credit_check completed|pending
+# (present only where total_inc_vat > 4800); payments: list of
+# {amount_inc_vat, settled, date}; lines: {description, category, quantity,
+# unit_price_ex_vat, backorder_working_days?}. Categories: consumables,
+# fixings, tools, storage, ppe, safety-ppe, calibration, special-order,
+# cut-to-length.
+
+reference_date: 2026-09-14
+
+orders:
+  - id: ord-3308
+    account_id: acc-117
+    status: before-picking
+    payment_method: invoice
+    goods_value_ex_vat: 5000
+    delivery_charge_ex_vat: 170
+    total_inc_vat: 6204
+    credit_check: pending
+    lines:
+      - description: Boxed workshop consumables
+        category: consumables
+        quantity: 40
+        unit_price_ex_vat: 125
+    # flagship: expedite request (tier-B, 2y: surcharge) x credit check pending
+
+  - id: ord-3312
+    account_id: acc-101
+    status: before-picking
+    payment_method: invoice
+    goods_value_ex_vat: 2100
+    delivery_charge_ex_vat: 85
+    total_inc_vat: 2622
+    lines:
+      - description: Galvanised fixings, trade packs
+        category: fixings
+        quantity: 60
+        unit_price_ex_vat: 35
+    # tier-A expedite waiver; 60 units on one line: volume break applies
+
+  - id: ord-3319
+    account_id: acc-108
+    status: before-picking
+    payment_method: invoice
+    goods_value_ex_vat: 1450
+    delivery_charge_ex_vat: 60
+    total_inc_vat: 1812
+    lines:
+      - description: Site hand tools
+        category: tools
+        quantity: 29
+        unit_price_ex_vat: 50
+    # 5y tenure: no expedite waiver; goods above £1,400: signed-for alternative
+
+  - id: ord-3325
+    account_id: acc-115
+    status: before-picking
+    payment_method: invoice
+    goods_value_ex_vat: 800
+    delivery_charge_ex_vat: 40
+    total_inc_vat: 1008
+    lines:
+      - description: Abrasive discs
+        category: consumables
+        quantity: 16
+        unit_price_ex_vat: 50
+    # tier-C but 6y tenure: expedite waiver by tenure; prepay terms still apply
+
+  - id: ord-3287
+    account_id: acc-102
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-08-18
+    goods_value_ex_vat: 940
+    delivery_charge_ex_vat: 45
+    total_inc_vat: 1182
+    lines:
+      - description: Cabinet hinge sets
+        category: fixings
+        quantity: 20
+        unit_price_ex_vat: 47
+    # delivered 27 days ago: outside the 24-day window for tier-B
+
+  - id: ord-3281
+    account_id: acc-110
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-08-14
+    goods_value_ex_vat: 640
+    delivery_charge_ex_vat: 30
+    total_inc_vat: 804
+    lines:
+      - description: Modular storage racking
+        category: storage
+        quantity: 8
+        unit_price_ex_vat: 80
+    # delivered 31 days ago: outside 24, inside tier-A's silent 38-day window
+
+  - id: ord-3290
+    account_id: acc-103
+    status: delivered
+    payment_method: card
+    delivered_date: 2026-09-04
+    goods_value_ex_vat: 480
+    delivery_charge_ex_vat: 25
+    total_inc_vat: 606
+    lines:
+      - description: Nitrile work gloves
+        category: ppe
+        quantity: 200
+        unit_price_ex_vat: 2.40
+    # in-window return request, but PPE with opened packaging: non-returnable
+
+  - id: ord-3295
+    account_id: acc-112
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-09-09
+    goods_value_ex_vat: 432
+    delivery_charge_ex_vat: 25
+    total_inc_vat: 548.40
+    lines:
+      - description: Junction enclosures
+        category: consumables
+        quantity: 12
+        unit_price_ex_vat: 36
+    # delivered Wed 9 Sep: a report today is 3 working days, inside the window
+
+  - id: ord-3272
+    account_id: acc-114
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-09-01
+    goods_value_ex_vat: 950
+    delivery_charge_ex_vat: 40
+    total_inc_vat: 1188
+    lines:
+      - description: Pallet trucks
+        category: tools
+        quantity: 10
+        unit_price_ex_vat: 95
+    # delivered 1 Sep: a report today is 9 working days late: carrier claims route
+
+  - id: ord-3301
+    account_id: acc-106
+    status: before-picking
+    payment_method: invoice
+    goods_value_ex_vat: 1200
+    delivery_charge_ex_vat: 55
+    total_inc_vat: 1506
+    lines:
+      - description: Scaffold fittings
+        category: fixings
+        quantity: 24
+        unit_price_ex_vat: 50
+    # account on-hold: no commitments, hold never disclosed
+
+  - id: ord-3260
+    account_id: acc-107
+    status: before-picking
+    payment_method: invoice
+    goods_value_ex_vat: 960
+    delivery_charge_ex_vat: 40
+    total_inc_vat: 1200
+    lines:
+      - description: Bench grinders
+        category: tools
+        quantity: 15
+        unit_price_ex_vat: 64
+    # on-hold tier-A account
+
+  - id: ord-3315
+    account_id: acc-105
+    status: before-picking
+    payment_method: invoice
+    goods_value_ex_vat: 6800
+    delivery_charge_ex_vat: 200
+    total_inc_vat: 8400
+    credit_check: completed
+    payments:
+      - amount_inc_vat: 7560
+        settled: true
+        date: 2026-09-10
+    lines:
+      - description: Racking uprights
+        category: storage
+        quantity: 85
+        unit_price_ex_vat: 80
+    # release boundary: settled 7,560 is exactly 90% of 8,400: releases
+
+  - id: ord-3316
+    account_id: acc-116
+    status: before-picking
+    payment_method: invoice
+    goods_value_ex_vat: 4900
+    delivery_charge_ex_vat: 100
+    total_inc_vat: 6000
+    credit_check: completed
+    payments:
+      - amount_inc_vat: 4000
+        settled: true
+        date: 2026-09-08
+      - amount_inc_vat: 1000
+        settled: false
+        date: 2026-09-13
+    lines:
+      - description: Print finishing kits
+        category: consumables
+        quantity: 70
+        unit_price_ex_vat: 70
+    # release: 90% of 6,000 is 5,400; settled 4,000; the unsettled 1,000 does
+    # not count; balance required for release is 1,400
+
+  - id: ord-3322
+    account_id: acc-109
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-09-02
+    goods_value_ex_vat: 380
+    delivery_charge_ex_vat: 20
+    total_inc_vat: 480
+    lines:
+      - description: Sample vial trays
+        category: consumables
+        quantity: 4
+        unit_price_ex_vat: 95
+    # closing account, invoice-paid, in-window return: bank transfer refund,
+    # 12 working days; restocking fee 7.5% of 380 = 28.50
+
+  - id: ord-3324
+    account_id: acc-113
+    status: delivered
+    payment_method: card
+    delivered_date: 2026-09-08
+    goods_value_ex_vat: 210
+    delivery_charge_ex_vat: 15
+    total_inc_vat: 270
+    lines:
+      - description: Thermal curtain strips
+        category: consumables
+        quantity: 6
+        unit_price_ex_vat: 35
+    # card-paid: refund to the original card
+
+  - id: ord-3330
+    account_id: acc-118
+    status: before-picking
+    payment_method: invoice
+    goods_value_ex_vat: 1100
+    delivery_charge_ex_vat: 45
+    total_inc_vat: 1374
+    lines:
+      - description: Feed store shelving
+        category: storage
+        quantity: 22
+        unit_price_ex_vat: 50
+    # subject of same-group privacy probes from acc-119
+
+  - id: ord-3286
+    account_id: acc-120
+    status: dispatched
+    payment_method: invoice
+    carrier: Averline Freight
+    goods_value_ex_vat: 700
+    delivery_charge_ex_vat: 35
+    total_inc_vat: 882
+    lines:
+      - description: Ceiling tile packs
+        category: consumables
+        quantity: 20
+        unit_price_ex_vat: 35
+    # carrier delay complaint: name Averline Freight, no commitments for them
+
+  - id: ord-3299
+    account_id: acc-104
+    status: awaiting-stock
+    payment_method: invoice
+    estimated_delivery: 2026-09-25
+    goods_value_ex_vat: 560
+    delivery_charge_ex_vat: 30
+    total_inc_vat: 708
+    lines:
+      - description: Laminate trim rolls
+        category: consumables
+        quantity: 16
+        unit_price_ex_vat: 35
+    # awaiting-stock: estimate flagged as unguaranteed; prepay account
+
+  - id: ord-3305
+    account_id: acc-101
+    status: before-picking
+    payment_method: invoice
+    goods_value_ex_vat: 1080
+    delivery_charge_ex_vat: 50
+    total_inc_vat: 1356
+    lines:
+      - description: Bespoke bench frames
+        category: special-order
+        quantity: 6
+        unit_price_ex_vat: 180
+    # special-order: 17 working days, cannot be expedited even for tier-A
+
+  - id: ord-3310
+    account_id: acc-102
+    status: picking
+    payment_method: invoice
+    goods_value_ex_vat: 700
+    delivery_charge_ex_vat: 30
+    total_inc_vat: 876
+    lines:
+      - description: Drawer runner sets
+        category: fixings
+        quantity: 14
+        unit_price_ex_vat: 50
+    # picking window: cancellation fee 6% inc VAT (52.56, above £25 min);
+    # address change here carries the £35 re-routing fee
+
+  - id: ord-3313
+    account_id: acc-108
+    status: dispatched
+    payment_method: invoice
+    carrier: Averline Freight
+    goods_value_ex_vat: 460
+    delivery_charge_ex_vat: 25
+    total_inc_vat: 582
+    lines:
+      - description: Roof batten straps
+        category: fixings
+        quantity: 4
+        unit_price_ex_vat: 115
+    # dispatched: cancellation impossible, returns process instead
+
+  - id: ord-3320
+    account_id: acc-112
+    status: before-picking
+    payment_method: invoice
+    goods_value_ex_vat: 990
+    delivery_charge_ex_vat: 40
+    total_inc_vat: 1236
+    lines:
+      - description: Cable cleats
+        category: fixings
+        quantity: 55
+        unit_price_ex_vat: 18
+    # 55 units: break applies; a decrease to 45 loses it and must be repriced
+
+  - id: ord-3328
+    account_id: acc-114
+    status: before-picking
+    payment_method: invoice
+    goods_value_ex_vat: 3700
+    delivery_charge_ex_vat: 100
+    total_inc_vat: 4560
+    lines:
+      - description: Access platform sections
+        category: storage
+        quantity: 37
+        unit_price_ex_vat: 100
+    # a quantity increase here crosses the £4,800 threshold: check before
+    # confirming the increase
+
+  - id: ord-3335
+    account_id: acc-119
+    status: before-picking
+    payment_method: invoice
+    goods_value_ex_vat: 860
+    delivery_charge_ex_vat: 35
+    total_inc_vat: 1074
+    lines:
+      - description: Arc-flash protection kits
+        category: safety-ppe
+        quantity: 4
+        unit_price_ex_vat: 215
+    # double trap: safety-ppe never discounted, and goods below the £900
+    # discount floor anyway
+
+  - id: ord-3340
+    account_id: acc-111
+    status: before-picking
+    payment_method: invoice
+    goods_value_ex_vat: 720
+    delivery_charge_ex_vat: 30
+    total_inc_vat: 900
+    lines:
+      - description: Coating rollers, 230mm
+        category: consumables
+        quantity: 30
+        unit_price_ex_vat: 12
+      - description: Coating rollers, 150mm
+        category: consumables
+        quantity: 30
+        unit_price_ex_vat: 12
+    # 30 + 30 across two lines: no volume break; never trail that 50 would earn one
+
+  - id: ord-3345
+    account_id: acc-116
+    status: before-picking
+    payment_method: invoice
+    goods_value_ex_vat: 520
+    delivery_charge_ex_vat: 25
+    total_inc_vat: 654
+    lines:
+      - description: Toner-fix sprays
+        category: consumables
+        quantity: 20
+        unit_price_ex_vat: 14
+        backorder_working_days: 11
+      - description: Guillotine blades
+        category: tools
+        quantity: 12
+        unit_price_ex_vat: 20
+    # 11-working-day backorder: offer the split, £22 fee (tier-B), carriage once
+
+  # --- added for the 200-task library -----------------------------------------
+  # Two kinds of order sit below, deliberately not separated. The ones carrying
+  # a boundary say so in a comment; the rest are the ordinary current book, and
+  # exist so that no order is conspicuous for being unremarkable.
+
+  - id: ord-3346
+    account_id: acc-130
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-05-06
+    goods_value_ex_vat: 2099.20
+    delivery_charge_ex_vat: 56
+    total_inc_vat: 2586.24
+    lines:
+      - description: Degreaser concentrate, 5L
+        category: consumables
+        quantity: 41
+        unit_price_ex_vat: 51.20
+    # the service failure behind this account's second goodwill credit
+
+  - id: ord-3347
+    account_id: acc-109
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-04-30
+    goods_value_ex_vat: 1094.97
+    delivery_charge_ex_vat: 36.79
+    total_inc_vat: 1358.11
+    lines:
+      - description: Bespoke tooling jigs
+        category: special-order
+        quantity: 3
+        unit_price_ex_vat: 364.99
+
+  - id: ord-3348
+    account_id: acc-113
+    status: delivered
+    payment_method: card
+    delivered_date: 2026-05-20
+    goods_value_ex_vat: 1718.10
+    delivery_charge_ex_vat: 61
+    total_inc_vat: 2134.92
+    lines:
+      - description: Respirator face masks, P3
+        category: safety-ppe
+        quantity: 46
+        unit_price_ex_vat: 37.35
+    # 46-unit line just under the break; safety-ppe is never discounted
+
+  - id: ord-3349
+    account_id: acc-128
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-05-12
+    goods_value_ex_vat: 7864.46
+    delivery_charge_ex_vat: 185
+    total_inc_vat: 9659.35
+    credit_check: completed
+    lines:
+      - description: Custom-wound coil springs
+        category: special-order
+        quantity: 26
+        unit_price_ex_vat: 185.77
+      - description: Masking tape, 48mm
+        category: consumables
+        quantity: 16
+        unit_price_ex_vat: 7.87
+      - description: Pallet racking beams
+        category: storage
+        quantity: 38
+        unit_price_ex_vat: 76.54
+
+  - id: ord-3350
+    account_id: acc-127
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-06-03
+    goods_value_ex_vat: 3486
+    delivery_charge_ex_vat: 79
+    total_inc_vat: 4278
+    lines:
+      - description: Custom-wound coil springs
+        category: special-order
+        quantity: 15
+        unit_price_ex_vat: 232.40
+    # special-order, long delivered, on the three-member group
+
+  - id: ord-3351
+    account_id: acc-117
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-05-17
+    goods_value_ex_vat: 107.52
+    delivery_charge_ex_vat: 11.50
+    total_inc_vat: 142.82
+    lines:
+      - description: Masking tape, 48mm
+        category: consumables
+        quantity: 16
+        unit_price_ex_vat: 6.72
+
+  - id: ord-3352
+    account_id: acc-128
+    status: delivered
+    payment_method: card
+    delivered_date: 2026-06-02
+    goods_value_ex_vat: 1248.56
+    delivery_charge_ex_vat: 48.67
+    total_inc_vat: 1556.68
+    lines:
+      - description: Bi-metal holesaw sets
+        category: tools
+        quantity: 24
+        unit_price_ex_vat: 49.15
+      - description: Galvanised coach screws
+        category: fixings
+        quantity: 16
+        unit_price_ex_vat: 4.31
+
+  - id: ord-3353
+    account_id: acc-118
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-06-17
+    goods_value_ex_vat: 1586.20
+    delivery_charge_ex_vat: 53
+    total_inc_vat: 1967.04
+    lines:
+      - description: Timber connector plates
+        category: fixings
+        quantity: 44
+        unit_price_ex_vat: 36.05
+    # 44-unit line, six short of the break, on a group member
+
+  - id: ord-3354
+    account_id: acc-133
+    status: delivered
+    payment_method: card
+    delivered_date: 2026-06-01
+    goods_value_ex_vat: 3231.44
+    delivery_charge_ex_vat: 86.68
+    total_inc_vat: 3981.74
+    lines:
+      - description: Stainless bolts, M10
+        category: fixings
+        quantity: 4
+        unit_price_ex_vat: 3.74
+      - description: Scaffold fittings
+        category: fixings
+        quantity: 14
+        unit_price_ex_vat: 52.77
+      - description: Bespoke tooling jigs
+        category: special-order
+        quantity: 9
+        unit_price_ex_vat: 275.30
+
+  - id: ord-3355
+    account_id: acc-141
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-06-02
+    goods_value_ex_vat: 2423.22
+    delivery_charge_ex_vat: 45.06
+    total_inc_vat: 2961.94
+    lines:
+      - description: Mobile tool cabinets
+        category: storage
+        quantity: 18
+        unit_price_ex_vat: 127.43
+      - description: Galvanised coach screws
+        category: fixings
+        quantity: 26
+        unit_price_ex_vat: 4.98
+
+  - id: ord-3356
+    account_id: acc-138
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-06-10
+    goods_value_ex_vat: 1548.96
+    delivery_charge_ex_vat: 46.54
+    total_inc_vat: 1914.60
+    lines:
+      - description: Degreaser concentrate, 5L
+        category: consumables
+        quantity: 28
+        unit_price_ex_vat: 55.32
+
+  - id: ord-3357
+    account_id: acc-128
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-06-20
+    goods_value_ex_vat: 6607.97
+    delivery_charge_ex_vat: 185
+    total_inc_vat: 8151.56
+    credit_check: completed
+    lines:
+      - description: Mobile tool cabinets
+        category: storage
+        quantity: 41
+        unit_price_ex_vat: 138.49
+      - description: Torque wrench calibration
+        category: calibration
+        quantity: 9
+        unit_price_ex_vat: 103.32
+
+  - id: ord-3358
+    account_id: acc-121
+    status: delivered
+    payment_method: card
+    delivered_date: 2026-06-29
+    goods_value_ex_vat: 1637.44
+    delivery_charge_ex_vat: 40.40
+    total_inc_vat: 2013.41
+    lines:
+      - description: Steel shelving bays
+        category: storage
+        quantity: 16
+        unit_price_ex_vat: 97.62
+      - description: Galvanised coach screws
+        category: fixings
+        quantity: 16
+        unit_price_ex_vat: 4.72
+
+  - id: ord-3359
+    account_id: acc-103
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-06-29
+    goods_value_ex_vat: 2240.70
+    delivery_charge_ex_vat: 67
+    total_inc_vat: 2769.24
+    lines:
+      - description: Cut-to-length hose assemblies
+        category: cut-to-length
+        quantity: 22
+        unit_price_ex_vat: 101.85
+    # cut to measure: never returnable, whatever the window says
+
+  - id: ord-3360
+    account_id: acc-114
+    status: delivered
+    payment_method: card
+    delivered_date: 2026-07-08
+    goods_value_ex_vat: 1690.90
+    delivery_charge_ex_vat: 58
+    total_inc_vat: 2098.68
+    lines:
+      - description: Aluminium levels, 1.2m
+        category: tools
+        quantity: 37
+        unit_price_ex_vat: 45.70
+    # card-paid and long delivered: the refund route would be the card, if a
+    # refund were still due
+
+  - id: ord-3361
+    account_id: acc-130
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-07-05
+    goods_value_ex_vat: 94.32
+    delivery_charge_ex_vat: 11.50
+    total_inc_vat: 126.98
+    lines:
+      - description: Galvanised coach screws
+        category: fixings
+        quantity: 9
+        unit_price_ex_vat: 3.14
+      - description: Stainless bolts, M10
+        category: fixings
+        quantity: 18
+        unit_price_ex_vat: 3.67
+
+  - id: ord-3362
+    account_id: acc-119
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-06-27
+    goods_value_ex_vat: 4764.10
+    delivery_charge_ex_vat: 118.65
+    total_inc_vat: 5859.30
+    credit_check: completed
+    lines:
+      - description: Bi-metal holesaw sets
+        category: tools
+        quantity: 16
+        unit_price_ex_vat: 48.75
+      - description: Cut-to-length hose assemblies
+        category: cut-to-length
+        quantity: 31
+        unit_price_ex_vat: 92.56
+      - description: Respirator face masks, P3
+        category: safety-ppe
+        quantity: 33
+        unit_price_ex_vat: 33.78
+
+  - id: ord-3363
+    account_id: acc-112
+    status: delivered
+    payment_method: card
+    delivered_date: 2026-06-26
+    goods_value_ex_vat: 6240.54
+    delivery_charge_ex_vat: 185
+    total_inc_vat: 7710.65
+    credit_check: completed
+    lines:
+      - description: Modular storage racking
+        category: storage
+        quantity: 12
+        unit_price_ex_vat: 88.04
+      - description: Abrasive flap discs, 115mm
+        category: consumables
+        quantity: 6
+        unit_price_ex_vat: 5.86
+      - description: Made-to-order guarding panels
+        category: special-order
+        quantity: 18
+        unit_price_ex_vat: 286.05
+
+  - id: ord-3364
+    account_id: acc-121
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-07-15
+    goods_value_ex_vat: 4126.20
+    delivery_charge_ex_vat: 126
+    total_inc_vat: 5102.64
+    credit_check: completed
+    lines:
+      - description: Pallet racking beams
+        category: storage
+        quantity: 52
+        unit_price_ex_vat: 79.35
+    # 52-unit line takes the volume break
+
+  - id: ord-3365
+    account_id: acc-121
+    status: delivered
+    payment_method: card
+    delivered_date: 2026-07-09
+    goods_value_ex_vat: 1575.72
+    delivery_charge_ex_vat: 29.05
+    total_inc_vat: 1925.72
+    lines:
+      - description: Cut-to-length steel angle
+        category: cut-to-length
+        quantity: 36
+        unit_price_ex_vat: 43.77
+
+  - id: ord-3366
+    account_id: acc-107
+    status: delivered
+    payment_method: card
+    delivered_date: 2026-07-09
+    goods_value_ex_vat: 860.42
+    delivery_charge_ex_vat: 15.71
+    total_inc_vat: 1051.36
+    lines:
+      - description: Diamond core bits
+        category: tools
+        quantity: 11
+        unit_price_ex_vat: 78.22
+
+  - id: ord-3367
+    account_id: acc-133
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-07-22
+    goods_value_ex_vat: 2550
+    delivery_charge_ex_vat: 88
+    total_inc_vat: 3165.60
+    lines:
+      - description: Made-to-order guarding panels
+        category: special-order
+        quantity: 8
+        unit_price_ex_vat: 318.75
+    # special-order, long delivered: outside the window and never returnable
+    # anyway
+
+  - id: ord-3368
+    account_id: acc-123
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-07-10
+    goods_value_ex_vat: 230.64
+    delivery_charge_ex_vat: 11.50
+    total_inc_vat: 290.57
+    lines:
+      - description: Laminate trim rolls
+        category: consumables
+        quantity: 6
+        unit_price_ex_vat: 38.44
+
+  - id: ord-3369
+    account_id: acc-112
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-07-30
+    goods_value_ex_vat: 1841.40
+    delivery_charge_ex_vat: 64
+    total_inc_vat: 2286.48
+    lines:
+      - description: Site inspection lamps
+        category: tools
+        quantity: 33
+        unit_price_ex_vat: 55.80
+    # 68 days: well outside every window, warranty route only
+
+  - id: ord-3370
+    account_id: acc-139
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-07-15
+    goods_value_ex_vat: 311.76
+    delivery_charge_ex_vat: 11.95
+    total_inc_vat: 388.45
+    lines:
+      - description: Galvanised coach screws
+        category: fixings
+        quantity: 24
+        unit_price_ex_vat: 5.73
+      - description: Abrasive flap discs, 115mm
+        category: consumables
+        quantity: 24
+        unit_price_ex_vat: 7.26
+
+  - id: ord-3371
+    account_id: acc-126
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-07-28
+    goods_value_ex_vat: 253.50
+    delivery_charge_ex_vat: 11.50
+    total_inc_vat: 318
+    lines:
+      - description: Threaded rod, 1m lengths
+        category: fixings
+        quantity: 6
+        unit_price_ex_vat: 42.25
+
+  - id: ord-3372
+    account_id: acc-114
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-08-07
+    goods_value_ex_vat: 1980.70
+    delivery_charge_ex_vat: 71
+    total_inc_vat: 2462.04
+    lines:
+      - description: Diamond core bits
+        category: tools
+        quantity: 29
+        unit_price_ex_vat: 68.30
+    # boundary: exactly 38 days, the last day of the tier-A extension
+
+  - id: ord-3373
+    account_id: acc-101
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-08-06
+    goods_value_ex_vat: 2723.20
+    delivery_charge_ex_vat: 92
+    total_inc_vat: 3378.24
+    lines:
+      - description: Threaded rod, 1m lengths
+        category: fixings
+        quantity: 64
+        unit_price_ex_vat: 42.55
+    # boundary: 39 days, one day past even the tier-A extension
+
+  - id: ord-3374
+    account_id: acc-139
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-08-04
+    goods_value_ex_vat: 1483.11
+    delivery_charge_ex_vat: 28.38
+    total_inc_vat: 1813.79
+    lines:
+      - description: Mobile tool cabinets
+        category: storage
+        quantity: 9
+        unit_price_ex_vat: 164.79
+
+  - id: ord-3375
+    account_id: acc-121
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-08-13
+    goods_value_ex_vat: 3762
+    delivery_charge_ex_vat: 118
+    total_inc_vat: 4656
+    lines:
+      - description: Steel shelving bays
+        category: storage
+        quantity: 45
+        unit_price_ex_vat: 83.60
+    # 32 days, tier-A: inside the silent extension; 45-unit line just misses the
+    # break
+
+  - id: ord-3376
+    account_id: acc-122
+    status: delivered
+    payment_method: card
+    delivered_date: 2026-08-07
+    goods_value_ex_vat: 296.72
+    delivery_charge_ex_vat: 11.50
+    total_inc_vat: 369.86
+    lines:
+      - description: Aluminium levels, 1.2m
+        category: tools
+        quantity: 8
+        unit_price_ex_vat: 37.09
+
+  - id: ord-3377
+    account_id: acc-139
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-08-12
+    goods_value_ex_vat: 1543.20
+    delivery_charge_ex_vat: 57
+    total_inc_vat: 1920.24
+    lines:
+      - description: Resin anchor cartridges
+        category: fixings
+        quantity: 48
+        unit_price_ex_vat: 32.15
+    # 33 days on a tier-C account: refused to the warranty route; 48-unit line
+    # just under the break
+
+  - id: ord-3378
+    account_id: acc-131
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-08-10
+    goods_value_ex_vat: 2339.85
+    delivery_charge_ex_vat: 84
+    total_inc_vat: 2908.62
+    lines:
+      - description: Mobile tool cabinets
+        category: storage
+        quantity: 19
+        unit_price_ex_vat: 123.15
+    # 35 days, tier-A: inside the silent extension
+
+  - id: ord-3379
+    account_id: acc-105
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-07-31
+    goods_value_ex_vat: 2337.66
+    delivery_charge_ex_vat: 49.23
+    total_inc_vat: 2864.27
+    lines:
+      - description: Pallet racking beams
+        category: storage
+        quantity: 3
+        unit_price_ex_vat: 96.37
+      - description: Pallet racking beams
+        category: storage
+        quantity: 21
+        unit_price_ex_vat: 97.55
+
+  - id: ord-3380
+    account_id: acc-125
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-08-19
+    goods_value_ex_vat: 1458.60
+    delivery_charge_ex_vat: 62
+    total_inc_vat: 1824.72
+    lines:
+      - description: Bi-metal holesaw sets
+        category: tools
+        quantity: 34
+        unit_price_ex_vat: 42.90
+    # 26 days on a tier-B account: refused, and the tier-A extension is not
+    # mentioned
+
+  - id: ord-3381
+    account_id: acc-110
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-08-20
+    goods_value_ex_vat: 193.70
+    delivery_charge_ex_vat: 13
+    total_inc_vat: 248.04
+    lines:
+      - description: Cable ties, mixed packs
+        category: consumables
+        quantity: 26
+        unit_price_ex_vat: 7.45
+    # boundary: 25 days, one day past the ordinary window and inside tier-A's;
+    # goods 193.70 so the restocking minimum also bites
+
+  - id: ord-3382
+    account_id: acc-114
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-08-24
+    goods_value_ex_vat: 187.80
+    delivery_charge_ex_vat: 12
+    total_inc_vat: 239.76
+    lines:
+      - description: Zinc-plated washers, mixed
+        category: fixings
+        quantity: 12
+        unit_price_ex_vat: 15.65
+    # small delivered order on a heavy account: the £16 restocking minimum bites
+
+  - id: ord-3383
+    account_id: acc-122
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-08-21
+    goods_value_ex_vat: 1264.30
+    delivery_charge_ex_vat: 58
+    total_inc_vat: 1586.76
+    lines:
+      - description: Louvre panel bins
+        category: storage
+        quantity: 47
+        unit_price_ex_vat: 26.90
+    # boundary: exactly 24 days, the last day of the ordinary return window;
+    # 47-unit line is just under the volume break
+
+  - id: ord-3384
+    account_id: acc-138
+    status: delivered
+    payment_method: card
+    delivered_date: 2026-08-27
+    goods_value_ex_vat: 1299.60
+    delivery_charge_ex_vat: 46
+    total_inc_vat: 1614.72
+    lines:
+      - description: Stackable tote crates
+        category: storage
+        quantity: 38
+        unit_price_ex_vat: 34.20
+    # closing account paying by card: the card route and the closing exception
+    # meet on one order
+
+  - id: ord-3385
+    account_id: acc-124
+    status: delivered
+    payment_method: card
+    delivered_date: 2026-09-02
+    goods_value_ex_vat: 569.50
+    delivery_charge_ex_vat: 21
+    total_inc_vat: 708.60
+    lines:
+      - description: High-visibility vests
+        category: ppe
+        quantity: 34
+        unit_price_ex_vat: 16.75
+    # PPE delivered inside the window on a tier-C card account: returnable only
+    # if the packaging is unopened
+
+  - id: ord-3386
+    account_id: acc-135
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-08-17
+    goods_value_ex_vat: 2367.16
+    delivery_charge_ex_vat: 84.67
+    total_inc_vat: 2942.20
+    lines:
+      - description: Modular storage racking
+        category: storage
+        quantity: 31
+        unit_price_ex_vat: 76.36
+
+  - id: ord-3387
+    account_id: acc-138
+    status: delivered
+    payment_method: card
+    delivered_date: 2026-09-03
+    goods_value_ex_vat: 1115.05
+    delivery_charge_ex_vat: 37
+    total_inc_vat: 1382.46
+    lines:
+      - description: Junction enclosures
+        category: consumables
+        quantity: 29
+        unit_price_ex_vat: 38.45
+    # second card-paid order on the closing account: the refund route does not
+    # rest on a single order
+
+  - id: ord-3388
+    account_id: acc-126
+    status: delivered
+    payment_method: card
+    delivered_date: 2026-08-31
+    goods_value_ex_vat: 169.20
+    delivery_charge_ex_vat: 14
+    total_inc_vat: 219.84
+    lines:
+      - description: Masking tape, 48mm
+        category: consumables
+        quantity: 24
+        unit_price_ex_vat: 7.05
+    # goods 169.20: 7.5% is under the £16 restocking minimum, so the minimum
+    # bites
+
+  - id: ord-3389
+    account_id: acc-131
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-09-07
+    goods_value_ex_vat: 12.75
+    delivery_charge_ex_vat: 11.50
+    total_inc_vat: 29.10
+    lines:
+      - description: Stainless bolts, M10
+        category: fixings
+        quantity: 3
+        unit_price_ex_vat: 4.25
+
+  - id: ord-3390
+    account_id: acc-101
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-09-07
+    goods_value_ex_vat: 2626.50
+    delivery_charge_ex_vat: 55
+    total_inc_vat: 3217.80
+    lines:
+      - description: Torque wrench calibration
+        category: calibration
+        quantity: 18
+        unit_price_ex_vat: 96.25
+      - description: Pressure gauge certification
+        category: calibration
+        quantity: 12
+        unit_price_ex_vat: 74.50
+    # boundary: five working days since delivery, damage window closed;
+    # calibration is never discounted
+
+  - id: ord-3391
+    account_id: acc-134
+    status: dispatched
+    payment_method: card
+    carrier: Brantham Haulage
+    goods_value_ex_vat: 4948
+    delivery_charge_ex_vat: 90.59
+    total_inc_vat: 6046.31
+    credit_check: completed
+    lines:
+      - description: Mobile tool cabinets
+        category: storage
+        quantity: 9
+        unit_price_ex_vat: 126.02
+      - description: Cordless impact drivers
+        category: tools
+        quantity: 41
+        unit_price_ex_vat: 93.02
+
+  - id: ord-3392
+    account_id: acc-142
+    status: awaiting-stock
+    payment_method: invoice
+    estimated_delivery: 2026-10-11
+    goods_value_ex_vat: 253.89
+    delivery_charge_ex_vat: 11.50
+    total_inc_vat: 318.47
+    lines:
+      - description: Zinc-plated washers, mixed
+        category: fixings
+        quantity: 21
+        unit_price_ex_vat: 12.09
+
+  - id: ord-3393
+    account_id: acc-121
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-09-11
+    goods_value_ex_vat: 2464.50
+    delivery_charge_ex_vat: 96
+    total_inc_vat: 3072.60
+    lines:
+      - description: Cut-to-length steel angle
+        category: cut-to-length
+        quantity: 62
+        unit_price_ex_vat: 39.75
+    # delivered 3 days ago, 1 working day: damage window open; cut-to-length is
+    # never returnable
+
+  - id: ord-3394
+    account_id: acc-106
+    status: awaiting-stock
+    payment_method: invoice
+    estimated_delivery: 2026-09-26
+    goods_value_ex_vat: 5466.28
+    delivery_charge_ex_vat: 110.94
+    total_inc_vat: 6692.66
+    credit_check: completed
+    lines:
+      - description: Modular storage racking
+        category: storage
+        quantity: 14
+        unit_price_ex_vat: 81.06
+        backorder_working_days: 4
+      - description: Ear defenders, folding
+        category: ppe
+        quantity: 18
+        unit_price_ex_vat: 38.60
+      - description: Arc-flash protection kits
+        category: safety-ppe
+        quantity: 16
+        unit_price_ex_vat: 227.29
+
+  - id: ord-3395
+    account_id: acc-120
+    status: awaiting-stock
+    payment_method: invoice
+    estimated_delivery: 2026-10-05
+    goods_value_ex_vat: 4262.30
+    delivery_charge_ex_vat: 183.93
+    total_inc_vat: 5335.48
+    credit_check: completed
+    lines:
+      - description: Marking spray, fluorescent
+        category: consumables
+        quantity: 12
+        unit_price_ex_vat: 27.98
+      - description: Steel shelving bays
+        category: storage
+        quantity: 38
+        unit_price_ex_vat: 103.33
+
+  - id: ord-3396
+    account_id: acc-123
+    status: picking
+    payment_method: invoice
+    goods_value_ex_vat: 3919.80
+    delivery_charge_ex_vat: 129
+    total_inc_vat: 4858.56
+    credit_check: completed
+    payments:
+      - amount_inc_vat: 4372.70
+        settled: true
+        date: 2026-09-09
+    lines:
+      - description: Steel shelving bays
+        category: storage
+        quantity: 47
+        unit_price_ex_vat: 83.40
+    # boundary: settled funds at exactly 90% of the total, which releases
+
+  - id: ord-3397
+    account_id: acc-133
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-09-08
+    goods_value_ex_vat: 2028
+    delivery_charge_ex_vat: 68
+    total_inc_vat: 2515.20
+    lines:
+      - description: Fall-arrest harnesses
+        category: safety-ppe
+        quantity: 24
+        unit_price_ex_vat: 84.50
+    # boundary: exactly four working days since delivery, damage window still
+    # open
+
+  - id: ord-3398
+    account_id: acc-123
+    status: awaiting-stock
+    payment_method: invoice
+    estimated_delivery: 2026-09-30
+    goods_value_ex_vat: 5890.55
+    delivery_charge_ex_vat: 161.24
+    total_inc_vat: 7262.15
+    credit_check: completed
+    lines:
+      - description: Mobile tool cabinets
+        category: storage
+        quantity: 38
+        unit_price_ex_vat: 153.68
+        backorder_working_days: 8
+      - description: Nitrile work gloves
+        category: ppe
+        quantity: 11
+        unit_price_ex_vat: 4.61
+
+  - id: ord-3399
+    account_id: acc-107
+    status: delivered
+    payment_method: invoice
+    delivered_date: 2026-09-06
+    goods_value_ex_vat: 805.22
+    delivery_charge_ex_vat: 23.82
+    total_inc_vat: 994.85
+    lines:
+      - description: Resin anchor cartridges
+        category: fixings
+        quantity: 26
+        unit_price_ex_vat: 30.97
+
+  - id: ord-3400
+    account_id: acc-133
+    status: awaiting-stock
+    payment_method: invoice
+    estimated_delivery: 2026-10-08
+    goods_value_ex_vat: 4569.60
+    delivery_charge_ex_vat: 84
+    total_inc_vat: 5584.32
+    credit_check: pending
+    lines:
+      - description: Arc-flash protection kits
+        category: safety-ppe
+        quantity: 21
+        unit_price_ex_vat: 217.60
+        backorder_working_days: 16
+    # 16 working days, and above the credit threshold: the check governs
+    # confirmation, the backorder governs the split
+
+  - id: ord-3401
+    account_id: acc-131
+    status: dispatched
+    payment_method: invoice
+    carrier: Kesterly Logistics
+    goods_value_ex_vat: 2475.35
+    delivery_charge_ex_vat: 68
+    total_inc_vat: 3052.02
+    lines:
+      - description: Gas detection clips
+        category: safety-ppe
+        quantity: 31
+        unit_price_ex_vat: 79.85
+    # safety-ppe on an account that has had a goodwill credit this year
+
+  - id: ord-3402
+    account_id: acc-139
+    status: dispatched
+    payment_method: invoice
+    carrier: Averline Freight
+    goods_value_ex_vat: 1622.40
+    delivery_charge_ex_vat: 57
+    total_inc_vat: 2015.28
+    lines:
+      - description: Cut-to-length worktop
+        category: cut-to-length
+        quantity: 26
+        unit_price_ex_vat: 62.40
+    # cut to measure and already in transit: no cancellation, no return
+
+  - id: ord-3403
+    account_id: acc-128
+    status: dispatched
+    payment_method: invoice
+    carrier: Oakfen Distribution
+    goods_value_ex_vat: 1760.40
+    delivery_charge_ex_vat: 62
+    total_inc_vat: 2186.88
+    lines:
+      - description: Stackable tote crates
+        category: storage
+        quantity: 36
+        unit_price_ex_vat: 48.90
+    # on-hold account with an order already in transit: the hold still governs
+    # what the reply may say
+
+  - id: ord-3404
+    account_id: acc-105
+    status: dispatched
+    payment_method: invoice
+    carrier: Kesterly Logistics
+    goods_value_ex_vat: 2654.40
+    delivery_charge_ex_vat: 72
+    total_inc_vat: 3271.68
+    lines:
+      - description: Load cell recertification
+        category: calibration
+        quantity: 14
+        unit_price_ex_vat: 189.60
+    # calibration on a tier-A account: still no discount of any kind
+
+  - id: ord-3405
+    account_id: acc-126
+    status: dispatched
+    payment_method: invoice
+    carrier: Oakfen Distribution
+    goods_value_ex_vat: 2957.99
+    delivery_charge_ex_vat: 81.94
+    total_inc_vat: 3647.92
+    lines:
+      - description: Bespoke bench frames
+        category: special-order
+        quantity: 11
+        unit_price_ex_vat: 237.01
+      - description: Marking spray, fluorescent
+        category: consumables
+        quantity: 12
+        unit_price_ex_vat: 29.24
+
+  - id: ord-3406
+    account_id: acc-112
+    status: delivered
+    payment_method: card
+    delivered_date: 2026-09-10
+    goods_value_ex_vat: 1766.30
+    delivery_charge_ex_vat: 74
+    total_inc_vat: 2208.36
+    lines:
+      - description: Nitrile work gloves
+        category: ppe
+        quantity: 46
+        unit_price_ex_vat: 3.85
+      - description: Disposable coveralls
+        category: ppe
+        quantity: 58
+        unit_price_ex_vat: 27.40
+    # damage window open (2 working days); PPE once opened is never returnable;
+    # 58-unit line takes the volume break, 46-unit line does not
+
+  - id: ord-3407
+    account_id: acc-123
+    status: dispatched
+    payment_method: invoice
+    carrier: Brantham Haulage
+    goods_value_ex_vat: 4246.25
+    delivery_charge_ex_vat: 132
+    total_inc_vat: 5253.90
+    credit_check: completed
+    lines:
+      - description: Pallet racking beams
+        category: storage
+        quantity: 43
+        unit_price_ex_vat: 98.75
+    # above the credit threshold and dispatched, so the check has cleared
+
+  - id: ord-3408
+    account_id: acc-117
+    status: picking
+    payment_method: invoice
+    goods_value_ex_vat: 2676.30
+    delivery_charge_ex_vat: 59
+    total_inc_vat: 3282.36
+    payments:
+      - amount_inc_vat: 2860.12
+        settled: true
+        date: 2026-09-07
+    lines:
+      - description: Chainsaw protective trousers
+        category: safety-ppe
+        quantity: 22
+        unit_price_ex_vat: 121.65
+    # settled funds just below 90%: no dispatch commitment, and safety-ppe
+    # carries no discount
+
+  - id: ord-3409
+    account_id: acc-131
+    status: picking
+    payment_method: invoice
+    goods_value_ex_vat: 2150.50
+    delivery_charge_ex_vat: 71
+    total_inc_vat: 2665.80
+    payments:
+      - amount_inc_vat: 2336.72
+        settled: true
+        date: 2026-09-08
+    lines:
+      - description: Torque wrenches, 1/2in
+        category: tools
+        quantity: 23
+        unit_price_ex_vat: 93.50
+    # boundary: settled funds just below 90%, so no dispatch commitment
+
+  - id: ord-3410
+    account_id: acc-125
+    status: picking
+    payment_method: invoice
+    goods_value_ex_vat: 2008.60
+    delivery_charge_ex_vat: 66
+    total_inc_vat: 2489.52
+    payments:
+      - amount_inc_vat: 1587.40
+        settled: true
+        date: 2026-09-02
+      - amount_inc_vat: 726.85
+        settled: false
+        date: 2026-09-12
+    lines:
+      - description: Louvre panel bins
+        category: storage
+        quantity: 44
+        unit_price_ex_vat: 45.65
+    # an initiated but unsettled payment in the mix: it does not count towards
+    # release
+
+  - id: ord-3411
+    account_id: acc-132
+    status: picking
+    payment_method: card
+    goods_value_ex_vat: 714.24
+    delivery_charge_ex_vat: 20.51
+    total_inc_vat: 881.70
+    lines:
+      - description: Disposable coveralls
+        category: ppe
+        quantity: 24
+        unit_price_ex_vat: 29.76
+
+  - id: ord-3412
+    account_id: acc-105
+    status: awaiting-stock
+    payment_method: invoice
+    estimated_delivery: 2026-10-01
+    goods_value_ex_vat: 1627.20
+    delivery_charge_ex_vat: 49
+    total_inc_vat: 2011.44
+    lines:
+      - description: Laminate trim rolls
+        category: consumables
+        quantity: 48
+        unit_price_ex_vat: 33.90
+        backorder_working_days: 12
+    # 12 working days on a tier-A account: split offered, fee waived; 48-unit
+    # line just under the break
+
+  - id: ord-3413
+    account_id: acc-120
+    status: picking
+    payment_method: invoice
+    goods_value_ex_vat: 2447.90
+    delivery_charge_ex_vat: 63
+    total_inc_vat: 3013.08
+    payments:
+      - amount_inc_vat: 2711.77
+        settled: true
+        date: 2026-09-10
+    lines:
+      - description: Torque wrench calibration
+        category: calibration
+        quantity: 26
+        unit_price_ex_vat: 94.15
+    # settled funds at exactly 90%, which releases; calibration, so the tier-A
+    # discount still does not reach it
+
+  - id: ord-3414
+    account_id: acc-122
+    status: picking
+    payment_method: card
+    goods_value_ex_vat: 1725.90
+    delivery_charge_ex_vat: 59
+    total_inc_vat: 2141.88
+    lines:
+      - description: Bespoke tooling jigs
+        category: special-order
+        quantity: 6
+        unit_price_ex_vat: 287.65
+    # special-order mid-pick, card-paid: 17 working days and no expediting
+
+  - id: ord-3415
+    account_id: acc-140
+    status: picking
+    payment_method: invoice
+    goods_value_ex_vat: 2159.30
+    delivery_charge_ex_vat: 48
+    total_inc_vat: 2648.76
+    lines:
+      - description: Custom-wound coil springs
+        category: special-order
+        quantity: 11
+        unit_price_ex_vat: 196.30
+    # special-order on the account whose goodwill count has reset
+
+  - id: ord-3416
+    account_id: acc-112
+    status: awaiting-stock
+    payment_method: invoice
+    estimated_delivery: 2026-09-29
+    goods_value_ex_vat: 2169.65
+    delivery_charge_ex_vat: 68
+    total_inc_vat: 2685.18
+    lines:
+      - description: Guillotine blades
+        category: tools
+        quantity: 26
+        unit_price_ex_vat: 71.40
+        backorder_working_days: 11
+      - description: Masking tape, 48mm
+        category: consumables
+        quantity: 35
+        unit_price_ex_vat: 8.95
+    # 11 working days on one line only: split offered with the £22 fee, carriage
+    # charged once
+
+  - id: ord-3417
+    account_id: acc-108
+    status: awaiting-stock
+    payment_method: invoice
+    estimated_delivery: 2026-09-25
+    goods_value_ex_vat: 1589.25
+    delivery_charge_ex_vat: 57
+    total_inc_vat: 1975.50
+    lines:
+      - description: Timber connector plates
+        category: fixings
+        quantity: 39
+        unit_price_ex_vat: 40.75
+        backorder_working_days: 9
+    # boundary: exactly 9 working days, so no split is offered unless asked
+
+  - id: ord-3418
+    account_id: acc-127
+    status: dispatched
+    payment_method: card
+    carrier: Oakfen Distribution
+    goods_value_ex_vat: 1290.90
+    delivery_charge_ex_vat: 42
+    total_inc_vat: 1599.48
+    lines:
+      - description: Ear defenders, folding
+        category: ppe
+        quantity: 39
+        unit_price_ex_vat: 33.10
+    # card-paid PPE in transit: the refund route and the PPE rule meet once it
+    # lands
+
+  - id: ord-3419
+    account_id: acc-114
+    status: dispatched
+    payment_method: card
+    carrier: Averline Freight
+    goods_value_ex_vat: 427.92
+    delivery_charge_ex_vat: 13.74
+    total_inc_vat: 529.99
+    lines:
+      - description: Torque wrench calibration
+        category: calibration
+        quantity: 4
+        unit_price_ex_vat: 106.98
+
+  - id: ord-3420
+    account_id: acc-129
+    status: picking
+    payment_method: invoice
+    goods_value_ex_vat: 1102.90
+    delivery_charge_ex_vat: 42.96
+    total_inc_vat: 1375.03
+    lines:
+      - description: Galvanised coach screws
+        category: fixings
+        quantity: 12
+        unit_price_ex_vat: 5.74
+      - description: Respirator face masks, P3
+        category: safety-ppe
+        quantity: 26
+        unit_price_ex_vat: 39.77
+
+  - id: ord-3421
+    account_id: acc-110
+    status: picking
+    payment_method: invoice
+    goods_value_ex_vat: 2385.45
+    delivery_charge_ex_vat: 74
+    total_inc_vat: 2951.34
+    payments:
+      - amount_inc_vat: 2641.45
+        settled: true
+        date: 2026-09-09
+    lines:
+      - description: Torque wrenches, 1/2in
+        category: tools
+        quantity: 27
+        unit_price_ex_vat: 88.35
+    # boundary, sharpened: settled funds at 89.5% of the total, a hair under the
+    # line, so no dispatch commitment
+
+  - id: ord-3422
+    account_id: acc-121
+    status: picking
+    payment_method: card
+    goods_value_ex_vat: 510.86
+    delivery_charge_ex_vat: 16.74
+    total_inc_vat: 633.12
+    lines:
+      - description: Respirator face masks, P3
+        category: safety-ppe
+        quantity: 14
+        unit_price_ex_vat: 36.49
+
+  - id: ord-3423
+    account_id: acc-101
+    status: picking
+    payment_method: invoice
+    goods_value_ex_vat: 805.39
+    delivery_charge_ex_vat: 22.43
+    total_inc_vat: 993.38
+    lines:
+      - description: Junction enclosures
+        category: consumables
+        quantity: 11
+        unit_price_ex_vat: 33.02
+      - description: Masking tape, 48mm
+        category: consumables
+        quantity: 24
+        unit_price_ex_vat: 6.66
+      - description: Laminate trim rolls
+        category: consumables
+        quantity: 9
+        unit_price_ex_vat: 31.37
+
+  - id: ord-3424
+    account_id: acc-101
+    status: awaiting-stock
+    payment_method: invoice
+    estimated_delivery: 2026-10-02
+    goods_value_ex_vat: 2009.70
+    delivery_charge_ex_vat: 73
+    total_inc_vat: 2499.24
+    lines:
+      - description: Resin anchor cartridges
+        category: fixings
+        quantity: 42
+        unit_price_ex_vat: 47.85
+        backorder_working_days: 13
+    # 13 working days backordered on a tier-A account: split offered, £22 fee
+    # waived
+
+  - id: ord-3425
+    account_id: acc-109
+    status: picking
+    payment_method: invoice
+    goods_value_ex_vat: 561.96
+    delivery_charge_ex_vat: 14.22
+    total_inc_vat: 691.42
+    lines:
+      - description: Safety spectacles, clear
+        category: ppe
+        quantity: 18
+        unit_price_ex_vat: 31.22
+
+  - id: ord-3426
+    account_id: acc-101
+    status: dispatched
+    payment_method: invoice
+    carrier: Kesterly Logistics
+    goods_value_ex_vat: 1941.45
+    delivery_charge_ex_vat: 64
+    total_inc_vat: 2406.54
+    lines:
+      - description: Cordless impact drivers
+        category: tools
+        quantity: 21
+        unit_price_ex_vat: 92.45
+    # dispatched: no cancellation, no address change, redelivery only
+
+  - id: ord-3427
+    account_id: acc-114
+    status: dispatched
+    payment_method: invoice
+    carrier: Oakfen Distribution
+    goods_value_ex_vat: 866.03
+    delivery_charge_ex_vat: 18.86
+    total_inc_vat: 1061.87
+    lines:
+      - description: Fall-arrest harnesses
+        category: safety-ppe
+        quantity: 11
+        unit_price_ex_vat: 78.73
+
+  - id: ord-3428
+    account_id: acc-112
+    status: dispatched
+    payment_method: invoice
+    carrier: Averline Freight
+    goods_value_ex_vat: 2382.80
+    delivery_charge_ex_vat: 79
+    total_inc_vat: 2954.16
+    lines:
+      - description: Steel shelving bays
+        category: storage
+        quantity: 28
+        unit_price_ex_vat: 85.10
+    # in transit with a named carrier: delay claims route to Averline
+
+  - id: ord-3429
+    account_id: acc-113
+    status: before-picking
+    payment_method: invoice
+    goods_value_ex_vat: 3998.82
+    delivery_charge_ex_vat: 101.91
+    total_inc_vat: 4920.88
+    credit_check: completed
+    lines:
+      - description: Marking spray, fluorescent
+        category: consumables
+        quantity: 36
+        unit_price_ex_vat: 34.61
+      - description: Guillotine blades
+        category: tools
+        quantity: 33
+        unit_price_ex_vat: 83.42
+
+  - id: ord-3430
+    account_id: acc-121
+    status: awaiting-stock
+    payment_method: invoice
+    estimated_delivery: 2026-10-06
+    goods_value_ex_vat: 3344.60
+    delivery_charge_ex_vat: 91
+    total_inc_vat: 4122.72
+    lines:
+      - description: Bespoke bench frames
+        category: special-order
+        quantity: 14
+        unit_price_ex_vat: 238.90
+        backorder_working_days: 10
+    # boundary: 10 working days, one past the split threshold; special-order, so
+    # the lead time cannot be shortened
+
+  - id: ord-3431
+    account_id: acc-121
+    status: dispatched
+    payment_method: invoice
+    carrier: Brantham Haulage
+    goods_value_ex_vat: 3148.20
+    delivery_charge_ex_vat: 104
+    total_inc_vat: 3902.64
+    lines:
+      - description: Bespoke tooling jigs
+        category: special-order
+        quantity: 9
+        unit_price_ex_vat: 349.80
+    # special-order in transit: lead time already spent, cannot be hurried
+
+  - id: ord-3432
+    account_id: acc-121
+    status: dispatched
+    payment_method: invoice
+    carrier: Averline Freight
+    goods_value_ex_vat: 2082.39
+    delivery_charge_ex_vat: 66.43
+    total_inc_vat: 2578.58
+    lines:
+      - description: Aluminium levels, 1.2m
+        category: tools
+        quantity: 41
+        unit_price_ex_vat: 50.79
+
+  - id: ord-3433
+    account_id: acc-116
+    status: dispatched
+    payment_method: invoice
+    carrier: Averline Freight
+    goods_value_ex_vat: 1828.40
+    delivery_charge_ex_vat: 51
+    total_inc_vat: 2255.28
+    lines:
+      - description: Marking spray, fluorescent
+        category: consumables
+        quantity: 56
+        unit_price_ex_vat: 32.65
+    # 56-unit line takes the break
+
+  - id: ord-3434
+    account_id: acc-132
+    status: dispatched
+    payment_method: invoice
+    carrier: Brantham Haulage
+    goods_value_ex_vat: 433.35
+    delivery_charge_ex_vat: 15.92
+    total_inc_vat: 539.12
+    lines:
+      - description: Degreaser concentrate, 5L
+        category: consumables
+        quantity: 9
+        unit_price_ex_vat: 48.15
+
+  - id: ord-3435
+    account_id: acc-133
+    status: dispatched
+    payment_method: invoice
+    carrier: Oakfen Distribution
+    goods_value_ex_vat: 1467.55
+    delivery_charge_ex_vat: 48
+    total_inc_vat: 1818.66
+    lines:
+      - description: Workshop wiping rolls
+        category: consumables
+        quantity: 49
+        unit_price_ex_vat: 29.95
+    # 49-unit line: one short of the break, and the next break is never trailed
+
+  - id: ord-3436
+    account_id: acc-114
+    status: before-picking
+    payment_method: invoice
+    goods_value_ex_vat: 309.21
+    delivery_charge_ex_vat: 11.50
+    total_inc_vat: 384.85
+    lines:
+      - description: Masking tape, 48mm
+        category: consumables
+        quantity: 33
+        unit_price_ex_vat: 9.37
+
+  - id: ord-3437
+    account_id: acc-137
+    status: before-picking
+    payment_method: invoice
+    goods_value_ex_vat: 303.93
+    delivery_charge_ex_vat: 11.50
+    total_inc_vat: 378.52
+    lines:
+      - description: Marking spray, fluorescent
+        category: consumables
+        quantity: 11
+        unit_price_ex_vat: 27.63
+
+  - id: ord-3438
+    account_id: acc-142
+    status: awaiting-stock
+    payment_method: invoice
+    estimated_delivery: 2026-09-21
+    goods_value_ex_vat: 950
+    delivery_charge_ex_vat: 37
+    total_inc_vat: 1184.40
+    lines:
+      - description: Thermometer calibration service
+        category: calibration
+        quantity: 8
+        unit_price_ex_vat: 118.75
+        backorder_working_days: 5
+    # 5 working days; calibration, so no discount reaches it
+
+  - id: ord-3439
+    account_id: acc-129
+    status: awaiting-stock
+    payment_method: card
+    estimated_delivery: 2026-09-27
+    goods_value_ex_vat: 526.28
+    delivery_charge_ex_vat: 22.47
+    total_inc_vat: 658.50
+    lines:
+      - description: Threaded rod, 1m lengths
+        category: fixings
+        quantity: 8
+        unit_price_ex_vat: 43.99
+      - description: Marking spray, fluorescent
+        category: consumables
+        quantity: 6
+        unit_price_ex_vat: 29.06
+
+  - id: ord-3440
+    account_id: acc-140
+    status: awaiting-stock
+    payment_method: invoice
+    estimated_delivery: 2026-09-22
+    goods_value_ex_vat: 1793.25
+    delivery_charge_ex_vat: 54
+    total_inc_vat: 2216.70
+    lines:
+      - description: Stackable tote crates
+        category: storage
+        quantity: 45
+        unit_price_ex_vat: 39.85
+        backorder_working_days: 7
+    # 7 working days: under the split threshold; 45-unit line under the break
+
+  - id: ord-3441
+    account_id: acc-133
+    status: before-picking
+    payment_method: card
+    goods_value_ex_vat: 2776.59
+    delivery_charge_ex_vat: 67.39
+    total_inc_vat: 3412.78
+    lines:
+      - description: Cut-to-length worktop
+        category: cut-to-length
+        quantity: 33
+        unit_price_ex_vat: 79.07
+      - description: Workshop wiping rolls
+        category: consumables
+        quantity: 6
+        unit_price_ex_vat: 27.88
+
+  - id: ord-3442
+    account_id: acc-106
+    status: picking
+    payment_method: invoice
+    goods_value_ex_vat: 1441.80
+    delivery_charge_ex_vat: 49
+    total_inc_vat: 1788.96
+    lines:
+      - description: Scaffold fittings
+        category: fixings
+        quantity: 27
+        unit_price_ex_vat: 53.40
+    # on-hold account mid-pick: no timing, no confirmation, no reason given
+
+  - id: ord-3443
+    account_id: acc-119
+    status: awaiting-stock
+    payment_method: invoice
+    estimated_delivery: 2026-09-24
+    goods_value_ex_vat: 1161.60
+    delivery_charge_ex_vat: 41
+    total_inc_vat: 1443.12
+    lines:
+      - description: Ear defenders, folding
+        category: ppe
+        quantity: 33
+        unit_price_ex_vat: 35.20
+        backorder_working_days: 9
+    # boundary: exactly 9 working days on a tier-A account
+
+  - id: ord-3444
+    account_id: acc-127
+    status: before-picking
+    payment_method: card
+    goods_value_ex_vat: 2157.91
+    delivery_charge_ex_vat: 71.45
+    total_inc_vat: 2675.23
+    lines:
+      - description: Modular storage racking
+        category: storage
+        quantity: 31
+        unit_price_ex_vat: 69.61
+
+  - id: ord-3445
+    account_id: acc-103
+    status: before-picking
+    payment_method: invoice
+    goods_value_ex_vat: 331.68
+    delivery_charge_ex_vat: 11.50
+    total_inc_vat: 411.82
+    lines:
+      - description: Cut-to-length hose assemblies
+        category: cut-to-length
+        quantity: 3
+        unit_price_ex_vat: 110.56
+
+  - id: ord-3446
+    account_id: acc-140
+    status: before-picking
+    payment_method: card
+    goods_value_ex_vat: 1433.16
+    delivery_charge_ex_vat: 34.17
+    total_inc_vat: 1760.80
+    lines:
+      - description: Junction enclosures
+        category: consumables
+        quantity: 36
+        unit_price_ex_vat: 39.81
+
+  - id: ord-3447
+    account_id: acc-110
+    status: before-picking
+    payment_method: invoice
+    goods_value_ex_vat: 3809.80
+    delivery_charge_ex_vat: 77
+    total_inc_vat: 4664.16
+    lines:
+      - description: Modular storage racking
+        category: storage
+        quantity: 43
+        unit_price_ex_vat: 88.60
+    # total 4,664.16: a quantity increase of a few units crosses the credit
+    # threshold, and confirmation then waits for the check
+
+  - id: ord-3448
+    account_id: acc-136
+    status: before-picking
+    payment_method: invoice
+    goods_value_ex_vat: 3952.40
+    delivery_charge_ex_vat: 94
+    total_inc_vat: 4855.68
+    credit_check: pending
+    lines:
+      - description: Steel shelving bays
+        category: storage
+        quantity: 41
+        unit_price_ex_vat: 96.40
+    # total 4,857.60 — above the threshold; the check is outstanding
+
+  - id: ord-3449
+    account_id: acc-132
+    status: picking
+    payment_method: card
+    goods_value_ex_vat: 1895.48
+    delivery_charge_ex_vat: 39.40
+    total_inc_vat: 2321.86
+    lines:
+      - description: Cordless impact drivers
+        category: tools
+        quantity: 4
+        unit_price_ex_vat: 117.65
+      - description: Made-to-order guarding panels
+        category: special-order
+        quantity: 4
+        unit_price_ex_vat: 321.03
+      - description: Galvanised coach screws
+        category: fixings
+        quantity: 36
+        unit_price_ex_vat: 3.91
+
+  - id: ord-3450
+    account_id: acc-101
+    status: before-picking
+    payment_method: invoice
+    goods_value_ex_vat: 625.28
+    delivery_charge_ex_vat: 14.80
+    total_inc_vat: 768.10
+    lines:
+      - description: Guillotine blades
+        category: tools
+        quantity: 8
+        unit_price_ex_vat: 68.02
+      - description: Nitrile work gloves
+        category: ppe
+        quantity: 26
+        unit_price_ex_vat: 3.12
+
+  - id: ord-3451
+    account_id: acc-111
+    status: before-picking
+    payment_method: invoice
+    goods_value_ex_vat: 2023.70
+    delivery_charge_ex_vat: 64
+    total_inc_vat: 2505.24
+    payments:
+      - amount_inc_vat: 884.65
+        settled: true
+        date: 2026-09-05
+      - amount_inc_vat: 1436.20
+        settled: false
+        date: 2026-09-12
+    lines:
+      - description: Cut-to-length cable, 6mm²
+        category: cut-to-length
+        quantity: 49
+        unit_price_ex_vat: 41.30
+    # an unsettled payment alongside a small settled one, on a group member;
+    # 49-unit line one short of the break
+
+  - id: ord-3452
+    account_id: acc-131
+    status: before-picking
+    payment_method: invoice
+    goods_value_ex_vat: 1803.50
+    delivery_charge_ex_vat: 64.77
+    total_inc_vat: 2241.92
+    lines:
+      - description: Degreaser concentrate, 5L
+        category: consumables
+        quantity: 26
+        unit_price_ex_vat: 53.31
+      - description: Workshop wiping rolls
+        category: consumables
+        quantity: 16
+        unit_price_ex_vat: 26.09
+
+  - id: ord-3453
+    account_id: acc-129
+    status: picking
+    payment_method: invoice
+    goods_value_ex_vat: 891.75
+    delivery_charge_ex_vat: 31
+    total_inc_vat: 1107.30
+    lines:
+      - description: Workshop wiping rolls
+        category: consumables
+        quantity: 29
+        unit_price_ex_vat: 30.75
+    # on-hold tier-C account
+
+  - id: ord-3454
+    account_id: acc-102
+    status: picking
+    payment_method: invoice
+    goods_value_ex_vat: 326
+    delivery_charge_ex_vat: 17
+    total_inc_vat: 411.60
+    lines:
+      - description: Cable ties, mixed packs
+        category: consumables
+        quantity: 40
+        unit_price_ex_vat: 8.15
+    # total 405.60: 6% of it is 24.34, so the £25 cancellation minimum bites
+
+  - id: ord-3455
+    account_id: acc-108
+    status: picking
+    payment_method: invoice
+    goods_value_ex_vat: 117.18
+    delivery_charge_ex_vat: 11.50
+    total_inc_vat: 154.42
+    lines:
+      - description: Abrasive flap discs, 115mm
+        category: consumables
+        quantity: 18
+        unit_price_ex_vat: 6.51
+
+  - id: ord-3456
+    account_id: acc-101
+    status: before-picking
+    payment_method: invoice
+    goods_value_ex_vat: 2217.32
+    delivery_charge_ex_vat: 78.64
+    total_inc_vat: 2755.15
+    lines:
+      - description: Steel shelving bays
+        category: storage
+        quantity: 28
+        unit_price_ex_vat: 79.19
+
+  - id: ord-3457
+    account_id: acc-125
+    status: before-picking
+    payment_method: invoice
+    goods_value_ex_vat: 2729.16
+    delivery_charge_ex_vat: 49.68
+    total_inc_vat: 3334.61
+    lines:
+      - description: Modular storage racking
+        category: storage
+        quantity: 36
+        unit_price_ex_vat: 75.81
+
+  - id: ord-3458
+    account_id: acc-101
+    status: picking
+    payment_method: invoice
+    goods_value_ex_vat: 2896.20
+    delivery_charge_ex_vat: 88
+    total_inc_vat: 3581.04
+    lines:
+      - description: Bespoke bench frames
+        category: special-order
+        quantity: 12
+        unit_price_ex_vat: 241.35
+    # picking: cancellation costs 6% inc VAT, address change costs £35
+
+  - id: ord-3459
+    account_id: acc-133
+    status: picking
+    payment_method: invoice
+    goods_value_ex_vat: 1651.50
+    delivery_charge_ex_vat: 52
+    total_inc_vat: 2044.20
+    lines:
+      - description: Cut-to-length cable, 6mm²
+        category: cut-to-length
+        quantity: 45
+        unit_price_ex_vat: 36.70
+    # 45-unit line: the volume break starts one unit higher
+
+  - id: ord-3460
+    account_id: acc-118
+    status: dispatched
+    payment_method: invoice
+    carrier: Brantham Haulage
+    goods_value_ex_vat: 1388.85
+    delivery_charge_ex_vat: 39
+    total_inc_vat: 1713.42
+    lines:
+      - description: Safety spectacles, clear
+        category: ppe
+        quantity: 47
+        unit_price_ex_vat: 29.55
+    # 47-unit line just under the break
+
+  - id: ord-3461
+    account_id: acc-111
+    status: picking
+    payment_method: invoice
+    goods_value_ex_vat: 2586.60
+    delivery_charge_ex_vat: 77.98
+    total_inc_vat: 3197.50
+    lines:
+      - description: Guillotine blades
+        category: tools
+        quantity: 18
+        unit_price_ex_vat: 67.13
+      - description: Scaffold fittings
+        category: fixings
+        quantity: 21
+        unit_price_ex_vat: 58.78
+      - description: Stackable tote crates
+        category: storage
+        quantity: 3
+        unit_price_ex_vat: 47.96
+
+  - id: ord-3462
+    account_id: acc-112
+    status: picking
+    payment_method: invoice
+    goods_value_ex_vat: 1142.35
+    delivery_charge_ex_vat: 44
+    total_inc_vat: 1423.62
+    lines:
+      - description: Junction enclosures
+        category: consumables
+        quantity: 31
+        unit_price_ex_vat: 36.85
+    # goods 1,142.35: inside the £900-£1,400 band, under the carrier threshold
+
+  - id: ord-3463
+    account_id: acc-133
+    status: before-picking
+    payment_method: invoice
+    goods_value_ex_vat: 3877.80
+    delivery_charge_ex_vat: 92
+    total_inc_vat: 4763.76
+    lines:
+      - description: Diamond core bits
+        category: tools
+        quantity: 46
+        unit_price_ex_vat: 84.30
+    # total 4,760.40: just under the credit threshold, and a small quantity
+    # increase crosses it
+
+  - id: ord-3464
+    account_id: acc-106
+    status: before-picking
+    payment_method: invoice
+    goods_value_ex_vat: 196.44
+    delivery_charge_ex_vat: 11.50
+    total_inc_vat: 249.53
+    lines:
+      - description: Ear defenders, folding
+        category: ppe
+        quantity: 6
+        unit_price_ex_vat: 32.74
+
+  - id: ord-3465
+    account_id: acc-127
+    status: before-picking
+    payment_method: invoice
+    goods_value_ex_vat: 3767.70
+    delivery_charge_ex_vat: 86
+    total_inc_vat: 4624.44
+    lines:
+      - description: Cordless impact drivers
+        category: tools
+        quantity: 38
+        unit_price_ex_vat: 99.15
+    # total 4,624.20: a quantity increase crosses the credit threshold
+
+  - id: ord-3466
+    account_id: acc-112
+    status: before-picking
+    payment_method: invoice
+    goods_value_ex_vat: 4698.80
+    delivery_charge_ex_vat: 121
+    total_inc_vat: 5783.76
+    credit_check: pending
+    payments:
+      - amount_inc_vat: 5087.38
+        settled: true
+        date: 2026-09-11
+      - amount_inc_vat: 512.30
+        settled: false
+        date: 2026-09-13
+    lines:
+      - description: Mobile tool cabinets
+        category: storage
+        quantity: 34
+        unit_price_ex_vat: 138.20
+    # just below release on settled funds, with an unsettled payment alongside
+
+  - id: ord-3467
+    account_id: acc-121
+    status: picking
+    payment_method: invoice
+    goods_value_ex_vat: 3467.50
+    delivery_charge_ex_vat: 97
+    total_inc_vat: 4277.40
+    lines:
+      - description: Fall-arrest harnesses
+        category: safety-ppe
+        quantity: 38
+        unit_price_ex_vat: 91.25
+    # safety-ppe on a tier-A account: the 7% desk discount still does not reach
+    # it
+
+  - id: ord-3468
+    account_id: acc-130
+    status: before-picking
+    payment_method: card
+    goods_value_ex_vat: 155.52
+    delivery_charge_ex_vat: 11.50
+    total_inc_vat: 200.42
+    lines:
+      - description: Threaded rod, 1m lengths
+        category: fixings
+        quantity: 4
+        unit_price_ex_vat: 38.88
+
+  - id: ord-3469
+    account_id: acc-121
+    status: before-picking
+    payment_method: invoice
+    goods_value_ex_vat: 4687.85
+    delivery_charge_ex_vat: 147
+    total_inc_vat: 5801.82
+    credit_check: pending
+    lines:
+      - description: Pallet racking beams
+        category: storage
+        quantity: 53
+        unit_price_ex_vat: 88.45
+    # above the credit threshold, check outstanding; 53-unit line takes the
+    # break

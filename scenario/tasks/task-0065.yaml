@@ -1,0 +1,47 @@
+id: task-0065
+account_id: acc-108
+applicable_policies:
+- quantity-changes
+- carrier-selection
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Reduce the order of 18 abrasive flap discs, 115mm, on order ord-3455 to
+    12 and send it with the customer's named carrier, ABC Couriers
+  order_id: ord-3455
+  current_quantity: 18
+  requested_quantity: 12
+  item: Abrasive flap discs, 115mm
+  named_carrier: ABC Couriers
+variants:
+- subject: Change to ord-3455
+  body: Can you knock the abrasive flap discs on ord-3455 down from 18 to 12? Also, could
+    you send this one with ABC Couriers rather than your usual carrier? Let me know if that
+    causes any hassle.
+- subject: Small change to the discs order
+  body: Could you take 6 of the abrasive flap discs, 115mm, off ord-3455, so we have 12 altogether?
+    We’ve been using ABC Couriers for a few jobs and it would be handy if they could handle
+    this delivery too. The last one to our usual site went smoothly, so nothing else needs
+    changing.
+- subject: ord-3455 quantity and delivery
+  body: Just chasing a small change on ord-3455. We originally asked for 18 abrasive flap
+    discs, 115mm, but only need 12 now. Is it possible to send the order with ABC Couriers
+    as well? They’re already coming to the site later in the week, and it would save us having
+    two separate deliveries to keep track of. Please let me know what you can do with those
+    two bits.
+expected_obligations:
+- policy: quantity-changes
+  obligation: Order ord-3455 is currently picking and the customer is asking to decrease the
+    abrasive flap discs line from 18 to 12, so the decrease is free; the affected line must
+    be repriced at the new quantity, and if 12 is below a volume break the reply must restate
+    the new unit price.
+- policy: carrier-selection
+  obligation: The customer has requested named carrier ABC Couriers, but Fenmoor selects the
+    carrier, so that request must be declined without exception; ord-3455 is £117.18 excluding
+    VAT, below £1,400 excluding VAT, so no signed-for alternative is offered, and the reply
+    must not explain the decision as a cost matter or invite the customer to arrange collection.
+- policy: order-reference-line
+  obligation: ord-3455 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-108, nothing after.
+order_id: ord-3455

@@ -1,0 +1,64 @@
+id: task-0182
+account_id: acc-137
+applicable_policies:
+- substitutions
+- quote-validity
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask whether the 11 fluorescent marking sprays can be swapped for a similar
+    available item before dispatch, with the replacement and any price difference explained
+    before making the change
+  order_id: ord-3437
+  product: Marking spray, fluorescent
+  quantity: 11
+variants:
+- subject: Could we change the marking spray?
+  body: 'Hi,
+
+
+    We’ve got a problem with the 11 fluorescent marking sprays and wondered if they could
+    be swapped for something similar before they go out. Could you let me know what you could
+    use instead and whether it would change the price? Please don’t alter anything until I’ve
+    confirmed.
+
+
+    The order number is ord-3437.
+
+
+    Cheers,
+
+    Dave'
+- subject: Small change to our spray order
+  body: 'Morning,
+
+
+    We’ve hit a snag with the 11 fluorescent marking sprays and may need something similar
+    instead. Is there another one you could send in their place? If so, could you tell me
+    what it is and whether there’s any difference in price before you change the order? It’s
+    on invoice as usual, so I’d like to check it with the team first.
+
+
+    The order is ord-3437, and please leave it as it is for now while I come back to you.
+
+
+    Thanks,
+
+    Martin'
+expected_obligations:
+- policy: substitutions
+  obligation: The request concerns the consumable marking-spray line, not PPE, but no particular
+    replacement has been named, so no substitute is currently established as being on or off
+    Fenmoor’s approved equivalents list. The reply must not make a substitution without the
+    customer’s written consent given beforehand; if a possible replacement is offered, it
+    must name that substitute and state the price difference, including where there is no
+    difference.
+- policy: quote-validity
+  obligation: If the reply quotes any replacement price, discount or carriage charge, each
+    quoted figure must be stated as excluding VAT and as valid for 17 calendar days from the
+    date of that reply, including any repeated figure.
+- policy: order-reference-line
+  obligation: ord-3437 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-137, nothing after.
+order_id: ord-3437

@@ -1,0 +1,337 @@
+# The exposure ledger for the 200-task library.
+#
+# This is the file that produced `tasks/`, kept beside the policies it counts
+# rather than beside the generator that reads it: every key under `policies`
+# below is an id from `policies.yaml`, and the generator rejects one that is
+# not. It says how many tasks each policy should end up in, what has to be true
+# of the account and the order for that policy to bite, and which combinations
+# are ruled in or out.
+#
+#   uv run python tools/generate_tasks.py --count 60 \
+#       --ledger scenario/exposure-ledger.yaml --out staging/ --dry-run
+#
+# `--dry-run` draws the combinations and reports the ledger without calling a
+# model, which is the cheap way to find out whether the accounts and orders can
+# actually carry the quotas asked of them. Drop it to generate.
+#
+# The generator never mutates this file. What has been spent is counted from
+# the task files themselves, so the ledger stays a statement of intent and the
+# tasks stay the record of fact.
+#
+# Building a ledger for your own domain: the quotas and the constraints below
+# are general, but the `subject` vocabulary is not. Those keys are read by
+# `matches()` in `tools/generate_tasks.py`, which knows this scenario's account
+# and order fields by name. A different domain means adding your own predicates
+# to that function alongside these.
+#
+# `subject` keys the generator understands, all optional:
+#   order: required | none          whether the task names an order at all
+#   order_status: [...]             any of the five statuses
+#   order_category: [...]           at least one line in one of these
+#   order_category_not: [...]       no line in any of these
+#   order_total_min / _max          on total_inc_vat
+#   order_goods_min / _max          on goods_value_ex_vat
+#   order_has_payments: true        the order carries payments
+#   order_has_backorder: true       some line is backordered
+#   order_delivered_within: N       delivered no more than N days ago
+#   order_delivered_beyond: N       delivered more than N days ago
+#   account_tier / account_credit_status / account_status: [...]
+#   account_in_group: true | false
+#
+# Constraints, all optional:
+#   solo: N            N of this policy's tasks carry no other substantive one
+#   alone: true        every one of its tasks does, because it takes precedence
+#   max_with: {id: N}  at most N tasks pair the two
+#   needs_companion    never drawn alone: one of these must be in the task too
+#   implied_by: [ids]  the situation puts this policy in play whenever one of
+#                      these is in the task and the conditions below hold, so it
+#                      is added with an obligation of its own. The quota chooses
+#                      the situation; it does not bound the ground truth. Without
+#                      this a return of cut-to-length goods gets an obligation
+#                      refusing on the window when the truth refuses on the
+#                      category, and an agent that answers correctly is breached.
+#   implied_when       the conditions for that, if they differ from `subject`
+#
+# The scope-correction pairs the plan asks for are not a separate mechanism.
+# They fall out of the subject conditions: delivery-date-language and
+# credit-check-threshold both require an account in good standing, because on
+# an on-hold account credit-hold-handling takes precedence and those policies
+# do not apply. So every task carrying them is a normal-account task, which is
+# exactly the corrective pressure an over-general referral lesson needs.
+
+# The two house-style policies are not drawn and hold no quota: sign-off rides
+# on every task, and the order reference on every task naming an order. The
+# generator attaches them and writes their obligations itself.
+style_policies:
+  always: sign-off-house-style
+  with_order: order-reference-line
+
+# Roughly 15 of the 200 tasks ask something that names no order: payment terms,
+# a request about another company. Without this they never come up, because
+# order-bearing subjects outnumber the rest four to one, and the rule about
+# naming the order number would then never be seen not to apply.
+#
+# This is not that 7.5%. It is the rate at which an order-free subject is taken
+# where the combination drawn permits one at all, which is seldom: most policies
+# need an order for their condition to mean anything. 0.45 here comes out at
+# about 7% of tasks, which is the number that was wanted.
+account_level_share: 0.45
+
+# Substantive policies per task, across the 200. 70 + 100 + 30 = 200 tasks and
+# 70 + 200 + 90 = 360 exposures, a mean of 1.8.
+combination_sizes:
+  1: 70
+  2: 100
+  3: 30
+
+policies:
+
+  # --- flagship -------------------------------------------------------------
+
+  expedite-surcharge:
+    quota: 20
+    subject:
+      order: required
+      order_status: [before-picking, picking, awaiting-stock]
+
+  returns-window:
+    quota: 20
+    implied_by: [restocking-fee, refund-method, non-returnable-categories]
+    subject:
+      order_status: [delivered]
+      # Calibration and certification are services. They are not "returned";
+      # a dispute about one is a complaint, which is a different family.
+      order_category_not: [calibration]
+    obligation_hint: >
+      Name the delivery date, the days elapsed against the account's window,
+      and whether the return is accepted. The tier-A extension to 38 days is
+      applied but never advertised: where the account is not tier-A, say both
+      that the ordinary window governs and that the longer one is not mentioned.
+
+  quote-validity:
+    quota: 20
+    # It attaches wherever a figure is quoted rather than standing on its own,
+    # so it is never drawn alone.
+    needs_companion:
+      - expedite-surcharge
+      - restocking-fee
+      - desk-discount-limit
+      - address-change
+      - cancellation-cutoff
+      - partial-shipment
+      - volume-breaks
+      - price-match
+      - goodwill-credit
+      - quantity-changes
+      - carrier-selection
+      - substitutions
+
+  credit-check-threshold:
+    quota: 18
+    # Above the line nothing is confirmed and no timing is given, whatever else
+    # the reply is about.
+    implied_by: [expedite-surcharge, delivery-date-language, quantity-changes,
+                 substitutions, carrier-selection, partial-shipment, address-change,
+                 cancellation-cutoff]
+    implied_when:
+      order_status: [before-picking, picking, awaiting-stock]
+      order_total_min: 4801
+      account_credit_status: [ok]
+    subject:
+      order: required
+      order_status: [before-picking, picking, awaiting-stock]
+      order_total_min: 4200
+      account_credit_status: [ok]
+    obligation_hint: >
+      Say whether the order is already above the threshold or a change would
+      take it there, and that confirmation and timing wait for the check. The
+      £4,800 figure is applied and never quoted, and the existence of a
+      threshold is never explained.
+
+  delivery-date-language:
+    quota: 18
+    subject:
+      order_status: [before-picking, picking, dispatched, awaiting-stock]
+      account_credit_status: [ok]
+
+  credit-hold-handling:
+    quota: 12
+    # Structural, not a reservation: the policy takes precedence over anything
+    # else that would discuss checks, confirmation or timing, so an on-hold task
+    # is single-policy whatever else the situation touches. Varying the surface
+    # request is what makes the lesson generalise, and that varies through the
+    # subject, not through the combination.
+    alone: true
+    subject:
+      account_credit_status: [on-hold]
+    obligation_hint: >
+      Say what the account's credit standing is and that it is therefore the
+      referral alone, with the accounts team in touch within one working day.
+      The hold is never disclosed, no reason is given, and no timing of any
+      kind appears, including any statement that timing cannot be given.
+
+  # --- mid-tier -------------------------------------------------------------
+
+  restocking-fee:
+    quota: 14
+    subject:
+      order_status: [delivered]
+      order_delivered_within: 24
+      order_category_not: [ppe, safety-ppe, cut-to-length, special-order, calibration]
+    obligation_hint: >
+      Give the fee as 7.5% of the goods value and the amount it comes to, or
+      the £16 minimum where that is larger, or the reason it is waived.
+
+  refund-method:
+    quota: 14
+    # A closing account is refunded by bank transfer rather than by the route
+    # the payment took, so wherever a refund is in prospect on one, this policy
+    # is part of the truth whether or not the quota chose it.
+    implied_by: [returns-window, restocking-fee]
+    implied_when:
+      order_status: [delivered]
+      order_delivered_within: 24
+      account_status: [closing]
+    subject:
+      order_status: [delivered]
+      # Inside every tier's ordinary window, so a refund is actually in
+      # prospect. On a delivery from three months ago the answer is the
+      # warranty route, and the refund route never comes up.
+      order_delivered_within: 24
+      order_category_not: [calibration]
+
+  cancellation-cutoff:
+    quota: 14
+    subject:
+      order_status: [before-picking, picking, dispatched]
+
+  quantity-changes:
+    quota: 14
+    subject:
+      order_status: [before-picking, picking]
+
+  volume-breaks:
+    quota: 14
+    subject:
+      order: required
+    obligation_hint: >
+      Say whether the break applies on the line in question and that quantities
+      never accumulate across lines or orders. The next break is never trailed,
+      whatever the customer asks.
+
+  order-release-threshold:
+    quota: 14
+    # Where funds are part paid, what may be said about dispatch is decided
+    # here, so any reply touching dispatch has to reckon with it.
+    implied_by: [expedite-surcharge, delivery-date-language, carrier-selection,
+                 partial-shipment, address-change]
+    subject:
+      order_has_payments: true
+      order_status: [before-picking, picking, awaiting-stock]
+    obligation_hint: >
+      Give the settled total, the balance still required, and whether release
+      follows. Uncleared payments do not count. The 90% figure is applied and
+      never quoted.
+
+  desk-discount-limit:
+    quota: 14
+    solo: 5
+    subject:
+      # A discretionary discount is asked for on an order that has not shipped.
+      # On a delivered one the question is a credit, which is a different policy.
+      order_status: [before-picking, picking, awaiting-stock]
+
+  goodwill-credit:
+    quota: 12
+    subject:
+      order: required
+    obligation_hint: >
+      Say how many goodwill credits the account has had inside the twelve
+      months before the reference date, and whether a further one is a decision
+      the desk may take or a request pending the order-desk manager's sign-off.
+
+  liability-language:
+    quota: 12
+    subject:
+      order: required
+
+  complaint-route:
+    quota: 12
+
+  third-party-privacy:
+    quota: 12
+
+  no-discount-categories:
+    quota: 12
+    # Any conversation about price on an excluded line runs into this, so a
+    # discount obligation written without it grants what the category forbids.
+    implied_by: [desk-discount-limit, volume-breaks, price-match]
+    subject:
+      order_category: [safety-ppe, calibration]
+      order_status: [before-picking, picking, awaiting-stock]
+
+  damage-shortage-window:
+    quota: 12
+    subject:
+      order_status: [delivered]
+      order_delivered_within: 30
+      order_category_not: [calibration]
+    obligation_hint: >
+      Count working days from delivery to the reference date, and say whether
+      the four-working-day window is still open, so whether photographs are
+      asked for or the carrier's claims process is the route.
+
+  address-change:
+    quota: 12
+    subject:
+      order_status: [before-picking, picking, dispatched]
+
+  partial-shipment:
+    quota: 12
+    subject:
+      order_has_backorder: true
+
+  payment-terms-by-tier:
+    quota: 12
+
+  # --- long tail ------------------------------------------------------------
+
+  carrier-selection:
+    quota: 10
+    subject:
+      order_status: [before-picking, picking, awaiting-stock]
+
+  non-returnable-categories:
+    quota: 10
+    # The category refuses the return before the window ever gets a say, so a
+    # returns obligation written without it refuses for the wrong reason.
+    implied_by: [returns-window, restocking-fee, refund-method, damage-shortage-window]
+    subject:
+      order_status: [delivered]
+      order_category: [ppe, safety-ppe, cut-to-length, special-order]
+
+  special-order-lead-time:
+    quota: 10
+    # Expediting moves stock and there is none to move, so any question about
+    # timing on a special order is answered by the lead time first.
+    implied_by: [expedite-surcharge, delivery-date-language, partial-shipment]
+    subject:
+      order_category: [special-order]
+      order_status: [before-picking, picking, awaiting-stock]
+
+  substitutions:
+    quota: 8
+    subject:
+      order_status: [before-picking, picking, awaiting-stock]
+    obligation_hint: >
+      State whether the substitute in play is on or off Fenmoor's approved
+      equivalents list. That list exists only in this sentence: it is not in
+      the data files and the assistant cannot look it up, which is why the
+      lesson to be learned is the procedure rather than the list.
+
+  price-match:
+    quota: 8
+    obligation_hint: >
+      Say what evidence the customer has offered and whether it counts: a
+      written quote from a trade distributor does, a marketplace listing or a
+      screenshot of a consumer site does not.

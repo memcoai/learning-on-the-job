@@ -1,0 +1,71 @@
+id: task-0192
+account_id: acc-101
+applicable_policies:
+- quantity-changes
+- desk-discount-limit
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Reduce the order from 28 steel shelving bays to 20 and consider giving
+    something back for the inconvenience
+  order_id: ord-3456
+  current_quantity: 28 steel shelving bays
+  requested_quantity: 20 steel shelving bays
+variants:
+- subject: Order ord-3456 – incorrect quantity of shelving bays
+  body: 'Dear Customer Services,
+
+
+    Order ord-3456 has 28 steel shelving bays on it, but we now need 20. Please could you
+    remove the surplus bays before the order is dealt with? As this change has caused us some
+    inconvenience, I would also be grateful if you could consider taking something off the
+    amount due.
+
+
+    Regards,
+
+    Martin Cole'
+- subject: Order ord-3456 – shelving quantity needs correcting
+  body: 'Good morning,
+
+
+    Order ord-3456 has 28 steel shelving bays listed, whereas we require 20. Please would
+    you check whether the order can be corrected before it goes any further? We usually settle
+    these orders by invoice, and given the trouble caused by the error, could you also see
+    whether there is anything you can do about the amount charged?
+
+
+    Yours faithfully,
+
+    Helen Price'
+- subject: Order ord-3456 – request to remove surplus shelving
+  body: 'Hello,
+
+
+    Order ord-3456 is not quite right: it shows 28 steel shelving bays, but we only need 20.
+    I am writing before this is processed so that the extra bays can be removed. Please let
+    me know what the revised amount would be. This has taken a fair amount of time to sort
+    out, so I would appreciate it if you could consider allowing something off the order as
+    well.
+
+
+    Many thanks,
+
+    David Mercer'
+expected_obligations:
+- policy: quantity-changes
+  obligation: Because order ord-3456 is before-picking and the customer is asking to reduce
+    the affected line from 28 steel shelving bays to 20, the decrease must be handled without
+    a change charge, but the shelving line must be repriced at the new quantity. If 20 falls
+    below a volume break, the reply must restate the new unit price.
+- policy: desk-discount-limit
+  obligation: Because account acc-101 is tier A and order ord-3456 is worth more than £900
+    excluding VAT, the desk may apply a discretionary discount of up to 7%. Any discount actually
+    given must state its percentage and the order value to which it applies; any request for
+    more than 7% must be referred to the sales team without promising or predicting a larger
+    discount.
+- policy: order-reference-line
+  obligation: ord-3456 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-101, nothing after.
+order_id: ord-3456

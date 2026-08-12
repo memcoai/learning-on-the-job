@@ -1,0 +1,35 @@
+# Seed task: part-payment and release; the 90% threshold applied but never
+# quoted, unsettled funds not counted.
+id: task-0004
+account_id: acc-116
+order_id: ord-3316
+applicable_policies:
+  - order-release-threshold
+  - order-reference-line
+  - sign-off-house-style
+facts:
+  requested_action: confirm dispatch of ord-3316 following payments
+  payments_claimed: £4,000 paid last week, further £1,000 sent yesterday
+variants:
+  - subject: Payment made - please ship ord-3316
+    body: >
+      Hi, we paid £4,000 against ord-3316 last week and sent another £1,000
+      yesterday, so most of it is covered now. Can you release it and let us
+      know when it ships?
+  - subject: ord-3316 - payments and dispatch
+    body: >
+      Hello, following our £4,000 payment we've now transferred a further
+      £1,000 on ord-3316. Please confirm dispatch - we'd like it on its way
+      this week.
+expected_obligations:
+  - policy: order-release-threshold
+    obligation: >
+      Settled funds are £4,000 against a release requirement of £5,400 (90%
+      of £6,000): the £1,000 initiated yesterday is not settled and does not
+      count. Confirm the £4,000 received, state that a further £1,400 in
+      cleared funds is required before release, make no dispatch commitment
+      or timing estimate, and never quote the 90% threshold.
+  - policy: order-reference-line
+    obligation: ord-3316 named in the first sentence.
+  - policy: sign-off-house-style
+    obligation: ends "Fenmoor Supplies order desk" then acc-116, nothing after.

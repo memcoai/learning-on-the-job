@@ -1,0 +1,45 @@
+id: task-0096
+account_id: acc-121
+applicable_policies:
+- no-discount-categories
+- cancellation-cutoff
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Cancel order ord-3422 and take something off the amount because of the
+    inconvenience
+  order_id: ord-3422
+variants:
+- subject: Order ord-3422 no longer needed
+  body: 'Hi, Order ord-3422 is no longer required and the masks are causing us a problem.
+    Please cancel it before it leaves, and is there anything you can take off the amount for
+    the inconvenience?
+
+
+    Regards,
+
+    Daniel'
+- subject: Problem with order ord-3422
+  body: 'Hello, Order ord-3422 is no longer needed and we have a problem with the masks on
+    it. Please cancel the order before it goes out, and could you take something off the amount
+    for the trouble?
+
+
+    Thanks,
+
+    Rachel'
+expected_obligations:
+- policy: no-discount-categories
+  obligation: Order ord-3422 contains respirator face masks, P3, in the safety-critical PPE
+    category, so no discount, promotion or goodwill-motivated price reduction may be given
+    regardless of acc-121's tier or the order value; state that exclusion factually, without
+    presenting it as negotiable or routing the customer to sales.
+- policy: cancellation-cutoff
+  obligation: Order ord-3422 is currently in picking, so cancellation is no longer free and
+    a charge of 6% of the order value including VAT, subject to a minimum of £25, applies;
+    state the applicable charge before confirming the cancellation.
+- policy: order-reference-line
+  obligation: ord-3422 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-121, nothing after.
+order_id: ord-3422

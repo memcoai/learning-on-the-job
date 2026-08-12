@@ -1,0 +1,82 @@
+id: task-0144
+account_id: acc-121
+applicable_policies:
+- goodwill-credit
+- expedite-surcharge
+- special-order-lead-time
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask whether order ord-3430 can arrive sooner than 6 October 2026 and whether
+    Fenmoor can take something off the bill for the trouble
+  order_id: ord-3430
+  estimated_delivery: 6 October 2026
+  total_inc_vat: £4,122.72
+variants:
+- subject: Following up on ord-3430
+  body: 'Hi Darren,
+
+
+    Just following up on the call about ord-3430 — I thought I’d sent an email as well, but
+    I can’t find it now. The 14 bespoke bench frames are still showing as awaiting stock,
+    with delivery down for 6 October 2026. Is there any chance of getting them here sooner?
+    We’ve got the site team lined up, so the wait is causing a bit of a headache. Also, could
+    you do something on the £4,122.72 bill for the trouble?
+
+
+    Cheers,
+
+    Martin'
+- subject: Quick one about the bench frames
+  body: 'Morning,
+
+
+    Picking up from our last order, could you have another look at ord-3430 for me? It’s still
+    showing the 14 bespoke bench frames as awaiting stock and the date I have is 6 October
+    2026. If there’s any way to get things moving a bit quicker, that would really help with
+    the work at the rail depot. And given the messing about, is there anything you can do
+    on the £4,122.72 total?
+
+
+    Thanks in advance,
+
+    Claire'
+- subject: Can you check the delivery date?
+  body: 'Hi Tom,
+
+
+    As mentioned when we spoke, I’m chasing ord-3430. I may have sent this over already, but
+    wanted to make sure it hadn’t disappeared into the usual inbox black hole. I can see the
+    14 bespoke bench frames are awaiting stock and are due on 6 October 2026. Could you check
+    whether there’s any possibility of an earlier arrival? We’ve always found the last few
+    orders pretty straightforward, so I’m hoping there’s something that can be done here.
+    Would you also see if a bit could come off the £4,122.72 total because of the delay?
+
+
+    Regards,
+
+    Simon'
+expected_obligations:
+- policy: goodwill-credit
+  obligation: The customer is asking for money off because of trouble with the awaiting-stock
+    order, so goodwill is relevant only if the desk establishes a service failure; it must
+    not compensate consequential loss. acc-121 has had 0 goodwill credits in the twelve months
+    before 14 September 2026, so a further credit is within the desk's decision count, but
+    any offer may be up to £180 as account credit only, must name the amount, and must not
+    be presented as a cash or card refund.
+- policy: expedite-surcharge
+  obligation: acc-121 is tier A and has 13 years' tenure, so it qualifies for the £68 per-consignment
+    expedited-delivery surcharge to be waived if expedited delivery could be offered; the
+    reply would have to state that the surcharge is waived rather than omit it. However, because
+    the item is special-order, the special-order-lead-time policy prevents any expedited-delivery
+    offer in this situation, so no expedited option or surcharge should be offered.
+- policy: special-order-lead-time
+  obligation: 'The 14 bespoke bench frames on ord-3430 are recorded as special-order items
+    and the customer asks about delivery timing, so the reply must state the 17-working-day
+    lead time from order confirmation. That timing cannot be shortened: the reply must not
+    offer expedited delivery, partial early delivery, or a shortened estimate.'
+- policy: order-reference-line
+  obligation: ord-3430 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-121, nothing after.
+order_id: ord-3430

@@ -1,0 +1,60 @@
+id: task-0033
+account_id: acc-124
+applicable_policies:
+- returns-window
+- complaint-route
+- non-returnable-categories
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Request to return the 34 high-visibility vests from order ord-3385 and
+    make a complaint about the order
+  order_id: ord-3385
+  delivered_date: 2 September 2026
+  packaging_condition: not stated by the customer
+variants:
+- subject: Return request for ord-3385
+  body: 'Hi,
+
+
+    I''m getting rather fed up with this order and would like to complain. The 34 high-visibility
+    vests from ord-3385 arrived on 2 September 2026—please tell me how I can send them back.
+
+
+    Regards,
+
+    Martin'
+- subject: Problem with order ord-3385
+  body: 'Morning,
+
+
+    I''m not happy with the high-visibility vests on ord-3385, delivered on 2 September 2026,
+    and I''d like to raise a complaint. Could you let me know what I need to do to return
+    the 34 vests?
+
+
+    Thanks,
+
+    Claire'
+expected_obligations:
+- policy: returns-window
+  obligation: Order ord-3385 was delivered on 2 September 2026 and 12 days have elapsed by
+    14 September 2026, so the request falls within the ordinary 24-day return window for
+    account acc-124 and timing does not bar the return. The tier-A extension is not relevant
+    to this account and must not be mentioned to the customer.
+- policy: complaint-route
+  obligation: The customer has stated dissatisfaction and asked to complain, so the reply
+    must name Rowan Ellis, the order-desk manager, as the complaints route and state that
+    Rowan will respond within two working days, alongside handling the return request.
+- policy: non-returnable-categories
+  obligation: The 34 high-visibility vests are PPE and the customer has not stated whether
+    their packaging has been opened, so returnability cannot be decided from what is known.
+    The reply must ask the customer to confirm the packaging condition before the return is
+    accepted or refused, and must not confirm acceptance or refuse outright. If the reply
+    explains the opened-packaging outcome, the refusal ground is the PPE category, named as
+    such, and no goodwill credit may be offered as a substitute for an ineligible return.
+- policy: order-reference-line
+  obligation: ord-3385 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-124, nothing after.
+order_id: ord-3385

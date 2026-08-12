@@ -1,0 +1,72 @@
+id: task-0146
+account_id: acc-131
+applicable_policies:
+- carrier-selection
+- quantity-changes
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: For order ord-3452, reduce Degreaser concentrate, 5L from 26 units to
+    20 units, leave Workshop wiping rolls at 16 units, and use DHL for delivery.
+  order_id: ord-3452
+  degreaser_quantity_current: 26
+  degreaser_quantity_requested: 20
+  workshop_wiping_rolls_quantity: 16
+  requested_carrier: DHL
+variants:
+- subject: Changes requested for order ord-3452
+  body: 'Hi,
+
+
+    The degreaser and wiping rolls are for our production workshop, and the work schedule
+    is being rearranged on site. For order ord-3452, please reduce the Degreaser concentrate,
+    5L from 26 units to 20 units, while leaving the 16 Workshop wiping rolls unchanged. Could
+    you also send the delivery through DHL and confirm the revised pricing?
+
+
+    Regards,
+
+    Martin'
+- subject: Order ord-3452 delivery and quantity query
+  body: 'Morning,
+
+
+    We are adjusting material use on the workshop floor, so we will not need as much degreaser
+    for the current job. Please change the Degreaser concentrate, 5L on order ord-3452 from
+    26 units to 20, keep the 16 Workshop wiping rolls as they are, and use DHL for the delivery
+    if possible. Please let me know what the updated line price will be.
+
+
+    Thanks,
+
+    Helen'
+- subject: Request to amend ord-3452
+  body: 'Hello,
+
+
+    The goods are going to our production site, where a planned job has been scaled back slightly.
+    Could you amend order ord-3452 so that the Degreaser concentrate, 5L is reduced from 26
+    to 20 units, with the 16 Workshop wiping rolls left unchanged? We would also like the
+    delivery sent via DHL, so please confirm the position and any price change.
+
+
+    Regards,
+
+    David'
+expected_obligations:
+- policy: carrier-selection
+  obligation: The customer has requested a named carrier, DHL, and order ord-3452 has goods
+    value £1,803.50 excluding VAT, which is above £1,400; the reply must decline the DHL request
+    and offer signed-for delivery as the alternative, without explaining carrier selection
+    as a cost decision or inviting the customer to arrange collection.
+- policy: quantity-changes
+  obligation: Order ord-3452 is before picking and the customer has requested a decrease to
+    the Degreaser concentrate, 5L line from 26 units to 20 units; the decrease is free, but
+    the affected line must be repriced at the new quantity, and if 20 units falls below a
+    volume break, the reply must restate the new unit price. The unchanged Workshop wiping
+    rolls quantity does not require a quantity amendment.
+- policy: order-reference-line
+  obligation: ord-3452 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-131, nothing after.
+order_id: ord-3452

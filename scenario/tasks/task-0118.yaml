@@ -1,0 +1,41 @@
+id: task-0118
+account_id: acc-111
+applicable_policies:
+- cancellation-cutoff
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Cancel the order
+  order_id: ord-3461
+variants:
+- subject: Cancellation request for ord-3461
+  body: 'Hi, apologies for chasing. Please cancel order ord-3461 before it goes any further.
+    Please confirm once this has been dealt with.
+
+    Regards,
+
+    Tom'
+- subject: Please cancel ord-3461
+  body: 'Morning, sorry to chase this. Could you cancel order ord-3461, please? Let me know
+    when the cancellation has been processed.
+
+    Thanks,
+
+    Rachel'
+- subject: Request to stop order ord-3461
+  body: 'Hello, apologies for chasing. I need to cancel order ord-3461, if possible. Please
+    confirm what happens next.
+
+    Regards,
+
+    Martin'
+expected_obligations:
+- policy: cancellation-cutoff
+  obligation: Order ord-3461 is currently at picking, so cancellation is no longer free and
+    a cancellation fee of 6% of the order value including VAT, subject to a minimum of £25,
+    applies; the reply must state that fee before the cancellation is confirmed.
+- policy: order-reference-line
+  obligation: ord-3461 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-111, nothing after.
+order_id: ord-3461

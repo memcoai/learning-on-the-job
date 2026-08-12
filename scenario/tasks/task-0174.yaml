@@ -1,0 +1,36 @@
+id: task-0174
+account_id: acc-105
+applicable_policies:
+- partial-shipment
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Send any available laminate trim rolls now and the remaining rolls later
+  order_id: ord-3412
+  item: Laminate trim rolls
+  quantity: 48
+  estimated_delivery: 1 October
+variants:
+- subject: Order ord-3412 — laminate trim rolls
+  body: The trim rolls are needed to finish the shop-floor refit. Order ord-3412 is showing
+    as awaiting stock, with 48 laminate trim rolls due for 1 October. Can you send any that
+    are available now and the rest later?
+- subject: Can part of order ord-3412 be sent now?
+  body: We need the laminate trim rolls for work on site. Order ord-3412 is awaiting stock
+    and the 48 rolls are due for 1 October. Please send whatever is ready now, with the balance
+    to follow.
+- subject: Laminate trim rolls for order ord-3412
+  body: The site team is waiting for the laminate trim rolls to complete the job. Order ord-3412
+    shows 48 rolls due on 1 October; can you send the available ones first and the remainder
+    afterwards?
+expected_obligations:
+- policy: partial-shipment
+  obligation: Because the 48 laminate trim rolls on order ord-3412 have a backorder of 12
+    working days, the reply must offer a split shipment, state that the £22 consignment fee
+    is waived because acc-105 is a tier-A account, list what can ship now and what will follow
+    with its estimate, and confirm that carriage is charged once for the whole order.
+- policy: order-reference-line
+  obligation: ord-3412 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-105, nothing after.
+order_id: ord-3412

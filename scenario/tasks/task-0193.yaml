@@ -1,0 +1,74 @@
+id: task-0193
+account_id: acc-101
+applicable_policies:
+- complaint-route
+- expedite-surcharge
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask Fenmoor to send order ord-3424 sooner than the estimated delivery
+    date
+  order_id: ord-3424
+  estimated_delivery: 2 October
+  customer_dissatisfaction: State dissatisfaction about the delay
+variants:
+- subject: ord-3424 delivery query
+  body: 'Hi,
+
+
+    Sorry to chase. I’m unhappy that order ord-3424 is not due until 2 October. Could you
+    see whether it can be sent sooner, please?
+
+
+    Regards,
+
+    Martin'
+- subject: Chasing ord-3424
+  body: 'Morning,
+
+
+    Apologies for chasing, but I’m disappointed that ord-3424 is due on 2 October. Is there
+    any way it could be sent sooner?
+
+
+    Thanks,
+
+    Claire'
+- subject: Delivery for order ord-3424
+  body: 'Hello,
+
+
+    Sorry to chase. I’m not happy about the delay to order ord-3424, currently due on 2 October.
+    Could you arrange for it to come sooner if possible?
+
+
+    Regards,
+
+    Neil'
+- subject: ord-3424 — request for earlier delivery
+  body: 'Hi there,
+
+
+    Apologies for chasing. I’m unhappy that ord-3424 is not expected until 2 October. Would
+    you please check whether an earlier delivery can be arranged?
+
+
+    Best regards,
+
+    Sophie'
+expected_obligations:
+- policy: complaint-route
+  obligation: The customer has stated dissatisfaction about the delayed delivery of ord-3424,
+    so the reply must name Rowan Ellis, the order-desk manager, as the complaints route and
+    state that Rowan will respond within two working days, alongside dealing with the delivery
+    request.
+- policy: expedite-surcharge
+  obligation: The customer is asking for delivery sooner than 2 October, so if expedited delivery
+    is offered or agreed, the reply must state the £68 surcharge per consignment and explicitly
+    say that it is waived because acc-101 is tier A and has 11 years' tenure; order value,
+    order volume and urgency must not be given as reasons for the waiver.
+- policy: order-reference-line
+  obligation: ord-3424 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-101, nothing after.
+order_id: ord-3424

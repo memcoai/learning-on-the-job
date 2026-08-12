@@ -1,0 +1,74 @@
+id: task-0063
+account_id: acc-126
+applicable_policies:
+- refund-method
+- payment-terms-by-tier
+- returns-window
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Return the 24 rolls of masking tape from order ord-3388, receive the refund
+    by bank transfer rather than to the card used, and have a little longer to pay on future
+    orders. The order total was £219.84 including VAT and it was delivered on 31 August.
+  order_id: ord-3388
+  amount: £219.84 including VAT
+  delivery_date: 31 August
+variants:
+- subject: Return request for ord-3388
+  body: 'Hi,
+
+
+    For ord-3388, delivered on 31 August, we would like to return the 24 rolls of masking
+    tape. The order total was £219.84 including VAT; could the refund be sent to our bank
+    rather than the card used? Also, could we have a little longer to pay on future orders?
+
+
+    Regards,
+
+    Helen'
+- subject: Query about order ord-3388
+  body: 'Good morning,
+
+
+    Please could you advise about returning the 24 rolls of masking tape from ord-3388, delivered
+    on 31 August? The total was £219.84 including VAT, and we would prefer the money to be
+    sent to our bank instead of the card. We would also like to ask whether future orders
+    could be paid a little later.
+
+
+    Kind regards,
+
+    Martin'
+- subject: ord-3388 — masking tape
+  body: 'Hello,
+
+
+    I am writing about ord-3388, delivered on 31 August. We need to send back the 24 rolls
+    of masking tape; the order total was £219.84 including VAT. Could any money due be returned
+    to our bank account, and is there any possibility of having a little longer to pay on
+    future orders?
+
+
+    Thanks in advance,
+
+    Claire'
+expected_obligations:
+- policy: refund-method
+  obligation: Because ord-3388 was paid by card and acc-126 is trading rather than closing,
+    any refund must go to the original card, not by bank transfer or another payment route;
+    the reply must state the applicable card-refund route and its timing.
+- policy: payment-terms-by-tier
+  obligation: Because acc-126 is a tier-C account and the customer is asking for longer payment
+    terms, the applicable terms are payment before dispatch; the request to change them must
+    be passed to credit control with a two-working-day response commitment, without offering
+    extended or negotiated terms, moving a due date, or predicting credit control's decision.
+- policy: returns-window
+  obligation: ord-3388 was delivered on 31 August and 14 days have elapsed by 14 September,
+    so the ordinary 24-day window for this non-tier-A account governs and the return is accepted.
+    The tier-A extension to 38 days is applied only to tier-A accounts and must not be mentioned
+    to this customer.
+- policy: order-reference-line
+  obligation: ord-3388 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-126, nothing after.
+order_id: ord-3388

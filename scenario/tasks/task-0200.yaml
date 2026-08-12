@@ -1,0 +1,54 @@
+id: task-0200
+account_id: acc-119
+applicable_policies:
+- partial-shipment
+- desk-discount-limit
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask whether any of order ord-3443 can be sent now with the remainder later,
+    and whether Fenmoor can do something about the price.
+  order_id: ord-3443
+  item: 33 folding ear defenders
+  order_value_before_vat: £1,161.60
+  estimated_delivery: 24 September
+variants:
+- subject: ord-3443 – stock and price query
+  body: 'Hi, could you please let me know whether any of the 33 folding ear defenders on order
+    ord-3443 can be sent now, with the remainder to follow? The current estimate I have is
+    24 September. As the order comes to £1,161.60 before VAT, is there also anything you can
+    do about the price given the delay?
+
+
+    Regards,
+
+    Helen Morris'
+- subject: Question about order ord-3443
+  body: 'Good morning, could you advise whether you can send whatever is available from our
+    33 folding ear defenders now and send the balance later? Order ord-3443 is showing an
+    estimated delivery of 24 September, and we are trying to keep the site supplied in the
+    meantime. The order value is £1,161.60 before VAT, so I would also be grateful if you
+    could see whether something could be taken off for the inconvenience.
+
+
+    Many thanks,
+
+    Daniel Price'
+expected_obligations:
+- policy: partial-shipment
+  obligation: The ear-defender line has a 9-working-day stock delay, which is not beyond nine,
+    but the customer has asked for available goods to be sent first; the reply may therefore
+    offer the split. Because acc-119 is tier A, the £22 consignment fee is waived. The reply
+    must state what ships now and what follows with its 24 September estimate, and confirm
+    that carriage is charged once for the whole order.
+- policy: desk-discount-limit
+  obligation: Order ord-3443 has a value of £1,161.60 excluding VAT, which is above £900,
+    and acc-119 is tier A, so the desk may apply a discretionary discount of up to 7%. Any
+    discount actually given must state its percentage and that it applies to the £1,161.60
+    order value; anything larger must be referred to the sales team as a request and must
+    not be promised or predicted.
+- policy: order-reference-line
+  obligation: ord-3443 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-119, nothing after.
+order_id: ord-3443

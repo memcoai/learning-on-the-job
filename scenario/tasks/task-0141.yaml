@@ -1,0 +1,68 @@
+id: task-0141
+account_id: acc-131
+applicable_policies:
+- order-release-threshold
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask whether order ord-3409 can be dispatched after payment of £2,336.72
+  order_id: ord-3409
+  amount_paid_inc_vat: £2,336.72
+variants:
+- subject: Dispatch of order ord-3409
+  body: 'Hi,
+
+
+    Sorry to chase, but could you let me know whether order ord-3409 can be sent out now that
+    we have paid £2,336.72?
+
+
+    Regards,
+
+    Martin'
+- subject: Order ord-3409
+  body: 'Morning,
+
+
+    Sorry for chasing—can you confirm whether order ord-3409 is ready to be dispatched following
+    our payment of £2,336.72?
+
+
+    Thanks,
+
+    Helen'
+- subject: Can ord-3409 be sent out?
+  body: 'Hi there,
+
+
+    Apologies for chasing, but could you check if order ord-3409 can now be sent out? We have
+    paid £2,336.72.
+
+
+    Regards,
+
+    David'
+- subject: Update on order ord-3409
+  body: 'Hello,
+
+
+    Sorry to chase. Please could you let me know if order ord-3409 can be dispatched now that
+    £2,336.72 has been paid?
+
+
+    Kind regards,
+
+    Sarah'
+expected_obligations:
+- policy: order-release-threshold
+  obligation: The settled payment on ord-3409 is £2,336.72 against an order total of £2,665.80
+    including VAT and delivery, so the release threshold has not been reached. The reply must
+    confirm £2,336.72 received, state that £62.50 remains required for release, and say that
+    the order is not yet released; it must not commit to dispatch or give any dispatch timing.
+    The 90% threshold is applied but never quoted to the customer, and no uncleared payment
+    may be counted.
+- policy: order-reference-line
+  obligation: ord-3409 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-131, nothing after.
+order_id: ord-3409

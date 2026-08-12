@@ -1,0 +1,32 @@
+id: task-0030
+account_id: acc-123
+applicable_policies:
+- desk-discount-limit
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: A reduction to the order total because the order is awaiting stock and
+    delivery is estimated for 30 September
+  order_id: ord-3398
+  estimated_delivery: 30 September
+  total_inc_vat: £7,262.15
+variants:
+- subject: Order ord-3398 – delivery date
+  body: Order ord-3398 is still awaiting stock, with delivery estimated for 30 September.
+    Please could you see whether anything can be taken off the total of £7,262.15 because
+    of the delay?
+- subject: 'ord-3398: request about the delay'
+  body: The latest position on order ord-3398 is awaiting stock, and delivery is estimated
+    for 30 September. Is there anything you can do to reduce the total of £7,262.15 given
+    the wait?
+expected_obligations:
+- policy: desk-discount-limit
+  obligation: The account is tier A and order ord-3398 has goods value ex VAT of £5,890.55,
+    which is above £900, so the desk may apply a discretionary discount of up to 7%. Any discount
+    given must state the percentage and the order value it applies to; a larger discount must
+    be put to the sales team as a request and must never be promised or predicted.
+- policy: order-reference-line
+  obligation: ord-3398 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-123, nothing after.
+order_id: ord-3398

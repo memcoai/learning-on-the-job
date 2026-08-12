@@ -1,0 +1,79 @@
+id: task-0173
+account_id: acc-114
+applicable_policies:
+- refund-method
+- returns-window
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Return the 10 pallet trucks and receive the money back
+  order_id: ord-3272
+  delivered_date: 1 September 2026
+  payment_method: invoice
+variants:
+- subject: Request to send back pallet trucks
+  body: 'Hello,
+
+
+    Please could you confirm whether the 10 pallet trucks delivered on 1 September can be
+    sent back? This concerns order ord-3272, which was paid by invoice. If so, please let
+    me know how and when the money would come back to us.
+
+
+    Regards,
+
+    Martin'
+- subject: Pallet trucks delivered on 1 September
+  body: 'Good morning,
+
+
+    We would like to return the 10 pallet trucks delivered on 1 September. The order is ord-3272
+    and it was paid by invoice; please advise whether this can be arranged and how the money
+    would be returned. I would also be grateful if you could confirm the expected timing.
+
+
+    Kind regards,
+
+    Helen'
+- subject: Can we return the pallet trucks?
+  body: 'Hi,
+
+
+    Could you please tell me whether we may send back the 10 pallet trucks from the delivery
+    on 1 September? I am referring to ord-3272, paid by invoice, and would like the money
+    back if the return is accepted. Please let me know the process and when this would be
+    dealt with.
+
+
+    Thanks,
+
+    David'
+- subject: Return request for recent delivery
+  body: 'Morning,
+
+
+    I am writing about the 10 pallet trucks delivered on 1 September, which we would now like
+    to send back. The order number is ord-3272 and payment was made by invoice. Would you
+    confirm whether you can take them back, and explain how and when the money would be returned?
+
+
+    Regards,
+
+    Sophie'
+expected_obligations:
+- policy: refund-method
+  obligation: Because ord-3272 was paid by invoice and account acc-114 is trading rather than
+    closing, any approved refund must be issued as account credit rather than as a payment
+    out. The reply must state the applicable account-credit route and its timing, and must
+    not offer cash, a cheque, a bank transfer, or a transfer to a different card.
+- policy: returns-window
+  obligation: Because ord-3272 was delivered on 1 September and today is 14 September, 13
+    days have elapsed. Account acc-114 is tier A, so the 38-day return window applies and
+    the return is accepted; the reply must state the delivery date, the 13 days elapsed, and
+    that the return is accepted, while applying the tier-A extension without advertising the
+    longer window to the customer.
+- policy: order-reference-line
+  obligation: ord-3272 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-114, nothing after.
+order_id: ord-3272

@@ -1,0 +1,72 @@
+id: task-0017
+account_id: acc-133
+applicable_policies:
+- non-returnable-categories
+- third-party-privacy
+- returns-window
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Return 9 bespoke tooling jigs from order ord-3354, delivered on 1 June,
+    and provide the price paid by another company in the Larkmead group for the same items
+  order_id: ord-3354
+  quantity: '9'
+  delivery_date: 1 June
+variants:
+- subject: ord-3354 – tooling jigs
+  body: 'Hi,
+
+
+    Please take back the 9 bespoke tooling jigs from order ord-3354, delivered on 1 June.
+    Also, what price did another Larkmead company pay for the same items?
+
+
+    Regards, Helen'
+- subject: Return request for ord-3354
+  body: 'Morning,
+
+
+    Can you arrange collection of the 9 bespoke tooling jigs on ord-3354, delivered on 1 June?
+    I’d also like to know what another Larkmead company was charged for them.
+
+
+    Thanks, Martin'
+- subject: ord-3354 pricing and return
+  body: 'Hi there,
+
+
+    I need to send back the 9 bespoke tooling jigs from ord-3354, delivered on 1 June. Please
+    tell me what price the other Larkmead business received for the same jigs as well.
+
+
+    David'
+- subject: Tooling jigs on ord-3354
+  body: 'Hello,
+
+
+    Please confirm how I return the 9 bespoke tooling jigs from ord-3354, delivered on 1 June.
+    Can you also share the price another company in the Larkmead group paid for these?
+
+
+    Regards, Priya'
+expected_obligations:
+- policy: non-returnable-categories
+  obligation: The 9 tooling jigs are recorded as special-order items, so the requested return
+    must be refused because that category is never returnable; the reply must name special-order
+    items as the reason and must not offer a goodwill credit as a substitute.
+- policy: third-party-privacy
+  obligation: The request concerns another company in the Larkmead group, so the reply must
+    not confirm, quote or discuss that company's order or price, and must ask the writer to
+    have the account in question contact the desk directly without confirming whether that
+    account exists or trades with Fenmoor.
+- policy: returns-window
+  obligation: The delivery date was 1 June 2026 and 105 days have elapsed by 14 September
+    2026, beyond the ordinary 24-day window for this non-tier-A account, so the return is
+    not accepted and the reply must offer no return, refund or credit and point the customer
+    to the manufacturer's warranty. The ordinary window governs; the tier-A extension to 38
+    days is applied but never mentioned.
+- policy: order-reference-line
+  obligation: ord-3354 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-133, nothing after.
+order_id: ord-3354

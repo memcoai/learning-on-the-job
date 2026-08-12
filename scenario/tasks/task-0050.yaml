@@ -1,0 +1,76 @@
+id: task-0050
+account_id: acc-103
+applicable_policies:
+- returns-window
+- non-returnable-categories
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Return the 200 nitrile work gloves after opening the packaging and receive
+    the money back
+  order_id: ord-3290
+  delivered_date: 4 September
+variants:
+- subject: Can I send the gloves back? — ord-3290
+  body: 'Hi there,
+
+
+    Could I send back the 200 nitrile work gloves from order ord-3290? The packaging has been
+    opened, but I’d like to return them and get the money back. They were delivered on 4 September.
+
+
+    Cheers,
+
+    Dan'
+- subject: Question about order ord-3290
+  body: 'Morning,
+
+
+    The 200 nitrile work gloves from ord-3290 arrived on 4 September, but we’ve opened the
+    packaging and now need to send them back. Is there any way to get the money back?
+
+
+    Thanks,
+
+    Megan'
+- subject: Gloves from 4 September delivery
+  body: 'Hi Fenmoor,
+
+
+    I’m hoping you can help with the 200 nitrile work gloves on order ord-3290. We’ve already
+    opened the packaging, but they’re not needed now, so I’d like to return them and have
+    the money refunded. The order was delivered on 4 September and was paid for by card, if
+    that helps you find it. Everything else on the delivery was fine, so it’s just these gloves
+    I’m asking about.
+
+
+    Thanks in advance,
+
+    Rob'
+- subject: Return request for the work gloves
+  body: 'Hello,
+
+
+    Can we return the 200 nitrile work gloves from order ord-3290? The packaging has been
+    opened. They were delivered on 4 September, and we’d like the money back if possible.
+
+
+    Regards,
+
+    Claire'
+expected_obligations:
+- policy: returns-window
+  obligation: Order ord-3290 was delivered on 4 September and 10 days have elapsed by 14 September;
+    the ordinary 24-day window therefore applies and the request is within that window, but
+    the return is not accepted overall because the non-returnable-categories policy governs
+    opened PPE. The account is not tier A, so the ordinary window governs and the longer 38-day
+    period is applied neither in the decision nor mentioned to the customer.
+- policy: non-returnable-categories
+  obligation: The 200 nitrile work gloves are PPE whose packaging has been opened, so the
+    return must be refused on that stated category-specific reason. No goodwill credit or
+    other money-back substitute may be offered because no independent service failure is present.
+- policy: order-reference-line
+  obligation: ord-3290 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-103, nothing after.
+order_id: ord-3290

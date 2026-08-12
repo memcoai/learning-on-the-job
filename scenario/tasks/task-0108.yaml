@@ -1,0 +1,67 @@
+id: task-0108
+account_id: acc-101
+applicable_policies:
+- special-order-lead-time
+- quantity-changes
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Add 2 bespoke bench frames to order ord-3458, increasing the quantity
+    from 12 to 14, and advise when the complete order is expected to arrive.
+  order_id: ord-3458
+  current_quantity: 12
+  additional_quantity: 2
+  requested_quantity: 14
+variants:
+- subject: Adding frames to ord-3458
+  body: 'Hi,
+
+
+    Could you add 2 more bespoke bench frames to order ord-3458, taking the quantity from
+    12 to 14, and let me know when the complete order is expected to arrive?
+
+
+    Regards,
+
+    Martin'
+- subject: Query about order ord-3458
+  body: 'Morning,
+
+
+    Could you please add 2 bespoke bench frames to order ord-3458, so that it contains 14
+    rather than 12? I would also be grateful if you could advise when the full order is likely
+    to arrive.
+
+
+    Thanks,
+
+    Helen'
+- subject: Request to amend order ord-3458
+  body: 'Hello,
+
+
+    I am checking the quantities on our order for bespoke bench frames. The order currently
+    shows 12, but we would like to have 14 in total, so could you add 2 to ord-3458? Please
+    also let me know when we should expect the complete order, rather than only the items
+    currently being handled.
+
+
+    Kind regards,
+
+    David'
+expected_obligations:
+- policy: special-order-lead-time
+  obligation: Because the order is for special-order bespoke bench frames and the customer
+    asks when the complete order will arrive, the reply must state the 17-working-day lead
+    time from order confirmation. It must not offer expedited delivery, partial early delivery,
+    or a shortened estimate, because there is no stock to move.
+- policy: quantity-changes
+  obligation: Because the customer requests an increase from 12 to 14 items on ord-3458, the
+    additional 2 items must be handled as a new order line at current prices rather than as
+    an amendment at the original price. If the increase takes the order's total value above
+    the credit-check threshold, confirmation of the increase must wait for the credit check.
+- policy: order-reference-line
+  obligation: ord-3458 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-101, nothing after.
+order_id: ord-3458

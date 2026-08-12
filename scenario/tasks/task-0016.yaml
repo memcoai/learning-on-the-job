@@ -1,0 +1,42 @@
+id: task-0016
+account_id: acc-119
+applicable_policies:
+- delivery-date-language
+- address-change
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask for the expected delivery timing for order ord-3335 and request a
+    change to its delivery address
+  order_id: ord-3335
+  goods: four arc-flash protection kits
+variants:
+- subject: ord-3335 delivery timing and address
+  body: Please confirm when the four arc-flash protection kits on order ord-3335 are expected
+    to arrive. I also need the delivery address changed before this order goes out. Let me
+    know what details you need for the new address.
+- subject: Change needed for order ord-3335
+  body: Can you advise when order ord-3335, containing four arc-flash protection kits, is
+    likely to be delivered? We need to update the delivery address before it is sent. Please
+    tell me how to arrange that.
+- subject: Delivery query for ord-3335
+  body: I’m checking the expected delivery timing for the four arc-flash protection kits on
+    ord-3335. Please also change the delivery address for this order before dispatch. I can
+    provide the replacement address if required.
+expected_obligations:
+- policy: delivery-date-language
+  obligation: Because the customer asks when order ord-3335 will arrive, and its recorded
+    status is before-picking, the reply must first check the order status with the lookup
+    tool; after that check it may offer only a three-working-day delivery window, never a
+    specific delivery date or bare date. The awaiting-stock estimate wording is not required
+    because ord-3335 is not recorded as awaiting-stock.
+- policy: address-change
+  obligation: Because the customer requests a delivery-address change for order ord-3335 and
+    the order is recorded as before-picking, the reply must explain that the change is free
+    and can proceed once the replacement address is provided; no £35 re-routing fee applies
+    and no carrier redelivery or interception wording is appropriate.
+- policy: order-reference-line
+  obligation: ord-3335 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-119, nothing after.
+order_id: ord-3335

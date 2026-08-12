@@ -1,0 +1,56 @@
+id: task-0147
+account_id: acc-128
+applicable_policies:
+- credit-hold-handling
+- sign-off-house-style
+facts:
+  requested_action: Ask whether Fenmoor can help arrange supplies for work taking place at
+    one of the customer's sites and advise what to do next.
+  customer: Sturmer Waste Solutions
+variants:
+- subject: A quick question about site supplies
+  body: 'Hi,
+
+
+    We''ve got a bit of work happening on site and need to sort some supplies. Could you let
+    me know whether Fenmoor can help us with this and what the next step would be?
+
+
+    Cheers,
+
+    Dave'
+- subject: Supplies for the site
+  body: 'Morning,
+
+
+    We''re getting things ready for some work at one of our sites and I wanted to check whether
+    you can help with the supplies we need. Could someone come back to me with the best way
+    to get this moving?
+
+
+    Thanks,
+
+    Karen'
+- subject: Can you help with a site requirement?
+  body: 'Hi there,
+
+
+    We''ve got work starting on site and are trying to get the materials side organised. We''ve
+    dealt with Fenmoor regularly, so I thought I''d drop you a note first rather than chase
+    around elsewhere. I''m not working from an order number at this stage; could you let me
+    know whether this is something your team can help with and what I should do next?
+
+
+    Thanks in advance,
+
+    Martin'
+expected_obligations:
+- policy: credit-hold-handling
+  obligation: 'Because account acc-128 has credit status on-hold, the substantive reply is
+    the referral alone: say that the request has been passed to the accounts team and that
+    they will be in touch within one working day. Do not disclose the hold or give any reason,
+    and do not make any new commitment or mention timing of any kind beyond the required accounts-team
+    contact, including no dates, windows, delivery timing, or statement that timing cannot
+    be given.'
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-128, nothing after.

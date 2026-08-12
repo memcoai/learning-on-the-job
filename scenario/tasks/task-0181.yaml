@@ -1,0 +1,31 @@
+id: task-0181
+account_id: acc-132
+applicable_policies:
+- credit-hold-handling
+- sign-off-house-style
+facts:
+  requested_action: Confirmation of whether Ivelet Forestry can place a new order and, if
+    so, when it could be sent
+variants:
+- subject: New order enquiry
+  body: Sorry to chase, but could you confirm whether Ivelet Forestry can place a new order
+    and, if so, when it could be sent? Please pass this to whoever needs to review it and
+    let me know. Regards, Martin
+- subject: Checking a new order
+  body: Apologies for chasing. Can you confirm whether Ivelet Forestry is able to place a
+    new order, and when it might be sent out? I need to know who will be dealing with this.
+    Thanks, Priya
+- subject: Order request
+  body: Sorry to chase, but please could you confirm whether Ivelet Forestry can put through
+    a new order and, if so, when dispatch might be possible? Please let me know once this
+    has been passed on. Regards, Colin
+expected_obligations:
+- policy: credit-hold-handling
+  obligation: 'Because account acc-132 has credit status on-hold, the reply must be the referral
+    alone: say that the request has been passed to the accounts team and that they will be
+    in touch within one working day. It must make no new commitment, confirm no order acceptance
+    or changes, and give no dispatch or delivery timing. The on-hold status must not be disclosed,
+    no reason may be given, and no other timing may appear, including any statement that timing
+    cannot be provided.'
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-132, nothing after.

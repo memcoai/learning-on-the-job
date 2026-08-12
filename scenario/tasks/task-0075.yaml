@@ -1,0 +1,78 @@
+id: task-0075
+account_id: acc-116
+applicable_policies:
+- partial-shipment
+- goodwill-credit
+- address-change
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: For order ord-3345, send the guillotine blades first and the toner-fix
+    sprays later, provide something off for the trouble caused by the delay, and change the
+    delivery address before the order goes out.
+  order_id: ord-3345
+variants:
+- subject: Question about order ord-3345
+  body: 'Hi,
+
+
+    The goods are needed for an upcoming print run, and the toner-fix sprays seem to be holding
+    things up. Would it be possible to send the guillotine blades first and the sprays later?
+    The delay has caused us some trouble, so could you do something about the price, and can
+    the delivery address for order ord-3345 be changed before it goes out?
+
+
+    Regards,
+
+    Martin'
+- subject: Order ord-3345 — a couple of queries
+  body: 'Good morning,
+
+
+    We are preparing materials for a customer print job, but it looks as though the toner-fix
+    sprays will not be ready with the rest of the order. Could you send the guillotine blades
+    ahead and send the sprays on afterwards? Given the inconvenience, I would also like to
+    ask whether you could take something off the cost, and whether the delivery address on
+    order ord-3345 can still be changed before dispatch.
+
+
+    Thanks,
+
+    Helen'
+- subject: Please advise on order ord-3345
+  body: 'Hello,
+
+
+    The order is for work being carried out at our print room, and the delay to the toner-fix
+    sprays is now making the schedule rather difficult. Could the guillotine blades be sent
+    first, with the sprays following later, and is there anything you can do about the price
+    for the trouble? I also need to know whether we can change the delivery address for order
+    ord-3345 before it leaves your warehouse.
+
+
+    Kind regards,
+
+    David'
+expected_obligations:
+- policy: partial-shipment
+  obligation: The toner-fix sprays line on order ord-3345 has a backorder estimate of 11 working
+    days, which is beyond nine working days, so the reply must offer a split shipment. It
+    must state that the guillotine blades ship now, that the toner-fix sprays follow with
+    an estimate of 11 working days, that the £22 consignment fee applies because acc-116 is
+    tier B rather than tier A, and that carriage is charged once for the whole order.
+- policy: goodwill-credit
+  obligation: The account record shows that acc-116 has had 0 goodwill credits in the twelve
+    months before 14 September 2026, so a further goodwill credit is a decision the desk may
+    take rather than a request requiring order-desk manager sign-off. Because the customer
+    is raising trouble caused by the delayed sprays, the reply may offer up to £180 as account
+    credit only; any amount offered must be named, and it must not be presented as a cash
+    or card refund or as compensation for consequential loss.
+- policy: address-change
+  obligation: Order ord-3345 is currently before picking, so the delivery address can be changed
+    free of charge. The reply must confirm that no re-routing fee applies at this stage and
+    should not state the £35 fee, which applies only from picking until dispatch.
+- policy: order-reference-line
+  obligation: ord-3345 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-116, nothing after.
+order_id: ord-3345

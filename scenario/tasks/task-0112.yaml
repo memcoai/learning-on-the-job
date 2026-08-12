@@ -1,0 +1,57 @@
+id: task-0112
+account_id: acc-102
+applicable_policies:
+- quote-validity
+- goodwill-credit
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Confirmation that the £700 goods price and £30 delivery charge for order
+    3310 still stand, plus something off for the trouble
+  order_id: ord-3310
+  goods_value_ex_vat: £700
+  delivery_charge_ex_vat: £30
+variants:
+- subject: Order 3310 is still being picked
+  body: 'Hi,
+
+
+    This is still showing as being picked and it is causing us a fair bit of hassle. It is
+    order 3310, with £700 for the drawer runner sets and £30 delivery. Could you confirm those
+    prices still stand and see if you can do something off for the trouble?
+
+
+    Regards,
+
+    Helen'
+- subject: Still waiting on order 3310
+  body: 'Morning,
+
+
+    We are still waiting for this to move on from picking, and it is becoming rather frustrating.
+    The order is 3310, charged at £700 for the drawer runner sets plus £30 delivery. Can you
+    let me know whether those prices are still OK and whether there is anything you can do
+    about the hassle?
+
+
+    Thanks,
+
+    Martin'
+expected_obligations:
+- policy: quote-validity
+  obligation: Because the customer asks for confirmation of the £700 goods price and £30 delivery
+    charge on order 3310, any price, discount or carriage charge quoted in the reply must
+    be stated as excluding VAT and as valid for 17 calendar days from the date of that reply;
+    this must also be done if either figure is merely repeated.
+- policy: goodwill-credit
+  obligation: 'Because the customer asks for something off for the trouble caused by order
+    3310 still being shown as picking, the goodwill request concerns a service issue. The
+    account record shows 0 goodwill credits in the preceding twelve months, so a further goodwill
+    credit is a decision the desk may take: it may be up to £180 per incident, the amount
+    must be named, and it must be offered as account credit only, never as a cash or card
+    refund; it is not compensation for consequential loss.'
+- policy: order-reference-line
+  obligation: ord-3310 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-102, nothing after.
+order_id: ord-3310

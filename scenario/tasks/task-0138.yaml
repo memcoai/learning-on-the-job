@@ -1,0 +1,43 @@
+id: task-0138
+account_id: acc-138
+applicable_policies:
+- damage-shortage-window
+- liability-language
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Report that the 29 Junction enclosures on order ord-3387 arrived damaged
+    after delivery on 3 September and ask for a refund of £1,382.46
+  order_id: ord-3387
+  quantity: '29'
+  delivered_date: 3 September
+  amount: £1,382.46
+variants:
+- subject: Damage to order ord-3387
+  body: Following order ord-3387, the 29 Junction enclosures delivered on 3 September arrived
+    damaged. Please let me know whether the £1,382.46 can be refunded or what you can do about
+    it.
+- subject: ord-3387 arrived damaged
+  body: The 29 Junction enclosures from our order ord-3387, delivered on 3 September, were
+    damaged on arrival. Can you arrange a refund of £1,382.46, or advise what happens next?
+- subject: Problem with the 3 September delivery
+  body: Regarding ord-3387, the 29 Junction enclosures delivered on 3 September arrived damaged.
+    I am asking for the £1,382.46 back—please confirm how this is to be dealt with.
+expected_obligations:
+- policy: damage-shortage-window
+  obligation: Because the damage was reported on 14 September after delivery on 3 September,
+    the four-working-day period ended on 9 September and is no longer open; the reply must
+    give that window as the reason Fenmoor cannot raise a claim and route the customer to
+    the carrier's claims process, rather than ask for photographs or accept the claim.
+- policy: liability-language
+  obligation: Because the customer alleges damage and asks for money back, the reply must
+    not accept fault on Fenmoor's behalf or offer compensation, including for any consequential
+    loss. Any remedy discussed may only be a goodwill credit under the goodwill policy and
+    must be framed as goodwill rather than compensation; the reply must name the carrier,
+    direct the customer to the carrier's claims process, and make no commitment on the carrier's
+    behalf.
+- policy: order-reference-line
+  obligation: ord-3387 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-138, nothing after.
+order_id: ord-3387

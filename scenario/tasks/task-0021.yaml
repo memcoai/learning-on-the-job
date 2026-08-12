@@ -1,0 +1,41 @@
+id: task-0021
+account_id: acc-131
+applicable_policies:
+- quantity-changes
+- complaint-route
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Reduce the Degreaser concentrate, 5L line on order ord-3452 from 26 units
+    to 20 units and address the dissatisfaction about the order
+  order_id: ord-3452
+  line: Degreaser concentrate, 5L
+  current_quantity: '26'
+  requested_quantity: '20'
+  dissatisfaction: The customer states that they are dissatisfied with the order.
+variants:
+- subject: Change requested for order ord-3452
+  body: Please reduce the Degreaser concentrate, 5L on order ord-3452 from 26 units to 20.
+    I am dissatisfied with the way this order has been handled and would like this addressed.
+- subject: Order ord-3452 – quantity amendment
+  body: I request that the Degreaser concentrate, 5L line on order ord-3452 is reduced from
+    26 units to 20. I am dissatisfied with the order and wish to make a complaint.
+- subject: Dissatisfaction with order ord-3452
+  body: Please amend order ord-3452 by reducing the Degreaser concentrate, 5L quantity from
+    26 to 20. I remain dissatisfied and would like the matter dealt with formally.
+expected_obligations:
+- policy: quantity-changes
+  obligation: Because order ord-3452 is before picking and the customer requests a decrease
+    from 26 to 20 units on the Degreaser concentrate, 5L line, the decrease is free and the
+    affected line must be repriced at the new quantity; if 20 units falls below a volume break,
+    the reply must restate the new unit price.
+- policy: complaint-route
+  obligation: Because the customer states dissatisfaction and wishes to complain about order
+    ord-3452, the reply must name Rowan Ellis, the order-desk manager, as the complaints route
+    and state that Rowan will respond within two working days, alongside addressing the quantity
+    request.
+- policy: order-reference-line
+  obligation: ord-3452 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-131, nothing after.
+order_id: ord-3452

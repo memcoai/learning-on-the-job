@@ -1,0 +1,41 @@
+id: task-0152
+account_id: acc-108
+applicable_policies:
+- expedite-surcharge
+- delivery-date-language
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask whether the 39 timber connector plates on order ord-3417 can be delivered
+    sooner than 25 September, and what the quicker delivery would cost.
+  order_id: ord-3417
+  quantity: '39'
+  requested_date: 25 September
+variants:
+- subject: Can order ord-3417 be brought forward?
+  body: Hi, can you get the 39 timber connector plates on order ord-3417 here sooner than
+    25 September, and if so, what would the quicker delivery cost? We are getting rather stuck
+    waiting for these, as the roofing job is already under way. Please let me know what the
+    realistic position is. Regards, Martin
+- subject: Earlier delivery for ord-3417
+  body: Morning, is there any chance the 39 timber connector plates from order ord-3417 could
+    arrive before 25 September, and what would you charge for getting them here sooner? I
+    appreciate stock can be awkward, but this delay is becoming a nuisance on site. A clear
+    idea of what can actually be done would be helpful. Thanks, Darren
+expected_obligations:
+- policy: expedite-surcharge
+  obligation: The request is for delivery sooner than the 25 September estimate on ord-3417,
+    so if expedited delivery is offered or agreed the reply must state the £68 surcharge per
+    consignment. acc-108 is tier B with five years' tenure, so the surcharge cannot be waived;
+    the order value, volume and urgency do not qualify for a waiver.
+- policy: delivery-date-language
+  obligation: ord-3417 has status awaiting-stock, so the reply must first check that status
+    with the lookup tool before giving any delivery timing, then offer a three-working-day
+    window rather than committing to a specific date. It must give 25 September as an estimate
+    and state plainly that it is not guaranteed until the goods are in the warehouse; a bare
+    date or an unchecked window is not permitted.
+- policy: order-reference-line
+  obligation: ord-3417 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-108, nothing after.
+order_id: ord-3417

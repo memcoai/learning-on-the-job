@@ -1,0 +1,83 @@
+id: task-0120
+account_id: acc-101
+applicable_policies:
+- delivery-date-language
+- quantity-changes
+- payment-terms-by-tier
+- special-order-lead-time
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Reduce the six bespoke bench frames on order ord-3305 to four, provide
+    the revised price, advise when the goods are likely to arrive, and consider changing the
+    invoice terms to 60 days from invoice
+  order_id: ord-3305
+  current_quantity: 6
+  requested_quantity: 4
+  requested_payment_terms: 60 days from invoice
+variants:
+- subject: Order ord-3305
+  body: 'Hi,
+
+
+    The six bespoke bench frames on order ord-3305 are needed for our current fabrication
+    work. Please change the quantity to four and confirm the revised price. Can you also advise
+    when they are likely to arrive, and whether we can have 60 days from invoice instead of
+    the current invoice terms?
+
+
+    Regards,
+
+    Megan'
+- subject: Change to ord-3305
+  body: 'Morning,
+
+
+    The six bespoke bench frames on order ord-3305 are for a job we are preparing in the workshop.
+    Please reduce them to four and let me know the revised price. I also need an arrival indication
+    and would like to ask whether 60 days from invoice is possible rather than the current
+    invoice terms.
+
+
+    Thanks,
+
+    Daniel'
+- subject: Bench frames — ord-3305
+  body: 'Hello,
+
+
+    We are planning the fabrication work around the six bespoke bench frames on order ord-3305.
+    Could you amend the quantity to four and send the updated price? Please also advise on
+    likely arrival and whether the invoice could be payable in 60 days instead of the current
+    terms.
+
+
+    Regards,
+
+    Priya'
+expected_obligations:
+- policy: delivery-date-language
+  obligation: Because order ord-3305 is currently before-picking and the customer asks about
+    arrival, the reply must first check the order status with the lookup tool, then offer
+    only a three-working-day delivery window; it must not commit to a specific delivery date
+    or give a bare date.
+- policy: quantity-changes
+  obligation: Because the customer requests a decrease from six to four while ord-3305 is
+    before picking, the decrease is free but the bespoke bench-frame line must be repriced
+    at quantity four; if four falls below the applicable volume break, the reply must restate
+    the new unit price.
+- policy: payment-terms-by-tier
+  obligation: Because acc-101 is tier A and the customer asks to change the invoice terms
+    to 60 days, the reply must state the applicable 45-day-from-invoice terms, must not offer
+    or predict extended or negotiated terms, and must pass the request to credit control with
+    a two-working-day response commitment.
+- policy: special-order-lead-time
+  obligation: Because the six bespoke bench frames on ord-3305 are categorised as special-order
+    items and the customer asks about timing, the reply must state a lead time of 17 working
+    days from order confirmation; it cannot shorten that estimate or offer expedited delivery,
+    partial early delivery, or any other early shipment.
+- policy: order-reference-line
+  obligation: ord-3305 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-101, nothing after.
+order_id: ord-3305

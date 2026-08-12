@@ -1,0 +1,58 @@
+id: task-0069
+account_id: acc-117
+applicable_policies:
+- no-discount-categories
+- cancellation-cutoff
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Cancel order ord-3408 for 22 chainsaw protective trousers and consider
+    taking some money off the price because of the trouble.
+  order_id: ord-3408
+  item: 22 chainsaw protective trousers
+variants:
+- subject: ord-3408 — cancellation and price problem
+  body: 'Hi,
+
+
+    ord-3408 is a problem for us. I need to cancel the order for the 22 chainsaw protective
+    trousers, as they are no longer required. Given the hassle this has caused, could you
+    also see whether there is anything you can do to reduce the price? I appreciate the order
+    may already be well into preparation, but I would rather get this sorted now than have
+    it arrive and create more work for everyone.
+
+
+    Please let me know what happens.
+
+
+    Regards,
+
+    Martin'
+- subject: ord-3408 — please cancel
+  body: 'Morning,
+
+
+    ord-3408 is no longer wanted, so please cancel the 22 chainsaw protective trousers. I’m
+    also unhappy about the situation and would like to know whether you can take anything
+    off the price for the trouble. It would be helpful to have this dealt with promptly.
+
+
+    Thanks,
+
+    Helen'
+expected_obligations:
+- policy: no-discount-categories
+  obligation: Because order ord-3408 is for chainsaw protective trousers in the safety-PPE
+    category, the reply must state factually that the goods are excluded from all discounts,
+    promotions and price reductions, including a reduction requested because of the trouble;
+    it must not present this as negotiable or route the request to sales.
+- policy: cancellation-cutoff
+  obligation: Because order ord-3408 is currently in picking, cancellation is subject to a
+    fee of 6% of the order value including VAT, with a minimum of £25. Using the recorded
+    total of £3282.36 including VAT, the reply must state the applicable fee of £196.94 before
+    cancellation is confirmed.
+- policy: order-reference-line
+  obligation: ord-3408 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-117, nothing after.
+order_id: ord-3408

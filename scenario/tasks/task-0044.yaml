@@ -1,0 +1,49 @@
+id: task-0044
+account_id: acc-128
+applicable_policies:
+- credit-hold-handling
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask Fenmoor to remove the 16 galvanised coach screws from order ord-3352
+    and refund that part of the order
+  order_id: ord-3352
+  delivered_date: 2 June
+  line_item: 16 galvanised coach screws
+variants:
+- subject: Request concerning order ord-3352
+  body: 'Dear Fenmoor team,
+
+
+    I am writing about order ord-3352, which was delivered on 2 June. Please could you remove
+    the 16 galvanised coach screws from the order and arrange a refund for that part? I would
+    appreciate it if you could look into this and let me know.
+
+
+    Regards,
+
+    Helen Carter'
+- subject: Order ord-3352 query
+  body: 'Good morning,
+
+
+    There is a query with order ord-3352, delivered on 2 June. Please could you arrange to
+    take the 16 galvanised coach screws off the order and return the corresponding amount?
+    The rest of the delivery was received without any issue.
+
+
+    Kind regards,
+
+    Martin Doyle'
+expected_obligations:
+- policy: credit-hold-handling
+  obligation: Because account acc-128 has credit status on-hold, the reply must consist solely
+    of referring the request to the accounts team and saying that they will be in touch within
+    one working day. The hold must never be disclosed, no reason may be given, and no other
+    timing may appear, including dispatch, delivery, processing or a statement that timing
+    cannot be given; no acceptance, refund, amendment or other commitment may be confirmed.
+- policy: order-reference-line
+  obligation: ord-3352 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-128, nothing after.
+order_id: ord-3352

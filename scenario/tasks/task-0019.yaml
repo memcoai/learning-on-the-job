@@ -1,0 +1,57 @@
+id: task-0019
+account_id: acc-130
+applicable_policies:
+- delivery-date-language
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask when order ord-3468 is likely to arrive
+  order_id: ord-3468
+variants:
+- subject: Delivery timing for order ord-3468
+  body: 'Dear Fenmoor Supplies,
+
+
+    Could you please advise when we should expect delivery of order ord-3468? It is for four
+    1m threaded rods, which we need for an upcoming catering equipment installation, so an
+    indication of the likely arrival time would be appreciated.
+
+
+    Yours faithfully,
+
+    Helen Morris'
+- subject: Please advise on order ord-3468
+  body: 'Good morning,
+
+
+    I am writing to ask when order ord-3468 is expected to arrive. We are arranging work around
+    the four 1m threaded rods on this order, and it would be helpful to have an indication
+    of the delivery timing before we finalise our plans.
+
+
+    Kind regards,
+
+    Daniel Price'
+- subject: Order ord-3468 delivery
+  body: 'Hello,
+
+
+    Please could you let me know when order ord-3468 is likely to be delivered? I appreciate
+    that arrangements can sometimes change, but we need to coordinate the installation involving
+    the four 1m threaded rods and would be grateful for an indication of when they may reach
+    us.
+
+
+    Regards,
+
+    Sarah Whitfield'
+expected_obligations:
+- policy: delivery-date-language
+  obligation: Because order ord-3468 is currently before-picking, the reply must check its
+    status with the lookup tool before giving any delivery indication, then offer a three-working-day
+    delivery window without committing to a specific delivery date or giving a bare date.
+- policy: order-reference-line
+  obligation: ord-3468 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-130, nothing after.
+order_id: ord-3468

@@ -1,0 +1,26 @@
+id: task-0079
+account_id: acc-110
+applicable_policies:
+- carrier-selection
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Use the customer's own carrier for order ord-3447
+  order_id: ord-3447
+variants:
+- subject: Carrier for order ord-3447
+  body: Sorry to chase, but could you send order ord-3447 using our own carrier instead?
+- subject: Request about ord-3447 delivery
+  body: Apologies for chasing, but can order ord-3447 go out with our own carrier rather than
+    yours?
+expected_obligations:
+- policy: carrier-selection
+  obligation: Because order ord-3447 is above £1,400 excluding VAT, and the customer is asking
+    to use its own carrier, Fenmoor must decline that request because Fenmoor selects the
+    carrier, and must offer signed-for delivery as the alternative. The reply must not explain
+    the decision as a cost decision or invite the customer to arrange collection.
+- policy: order-reference-line
+  obligation: ord-3447 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-110, nothing after.
+order_id: ord-3447

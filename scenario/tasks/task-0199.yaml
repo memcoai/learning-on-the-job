@@ -1,0 +1,56 @@
+id: task-0199
+account_id: acc-123
+applicable_policies:
+- returns-window
+- goodwill-credit
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Send back the six laminate trim rolls from order ord-3368, delivered on
+    10 July, and ask for the money back plus something off for the hassle.
+  order_id: ord-3368
+  item: Laminate trim rolls
+  quantity: 6
+  delivery_date: 10 July
+variants:
+- subject: ord-3368 – laminate trim rolls
+  body: 'Hi, sorry to chase, but I need to send back the six laminate trim rolls from ord-3368,
+    which were delivered on 10 July, as we no longer need them. It has been a bit of a nuisance
+    having them here, so could you let me know whether I can get the money back and whether
+    you can do something off for the hassle? I’d appreciate you taking another look at this.
+
+
+    Regards,
+
+    Helen'
+- subject: Can you help with ord-3368?
+  body: 'Morning, apologies for chasing, but I’m trying to sort out the six laminate trim
+    rolls on ord-3368, delivered on 10 July. We don’t need them now and would like to send
+    them back, so please could you tell me if the money can be returned and whether there
+    is anything you can do about the trouble this has caused? It’s becoming rather frustrating
+    to have this still hanging around.
+
+
+    Thanks,
+
+    Martin'
+expected_obligations:
+- policy: returns-window
+  obligation: Order ord-3368 was delivered on 10 July and 66 days have elapsed by 14 September.
+    As acc-123 is tier A, its applicable return window is 38 days; the goods are therefore
+    outside that window and the return is not accepted. The reply must not offer a return,
+    refund, or credit for the returned goods, and must point the customer to the manufacturer's
+    warranty.
+- policy: goodwill-credit
+  obligation: acc-123 has received two goodwill credits within the twelve months before 14
+    September 2026, dated 27 November 2025 and 8 May 2026. Any further goodwill request is
+    therefore pending order-desk manager sign-off, not a decision the desk may make; no goodwill
+    should be promised because the customer has described inconvenience rather than a service
+    failure. If considered, it may be up to £180 for the incident, must name the amount, and
+    can be account credit only—not cash or a card refund—and it must not compensate for consequential
+    loss.
+- policy: order-reference-line
+  obligation: ord-3368 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-123, nothing after.
+order_id: ord-3368

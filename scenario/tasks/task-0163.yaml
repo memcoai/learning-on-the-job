@@ -1,0 +1,51 @@
+id: task-0163
+account_id: acc-114
+applicable_policies:
+- damage-shortage-window
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask what can be done about some zinc-plated washers that arrived damaged
+  order_id: ord-3382
+  delivered_date: 24 August
+  item: zinc-plated washers, mixed
+variants:
+- subject: Issue with order ord-3382
+  body: 'Hello,
+
+
+    Could you advise what can be done about some of the zinc-plated washers that arrived damaged?
+
+
+    They were delivered with order ord-3382 on 24 August.
+
+
+    Regards,
+
+    Helen'
+- subject: Damaged goods from ord-3382
+  body: 'Hi,
+
+
+    Could you please let me know how to proceed with some zinc-plated washers that arrived
+    damaged?
+
+
+    The order, ord-3382, was delivered on 24 August.
+
+
+    Kind regards,
+
+    Martin'
+expected_obligations:
+- policy: damage-shortage-window
+  obligation: Because order ord-3382 was delivered on 24 August and the reference date is
+    14 September 2026, the four-working-day reporting window closed on 28 August; the reply
+    must explain that the desk cannot raise a claim because the report is late and must route
+    the customer to the carrier's claims process instead, without asking for photographs as
+    a condition of Fenmoor accepting the claim.
+- policy: order-reference-line
+  obligation: ord-3382 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-114, nothing after.
+order_id: ord-3382

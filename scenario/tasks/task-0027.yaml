@@ -1,0 +1,36 @@
+id: task-0027
+account_id: acc-127
+applicable_policies:
+- desk-discount-limit
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask whether anything can be taken off the price of the order
+  order_id: ord-3444
+  order_value_ex_vat: £2,157.91
+variants:
+- subject: ord-3444 — request about the price
+  body: Could you please let me know whether there is any possibility of reducing the price
+    on order ord-3444? The order comes to £2,157.91 before VAT, for 31 modular storage racking
+    units, so I wondered whether anything could be done given the size of it. The racking
+    is needed for our current storage project, and we would appreciate it if you could review
+    this before the order moves any further.
+- subject: Price query for order ord-3444
+  body: I am writing to ask whether you could review the price for order ord-3444. The goods
+    value is £2,157.91 before VAT, covering 31 modular storage racking units, and we would
+    be grateful if there were any way to make the total a little more manageable. We are arranging
+    the installation schedule around this delivery, so an indication of whether you can do
+    anything on the price would be helpful.
+expected_obligations:
+- policy: desk-discount-limit
+  obligation: Because account acc-127 is tier-A and order ord-3444 has a goods value of £2,157.91
+    excluding VAT, the order qualifies for a discretionary desk discount of up to 7%; any
+    discount actually given must state the percentage and that it applies to the £2,157.91
+    order value excluding VAT. Any request for a discount larger than 7% must be referred
+    to the sales team, and the reply must not promise or predict that a larger discount will
+    be available.
+- policy: order-reference-line
+  obligation: ord-3444 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-127, nothing after.
+order_id: ord-3444

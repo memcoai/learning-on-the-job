@@ -1,0 +1,59 @@
+id: task-0145
+account_id: acc-111
+applicable_policies:
+- payment-terms-by-tier
+- expedite-surcharge
+- order-release-threshold
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask whether order ord-3451 can be sent urgently, confirm when the invoice
+    payment is due, and request extra time to pay if needed
+  order_id: ord-3451
+  order_total_inc_vat: £2,505.24
+  settled_payment_inc_vat: £884.65 received on 5 September
+  unsettled_payment_inc_vat: £1,436.20 sent on 12 September
+variants:
+- subject: ord-3451 — quick update after our call
+  body: Following our call, could you let me know whether ord-3451 can be sent out urgently?
+    We have paid £884.65 on 5 September and sent a further £1,436.20 on 12 September, against
+    the total of £2,505.24. Please also confirm when the invoice payment is due. If the second
+    payment has not arrived with you yet, can we have a little longer to settle it? This is
+    the cut-to-length cable order we discussed.
+- subject: Question about ord-3451
+  body: Further to my email about ord-3451, is there any way to get the order out quickly?
+    The total is £2,505.24; £884.65 was paid on 5 September and £1,436.20 was sent on 12 September.
+    Could you confirm the date by which the invoice needs to be paid, and let me know whether
+    a little extra time would be possible if the later payment is still showing as outstanding?
+- subject: ord-3451 payment and delivery
+  body: As mentioned on our earlier call, I am chasing ord-3451. We need the cut-to-length
+    cable fairly soon, so could you tell me if it can be sent urgently? The order total is
+    £2,505.24. We paid £884.65 on 5 September and made another payment of £1,436.20 on 12
+    September, although I am not sure whether that one has reached your records yet. Please
+    confirm when payment is due under the invoice, and whether you can allow us a bit more
+    time if necessary. I would also appreciate knowing what is still needed before the order
+    can go out.
+expected_obligations:
+- policy: payment-terms-by-tier
+  obligation: Because acc-111 is a tier-B account and the customer asks when payment is due
+    and requests extra time, state the applicable 21-day-from-invoice terms. Do not offer
+    extended, negotiated or one-off terms, move the invoice due date, or predict what credit
+    control would decide; pass the request to change terms to credit control with a two-working-day
+    response commitment.
+- policy: expedite-surcharge
+  obligation: Because the customer asks for urgent delivery of ord-3451, any expedited delivery
+    that is offered or agreed must state the £68 surcharge per consignment. acc-111 is tier
+    B with four years' tenure, so the waiver does not apply; order value, volume and urgency
+    do not qualify it for a waiver.
+- policy: order-release-threshold
+  obligation: For ord-3451, the only cleared payment is £884.65 because the £1,436.20 payment
+    from 12 September is unsettled, making the settled total £884.65. The reply must state
+    that a further £1,370.07 is required before release and that release does not follow yet;
+    once that required amount is cleared, release follows. The 90% threshold is applied but
+    must never be quoted, and no dispatch commitment or timing may be given while the order
+    remains below it.
+- policy: order-reference-line
+  obligation: ord-3451 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-111, nothing after.
+order_id: ord-3451

@@ -1,0 +1,65 @@
+id: task-0161
+account_id: acc-111
+applicable_policies:
+- price-match
+- expedite-surcharge
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask whether Fenmoor can match a cheaper price found on a Marketplace listing
+    for the rollers and get order ord-3340 delivered sooner
+  order_id: ord-3340
+  evidence_offered: A Marketplace listing for the same rollers
+variants:
+- subject: ord-3340 — rollers needed sooner
+  body: 'Hi, ord-3340 is a bit urgent now — could you get the rollers here sooner? I’ve also
+    found the same ones on a Marketplace listing for less; can you see if you can match it?
+
+
+    Cheers,
+
+    Tom'
+- subject: ord-3340 — quick favour on the rollers
+  body: 'Morning, ord-3340 is needed sooner than expected. Could you get it moving quickly,
+    and have a look at the cheaper price I found on a Marketplace listing to see if you can
+    match it?
+
+
+    Thanks,
+
+    Rachel'
+- subject: ord-3340 — can you help with this?
+  body: 'Hiya, ord-3340 has become a bit urgent — is there any way to get the rollers delivered
+    sooner? I’ve seen the same ones cheaper on a Marketplace listing as well, so could you
+    check whether you can match that?
+
+
+    Regards,
+
+    Mike'
+- subject: ord-3340 — small query
+  body: 'Hello, ord-3340 is needed in a hurry now. Could you arrange for it to arrive sooner,
+    and could someone check the cheaper price I found on a Marketplace listing to see if it
+    can be matched?
+
+
+    All the best,
+
+    Sophie'
+expected_obligations:
+- policy: price-match
+  obligation: The customer has offered a Marketplace listing as evidence for the requested
+    price match, and marketplace listings do not count as acceptable evidence. The reply must
+    say that this evidence is not accepted, ask for a written quote from a trade distributor
+    instead, pass the request to the sales team, and state that they will respond within two
+    working days; the desk must not agree a match, decline one, or estimate the outcome.
+- policy: expedite-surcharge
+  obligation: The customer is asking for order ord-3340 to be delivered sooner, so if expedited
+    delivery is offered or agreed the reply must state the £68 surcharge per consignment.
+    Account acc-111 is not tier A and has four years' tenure, so the surcharge cannot be waived;
+    the order volume, order value and urgency do not qualify for a waiver.
+- policy: order-reference-line
+  obligation: ord-3340 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-111, nothing after.
+order_id: ord-3340

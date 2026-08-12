@@ -1,0 +1,72 @@
+id: task-0125
+account_id: acc-101
+applicable_policies:
+- substitutions
+- complaint-route
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask to replace 9 laminate trim rolls on order ord-3423 with a suitable
+    alternative before dispatch, and ask whether the price would change
+  order_id: ord-3423
+  line_item: Laminate trim rolls
+  quantity: 9
+  customer_stated_issue: States dissatisfaction about having to chase the order
+variants:
+- subject: Alternative for order ord-3423
+  body: 'Hi Priya,
+
+
+    Can you swap the 9 laminate trim rolls on order ord-3423 for a suitable alternative before
+    it leaves? I’m getting a bit fed up with having to chase this, so please let me know what
+    you’d use and whether the price would change. It’s for the usual site, so I’d appreciate
+    a quick steer.
+
+
+    Cheers,
+
+    Martin'
+- subject: Quick question about order ord-3423
+  body: 'Morning Priya,
+
+
+    Could you change the 9 laminate trim rolls on order ord-3423 to something equivalent before
+    dispatch? I’m not very happy with having to keep following this up, and would like to
+    know which product you have in mind and if it costs more or less. Thanks in advance for
+    checking.
+
+
+    Cheers,
+
+    Martin'
+- subject: Can we change part of order ord-3423?
+  body: 'Hi Priya,
+
+
+    Can you send a different option instead of the 9 laminate trim rolls on order ord-3423,
+    before the order goes out? I’m a bit fed up with the back and forth on this, so could
+    you tell me what the alternative would be and whether there’s any difference in price?
+    Everything else is for the usual delivery site.
+
+
+    Thanks,
+
+    Martin'
+expected_obligations:
+- policy: substitutions
+  obligation: The customer is requesting a substitute for the 9 laminate trim rolls on order
+    ord-3423, which is currently picking, but has not identified a specific substitute; therefore
+    the proposed item's status as on or off Fenmoor's approved equivalents list cannot be
+    established from the records. The reply must identify the proposed substitute, establish
+    whether it is on the approved equivalents list, obtain the customer's written consent
+    before making any change, and state the price difference, including if there is no difference.
+- policy: complaint-route
+  obligation: The customer states dissatisfaction by saying they are fed up or not happy about
+    having to chase order ord-3423, so the reply must name Rowan Ellis, the order-desk manager,
+    as the complaints route and state that Rowan will respond within two working days, alongside
+    addressing the substitution request.
+- policy: order-reference-line
+  obligation: ord-3423 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-101, nothing after.
+order_id: ord-3423

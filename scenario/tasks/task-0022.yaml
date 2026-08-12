@@ -1,0 +1,59 @@
+id: task-0022
+account_id: acc-127
+applicable_policies:
+- credit-check-threshold
+- payment-terms-by-tier
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask whether order ord-3465 needs any further approval before confirmation,
+    request expected dispatch timing, and ask for longer to pay than the standard terms.
+  order_id: ord-3465
+  order_total_inc_vat: £4,624.44
+  delivery_charge_ex_vat: £86.00
+  goods: 38 cordless impact drivers
+variants:
+- subject: Order ord-3465
+  body: 'Hi,
+
+
+    For order ord-3465, covering 38 cordless impact drivers at £4,624.44 including VAT, with
+    an £86.00 delivery charge before VAT, can you confirm whether anything else is needed
+    before it goes through, advise when it is likely to be sent, and allow us a little longer
+    to pay?
+
+
+    Regards,
+
+    Helen'
+- subject: Confirmation and payment terms — ord-3465
+  body: 'Morning,
+
+
+    Order ord-3465 is for 38 cordless impact drivers. The total is £4,624.44 including VAT,
+    and the delivery charge is £86.00 before VAT. Please confirm whether there is any further
+    approval needed before you confirm the order, and give us an idea of when it is likely
+    to be sent. We would also like to ask whether we can have longer to pay than the usual
+    arrangement.
+
+
+    Thanks,
+
+    Martin Cole'
+expected_obligations:
+- policy: credit-check-threshold
+  obligation: Order ord-3465 totals £4,624.44 including VAT, so it is not above the internal
+    £4,800 credit-check threshold and no order change described here would take it above that
+    threshold. The reply therefore does not need to hold confirmation or dispatch/delivery
+    timing for a credit check; the £4,800 figure and the existence of the threshold must not
+    be quoted or explained to the customer.
+- policy: payment-terms-by-tier
+  obligation: Account acc-127 is tier A and the customer is asking for longer payment terms,
+    so the reply must state that the applicable terms are 45 days from invoice, must not offer
+    extended, negotiated or one-off terms or move the due date, and must pass the request
+    to credit control with a two-working-day response commitment without predicting the outcome.
+- policy: order-reference-line
+  obligation: ord-3465 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-127, nothing after.
+order_id: ord-3465

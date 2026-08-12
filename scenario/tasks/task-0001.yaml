@@ -1,0 +1,37 @@
+# Seed task: the flagship expedite x credit-check intersection.
+id: task-0001
+account_id: acc-117
+order_id: ord-3308
+applicable_policies:
+  - expedite-surcharge
+  - credit-check-threshold
+  - order-reference-line
+  - sign-off-house-style
+facts:
+  requested_action: expedite delivery of order ord-3308
+  customer_expectation: expects the expedite cost to be waived given order size
+variants:
+  - subject: Need this sooner
+    body: >
+      Hi, we need order ord-3308 sooner than planned. Can you get it moved to
+      expedited delivery? Given the size of this order we'd expect you to
+      cover the cost of that.
+  - subject: Urgent - please expedite ord-3308
+    body: >
+      Hello, ord-3308 has become urgent at our end. Please switch it to your
+      fastest delivery. We assume there's no charge for this considering how
+      much we're spending with you on it.
+expected_obligations:
+  - policy: expedite-surcharge
+    obligation: >
+      acc-117 is tier-B with 2 years' tenure, so the £68 surcharge applies and
+      must be stated; order size never qualifies for a waiver.
+  - policy: credit-check-threshold
+    obligation: >
+      ord-3308 totals £6,204 inc VAT with the credit check pending, so the
+      reply must say confirmation follows the check and commit to no dispatch
+      or delivery timing; the £4,800 threshold is never quoted.
+  - policy: order-reference-line
+    obligation: ord-3308 named in the first sentence.
+  - policy: sign-off-house-style
+    obligation: ends "Fenmoor Supplies order desk" then acc-117, nothing after.

@@ -1,0 +1,66 @@
+id: task-0106
+account_id: acc-121
+applicable_policies:
+- liability-language
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Whether Fenmoor will cover downtime and lost labour connected with the
+    delivered pallet racking beams
+  order_id: ord-3364
+  delivered_date: 15 July
+variants:
+- subject: ord-3364 – site costs
+  body: 'Hi,
+
+
+    The pallet racking beams for our storage area were delivered on 15 July. Can you cover
+    any downtime and lost labour connected with this order?
+
+
+    Regards,
+
+    Martin'
+- subject: Question about ord-3364
+  body: 'Morning,
+
+
+    The pallet racking beams for our storage area arrived on 15 July. Please confirm whether
+    Fenmoor will cover the related site downtime and lost labour.
+
+
+    Thanks,
+
+    Helen'
+- subject: ord-3364 site impact
+  body: 'Hi,
+
+
+    The storage racking beams were delivered on 15 July, and I need to know whether you will
+    cover downtime and lost labour arising from the order.
+
+
+    Dave'
+- subject: Costs linked to ord-3364
+  body: 'Hello,
+
+
+    The pallet racking beams for our storage area arrived on 15 July. Will Fenmoor pay for
+    any downtime and lost labour connected with them?
+
+
+    Regards,
+
+    Claire'
+expected_obligations:
+- policy: liability-language
+  obligation: The customer is asking Fenmoor to cover downtime and lost labour connected with
+    delivered order ord-3364, which are consequential losses; the reply must not accept fault
+    on Fenmoor's behalf or offer compensation for those losses. The only remedy the desk may
+    offer is a goodwill credit under the goodwill policy, and it must be described as goodwill
+    rather than compensation.
+- policy: order-reference-line
+  obligation: ord-3364 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-121, nothing after.
+order_id: ord-3364

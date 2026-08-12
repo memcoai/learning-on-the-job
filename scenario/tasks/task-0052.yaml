@@ -1,0 +1,62 @@
+id: task-0052
+account_id: acc-121
+applicable_policies:
+- special-order-lead-time
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Confirm whether the 14 bespoke bench frames can arrive before the expected
+    delivery date, including whether some could be sent first
+  order_id: ord-3430
+  estimated_delivery: 6 October
+variants:
+- subject: ord-3430 – delivery timing
+  body: 'Hello,
+
+
+    Could you please confirm whether the 14 bespoke bench frames on order ord-3430 are still
+    expected on 6 October? If possible, we would also like to know whether some could be sent
+    before then, with the remainder to follow.
+
+
+    Regards,
+
+    Martin Cole'
+- subject: Query about order ord-3430
+  body: 'Good morning,
+
+
+    I am checking the delivery position for the 14 bespoke bench frames on ord-3430. Is 6
+    October still the expected date, or is there any possibility of receiving at least part
+    of the order sooner?
+
+
+    Many thanks,
+
+    Helen'
+- subject: Please confirm expected delivery for ord-3430
+  body: 'Hi,
+
+
+    We are planning the works schedule for the site and need to firm up when the 14 bespoke
+    bench frames on order ord-3430 will arrive. The date currently shown to us is 6 October.
+    Could you confirm whether that remains realistic? If the complete order cannot come then,
+    please let us know whether any of the frames might be sent ahead and the balance delivered
+    afterwards. We have had no issues with the last delivery, so I am hoping this can be kept
+    on track.
+
+
+    Kind regards,
+
+    Simon Reed'
+expected_obligations:
+- policy: special-order-lead-time
+  obligation: Because order ord-3430 contains bespoke bench frames recorded as special-order
+    items, the reply to this timing enquiry must state that the applicable lead time is 17
+    working days from order confirmation. That period cannot be shortened, so the reply must
+    not offer expedited delivery, partial early delivery, or a shortened delivery estimate.
+- policy: order-reference-line
+  obligation: ord-3430 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-121, nothing after.
+order_id: ord-3430

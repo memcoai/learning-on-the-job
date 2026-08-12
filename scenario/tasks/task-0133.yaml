@@ -1,0 +1,61 @@
+id: task-0133
+account_id: acc-124
+applicable_policies:
+- refund-method
+- returns-window
+- non-returnable-categories
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Return the 34 high-visibility vests from order ord-3385 and receive a
+    refund of £708.60 to the card used for payment
+  order_id: ord-3385
+  product: High-visibility vests
+  quantity: 34
+  amount: £708.60
+  delivered_date: 2 September
+  packaging_condition: unopened
+variants:
+- subject: Return request for ord-3385
+  body: The high-visibility vests arrived for use on site, but we now need to send them back.
+    All 34 are still unopened and exactly as delivered. Please arrange the return of order
+    ord-3385 and refund the £708.60 to the card used.
+- subject: Can we return the vests from ord-3385?
+  body: The high-visibility vests were delivered for work on site, but they are no longer
+    needed. The packaging is unopened and all 34 vests are in the same condition as when delivered
+    on 2 September. Please let me know how to return ord-3385 and have the £708.60 refunded
+    to the card.
+- subject: ord-3385 — vests to be returned
+  body: 'The high-visibility vests came in for site work, and we need to get them sent back
+    now. This is getting rather frustrating, as they have not been used: the packaging is
+    unopened and the 34 vests are exactly as delivered. They were delivered on 2 September,
+    so please confirm the return arrangements for ord-3385 and the refund of £708.60 to the
+    payment card.'
+- subject: Request to send back high-visibility vests
+  body: The high-visibility vests were ordered for use on site, but we need to return them
+    instead. Nothing has been opened or altered; the packaging is unopened and all 34 vests
+    remain as delivered. Order ord-3385 was delivered on 2 September. Please advise what we
+    need to do to send the goods back and receive the £708.60 refund on the card used for
+    payment.
+expected_obligations:
+- policy: refund-method
+  obligation: Because order ord-3385 was paid for by card and the account is not closing,
+    any refund must go to the original card. The reply must state that route and the applicable
+    refund timing, and must not offer cash, a cheque, a bank transfer, or a transfer to another
+    card.
+- policy: returns-window
+  obligation: The order was delivered on 2 September and 12 days have elapsed by 14 September.
+    The ordinary 24-day returns window therefore governs, so the return is accepted. The tier-A
+    extension to 38 days is applied only to tier-A accounts and must not be mentioned to this
+    non-tier-A account; the reply should identify the delivery date, elapsed days, ordinary
+    window and acceptance.
+- policy: non-returnable-categories
+  obligation: The goods are high-visibility vests, a PPE category, but the packaging is unopened
+    and the goods remain as delivered. The PPE packaging condition that would make them never
+    returnable therefore does not apply, so the return must not be refused on category grounds;
+    the reply must not substitute a goodwill credit for the eligible return.
+- policy: order-reference-line
+  obligation: ord-3385 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-124, nothing after.
+order_id: ord-3385

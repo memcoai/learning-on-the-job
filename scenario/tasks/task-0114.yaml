@@ -1,0 +1,62 @@
+id: task-0114
+account_id: acc-118
+applicable_policies:
+- quantity-changes
+- price-match
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Reduce the feed store shelving on order ord-3330 from 22 units to 20,
+    and match the price shown in an attached screenshot from a consumer website
+  order_id: ord-3330
+  current_quantity: 22
+  requested_quantity: 20
+  evidence_offered: A screenshot from a consumer website
+variants:
+- subject: ord-3330 – shelving quantity and price
+  body: 'Hi,
+
+
+    Could you change order ord-3330 from 22 feed store shelves to 20 and match the price in
+    the screenshot attached? It is getting rather frustrating having to chase this, although
+    the screenshot is from a consumer website.
+
+
+    Thanks, Martin'
+- subject: Can you amend ord-3330?
+  body: 'Morning,
+
+
+    Can you reduce the shelving on ord-3330 from 22 to 20 and see if you can match the price
+    shown in my attached consumer-site screenshot? I would appreciate getting this sorted
+    without another round of emails.
+
+
+    Regards, Helen'
+- subject: Request for change to ord-3330
+  body: 'Hello,
+
+
+    Would you change the feed store shelving on ord-3330 from 22 units to 20, and match the
+    price shown in the attached screenshot? It is only a consumer website listing, but I am
+    hoping someone can deal with this promptly.
+
+
+    Thanks, David'
+expected_obligations:
+- policy: quantity-changes
+  obligation: Because order ord-3330 is before picking and the customer requests a decrease
+    from 22 to 20 feed store shelving units, the decrease is free, but the affected line must
+    be repriced at the new quantity; if 20 falls below a volume break, the reply must restate
+    the new unit price. The increase provisions do not apply.
+- policy: price-match
+  obligation: The customer has offered a screenshot from a consumer website, which does not
+    count as evidence for a price match. The reply must say that it is not accepted and ask
+    for a written quote from a trade distributor if one is available, then pass the request
+    to the sales team, who respond within two working days; the desk must not agree the match,
+    decline it, or estimate the outcome.
+- policy: order-reference-line
+  obligation: ord-3330 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-118, nothing after.
+order_id: ord-3330

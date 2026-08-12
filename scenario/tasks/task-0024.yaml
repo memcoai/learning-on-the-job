@@ -1,0 +1,63 @@
+id: task-0024
+account_id: acc-133
+applicable_policies:
+- delivery-date-language
+- complaint-route
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: An update on when order ord-3463 might arrive, along with a way to complain
+    because the wait is becoming frustrating.
+  order_id: ord-3463
+variants:
+- subject: Order ord-3463 — any news on delivery?
+  body: 'Hi there,
+
+
+    I’m getting a bit fed up waiting for order ord-3463 and wondered when it might arrive.
+    Could you have a look and let me know what’s happening? I’d also like to know who I should
+    speak to if I want to complain about the wait.
+
+
+    Cheers,
+
+    Megan'
+- subject: Can you check order ord-3463 for me?
+  body: 'Morning,
+
+
+    Could someone check what’s happening with order ord-3463 and give me an idea of when it
+    might turn up? We’ve been waiting on it for a while now, and I’m not particularly happy
+    about the lack of news. Please let me know how I can raise this properly as well.
+
+
+    Thanks,
+
+    Tom'
+- subject: A quick update on ord-3463, please
+  body: 'Hi team,
+
+
+    I know you’re usually pretty quick, but I’m starting to get frustrated about order ord-3463.
+    Can you check where things are up to and tell me when we might see it? I’d also appreciate
+    the details for making a complaint about the wait.
+
+
+    Regards,
+
+    Claire'
+expected_obligations:
+- policy: delivery-date-language
+  obligation: Because order ord-3463 is currently before-picking and the customer is asking
+    when it might arrive, the reply must first check the order status with the lookup tool
+    and then offer a three-working-day delivery window; it must not commit to a specific delivery
+    date or give a bare date.
+- policy: complaint-route
+  obligation: Because the customer states dissatisfaction about waiting and asks how to complain,
+    the reply must name Rowan Ellis, the order-desk manager, as the complaints route and state
+    that Rowan will respond within two working days, alongside addressing the delivery query.
+- policy: order-reference-line
+  obligation: ord-3463 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-133, nothing after.
+order_id: ord-3463

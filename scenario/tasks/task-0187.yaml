@@ -1,0 +1,56 @@
+id: task-0187
+account_id: acc-119
+applicable_policies:
+- volume-breaks
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Check whether the quantities across the three lines on order ord-3362
+    qualify for a lower price
+  order_id: ord-3362
+  line_quantities: 16 bi-metal holesaw sets, 31 cut-to-length hose assemblies, and 33 respirator
+    face masks, P3
+variants:
+- subject: Pricing query for ord-3362
+  body: 'Sorry to chase. Could you check whether the quantities on order ord-3362 qualify
+    for a lower price? The order has 16 bi-metal holesaw sets, 31 cut-to-length hose assemblies
+    and 33 respirator face masks, P3.
+
+
+    Regards,
+
+    Helen'
+- subject: Could you review the pricing on ord-3362?
+  body: 'Apologies for chasing this, but could you review the pricing on order ord-3362? We
+    ordered 16 bi-metal holesaw sets, 31 cut-to-length hose assemblies and 33 respirator face
+    masks, P3, and I wanted to check whether those quantities qualify for any lower prices.
+
+
+    Thanks,
+
+    Martin'
+- subject: ord-3362 – request to check prices
+  body: 'Sorry to chase. Please could you check whether anything can be done on the pricing
+    for order ord-3362? We are reviewing the goods received and noticed that the order included
+    16 bi-metal holesaw sets, 31 cut-to-length hose assemblies and 33 respirator face masks,
+    P3. As they were all placed together, I wondered whether the quantities might qualify
+    for a lower price. I would appreciate you taking a look and letting me know.
+
+
+    Regards,
+
+    Claire'
+expected_obligations:
+- policy: volume-breaks
+  obligation: The volume break does not apply to any line on order ord-3362 because the quantities
+    are 16 bi-metal holesaw sets, 31 cut-to-length hose assemblies and 33 respirator face
+    masks, all below 50 units per single order line; the reply must say that quantities are
+    assessed per line and never accumulate across lines or orders. It must not mention or
+    suggest any next break threshold or how many more units would be needed; if addressing
+    the request for a lower price, it should say that volume pricing is applied automatically
+    at order time.
+- policy: order-reference-line
+  obligation: ord-3362 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-119, nothing after.
+order_id: ord-3362

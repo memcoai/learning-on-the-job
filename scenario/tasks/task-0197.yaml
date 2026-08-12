@@ -1,0 +1,53 @@
+id: task-0197
+account_id: acc-105
+applicable_policies:
+- returns-window
+- liability-language
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: send back the pallet racking beams from order ord-3379, have the invoice
+    reduced or receive some money back, and be compensated for labour lost while the installation
+    was held up
+  order_id: ord-3379
+  goods: Pallet racking beams
+  delivered_date: 31 July
+  site_impact: the racking installation has been held up and labour has been left waiting
+variants:
+- subject: Problem with the racking beams
+  body: The pallet racking beams from order ord-3379 were for a storage job we’re trying to
+    finish on site, but the installation has been held up and the lads have been left waiting
+    around. They were delivered on 31 July. Can we send the beams back, get the invoice reduced
+    or have something back for the hassle and the wasted labour?
+- subject: ord-3379 – racking job held up
+  body: The racking installation on site has ground to a halt around the pallet racking beams
+    from order ord-3379, and we’ve had labour standing by while we sort it out. They arrived
+    on 31 July, but they’re no use to us for this job. Can you let us send them back and do
+    something about the invoice? We’d also like something back for the time we’ve lost getting
+    the site moving again.
+- subject: Pallet racking beams delivered 31 July
+  body: The pallet racking beams on ord-3379 were meant to get the storage work finished,
+    but the job has been stuck on site since we found they weren’t right for it. They were
+    delivered on 31 July and the installation team has been left waiting. Is there a way to
+    send them back and have some money taken off the invoice? Given the disruption and the
+    labour we’ve had tied up, we’d appreciate something back for that as well.
+expected_obligations:
+- policy: returns-window
+  obligation: Order ord-3379 contains stocked storage goods delivered on 31 July; by 14 September
+    45 days have elapsed, which is beyond account acc-105’s applicable tier-A 38-day return
+    window, so the return is not accepted. The reply must not offer a return, refund or credit
+    and must point the customer to the manufacturer’s warranty. The tier-A extension is applied
+    internally but must not be disclosed to the customer.
+- policy: liability-language
+  obligation: The customer reports that the installation was held up and that labour was left
+    waiting, which raises consequential loss. The reply must not accept fault on Fenmoor’s
+    behalf or offer compensation for downtime or lost labour. Any permitted remedy would only
+    be a goodwill credit under the goodwill policy and must be described as goodwill rather
+    than compensation; in this case the returns policy separately prevents offering a credit
+    for the out-of-window return. No carrier process or carrier commitment is relevant because
+    no carrier delay or damage is alleged.
+- policy: order-reference-line
+  obligation: ord-3379 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-105, nothing after.
+order_id: ord-3379

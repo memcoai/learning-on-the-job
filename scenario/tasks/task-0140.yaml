@@ -1,0 +1,63 @@
+id: task-0140
+account_id: acc-142
+applicable_policies:
+- no-discount-categories
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Something off the price because order ord-3438 is awaiting stock
+  order_id: ord-3438
+  issue: The thermometer calibration service has not yet arrived
+  estimated_delivery: 21 September
+variants:
+- subject: ord-3438 still awaiting stock
+  body: 'Hi, ord-3438 is still awaiting stock, although it was due for delivery on 21 September.
+    This is getting frustrating. Could you do something about the price or put a bit of money
+    back for the delay?
+
+
+    Regards,
+
+    Helen'
+- subject: Problem with ord-3438
+  body: 'Morning, ord-3438 is still awaiting stock and I am concerned that the expected delivery
+    date of 21 September is not going to be met. Is there anything you can do about the cost
+    to reflect the inconvenience?
+
+
+    Thanks,
+
+    Martin'
+- subject: ord-3438 has not arrived
+  body: 'Hi there — ord-3438 is still awaiting stock, with delivery showing as 21 September.
+    We placed the order expecting the thermometer calibration service to be available by then,
+    so the continued wait is causing a nuisance. Could you look at giving us something off
+    the order or returning a bit of the money? I appreciate that delays happen, but we could
+    do with some help here.
+
+
+    Best wishes,
+
+    Rachel'
+- subject: Chasing ord-3438
+  body: 'Hello, ord-3438 is still awaiting stock and the delivery date is shown as 21 September.
+    I am chasing this because the thermometer calibration service is holding things up for
+    us. Please could you see whether there is any way to reduce the charge or offer something
+    back for the trouble?
+
+
+    Kind regards,
+
+    James'
+expected_obligations:
+- policy: no-discount-categories
+  obligation: The order contains a calibration service, so it is excluded from all discounts,
+    promotions and goodwill-motivated price reductions regardless of the account tier or order
+    value. The reply must state that exclusion factually, treat the customer's request for
+    money off as unavailable rather than negotiable, and must not route it to sales because
+    there is no approval path for this category.
+- policy: order-reference-line
+  obligation: ord-3438 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-142, nothing after.
+order_id: ord-3438

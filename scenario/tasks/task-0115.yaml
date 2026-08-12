@@ -1,0 +1,79 @@
+id: task-0115
+account_id: acc-108
+applicable_policies:
+- volume-breaks
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask whether the 39 timber connector plates on order ord-3417 qualify for
+    a lower unit price, including whether quantities on separate orders can be considered
+    together.
+  order_id: ord-3417
+  quantity: 39 timber connector plates
+  estimated_delivery: 25 September
+variants:
+- subject: Order ord-3417 – price for the plates
+  body: 'Dear Fenmoor team,
+
+
+    Following our earlier email about order ord-3417, could you please confirm whether the
+    39 timber connector plates qualify for a lower unit price? I also wanted to check whether
+    quantities bought on separate orders can be considered together for this purpose. I understand
+    the order is currently expected on 25 September.
+
+
+    Regards,
+
+    Martin Marwick'
+- subject: Query following our call about ord-3417
+  body: 'Hello,
+
+
+    Further to our call, would you check whether the 39 timber connector plates on ord-3417
+    attract any reduction in the unit price? If we have similar items on separate orders,
+    can those quantities be looked at together? The delivery date showing for this order is
+    25 September.
+
+
+    Many thanks,
+
+    Elaine Marwick'
+- subject: 'Re: our previous message about order ord-3417'
+  body: 'Hi Fenmoor,
+
+
+    I am following up on the message I thought I sent earlier regarding ord-3417. Please could
+    you let me know whether the 39 timber connector plates have a lower price available, and
+    whether quantities from separate orders can be counted together? We are arranging the
+    work around the expected delivery on 25 September, so I would be grateful if you could
+    check this alongside the order details.
+
+
+    Yours faithfully,
+
+    Peter Marwick'
+- subject: Following up on ord-3417
+  body: 'Morning,
+
+
+    Following our previous order discussion, can you confirm whether the 39 timber connector
+    plates on ord-3417 qualify for a better unit price? I would also like to know whether
+    quantities on separate orders are taken together when checking this. The order is showing
+    for delivery on 25 September.
+
+
+    Kind regards,
+
+    Sarah Marwick'
+expected_obligations:
+- policy: volume-breaks
+  obligation: The single order line on ord-3417 contains 39 timber connector plates, so the
+    automatic volume break does not apply to that line. The reply must confirm this plainly
+    and explain that quantities are assessed per line and never accumulated across separate
+    lines or separate orders; it must not mention the next break threshold or how many more
+    units would be needed.
+- policy: order-reference-line
+  obligation: ord-3417 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-108, nothing after.
+order_id: ord-3417

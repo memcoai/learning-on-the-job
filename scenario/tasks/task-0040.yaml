@@ -1,0 +1,75 @@
+id: task-0040
+account_id: acc-121
+applicable_policies:
+- price-match
+- desk-discount-limit
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask Fenmoor to match a lower price shown on a consumer website and consider
+    reducing the price of the order for the inconvenience
+  order_id: ord-3469
+  goods_value_ex_vat: £4,687.85
+  evidence_offered: A screenshot from a consumer website showing a lower price
+variants:
+- subject: ord-3469 — lower price shown online
+  body: 'Dear Fenmoor team,
+
+
+    Regarding order ord-3469, valued at £4,687.85 excluding VAT, I have attached a screenshot
+    from a consumer website showing a lower price for the same type of pallet racking beams.
+    Would you please see whether the order price can be matched? Given the trouble involved,
+    I would also be grateful if you could consider reducing the price in some way.
+
+
+    Yours sincerely,
+
+    Helen Morris'
+- subject: Request concerning order ord-3469
+  body: 'Good morning,
+
+
+    I am writing about order ord-3469, for £4,687.85 excluding VAT. I have found a lower price
+    displayed on a consumer website and have included a screenshot. Could you please look
+    into whether the price can be brought into line with it? I would also appreciate your
+    considering whether anything can be taken off the order price for the inconvenience.
+
+
+    Regards,
+
+    Martin Cole'
+- subject: ord-3469 – pricing query
+  body: 'Hello,
+
+
+    Please could you review the pricing on order ord-3469? The order value is £4,687.85 excluding
+    VAT. I have attached a screenshot from a consumer website where the same sort of goods
+    are shown at a lower price, and would like to know whether you can match what is shown.
+
+
+    There has been rather more work than expected getting this order arranged, so please also
+    consider whether there is any scope to reduce the amount payable. I would be grateful
+    if you could let me know what can be done.
+
+
+    Kind regards,
+
+    James Whitfield'
+expected_obligations:
+- policy: price-match
+  obligation: The customer is asking Fenmoor to match a lower price and has offered a screenshot
+    from a consumer website as evidence; that screenshot does not count, so the reply must
+    say it is not accepted and ask for a written quote from a trade distributor if the customer
+    wants the request considered. The request must be passed to the sales team, which will
+    respond within two working days; the desk must not agree a match, decline one, or estimate
+    the outcome.
+- policy: desk-discount-limit
+  obligation: Order ord-3469 is worth £4,687.85 excluding VAT, above £900, and account acc-121
+    is tier A, so the desk may apply a discretionary discount of up to 7%. Any discount given
+    must state its percentage and the order value it applies to. A larger discount must instead
+    be put to the sales team as a request and must not be promised or predicted.
+- policy: order-reference-line
+  obligation: ord-3469 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-121, nothing after.
+order_id: ord-3469

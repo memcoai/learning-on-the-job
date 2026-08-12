@@ -1,0 +1,42 @@
+id: task-0134
+account_id: acc-133
+applicable_policies:
+- cancellation-cutoff
+- volume-breaks
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Cancel order ord-3441 and check whether the 33 cut-to-length worktops
+    and 6 workshop wiping rolls can be priced more cheaply together
+  order_id: ord-3441
+  cut_to_length_quantity: '33'
+  consumables_quantity: '6'
+variants:
+- subject: Cancel ord-3441 and check the price
+  body: Can I cancel order ord-3441, and do the 33 cut-to-length worktops and 6 workshop wiping
+    rolls qualify for a lower price when bought together?
+- subject: Question about ord-3441
+  body: Can ord-3441 be cancelled, and is there any better price for the 33 cut-to-length
+    worktops and 6 workshop wiping rolls combined?
+- subject: ord-3441 cancellation and pricing
+  body: Can you cancel ord-3441? Also, do the 33 cut-to-length worktops and 6 workshop wiping
+    rolls count together for any lower price?
+- subject: Please check ord-3441
+  body: Can I cancel ord-3441, and can you check whether the 33 cut-to-length worktops and
+    6 workshop wiping rolls get a lower price together? I paid by card, so please let me know
+    if anything needs changing on that payment. The last delivery went smoothly, but I need
+    to sort this order before it is dealt with.
+expected_obligations:
+- policy: cancellation-cutoff
+  obligation: Because order ord-3441 is currently before picking, cancellation is free; the
+    reply should confirm that the order can be cancelled without a cancellation charge.
+- policy: volume-breaks
+  obligation: Neither the 33 cut-to-length worktops line nor the 6 workshop wiping rolls line
+    reaches the quantity needed for a volume break, so no break applies; the reply must explain
+    that quantities are assessed separately and never accumulate across lines or orders, without
+    mentioning or hinting at the next break threshold.
+- policy: order-reference-line
+  obligation: ord-3441 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-133, nothing after.
+order_id: ord-3441

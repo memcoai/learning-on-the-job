@@ -1,0 +1,76 @@
+id: task-0025
+account_id: acc-116
+applicable_policies:
+- partial-shipment
+- goodwill-credit
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Send the 12 guillotine blades now and the 20 toner-fix sprays later, and
+    give something back for the delay
+  order_id: ord-3345
+  toner_fix_sprays_backorder: 11 working days
+  guillotine_blades_quantity: '12'
+  toner_fix_sprays_quantity: '20'
+variants:
+- subject: Order ord-3345 — can the available items come first?
+  body: 'Hi Sarah,
+
+
+    I’ve checked order ord-3345 and can see the 20 toner-fix sprays are showing as 11 working
+    days away. We need the 12 guillotine blades sooner than that, so could you send those
+    first and follow the sprays on afterwards? The delay is causing us a bit of trouble, so
+    is there anything you can do to put some money back on the order?
+
+
+    Regards,
+
+    Martin'
+- subject: Please look at order ord-3345
+  body: 'Morning Sarah,
+
+
+    The 20 toner-fix sprays on ord-3345 are not due for 11 working days, which is rather inconvenient
+    for us. Could you send the 12 guillotine blades that are available now and send the sprays
+    when they arrive? Also, given the wait, would you be able to do something off the order?
+
+
+    Thanks,
+
+    Helen'
+- subject: ord-3345 delayed items
+  body: 'Hi Sarah,
+
+
+    I’m getting a little fed up with the position on ord-3345. The 20 toner-fix sprays are
+    showing as 11 working days away, but we still need the 12 guillotine blades for work in
+    progress. Please could you arrange for the blades to come out first, with the sprays following
+    later?
+
+
+    I appreciate that stock problems happen, but this delay leaves us having to rearrange
+    work at our end. Is there any possibility of a bit of money back for the trouble?
+
+
+    Best wishes,
+
+    Daniel'
+expected_obligations:
+- policy: partial-shipment
+  obligation: 'The toner-fix sprays on ord-3345 are backordered for 11 working days, which
+    is beyond nine working days, so the reply must offer a split shipment: 12 guillotine blades
+    ship now and the 20 toner-fix sprays follow with an estimate of 11 working days. Because
+    acc-116 is tier B rather than tier A, the reply must state the £22 consignment fee and
+    confirm that carriage is charged once for the whole order.'
+- policy: goodwill-credit
+  obligation: The 11-working-day delay on ord-3345 is the service failure giving rise to the
+    goodwill request, and acc-116 has had 0 goodwill credits recorded in the twelve months
+    before 14 September 2026, so a further goodwill credit is a decision the desk may take
+    rather than a request pending order-desk manager sign-off. Any credit offered may be up
+    to £180, must name the amount, must be account credit only and never a cash or card refund,
+    and must not be presented as compensation for consequential loss.
+- policy: order-reference-line
+  obligation: ord-3345 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-116, nothing after.
+order_id: ord-3345

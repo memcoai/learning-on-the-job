@@ -1,0 +1,49 @@
+id: task-0051
+account_id: acc-125
+applicable_policies:
+- carrier-selection
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Use Halloway Glazing's own carrier for order ord-3457
+  order_id: ord-3457
+  goods_value_ex_vat: £2,729.16
+  quantity: '36'
+variants:
+- subject: Order ord-3457 – carrier request
+  body: 'Hi,
+
+
+    Could you please send order ord-3457 with our own carrier rather than your usual arrangement?
+    The order is for 36 modular storage racking units, valued at £2,729.16 excluding VAT.
+
+
+    Regards,
+
+    Rachel'
+- subject: Request regarding delivery of ord-3457
+  body: 'Good morning,
+
+
+    I am writing about order ord-3457 for 36 modular storage racking units, with a value of
+    £2,729.16 excluding VAT. Could you arrange for our own carrier to collect or deliver this
+    order instead of the carrier you would normally select? We are trying to keep the arrangements
+    for this order consistent with our other goods movements. Please let me know what can
+    be done.
+
+
+    Kind regards,
+
+    Martin'
+expected_obligations:
+- policy: carrier-selection
+  obligation: Because order ord-3457 has goods value of £2,729.16 excluding VAT, which is
+    above £1,400 excluding VAT, Fenmoor selects the carrier and must decline Halloway Glazing's
+    request to use its own carrier; the reply must offer signed-for delivery as the alternative,
+    without explaining carrier selection as a cost decision or inviting the customer to arrange
+    their own collection.
+- policy: order-reference-line
+  obligation: ord-3457 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-125, nothing after.
+order_id: ord-3457

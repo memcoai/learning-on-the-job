@@ -1,0 +1,380 @@
+# Fenmoor Supplies mock CRM: accounts.
+#
+# Authored against scenario/policies.yaml: tiers, tenures, credit statuses and
+# group memberships are chosen so every policy's conditions are reachable,
+# including the boundaries. Do not edit values without checking which policy
+# combination a record exists to serve (noted in comments).
+#
+# Fields: tier A|B|C; credit_status ok|on-hold; tenure_years (whole years);
+# status trading|closing; group (optional corporate group key);
+# goodwill_credits (optional list of {date, amount}: the credits already
+# granted, which the goodwill policy counts over a rolling twelve months).
+
+accounts:
+  - id: acc-101
+    name: Halvern Fabrication Ltd
+    tier: A
+    credit_status: ok
+    tenure_years: 11
+    status: trading
+    # tier-A baseline: expedite waiver by tier, 38-day returns, 45-day terms
+
+  - id: acc-102
+    name: Bryce & Mellor Joinery
+    tier: B
+    credit_status: ok
+    tenure_years: 7
+    status: trading
+    # tier-B with 6+ years: expedite waiver by tenure, NOT by tier
+
+  - id: acc-103
+    name: Cotterell Marine Services
+    tier: B
+    credit_status: ok
+    tenure_years: 2
+    status: trading
+
+  - id: acc-104
+    name: Drayfield Interiors
+    tier: C
+    credit_status: ok
+    tenure_years: 1
+    status: trading
+    # tier-C: prepayment terms, no desk discount
+
+  - id: acc-105
+    name: Ashgate Mechanical
+    tier: A
+    credit_status: ok
+    tenure_years: 6
+    status: trading
+    # tenure boundary: exactly 6 years qualifies for the expedite waiver
+
+  - id: acc-106
+    name: Penfold Site Services
+    tier: B
+    credit_status: on-hold
+    tenure_years: 9
+    status: trading
+    # on-hold with long tenure: the hold governs; tenure buys nothing
+
+  - id: acc-107
+    name: Ryecliff Engineering
+    tier: A
+    credit_status: on-hold
+    tenure_years: 14
+    status: trading
+    # on-hold trumps tier-A
+
+  - id: acc-108
+    name: Marwick Bros Roofing
+    tier: B
+    credit_status: ok
+    tenure_years: 5
+    status: trading
+    # tenure boundary: 5 years does NOT qualify for the expedite waiver
+
+  - id: acc-109
+    name: Lanthorne Labs
+    tier: B
+    credit_status: ok
+    tenure_years: 3
+    status: closing
+    # closing account: refunds by bank transfer within 12 working days
+
+  - id: acc-110
+    name: Veddersley Group Holdings
+    tier: A
+    credit_status: ok
+    tenure_years: 12
+    status: trading
+    group: veddersley
+
+  - id: acc-111
+    name: Veddersley Coatings Ltd
+    tier: B
+    credit_status: ok
+    tenure_years: 4
+    status: trading
+    group: veddersley
+    # same-group pair with acc-110: third-party-privacy tasks
+
+  - id: acc-112
+    name: Orme & Tandy Electrical
+    tier: B
+    credit_status: ok
+    tenure_years: 8
+    status: trading
+
+  - id: acc-113
+    name: Fairhurst Cold Storage
+    tier: C
+    credit_status: ok
+    tenure_years: 4
+    status: trading
+
+  - id: acc-114
+    name: Netherby Plant Hire
+    tier: A
+    credit_status: ok
+    tenure_years: 9
+    status: trading
+
+  - id: acc-115
+    name: Skelmore Joinery
+    tier: C
+    credit_status: ok
+    tenure_years: 6
+    status: trading
+    # tier-C with 6 years: expedite waiver applies by tenure despite prepay tier
+
+  - id: acc-116
+    name: Quill & Harrow Print
+    tier: B
+    credit_status: ok
+    tenure_years: 1
+    status: trading
+
+  - id: acc-117
+    name: Bramwell Groundworks
+    tier: B
+    credit_status: ok
+    tenure_years: 2
+    status: trading
+    # flagship expedite + credit-check intersection (ord-3308)
+
+  - id: acc-118
+    name: Tarrant Valley Farms
+    tier: B
+    credit_status: ok
+    tenure_years: 10
+    status: trading
+    group: tarrant
+
+  - id: acc-119
+    name: Tarrant Valley Foods
+    tier: A
+    credit_status: ok
+    tenure_years: 3
+    status: trading
+    group: tarrant
+    # same-group pair with acc-118
+
+  - id: acc-120
+    name: Ellcote Facilities
+    tier: A
+    credit_status: ok
+    tenure_years: 5
+    status: trading
+
+  # --- added for the 200-task library -----------------------------------------
+  # Tiers across the whole file: 12 A, 18 B, 12 C. On-hold: 2 B, 2 C, 1 A.
+  # Two closing accounts, one paying by card and one by invoice. Three corporate
+  # groups, of two, two and three members. Goodwill history is planted at zero,
+  # one and two credits inside the rolling twelve months, and on two accounts
+  # whose only credits fall outside it.
+
+  - id: acc-121
+    name: Whitmore Rail Services
+    tier: A
+    credit_status: ok
+    tenure_years: 13
+    status: trading
+    # 13 years: the one tenure the authored set left out
+
+  - id: acc-122
+    name: Deenmoor Signage
+    tier: B
+    credit_status: ok
+    tenure_years: 5
+    status: trading
+    # tenure boundary: 5 years does NOT qualify for the expedite waiver
+
+  - id: acc-123
+    name: Peverell Water Treatment
+    tier: A
+    credit_status: ok
+    tenure_years: 4
+    status: trading
+    goodwill_credits:
+      - date: 2025-11-27
+        amount: 118
+      - date: 2026-05-08
+        amount: 164
+    # two goodwill credits inside twelve months: a third needs sign-off
+
+  - id: acc-124
+    name: Garrowby Garden Centres
+    tier: C
+    credit_status: ok
+    tenure_years: 5
+    status: trading
+    # tier-C at 5 years: no waiver by either route
+
+  - id: acc-125
+    name: Halloway Glazing
+    tier: B
+    credit_status: ok
+    tenure_years: 6
+    status: trading
+    # tenure boundary: 6 years qualifies, tier does not
+
+  - id: acc-126
+    name: Threlkeld Dental Practices
+    tier: C
+    credit_status: ok
+    tenure_years: 6
+    status: trading
+    # tier-C at 6 years: waiver by tenure despite prepayment terms
+
+  - id: acc-127
+    name: Larkmead Conservation Studios
+    tier: A
+    credit_status: ok
+    tenure_years: 7
+    status: trading
+    group: larkmead
+
+  - id: acc-128
+    name: Sturmer Waste Solutions
+    tier: B
+    credit_status: on-hold
+    tenure_years: 12
+    status: trading
+    # on-hold with long tenure; the hold governs
+
+  - id: acc-129
+    name: Bramfield Cleaning Contracts
+    tier: C
+    credit_status: on-hold
+    tenure_years: 2
+    status: trading
+
+  - id: acc-130
+    name: Vennard Catering Equipment
+    tier: B
+    credit_status: ok
+    tenure_years: 3
+    status: trading
+    goodwill_credits:
+      - date: 2026-01-19
+        amount: 92.50
+      - date: 2026-06-30
+        amount: 145
+    # at the rolling count: a third credit is a request, not a decision
+
+  - id: acc-131
+    name: Osgarth Foundry
+    tier: A
+    credit_status: ok
+    tenure_years: 10
+    status: trading
+    goodwill_credits:
+      - date: 2026-02-11
+        amount: 134
+
+  - id: acc-132
+    name: Ivelet Forestry
+    tier: C
+    credit_status: on-hold
+    tenure_years: 7
+    status: trading
+
+  - id: acc-133
+    name: Ashcombe Textiles
+    tier: B
+    credit_status: ok
+    tenure_years: 9
+    status: trading
+    group: larkmead
+
+  - id: acc-134
+    name: Kilnbrook Bakery Supplies
+    tier: B
+    credit_status: ok
+    tenure_years: 1
+    status: trading
+    goodwill_credits:
+      - date: 2026-07-24
+        amount: 86
+
+  - id: acc-135
+    name: Ferrensby Aquatics
+    tier: C
+    credit_status: ok
+    tenure_years: 1
+    status: trading
+    goodwill_credits:
+      - date: 2025-12-05
+        amount: 163
+
+  - id: acc-136
+    name: Trennick Cycle Works
+    tier: A
+    credit_status: ok
+    tenure_years: 2
+    status: trading
+
+  - id: acc-137
+    name: Callowdene Scaffolding
+    tier: C
+    credit_status: ok
+    tenure_years: 3
+    status: trading
+    group: larkmead
+    # third member of the larkmead group: group membership grants nothing
+
+  - id: acc-138
+    name: Marlbrook Veterinary Group
+    tier: B
+    credit_status: ok
+    tenure_years: 6
+    status: closing
+    # closing account paying by card: the transfer exception meets the card
+    # route
+
+  - id: acc-139
+    name: Roskerry Tunnelling
+    tier: C
+    credit_status: ok
+    tenure_years: 8
+    status: trading
+    goodwill_credits:
+      - date: 2025-10-02
+        amount: 176
+      - date: 2026-03-13
+        amount: 58
+
+  - id: acc-140
+    name: Pellowe Packaging
+    tier: B
+    credit_status: ok
+    tenure_years: 11
+    status: trading
+    goodwill_credits:
+      - date: 2024-11-08
+        amount: 152
+      - date: 2025-03-26
+        amount: 117
+    # both credits predate the rolling window: the count has reset
+
+  - id: acc-141
+    name: Nantwood Locksmiths
+    tier: C
+    credit_status: ok
+    tenure_years: 4
+    status: trading
+    goodwill_credits:
+      - date: 2025-02-14
+        amount: 68
+    # one credit, outside the window
+
+  - id: acc-142
+    name: Cranleigh Dyeworks
+    tier: C
+    credit_status: ok
+    tenure_years: 9
+    status: trading
+    goodwill_credits:
+      - date: 2026-04-17
+        amount: 74

@@ -1,0 +1,63 @@
+id: task-0015
+account_id: acc-112
+applicable_policies:
+- desk-discount-limit
+- payment-terms-by-tier
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask for something off the £990 before-VAT value of order ord-3320 and
+    ask whether the payment timing can be changed
+  order_id: ord-3320
+  order_value_ex_vat: £990
+variants:
+- subject: Order ord-3320
+  body: 'Hi there,
+
+
+    For order ord-3320 at £990 before VAT, is there any chance of something off? Also, could
+    we have a bit longer to pay this one?
+
+
+    Cheers,
+
+    Dave'
+- subject: Quick question about ord-3320
+  body: 'Morning,
+
+
+    Could you do us a small favour on order ord-3320 (£990 before VAT) and knock something
+    off? And is there any way to change when we need to pay?
+
+
+    Thanks,
+
+    Helen'
+- subject: A favour on our order
+  body: 'Hi team,
+
+
+    Just checking on ord-3320, valued at £990 before VAT — could you take a little off for
+    us? We’d also like to ask about having more time to pay this invoice.
+
+
+    Regards,
+
+    Mike'
+expected_obligations:
+- policy: desk-discount-limit
+  obligation: The order's £990 ex-VAT value is above £900 and acc-112 is tier-B, so the desk
+    may apply a discretionary discount of up to 4%; any discount given must state the percentage
+    and that it applies to the £990 order value, while any request for more than 4% must be
+    put to the sales team without promising or predicting a larger discount.
+- policy: payment-terms-by-tier
+  obligation: acc-112 is tier-B and the customer is asking to change the payment timing, so
+    the applicable terms are 21 days from invoice and the request must be passed to credit
+    control with a two-working-day response commitment; the reply must not offer extended,
+    negotiated or one-off terms, move the invoice due date, or predict what credit control
+    will decide.
+- policy: order-reference-line
+  obligation: ord-3320 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-112, nothing after.
+order_id: ord-3320

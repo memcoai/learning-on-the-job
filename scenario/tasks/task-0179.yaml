@@ -1,0 +1,38 @@
+id: task-0179
+account_id: acc-122
+applicable_policies:
+- special-order-lead-time
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask when the six bespoke tooling jigs are likely to arrive
+  order_id: ord-3414
+  quantity: 6
+  item: Bespoke tooling jigs
+variants:
+- subject: Timing for order ord-3414
+  body: The six bespoke tooling jigs are needed for our current signage work, and preparations
+    are under way on site. Could you confirm when the items on order ord-3414 are likely to
+    arrive? We are trying to organise the next stage of the work and would appreciate the
+    clearest expected timing available.
+- subject: Expected arrival of ord-3414
+  body: The six bespoke tooling jigs are for an ongoing signage installation, and the site
+    team is arranging the work around their arrival. Please could you let me know when we
+    should expect order ord-3414? A firm indication would help us plan the remaining activities
+    properly.
+- subject: Order ord-3414 delivery timing
+  body: We are preparing the site for the next part of our signage work, which depends on
+    the six bespoke tooling jigs. Could you advise when order ord-3414 is expected to arrive?
+    Please provide the most accurate timing you can, as we need to coordinate the work accordingly.
+expected_obligations:
+- policy: special-order-lead-time
+  obligation: Because order ord-3414 contains six items categorised as special-order, and
+    the customer is asking about arrival timing, the reply must state a lead time of 17 working
+    days from order confirmation. The reply must not offer expedited delivery, partial early
+    delivery, or a shortened estimate, because there is no stock to move for these special-order
+    items.
+- policy: order-reference-line
+  obligation: ord-3414 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-122, nothing after.
+order_id: ord-3414

@@ -1,0 +1,54 @@
+id: task-0166
+account_id: acc-101
+applicable_policies:
+- expedite-surcharge
+- quote-validity
+- special-order-lead-time
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask whether the six made-to-order bench frames on order ord-3305 can arrive
+    sooner than expected
+  order_id: ord-3305
+  quantity: '6'
+  item: Bespoke bench frames
+variants:
+- subject: Earlier delivery for order ord-3305
+  body: Sorry to chase, but could you let me know whether the six bespoke bench frames on
+    order ord-3305 can be delivered any sooner than expected? Please let me know what timing
+    is possible.
+- subject: Order ord-3305 delivery timing
+  body: Sorry to chase. We are trying to firm up our installation schedule and wondered whether
+    the six bench frames on order ord-3305 could arrive earlier than planned. Can you check
+    and let me know?
+- subject: Can order ord-3305 be brought forward?
+  body: Sorry to chase, but I wanted to ask about the timing for order ord-3305. The six bespoke
+    bench frames are needed for work at our site, and an earlier arrival would help us keep
+    things moving. Is there any way for them to be sent sooner than currently expected, or
+    are they still being prepared to the original schedule?
+- subject: Request for an update on order ord-3305
+  body: Sorry to chase. We have been arranging the next stage of the work around the six bespoke
+    bench frames on order ord-3305, and the installation team is asking when they are likely
+    to arrive. Could you check whether the delivery can be brought forward at all? I appreciate
+    these are made to order, but any improvement to the expected timing would be useful.
+expected_obligations:
+- policy: expedite-surcharge
+  obligation: Because acc-101 is a tier-A account and has 11 years' tenure, the £68 per-consignment
+    expedited-delivery surcharge would be waived if expedited delivery were otherwise available,
+    and the reply would have to state that the surcharge is waived. However, the special-order
+    rule governs this request and means expedited delivery must not be offered.
+- policy: quote-validity
+  obligation: Because the reply is responding to a timing request and need not quote any price,
+    discount or carriage charge, no quotation is required; if any such figure is nevertheless
+    quoted, each figure must be stated as excluding VAT and as valid for 17 calendar days
+    from the date of that reply.
+- policy: special-order-lead-time
+  obligation: Because order ord-3305 contains six bespoke bench frames recorded as special-order
+    goods, the reply must state a lead time of 17 working days from order confirmation when
+    answering the timing request. That timing cannot be shortened, and the reply must not
+    offer expedited delivery, partial early delivery or a shorter estimate.
+- policy: order-reference-line
+  obligation: ord-3305 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-101, nothing after.
+order_id: ord-3305

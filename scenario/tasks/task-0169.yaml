@@ -1,0 +1,50 @@
+id: task-0169
+account_id: acc-103
+applicable_policies:
+- expedite-surcharge
+- cancellation-cutoff
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask whether the hose assemblies can be sent sooner; if not, cancel the
+    order
+  order_id: ord-3445
+variants:
+- subject: Order ord-3445 – hose assemblies
+  body: 'Hi,
+
+
+    Our engineers are waiting for the cut-to-length hose assemblies for work on site. Could
+    you send order ord-3445 as soon as possible, and if that is not possible, please cancel
+    it?
+
+
+    Regards,
+
+    Helen'
+- subject: Please advise on order ord-3445
+  body: 'Morning,
+
+
+    The hose assemblies are needed for an ongoing job at our marine site. Please let me know
+    whether order ord-3445 can arrive sooner; otherwise, I would like to cancel the order.
+
+
+    Thanks,
+
+    Martin'
+expected_obligations:
+- policy: expedite-surcharge
+  obligation: The customer is asking for the order to be sent sooner, so if faster delivery
+    is offered or agreed for order ord-3445, the reply must state the £68 surcharge per consignment.
+    Account acc-103 is tier B with two years' tenure, so the surcharge cannot be waived; the
+    customer's urgency and this order's value do not qualify for a waiver.
+- policy: cancellation-cutoff
+  obligation: Order ord-3445 is currently before picking, so cancellation is free and, if
+    the customer chooses cancellation, the reply must confirm it without applying a cancellation
+    fee.
+- policy: order-reference-line
+  obligation: ord-3445 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-103, nothing after.
+order_id: ord-3445

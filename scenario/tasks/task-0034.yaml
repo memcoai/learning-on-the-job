@@ -1,0 +1,65 @@
+id: task-0034
+account_id: acc-110
+applicable_policies:
+- desk-discount-limit
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask whether Fenmoor can take something off the price of order ord-3447,
+    which is for 43 modular storage racking units valued at £3,809.80 before VAT.
+variants:
+- subject: A little help with order ord-3447
+  body: 'Hi,
+
+
+    Could you see whether there is any room to take a bit off order ord-3447? It is for 43
+    modular storage racking units, valued at £3,809.80 before VAT. It is a sizeable order,
+    so I would appreciate anything you can do.
+
+
+    Regards,
+
+    Helen'
+- subject: Order ord-3447 – can you do anything on the price?
+  body: 'Morning,
+
+
+    I’m just chasing order ord-3447. As it comes to £3,809.80 before VAT for 43 modular storage
+    racking units, is there any chance you could take something off for us? We’ve placed plenty
+    of these orders over the years and it is frustrating when there seems to be no flexibility
+    at all.
+
+
+    Thanks in advance,
+
+    Martin'
+- subject: Could you help with the cost of ord-3447?
+  body: 'Hi there,
+
+
+    I wanted to ask about order ord-3447 before it gets any further along. The order is for
+    43 modular storage racking units and the value is £3,809.80 before VAT. Given the size
+    of it, could you do anything to reduce the price a little? We are trying to keep the overall
+    project spend under control, and even a modest amount would help. The order is being billed
+    in the usual way, so there should not be anything unusual needed from our side.
+
+
+    I’d be grateful if you could check and let me know what might be possible.
+
+
+    Regards,
+
+    Sarah'
+expected_obligations:
+- policy: desk-discount-limit
+  obligation: Because account acc-110 is tier A and order ord-3447 has goods value £3,809.80
+    excluding VAT, which is above £900 excluding VAT, the desk may apply a discretionary discount
+    of up to 7% on the order value. If the customer is seeking more than that, the reply must
+    refer the request to the sales team without promising or predicting a larger discount;
+    if any discount is given, the reply must state the percentage and the order value to which
+    it applies.
+- policy: order-reference-line
+  obligation: ord-3447 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-110, nothing after.
+order_id: ord-3447

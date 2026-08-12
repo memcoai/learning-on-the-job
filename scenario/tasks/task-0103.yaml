@@ -1,0 +1,64 @@
+id: task-0103
+account_id: acc-109
+applicable_policies:
+- refund-method
+- liability-language
+- returns-window
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Return the four sample vial trays from order ord-3322, receive the £480.00
+    invoice amount back rather than have it left on the account, and receive something off
+    for the trouble.
+  order_id: ord-3322
+  delivery_date: 2 September 2026
+  amount: £480.00
+  quantity: 4 sample vial trays
+variants:
+- subject: Return request for ord-3322
+  body: 'Hi,
+
+
+    Sorry to chase. Please arrange a return of the four sample vial trays from order ord-3322,
+    delivered on 2 September 2026, and have the £480.00 invoice amount paid back rather than
+    left on the account. Could you also consider something off for the trouble?
+
+
+    Regards,
+
+    Maya'
+- subject: ord-3322 — request to send goods back
+  body: 'Morning,
+
+
+    Sorry to chase. I need to send back the four sample vial trays on order ord-3322, which
+    were delivered on 2 September 2026. The invoice total is £480.00, so please let me know
+    how I can get that money back rather than have it sitting against the account. I would
+    also appreciate something off for the trouble involved.
+
+
+    Thanks,
+
+    Daniel'
+expected_obligations:
+- policy: refund-method
+  obligation: Because order ord-3322 was paid by invoice and account acc-109 is marked as
+    closing, any refund for the accepted return must be issued by bank transfer within twelve
+    working days. The reply must state that route and timing, and must not offer cash, a cheque,
+    or a transfer to a different card.
+- policy: liability-language
+  obligation: The customer is asking for extra money for the trouble beyond the return refund,
+    so the reply must not accept fault on Fenmoor's behalf or offer compensation for consequential
+    loss. If anything is offered for the extra request, it may only be a goodwill credit under
+    the goodwill policy and must be described as goodwill, not compensation.
+- policy: returns-window
+  obligation: Order ord-3322 was delivered on 2 September 2026 and, as at 14 September 2026,
+    12 days have elapsed. The four consumable trays are therefore within acc-109's ordinary
+    24-day return window, so the return is accepted. Account acc-109 is not tier A, so the
+    ordinary window governs and the longer 38-day tier-A window is applied neither to this
+    decision nor mentioned to the customer.
+- policy: order-reference-line
+  obligation: ord-3322 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-109, nothing after.
+order_id: ord-3322

@@ -1,0 +1,46 @@
+id: task-0062
+account_id: acc-114
+applicable_policies:
+- refund-method
+- volume-breaks
+- returns-window
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Return the 10 pallet trucks from order ord-3272, delivered on 1 September,
+    and have the £1,188 total returned (£950 for the goods plus £40 delivery, including VAT);
+    also ask whether ordering ten should have resulted in a better price than £95 each.
+variants:
+- subject: ord-3272 — pallet trucks
+  body: I want to send back the 10 pallet trucks on ord-3272, delivered on 1 September, and
+    have the £1,188 total returned (£950 goods plus £40 delivery, including VAT). They were
+    £95 each—was there meant to be a better price for ordering ten?
+- subject: Question about order ord-3272
+  body: Please arrange for the 10 pallet trucks from ord-3272, delivered on 1 September, to
+    be sent back and the £1,188 total returned (£950 goods plus £40 delivery, including VAT).
+    I also wanted to check whether ten at £95 each should have attracted a lower price.
+- subject: Pallet trucks delivered 1 September
+  body: I’m looking to send back the 10 pallet trucks on ord-3272, delivered on 1 September,
+    and receive the £1,188 total back (£950 for the goods and £40 delivery, including VAT).
+    As they were £95 each, should the price have been lower for ten?
+expected_obligations:
+- policy: refund-method
+  obligation: Because ord-3272 was paid by invoice and acc-114 is trading rather than closing,
+    any approved refund must be issued as account credit, not paid out. The reply must state
+    the applicable account-credit route and its timing, and must not offer cash, a cheque,
+    a bank transfer, or a transfer to another card.
+- policy: volume-breaks
+  obligation: The order line contains 10 pallet trucks, so the 50-unit volume break does not
+    apply. The reply must say that quantities do not accumulate across lines or orders and,
+    because the customer asks about a lower price, explain that volume pricing is applied
+    automatically at order time; it must not mention or trail the next threshold.
+- policy: returns-window
+  obligation: The goods were delivered on 1 September and 13 days have elapsed by 14 September,
+    so the return is within acc-114's applicable return window and must be accepted. The reply
+    must name 1 September and the 13 elapsed days; the tier-A extension to 38 days is applied
+    but never advertised.
+- policy: order-reference-line
+  obligation: ord-3272 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-114, nothing after.
+order_id: ord-3272

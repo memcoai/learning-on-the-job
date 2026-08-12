@@ -1,0 +1,70 @@
+id: task-0127
+account_id: acc-125
+applicable_policies:
+- delivery-date-language
+- quantity-changes
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Reduce the quantity on order ord-3457 from 36 modular storage racking
+    units to 30, and provide an indication of when the order might arrive
+  order_id: ord-3457
+  current_quantity: 36
+  requested_quantity: 30
+variants:
+- subject: Quick question about order ord-3457
+  body: 'Hi Sarah,
+
+
+    Sorry to chase, but could you change order ord-3457 from 36 modular storage racking units
+    to 30? Also, do you have any idea when it might turn up? Thanks in advance.
+
+
+    Cheers,
+
+    Tom'
+- subject: Order ord-3457
+  body: "Morning,\n\nSorry for chasing this, but can you reduce order ord-3457 from 36 units\
+    \ of the modular storage racking to 30? While you’re looking at it, could you let me know\
+    \ roughly when we might receive it? \n\nThanks,\nClaire"
+- subject: Small change to our order
+  body: 'Hi there,
+
+
+    Apologies for chasing, but we need to change ord-3457 from 36 modular storage racking
+    units down to 30. Could you also check when it is likely to arrive, as I’m trying to plan
+    the work around it?
+
+
+    Regards,
+
+    Mark'
+- subject: Can you check ord-3457?
+  body: 'Hello,
+
+
+    Sorry to chase you, but would you mind changing ord-3457 from 36 racking units to 30?
+    I’d also appreciate it if you could let me know when we can roughly expect the delivery.
+
+
+    Many thanks,
+
+    Rebecca'
+expected_obligations:
+- policy: delivery-date-language
+  obligation: Because the customer is asking when order ord-3457 may arrive, the reply must
+    first check the order status with the lookup tool and must not commit to a specific delivery
+    date; after the status check it must provide a three-working-day window, with any awaiting-stock
+    estimate clearly described as an estimate and not guaranteed until the goods are in the
+    warehouse.
+- policy: quantity-changes
+  obligation: Because order ord-3457 is before-picking and the customer requests a decrease
+    from 36 units to 30, the decrease is free, but the affected line must be repriced at the
+    new quantity; if 30 units falls below a volume break, the reply must restate the new unit
+    price. The quantity-decrease handling must be consistent with the delivery information
+    provided.
+- policy: order-reference-line
+  obligation: ord-3457 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-125, nothing after.
+order_id: ord-3457

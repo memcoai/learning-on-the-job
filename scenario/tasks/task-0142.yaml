@@ -1,0 +1,69 @@
+id: task-0142
+account_id: acc-132
+applicable_policies:
+- credit-hold-handling
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask whether the ready items from order ord-3449 can be sent first and
+    the remaining items later, and ask for an update on the order.
+  order_id: ord-3449
+variants:
+- subject: Order ord-3449
+  body: 'Hi,
+
+
+    The tools, fixings and guarding panels in order ord-3449 are needed for work currently
+    under way at our site. Could you let me know whether the items that are ready can be sent
+    first, with the remainder to follow?
+
+
+    Regards,
+
+    Helen'
+- subject: Update on ord-3449
+  body: 'Morning,
+
+
+    We are getting on with the site work and need the goods from order ord-3449. Please could
+    you advise whether what is ready can be sent now and the remaining items afterwards?
+
+
+    Thanks,
+
+    Martin'
+- subject: Request concerning order ord-3449
+  body: 'Hello,
+
+
+    The items on order ord-3449 are for ongoing work at our site. Could you provide an update
+    and let me know if the available goods can be sent first, with the rest following later?
+
+
+    Regards,
+
+    Priya'
+- subject: Goods for order ord-3449
+  body: 'Hi,
+
+
+    Work is continuing on site and we are waiting for the tools, fixings and guarding panels
+    on order ord-3449. Would you please check whether the goods that are ready can be sent
+    separately, with the balance to follow?
+
+
+    Best regards,
+
+    Tom'
+expected_obligations:
+- policy: credit-hold-handling
+  obligation: 'Because account acc-132 has credit status on-hold, the reply must be the referral
+    alone: say the request has been passed to the accounts team and that they will be in touch
+    within one working day. Do not confirm acceptance, dispatch, delivery timing or any change,
+    do not disclose the hold or give a reason, and do not mention any order timing or say
+    that timing cannot be given.'
+- policy: order-reference-line
+  obligation: ord-3449 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-132, nothing after.
+order_id: ord-3449

@@ -1,0 +1,64 @@
+id: task-0176
+account_id: acc-113
+applicable_policies:
+- restocking-fee
+- quote-validity
+- returns-window
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Return the six thermal curtain strips from order ord-3324, delivered on
+    8 September, because they arrived as ordered and undamaged, and receive the £210 goods-value
+    refund
+  order_id: ord-3324
+  item: six thermal curtain strips at £35 each
+  goods_value: £210 before VAT
+  delivered_date: 8 September
+variants:
+- subject: Returning thermal curtain strips — order ord-3324
+  body: 'Hi,
+
+
+    Following our earlier email about order ord-3324, I would like to send back the six thermal
+    curtain strips delivered on 8 September. They arrived as ordered and undamaged, but we
+    no longer need them. The goods were £35 each, £210 before VAT in total. The order was
+    paid by card. Please let me know how to arrange the return and have the goods value refunded.
+
+
+    Regards,
+
+    Helen Morris'
+- subject: Order ord-3324 return request
+  body: 'Good morning,
+
+
+    Further to my earlier call, I am writing to ask about returning the six thermal curtain
+    strips from order ord-3324, which were delivered on 8 September. The items are the ones
+    we ordered and arrived undamaged, but they are no longer required at our site. They were
+    charged at £35 each, making £210 before VAT for the goods. Payment was made by card, so
+    please advise what I need to do to send them back and receive the goods-value refund.
+
+
+    Thanks in advance,
+
+    Martin Cole'
+expected_obligations:
+- policy: restocking-fee
+  obligation: Because the customer is asking to return goods that arrived as ordered and undamaged,
+    the return is treated as a return of correctly supplied goods rather than a wrong-item
+    or damage case. A restocking fee of 7.5% of the £210 goods value is £15.75, so the £16
+    minimum applies; the reply must state that £16 fee and the amount it comes to.
+- policy: quote-validity
+  obligation: Because the reply must quote the £16 restocking fee, that fee must be stated
+    as excluding VAT and as valid for 17 calendar days from the date of the reply. The same
+    treatment is required for every price, discount or carriage charge quoted.
+- policy: returns-window
+  obligation: The goods were delivered on 8 September and 6 days have elapsed by 14 September.
+    The ordinary 24-day return window governs this non-tier-A account, so the return is accepted.
+    The tier-A extension to 38 days is applied only to eligible accounts and must not be mentioned
+    to this customer.
+- policy: order-reference-line
+  obligation: ord-3324 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-113, nothing after.
+order_id: ord-3324

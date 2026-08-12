@@ -1,0 +1,99 @@
+id: task-0189
+account_id: acc-103
+applicable_policies:
+- refund-method
+- returns-window
+- non-returnable-categories
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Return 200 nitrile work gloves and receive the money back
+  order_id: ord-3290
+  delivered_date: 4 September
+  packaging_condition: unopened
+variants:
+- subject: Returning gloves – ord-3290
+  body: 'Hi,
+
+
+    I need to send back the 200 nitrile work gloves and have the money returned. The packaging
+    is still unopened and the gloves are exactly as they arrived. This is for order ord-3290,
+    delivered on 4 September.
+
+
+    Please let me know how to arrange this.
+
+
+    Regards,
+
+    Martin'
+- subject: Problem with the gloves on ord-3290
+  body: 'Morning,
+
+
+    I’m having to return the 200 nitrile work gloves and would like the payment put back.
+    They have not been used or altered, and the packaging remains unopened, so they are in
+    the same condition as delivered. The order number is ord-3290 and it was delivered on
+    4 September.
+
+
+    Could you sort out the next step, please?
+
+
+    Thanks,
+
+    Claire'
+- subject: Can I return these gloves? ord-3290
+  body: 'Hello,
+
+
+    The 200 nitrile gloves are no use to us now, so I want to send them back and get my money
+    back. Before anyone asks, the packaging is unopened and the goods are still just as they
+    were when delivered. This relates to order ord-3290, delivered on 4 September.
+
+
+    I’m disappointed to have to chase this, but please tell me whether you can arrange the
+    return and what happens to the payment.
+
+
+    Best wishes,
+
+    Daniel'
+- subject: Return request for order ord-3290
+  body: 'Hi team,
+
+
+    I need to return the 200 nitrile work gloves from order ord-3290 and have the payment
+    returned. They arrived on 4 September, but we now need to send them back. To be clear,
+    the packaging has never been opened and the goods have not been changed in any way; they
+    are still exactly as delivered.
+
+
+    I appreciate these things need checking, but this should be fairly straightforward. Please
+    advise how I get the gloves back to you and when I should expect the money to be returned.
+
+
+    Regards,
+
+    Helen'
+expected_obligations:
+- policy: refund-method
+  obligation: The order record shows that ord-3290 was paid for by card and the customer is
+    asking for the money back, so the reply must state that any refund goes to the original
+    card and give the applicable refund timing. It must not offer cash, a cheque, a bank transfer,
+    or a transfer to a different card.
+- policy: returns-window
+  obligation: ord-3290 was delivered on 4 September and 10 days have elapsed by 14 September.
+    The ordinary 24-day return period therefore governs and the return is accepted. The account
+    is not tier A, so the 38-day extension is applied only to tier-A accounts and must not
+    be mentioned to this customer.
+- policy: non-returnable-categories
+  obligation: The goods are PPE, but the customer states that the packaging is unopened, so
+    the PPE exclusion for opened packaging does not apply and the category does not bar the
+    return. The reply must not refuse the return on that category or offer a goodwill credit
+    as a substitute for an ineligible return.
+- policy: order-reference-line
+  obligation: ord-3290 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-103, nothing after.
+order_id: ord-3290

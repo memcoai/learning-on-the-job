@@ -1,0 +1,29 @@
+id: task-0165
+account_id: acc-120
+applicable_policies:
+- credit-check-threshold
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: confirmation of order ord-3395 and expected delivery timing
+  order_id: ord-3395
+  total_inc_vat: £5,335.48
+variants:
+- subject: Order ord-3395 confirmation
+  body: Following our call, please confirm whether order ord-3395 for £5,335.48 including
+    VAT is now confirmed and advise when we should expect delivery.
+- subject: Checking order status
+  body: Further to the email I sent, could you confirm the position on order ord-3395 for
+    £5,335.48 including VAT and let me know when delivery is expected?
+expected_obligations:
+- policy: credit-check-threshold
+  obligation: Order ord-3395 is already above the internal £4,800 threshold, and its credit
+    check is recorded as completed. The reply must state that confirmation follows completion
+    of the check and must not commit to dispatch or delivery timing before the check has cleared.
+    The £4,800 figure is applied but never quoted to the customer, and the existence of a
+    threshold is never explained.
+- policy: order-reference-line
+  obligation: ord-3395 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-120, nothing after.
+order_id: ord-3395

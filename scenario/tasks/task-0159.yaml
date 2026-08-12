@@ -1,0 +1,60 @@
+id: task-0159
+account_id: acc-131
+applicable_policies:
+- restocking-fee
+- returns-window
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Return the three stainless bolts, M10, from order ord-3389 because they
+    are no longer needed
+  order_id: ord-3389
+  item: Stainless bolts, M10
+  quantity: '3'
+  delivered_date: 7 September
+  total_inc_vat: £29.10
+variants:
+- subject: Following up on the bolts from ord-3389
+  body: 'Hi there,
+
+
+    Just following up on the email I think I sent after our call last week. The three stainless
+    bolts, M10, on order ord-3389 arrived on 7 September, but we no longer need them. They
+    were supplied correctly and are in the original condition. Could you let me know whether
+    we can send them back? The order total was £29.10 including VAT.
+
+
+    Thanks,
+
+    Martin'
+- subject: Can we send these bolts back?
+  body: 'Morning,
+
+
+    Picking this up from our earlier call — I thought I’d emailed about it as well, but I
+    can’t find a reply. The three stainless bolts, M10, from order ord-3389 were delivered
+    on 7 September and we’ve since found we don’t need them. Nothing is wrong with them and
+    they’re still in the original condition, so could you tell me what to do about sending
+    them back? The total on the order was £29.10 including VAT. Our last delivery went smoothly,
+    as usual, so hopefully this is straightforward.
+
+
+    Cheers,
+
+    Dave'
+expected_obligations:
+- policy: restocking-fee
+  obligation: 'Order ord-3389 contains correctly supplied goods valued at £12.75 ex VAT, and
+    the customer has not reported that Fenmoor sent the wrong item or that the goods arrived
+    damaged, so the return carries the standard charge: 7.5% of the goods value would be £0.96,
+    but the £16 minimum is larger. The reply must state that the charge is £16.'
+- policy: returns-window
+  obligation: Order ord-3389 was delivered on 7 September and 7 days have elapsed by 14 September.
+    Because acc-131 is tier A, the 38-day account window is applied, so the return is accepted.
+    The reply should confirm acceptance without advertising the tier-based extension or giving
+    the customer the internal window calculation.
+- policy: order-reference-line
+  obligation: ord-3389 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-131, nothing after.
+order_id: ord-3389

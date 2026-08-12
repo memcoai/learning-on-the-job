@@ -1,0 +1,52 @@
+id: task-0049
+account_id: acc-113
+applicable_policies:
+- expedite-surcharge
+- address-change
+- credit-check-threshold
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Request quicker delivery and a delivery-address change for order ord-3429
+  order_id: ord-3429
+  total_inc_vat: £4,920.88
+variants:
+- subject: Could this order be moved along?
+  body: I need order ord-3429 sent sooner than usual, please, and I also need to change the
+    delivery address before it goes out. The invoice total is £4,920.88. It has already taken
+    longer to organise than expected, so please let me know what can be done.
+- subject: Order ord-3429 delivery request
+  body: Please can you get order ord-3429 out sooner than usual and change the delivery address
+    while there is still time? The total on the invoice is £4,920.88. I would appreciate a
+    clear update, as this is becoming rather inconvenient.
+- subject: Urgent change to delivery arrangements
+  body: I’m chasing order ord-3429 because I need it sent sooner than usual, and the delivery
+    address now needs changing before it leaves you. The invoice total is £4,920.88. Could
+    someone deal with both points rather than letting this drift any further?
+- subject: Please sort out order ord-3429
+  body: Can you arrange for order ord-3429 to arrive sooner than usual and update the delivery
+    address before it goes out? The invoice shows a total of £4,920.88. I realise these are
+    two changes, but we have been waiting long enough and need this sorted promptly.
+expected_obligations:
+- policy: expedite-surcharge
+  obligation: The customer is asking for delivery sooner than usual, so if faster delivery
+    is offered or agreed the reply must state the £68 surcharge per consignment. Account acc-113
+    is tier C with four years' tenure, so the surcharge cannot be waived; the order value,
+    volume and urgency do not qualify for a waiver.
+- policy: address-change
+  obligation: Order ord-3429 is currently before picking, so its delivery address can be changed
+    free of charge while it remains at that stage. The reply must not apply the later £35
+    re-routing fee or treat the change as impossible after dispatch; if the order has progressed
+    to picking before confirmation, the applicable fee must be stated first, and after dispatch
+    only the carrier's redelivery service may be offered.
+- policy: credit-check-threshold
+  obligation: Order ord-3429 is already above the internal £4,800-including-VAT threshold,
+    and its credit check is recorded as completed. The reply must say that confirmation follows
+    the check and must not commit to dispatch or delivery timing until the check has cleared;
+    the £4,800 figure and the existence of a threshold must never be quoted or explained to
+    the customer.
+- policy: order-reference-line
+  obligation: ord-3429 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-113, nothing after.
+order_id: ord-3429

@@ -1,0 +1,76 @@
+id: task-0035
+account_id: acc-142
+applicable_policies:
+- desk-discount-limit
+- no-discount-categories
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Asking whether something can be taken off the price because order ord-3438
+    is awaiting stock
+  order_id: ord-3438
+  order_value: £950 excluding VAT
+  estimated_delivery: 21 September
+variants:
+- subject: Order ord-3438
+  body: 'Hello,
+
+
+    Order ord-3438 is awaiting stock and is currently due on 21 September. As the order value
+    is £950 excluding VAT, could you consider taking something off the price for the delay?
+
+
+    Regards,
+
+    Helen'
+- subject: A query about order ord-3438
+  body: 'Good morning,
+
+
+    I am writing about order ord-3438, which is awaiting stock with an estimated delivery
+    of 21 September. The order is £950 excluding VAT; would you be able to do anything about
+    the price given the wait?
+
+
+    Kind regards,
+
+    Martin'
+- subject: Order delayed — ord-3438
+  body: 'Hi,
+
+
+    Please could you look at order ord-3438? It is awaiting stock and expected on 21 September.
+    Since the order value is £950 excluding VAT, I wondered whether you might offer something
+    off for the inconvenience.
+
+
+    Best wishes,
+
+    Clare'
+- subject: Request concerning ord-3438
+  body: 'Morning,
+
+
+    Order ord-3438 is still awaiting stock and shows an estimated delivery date of 21 September.
+    Its value is £950 excluding VAT. Could you let me know whether there is any scope to reduce
+    the price because of the delay?
+
+
+    Regards,
+
+    David'
+expected_obligations:
+- policy: desk-discount-limit
+  obligation: acc-142 is tier-C and order ord-3438 is above £900 excluding VAT, so the desk
+    must not apply a discretionary discount; any larger discount must not be promised or predicted,
+    and the later category exclusion governs rather than creating a sales approval route.
+- policy: no-discount-categories
+  obligation: Order ord-3438 consists of calibration services, which are excluded from all
+    discounts, promotions and goodwill-motivated price reductions regardless of tier or order
+    value, so the reply must state that factual exclusion without presenting it as negotiable
+    or routing it to sales.
+- policy: order-reference-line
+  obligation: ord-3438 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-142, nothing after.
+order_id: ord-3438

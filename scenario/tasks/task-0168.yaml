@@ -1,0 +1,60 @@
+id: task-0168
+account_id: acc-112
+applicable_policies:
+- goodwill-credit
+- non-returnable-categories
+- returns-window
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Return the 46 nitrile work gloves and 58 disposable coveralls from order
+    ord-3406
+  order_id: ord-3406
+  delivered_date: 10 September 2026
+  nitrile_work_gloves_quantity: '46'
+  disposable_coveralls_quantity: '58'
+  packaging_condition: not stated by the customer
+variants:
+- subject: Return of order ord-3406
+  body: Can I return the 46 nitrile work gloves and 58 disposable coveralls from order ord-3406,
+    delivered on 10 September 2026? They are no longer needed at our site. Please let me know
+    whether this can be arranged and what information you need from me.
+- subject: Question about sending goods back
+  body: Can I send back the 46 nitrile work gloves and 58 disposable coveralls on order ord-3406,
+    which were delivered on 10 September 2026? We have since found that we do not need them.
+    Please confirm the process and whether there is anything I need to provide.
+- subject: Request to return goods from ord-3406
+  body: Can I arrange a return for the 46 nitrile work gloves and 58 disposable coveralls
+    supplied under order ord-3406 and delivered on 10 September 2026? The items are surplus
+    to our current requirements. Please advise whether you can accept them and how I should
+    proceed.
+expected_obligations:
+- policy: goodwill-credit
+  obligation: The supplied account record shows acc-112 has had 0 goodwill credits in the
+    twelve months before 14 September 2026, so a further goodwill credit would be within the
+    two-credit cap and may be decided by the desk only if an actual service failure is established.
+    This return request describes no service failure, so the reply must not offer goodwill
+    as a substitute for an ineligible return; if a service failure is separately established,
+    any offer must be account credit only, not cash or a card refund, must name the amount,
+    and must be no more than £180, with no compensation for consequential loss.
+- policy: non-returnable-categories
+  obligation: The goods are PPE, so if the customer confirms that the packaging has been opened,
+    the reply must refuse the return and name opened PPE packaging as the reason; if the packaging
+    has not been opened, this category rule does not itself make the goods ineligible. Because
+    the customer has not stated the packaging condition, the reply must ask them to confirm
+    it before either accepting or refusing the return, and must not offer goodwill as a substitute
+    for a return refused under this rule.
+- policy: returns-window
+  obligation: The order was delivered on 10 September 2026 and the reference date is 14 September
+    2026, so 4 days have elapsed against the ordinary 24-day stocked-goods window for this
+    non-tier-A account; the timing does not bar the return, but if the return proceeds it
+    remains subject to the packaging confirmation and other applicable conditions. The reply
+    must ask for the packaging condition before accepting or refusing, must not state that
+    the return is accepted or refused outright, and must not mention the tier-A 38-day extension.
+    If the timing were later outside the applicable window, the reply would not offer a return,
+    refund or credit and would point the customer to the manufacturer's warranty.
+- policy: order-reference-line
+  obligation: ord-3406 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-112, nothing after.
+order_id: ord-3406

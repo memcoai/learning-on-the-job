@@ -1,0 +1,81 @@
+id: task-0117
+account_id: acc-113
+applicable_policies:
+- desk-discount-limit
+- price-match
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: For order ord-3429, the customer asks whether Fenmoor can match a cheaper
+    price found on an online marketplace or otherwise reduce the price, and offers to forward
+    the listing.
+  evidence_offered: An online marketplace listing, with no written quote from a trade distributor
+    provided.
+variants:
+- subject: Question about order ord-3429 pricing
+  body: 'Hi,
+
+
+    Sorry to chase. For order ord-3429, I’ve found the same items advertised more cheaply
+    on an online marketplace. Is there any chance you could match that price, or do something
+    off the cost instead? I can forward the listing if needed.
+
+
+    We pay by invoice, and the order is still being prepared.
+
+
+    Regards,
+
+    Martin'
+- subject: Pricing query for ord-3429
+  body: 'Morning,
+
+
+    Sorry to chase, but could you please look at the price on order ord-3429? I’ve seen the
+    same products on an online marketplace for less and wondered whether you could match it,
+    or perhaps reduce our price a little. I haven’t sent the listing across yet, but can do
+    so.
+
+
+    The fluorescent spray and guillotine blades are both for our normal stock requirements.
+
+
+    Thanks in advance,
+
+    Martin'
+- subject: Could you review the price on our order?
+  body: 'Hi there,
+
+
+    Sorry to chase. I’m getting in touch about order ord-3429. Another seller has the same
+    items advertised for less on an online marketplace, so I wanted to ask whether you could
+    match what I’ve found. If that isn’t possible, could you consider taking something off
+    the order instead? I can send over the online listing, although it is not a written quote
+    from the seller.
+
+
+    The order is being supplied on our usual invoice arrangement.
+
+
+    Regards,
+
+    Martin'
+expected_obligations:
+- policy: desk-discount-limit
+  obligation: The order's goods value is £3998.82 excluding VAT, which is above £900, but
+    account acc-113 is tier-C, so the desk may not apply a discretionary discount. Any request
+    for a larger discount must be put to the sales team as a request, never promised or predicted;
+    if any discount is ultimately given, the reply must state the percentage and the order
+    value to which it applies.
+- policy: price-match
+  obligation: The customer has offered an online marketplace listing, which does not count
+    as acceptable evidence for a price match. The reply must say that marketplace listings
+    are not accepted and ask for a written quote from a trade distributor if the customer
+    wants the request considered. The request must be passed to the sales team, who respond
+    within two working days; the desk must not agree the match, decline it, or estimate the
+    outcome.
+- policy: order-reference-line
+  obligation: ord-3429 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-113, nothing after.
+order_id: ord-3429

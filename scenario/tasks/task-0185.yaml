@@ -1,0 +1,65 @@
+id: task-0185
+account_id: acc-121
+applicable_policies:
+- refund-method
+- returns-window
+- non-returnable-categories
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Return the 62 steel angles cut to size from order ord-3393 and have £2,464.50
+    put back against the account
+  order_id: ord-3393
+  quantity: '62'
+  amount: £2,464.50
+  delivered_date: 11 September 2026
+variants:
+- subject: Can we send the steel angles back?
+  body: 'Hi team,
+
+
+    Sorry to chase, but could we return the 62 steel angles cut to size from order ord-3393,
+    delivered on 11 September, and have the £2,464.50 put back against our account? They’re
+    not going to work for the job after all. Let me know what you need from me.
+
+
+    Cheers,
+
+    Dan'
+- subject: A quick one about order ord-3393
+  body: 'Morning all,
+
+
+    Sorry to chase. Could you let me know whether we can send back the 62 steel angles cut
+    to size from order ord-3393, delivered on 11 September? They’re no longer suitable for
+    the job, so I’d like the £2,464.50 goods amount put back against our account if possible.
+
+
+    The rest of the order is fine, and there’s no rush for a reply this morning. Just let
+    me know the next step when you get a minute.
+
+
+    Thanks,
+
+    Rebecca'
+expected_obligations:
+- policy: refund-method
+  obligation: Because ord-3393 was placed on invoice terms and acc-121 is trading rather than
+    closing, any refund that is due must be issued as account credit rather than as a payment
+    out. The reply must state that applicable route and must not offer cash, a cheque, or
+    a transfer to another card; the twelve-working-day bank-transfer timing does not apply.
+- policy: returns-window
+  obligation: The order was delivered on 11 September 2026 and three days have elapsed by
+    14 September 2026. The account's applicable tier-A return window is 38 days, so the request
+    is within the window, but the return is not accepted because the goods are cut to length.
+    The 38-day extension is applied internally and must not be advertised to the customer.
+- policy: non-returnable-categories
+  obligation: The requested goods are steel angle cut to size, which is the never-returnable
+    cut-to-length category, so the reply must refuse the return on that specific ground. No
+    goodwill credit may be offered as a substitute because the records show no independent
+    service failure.
+- policy: order-reference-line
+  obligation: ord-3393 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-121, nothing after.
+order_id: ord-3393

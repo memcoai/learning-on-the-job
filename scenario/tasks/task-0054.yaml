@@ -1,0 +1,61 @@
+id: task-0054
+account_id: acc-110
+applicable_policies:
+- damage-shortage-window
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Report that some cable ties from order ord-3381 were missing on delivery
+    and ask what can be done
+  order_id: ord-3381
+  delivered_date: 20 August
+variants:
+- subject: Missing cable ties from ord-3381
+  body: 'Dear Fenmoor team,
+
+
+    We found that some of the cable ties were missing from order ord-3381 when the delivery
+    was checked. The order was delivered on 20 August, and I appreciate this is not being
+    raised immediately, but could you please let me know what can be done? I look forward
+    to hearing from you.
+
+
+    Regards,
+
+    Helen Morris'
+- subject: Ord-3381 delivery query
+  body: 'Good morning,
+
+
+    I am writing about ord-3381, delivered on 20 August. A check of the mixed cable-tie packs
+    has shown that some were not included, and I would be grateful if you could advise what
+    happens next. Please let me know if you need anything further from us.
+
+
+    Yours sincerely,
+
+    Daniel Price'
+- subject: Short delivery on order ord-3381
+  body: 'Hi Fenmoor,
+
+
+    There appears to be a shortage in order ord-3381, which arrived on 20 August. We only
+    identified it while checking the stock records, so I wanted to ask whether this can still
+    be looked into and what information you require. Thank you in advance for your assistance.
+
+
+    Best regards,
+
+    Sophie Clarke'
+expected_obligations:
+- policy: damage-shortage-window
+  obligation: The shortage on order ord-3381 was reported on 14 September, 17 working days
+    after delivery on 20 August, so the four-working-day reporting window is closed. The reply
+    must give that window as the reason the desk cannot raise a claim and route Veddersley
+    Group Holdings to the carrier's claims process instead; it should not accept the shortage
+    for credit or replacement.
+- policy: order-reference-line
+  obligation: ord-3381 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-110, nothing after.
+order_id: ord-3381

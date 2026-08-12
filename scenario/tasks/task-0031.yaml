@@ -1,0 +1,56 @@
+id: task-0031
+account_id: acc-102
+applicable_policies:
+- delivery-date-language
+- desk-discount-limit
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask when order 3454 is likely to arrive and whether anything can be taken
+    off the price because of the delay
+  order_id: ord-3454
+  amount_stated: £326 excluding VAT
+variants:
+- subject: Order 3454 delivery and price
+  body: 'Dear Fenmoor team,
+
+
+    Could you please let me know when order 3454 is likely to arrive? It is for £326 excluding
+    VAT, and given the delay I wondered whether anything could be taken off the price. I would
+    be grateful if you could check this and come back to me.
+
+
+    Regards,
+
+    Martin Bryce'
+- subject: Update requested on order 3454
+  body: 'Hello,
+
+
+    I am writing to ask for an update on order 3454 and when we might expect it to arrive.
+    The order value is £326 excluding VAT, so please could you also see whether there is anything
+    you can do about the price in view of the wait? This is for our joinery site, so an indication
+    of the likely timing would be helpful.
+
+
+    Yours sincerely,
+
+    Helen Mellor'
+expected_obligations:
+- policy: delivery-date-language
+  obligation: Because order ord-3454 is currently in picking, the reply must first check that
+    status with the lookup tool before giving any delivery timing; it must not commit to a
+    specific delivery date and may offer only a three-working-day window after the status
+    check. The awaiting-stock estimate wording does not apply because the order is not awaiting
+    stock.
+- policy: desk-discount-limit
+  obligation: Because account acc-102 is tier-B but order ord-3454 is worth only £326 excluding
+    VAT, below the £900 excluding VAT threshold, the desk may not apply a discretionary discount.
+    If a larger reduction is requested, it may only be put to the sales team as a request
+    and must never be promised or predicted; any discount that is ultimately given must state
+    its percentage and the order value to which it applies.
+- policy: order-reference-line
+  obligation: ord-3454 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-102, nothing after.
+order_id: ord-3454

@@ -1,0 +1,89 @@
+id: task-0084
+account_id: acc-138
+applicable_policies:
+- quote-validity
+- restocking-fee
+- returns-window
+- refund-method
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Return 38 stackable tote crates and receive back the £1,614.72 paid by
+    card, preferably by bank transfer
+  order_id: ord-3384
+  item: 38 stackable tote crates
+  delivered_date: 27 August 2026
+  goods_value_ex_vat: £1,299.60
+  total_inc_vat: £1,614.72
+  payment_method: card
+variants:
+- subject: Returning stackable tote crates
+  body: 'Hi,
+
+
+    We need to return the 38 stackable tote crates and would like the £1,614.72 we paid back,
+    preferably by bank transfer. This relates to order ord-3384, delivered on 27 August 2026.
+    The payment was made by card.
+
+
+    Please let me know what we need to do.
+
+
+    Regards,
+
+    Helen'
+- subject: Request to send back order
+  body: 'Morning,
+
+
+    Could you arrange for us to send back the 38 stackable tote crates from order ord-3384?
+    They were delivered on 27 August 2026, and we paid £1,614.72 by card. We would like the
+    money returned, ideally by bank transfer rather than back to the card.
+
+
+    Thanks,
+
+    Martin'
+- subject: Can we return the crates?
+  body: 'Hello,
+
+
+    We would like to return the 38 stackable tote crates from a recent delivery and ask for
+    the £1,614.72 paid for them to be returned, preferably by bank transfer. The goods arrived
+    on 27 August 2026, and the payment was made by card. This is order ord-3384.
+
+
+    The crates are no longer needed at the practice, so please advise how we should get them
+    back to you and whether anything needs to be included with the return. We have had no
+    issues with the delivery itself; we simply want to send this particular order back.
+
+
+    Kind regards,
+
+    Sarah'
+expected_obligations:
+- policy: quote-validity
+  obligation: The requested return and refund do not require a new price, discount, or carriage
+    quote. If the reply nevertheless quotes any price, discount, or carriage charge, it must
+    state that figure excluding VAT and say it is valid for 17 calendar days from the date
+    of the reply.
+- policy: restocking-fee
+  obligation: The order contains correctly supplied storage goods, with no indication that
+    Fenmoor shipped the wrong item or that the goods arrived damaged, so the return carries
+    a restocking fee of 7.5% of the £1,299.60 goods value, which comes to £97.47; the reply
+    must state both the percentage and the £97.47 amount.
+- policy: returns-window
+  obligation: The goods were delivered on 27 August 2026 and 18 calendar days have elapsed
+    by 14 September 2026, so the ordinary 24-day return window for this non-tier-A account
+    governs and the return is accepted. The tier-A 38-day extension is applied only to tier-A
+    accounts and must not be mentioned to this customer.
+- policy: refund-method
+  obligation: 'Although the order was paid by card, account acc-138 is closing, so the closing-account
+    exception governs: any refund must be made by bank transfer within twelve working days.
+    The reply must state that route and timing and must not offer cash, cheque, or transfer
+    to a different card.'
+- policy: order-reference-line
+  obligation: ord-3384 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-138, nothing after.
+order_id: ord-3384

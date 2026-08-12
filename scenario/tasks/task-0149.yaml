@@ -1,0 +1,50 @@
+id: task-0149
+account_id: acc-116
+applicable_policies:
+- partial-shipment
+- quote-validity
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask whether the 12 guillotine blades from order ord-3345 can be sent now,
+    with the 20 toner-fix sprays sent when they become available after the stated 11 working
+    days.
+  order_id: ord-3345
+  guillotine_blades_quantity: '12'
+  toner_fix_sprays_quantity: '20'
+  toner_fix_sprays_wait: 11 working days
+variants:
+- subject: ord-3345 for the print room
+  body: The new print room is being fitted out this week and we are getting short on blades
+    while the kit is being installed. The 20 toner-fix sprays on ord-3345 are showing as taking
+    11 working days, so could you send the 12 guillotine blades ahead of them and send the
+    sprays on when they arrive? It would help us keep the job moving rather than waiting for
+    everything together.
+- subject: Can the blades come ahead of the sprays?
+  body: We are setting up another press area on site and the team needs the cutting equipment
+    before the consumables. I can see that the 20 toner-fix sprays on ord-3345 are taking
+    11 working days; is there any chance you could send the 12 guillotine blades now and the
+    sprays later? The last delivery went smoothly, so I thought I would ask before this one
+    is processed.
+- subject: A quick question about ord-3345
+  body: The installation work is under way at our production site and the blades are the bit
+    holding us up at the moment. As the 20 toner-fix sprays on ord-3345 are not expected for
+    11 working days, could the 12 guillotine blades be sent out first, with the sprays following
+    afterwards? That would let us get started while we wait for the rest.
+expected_obligations:
+- policy: partial-shipment
+  obligation: The toner-fix sprays line on ord-3345 has an 11-working-day delay, which is
+    beyond nine working days, so the reply must offer the requested split shipment. Because
+    acc-116 is tier B rather than tier A, it must state the £22 consignment fee, list the
+    12 guillotine blades as shipping now and the 20 toner-fix sprays as following with their
+    11-working-day estimate, and confirm that carriage is charged once for the whole order.
+- policy: quote-validity
+  obligation: Because the split-shipment response must quote the £22 consignment fee and refer
+    to carriage, each quoted charge must be stated as excluding VAT and as valid for 17 calendar
+    days from the date of that reply; the same requirements apply to any other price or discount
+    quoted.
+- policy: order-reference-line
+  obligation: ord-3345 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-116, nothing after.
+order_id: ord-3345

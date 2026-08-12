@@ -1,0 +1,71 @@
+id: task-0028
+account_id: acc-101
+applicable_policies:
+- special-order-lead-time
+- address-change
+- liability-language
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask when order ord-3458 is expected, ask to change its delivery address,
+    and ask whether Fenmoor would cover extra labour costs if timing causes a problem
+  order_id: ord-3458
+  order_contents: 12 bespoke bench frames
+  current_status: picking
+variants:
+- subject: ord-3458 — timing and delivery address
+  body: 'Hi,
+
+
+    When should we expect order ord-3458, the 12 bespoke bench frames? It is showing as picking.
+    Can you change the delivery address, and if the timing causes extra labour costs, would
+    Fenmoor cover those?
+
+
+    Regards,
+
+    Martin'
+- subject: Question about ord-3458
+  body: 'Morning,
+
+
+    Please confirm when ord-3458 is due. The order is for 12 bespoke bench frames and is currently
+    showing as picking. We also need to change the delivery address. If this ends up creating
+    extra labour costs for us, can you do anything about those?
+
+
+    Thanks,
+
+    Helen'
+- subject: ord-3458 delivery arrangements
+  body: 'Hi,
+
+
+    I need an update on ord-3458, which is for 12 bespoke bench frames. It is already marked
+    as picking, so when should we expect it? We need the delivery address changed as well.
+    If the timing causes us to incur extra labour costs, is there any way Fenmoor can help
+    with that?
+
+
+    Regards,
+
+    Tom'
+expected_obligations:
+- policy: special-order-lead-time
+  obligation: Because order ord-3458 contains special-order bespoke bench frames and the customer
+    asks about timing, the reply must state that the delivery time is 17 working days from
+    order confirmation. It must not offer expedited delivery, partial early delivery, or any
+    shortened estimate, because there is no stock to move.
+- policy: address-change
+  obligation: Because order ord-3458 is currently at picking, a delivery address change is
+    subject to a £35 re-routing fee, which must be stated before the change is confirmed.
+- policy: liability-language
+  obligation: Because the customer asks whether Fenmoor will cover possible extra labour costs,
+    the reply must not accept fault on Fenmoor's behalf or offer compensation for consequential
+    loss. The only remedy the desk may offer is a goodwill credit under the goodwill policy,
+    and it must be described as goodwill rather than compensation.
+- policy: order-reference-line
+  obligation: ord-3458 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-101, nothing after.
+order_id: ord-3458

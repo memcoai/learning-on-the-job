@@ -1,0 +1,47 @@
+id: task-0076
+account_id: acc-140
+applicable_policies:
+- special-order-lead-time
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask when the 11 custom-wound coil springs on order ord-3415 are expected
+    to arrive, and whether there is any way to get them sooner
+  order_id: ord-3415
+  quantity: 11
+variants:
+- subject: Order ord-3415
+  body: 'Hi Megan,
+
+
+    Just picking up from our call earlier — do you know when the 11 custom-wound coil springs
+    on ord-3415 are likely to arrive? Is there any chance of getting them sooner?
+
+
+    Cheers,
+
+    Tom'
+- subject: Quick one on ord-3415
+  body: 'Morning Megan,
+
+
+    Following the email I sent earlier, can you let me know when the 11 custom-wound coil
+    springs for ord-3415 are due? We’re keen to have them as soon as possible if there’s any
+    way to speed things up.
+
+
+    Thanks,
+
+    Tom'
+expected_obligations:
+- policy: special-order-lead-time
+  obligation: Because all 11 lines on order ord-3415 are custom-wound coil springs recorded
+    as special-order goods, the reply must state the 17-working-day lead time from order confirmation
+    whenever answering the timing question. It must not offer expedited delivery, partial
+    early delivery, or any shortened estimate, because there is no stock to move for these
+    goods.
+- policy: order-reference-line
+  obligation: ord-3415 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-140, nothing after.
+order_id: ord-3415

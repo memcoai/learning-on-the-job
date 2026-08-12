@@ -1,0 +1,53 @@
+id: task-0180
+account_id: acc-114
+applicable_policies:
+- expedite-surcharge
+- payment-terms-by-tier
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Request expedited delivery for order ord-3436 and ask for more time to
+    pay than the current invoice arrangement
+  order_id: ord-3436
+  account_id: acc-114
+variants:
+- subject: Urgent dispatch for ord-3436
+  body: 'Hi,
+
+
+    Sorry to chase, but could order ord-3436 be sent out urgently? Also, could we have a bit
+    longer to pay than the usual invoice terms?
+
+
+    Regards,
+
+    Daniel'
+- subject: Please prioritise order ord-3436
+  body: 'Morning,
+
+
+    Sorry to chase. Please prioritise order ord-3436 for the quickest available delivery.
+    It is the 48mm masking tape, and we need to get it moving without any further hold-up.
+    Could you also check whether we can have longer to pay than the current invoice arrangement?
+
+
+    Thanks,
+
+    Daniel'
+expected_obligations:
+- policy: expedite-surcharge
+  obligation: Because the customer is requesting expedited delivery for order ord-3436, expedited
+    delivery may be offered only with the £68 per-consignment surcharge stated; account acc-114
+    is tier-A and has nine years' tenure, so the surcharge qualifies for a waiver and the
+    reply must explicitly say that it is waived rather than omit it.
+- policy: payment-terms-by-tier
+  obligation: Because payment terms have been queried for account acc-114, whose tier-A terms
+    are 45 days from invoice, the reply must state those applicable terms; because the customer
+    is asking for longer terms, the request must be passed to credit control with a two-working-day
+    response commitment, without offering extended or one-off terms, moving the due date,
+    or predicting credit control's decision.
+- policy: order-reference-line
+  obligation: ord-3436 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-114, nothing after.
+order_id: ord-3436

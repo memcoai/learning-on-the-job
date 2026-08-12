@@ -1,0 +1,83 @@
+id: task-0041
+account_id: acc-117
+applicable_policies:
+- no-discount-categories
+- delivery-date-language
+- order-release-threshold
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask when order ord-3408 is likely to arrive and whether the price can
+    be reduced because of the order size; state that £2,860.12 was paid on 7 September
+  order_id: ord-3408
+  product: Chainsaw protective trousers
+  payment_amount_inc_vat: £2,860.12
+  payment_date: 7 September
+variants:
+- subject: Order ord-3408
+  body: 'Hi,
+
+
+    Could you let me know when order ord-3408 is likely to arrive, and whether there is anything
+    you can do on the price for 22 chainsaw protective trousers? We paid £2,860.12 on 7 September.
+
+
+    Regards,
+
+    Martin'
+- subject: Update on ord-3408
+  body: 'Morning,
+
+
+    Please could you advise when ord-3408 might arrive? Also, given the quantity of chainsaw
+    protective trousers, is there any scope to reduce the price? £2,860.12 was paid on 7 September.
+
+
+    Thanks,
+
+    Helen'
+- subject: Delivery and price query
+  body: 'Hi,
+
+
+    I’m chasing an update on ord-3408 and would like to know when it is expected. Could you
+    also see if anything can be done about the price of the chainsaw protective trousers?
+    We paid £2,860.12 on 7 September.
+
+
+    Best regards,
+
+    Simon'
+- subject: Query regarding order ord-3408
+  body: 'Hello,
+
+
+    Would you confirm when order ord-3408 is likely to arrive? We ordered 22 chainsaw protective
+    trousers, so I wondered whether there might be any reduction available. Payment of £2,860.12
+    was made on 7 September.
+
+
+    Regards,
+
+    Claire'
+expected_obligations:
+- policy: no-discount-categories
+  obligation: The order is for chainsaw protective trousers in the safety-critical PPE category,
+    so no discount, promotion or goodwill-motivated price reduction may be offered; state
+    that exclusion factually and do not present it as negotiable or route it to sales.
+- policy: delivery-date-language
+  obligation: The customer is asking for delivery timing, so first check order ord-3408's
+    status with the lookup tool; after that check, do not commit to a specific delivery date
+    and offer only a three-working-day window. If the checked status is awaiting-stock, clearly
+    say the window is an estimate and is not guaranteed until the goods are in the warehouse.
+- policy: order-release-threshold
+  obligation: Order ord-3408 has £2,860.12 in settled funds, so the settled total must be
+    acknowledged and the further £94.01 required for release must be stated; release does
+    not follow yet because the cleared amount is below the required threshold. The reply must
+    not commit to dispatch or give dispatch timing, and the 90% threshold is applied but never
+    quoted to the customer.
+- policy: order-reference-line
+  obligation: ord-3408 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-117, nothing after.
+order_id: ord-3408

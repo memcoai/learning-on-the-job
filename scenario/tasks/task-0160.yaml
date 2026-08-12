@@ -1,0 +1,45 @@
+id: task-0160
+account_id: acc-115
+applicable_policies:
+- carrier-selection
+- volume-breaks
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Use Skelmore Joinery's usual carrier for order ord-3325 and check whether
+    the 16 abrasive discs can be supplied at a lower price
+  order_id: ord-3325
+  quantity: 16
+  item: abrasive discs
+variants:
+- subject: ord-3325 – carrier and price query
+  body: Hi, following our call, please send ord-3325 with our usual carrier if possible. Also,
+    can you check whether the 16 abrasive discs on the order qualify for a lower price? Regards,
+    Martin
+- subject: Request regarding ord-3325
+  body: Morning, referring to my previous order email, could you use our usual carrier for
+    ord-3325? I would also like to know whether there is any better rate on the 16 abrasive
+    discs. Thanks, Helen
+- subject: ord-3325 delivery request
+  body: Hi, after our earlier call, please arrange ord-3325 through our usual carrier. Can
+    you also check if the 16 abrasive discs can be supplied at a reduced price? Regards, Tom
+- subject: Carrier and pricing for ord-3325
+  body: Hello, further to my last email, I need ord-3325 sent with our usual carrier. Please
+    check whether the 16 abrasive discs attract any lower price before the order is processed.
+    Regards, Claire
+expected_obligations:
+- policy: carrier-selection
+  obligation: The customer has requested use of its usual carrier for ord-3325, while the
+    order value is £800 excluding VAT and therefore below £1,400 excluding VAT; decline the
+    carrier request without offering signed-for delivery or any other alternative, without
+    explaining the decision as a cost decision and without inviting the customer to arrange
+    collection.
+- policy: volume-breaks
+  obligation: The order line contains 16 abrasive discs, so the 50-unit volume break does
+    not apply; quantities must not be accumulated across lines or orders, and the reply must
+    not mention the next break threshold or how many more units would be needed.
+- policy: order-reference-line
+  obligation: ord-3325 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-115, nothing after.
+order_id: ord-3325

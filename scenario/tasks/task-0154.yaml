@@ -1,0 +1,82 @@
+id: task-0154
+account_id: acc-117
+applicable_policies:
+- quantity-changes
+- delivery-date-language
+- credit-check-threshold
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Add 10 boxed workshop consumables to order ord-3308 and advise when it
+    is expected to arrive.
+  order_id: ord-3308
+  current_quantity: '40'
+  order_total_inc_vat: £6,204
+variants:
+- subject: Extra consumables for the site
+  body: 'Hi,
+
+
+    The boxed workshop consumables are for our current groundworks site. Could you add 10
+    more to order ord-3308 and let me know when the full delivery is likely to arrive?
+
+
+    Regards,
+
+    Martin'
+- subject: Order ord-3308
+  body: 'Morning,
+
+
+    We are using these consumables on site and need another 10 alongside the 40 already ordered.
+    Please could you add them to order ord-3308 and advise when we should expect delivery?
+
+
+    Thanks,
+
+    Claire'
+- subject: Additional boxes required
+  body: 'Hello,
+
+
+    The team has started working through the workshop supplies for the project. Can you put
+    10 extra boxes on order ord-3308, and tell me roughly when everything will arrive?
+
+
+    Best regards,
+
+    Simon'
+- subject: Can you add to our order?
+  body: 'Hi there,
+
+
+    The consumables are needed for ongoing work at our site. Would you please add 10 to the
+    40 on order ord-3308 and let me know when the complete order is expected?
+
+
+    Many thanks,
+
+    Rachel'
+expected_obligations:
+- policy: quantity-changes
+  obligation: Because the customer is requesting an increase from 40 units on ord-3308, the
+    additional 10 must be handled as a new order line at current prices rather than an amendment
+    at the original price. As the increase is to an order already valued at £6,204 including
+    VAT and therefore takes the order above the internal credit-check threshold, confirmation
+    of the increase must wait for the credit check.
+- policy: delivery-date-language
+  obligation: Because the customer asks when the order is expected, the reply must first check
+    ord-3308's status with the lookup tool and must not commit to a specific delivery date.
+    If offering an estimate after the status check, it must be a three-working-day window;
+    no window may be given before the status check.
+- policy: credit-check-threshold
+  obligation: ord-3308 is already above the internal credit-check threshold, with a total
+    of £6,204 including VAT and a credit check pending, so the reply must say that confirmation
+    follows completion of the check and must not commit to dispatch or delivery timing until
+    it has cleared. The applied threshold and its £4,800 figure must never be quoted or explained
+    to the customer.
+- policy: order-reference-line
+  obligation: ord-3308 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-117, nothing after.
+order_id: ord-3308

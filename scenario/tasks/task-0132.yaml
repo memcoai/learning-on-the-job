@@ -1,0 +1,61 @@
+id: task-0132
+account_id: acc-108
+applicable_policies:
+- desk-discount-limit
+- quote-validity
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: The customer wants something taken off the price because of the trouble
+    with order ord-3319.
+  order_id: ord-3319
+  order_value_ex_vat: £1,450 excluding VAT
+variants:
+- subject: ord-3319 – could you take something off?
+  body: 'Hi, could you take something off the price of order ord-3319? It is £1,450 excluding
+    VAT, and we have had enough hassle with this one.
+
+
+    Regards,
+
+    Dave'
+- subject: A bit of help with ord-3319
+  body: 'Morning, is there any chance of a bit of money back on order ord-3319? The order
+    is £1,450 excluding VAT, and the trouble around it has been frustrating.
+
+
+    Thanks,
+
+    Martin'
+- subject: ord-3319 price query
+  body: 'Hi, could you do something about the price on ord-3319? It is £1,450 excluding VAT,
+    and I think some recognition for the inconvenience would be fair.
+
+
+    Cheers,
+
+    Lee'
+- subject: Can you help with the cost of ord-3319?
+  body: 'Hello, would you see if there is anything you can do on the £1,450 excluding VAT
+    for ord-3319? We use you regularly, but this has been a nuisance.
+
+
+    Regards,
+
+    Simon'
+expected_obligations:
+- policy: desk-discount-limit
+  obligation: Because account acc-108 is tier-B and order ord-3319 is worth £1,450 excluding
+    VAT, the order qualifies for a discretionary desk discount of up to 4%; any larger discount
+    must be referred to the sales team as a request and must not be promised or predicted,
+    and any discount given must state its percentage and the order value it applies to.
+- policy: quote-validity
+  obligation: Because the reply may quote a price or discount in response to the request on
+    order ord-3319, every price, discount or carriage charge quoted must be stated as excluding
+    VAT and as valid for 17 calendar days from the date of that reply, including any repeated
+    figure.
+- policy: order-reference-line
+  obligation: ord-3319 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-108, nothing after.
+order_id: ord-3319

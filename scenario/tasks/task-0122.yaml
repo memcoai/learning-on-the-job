@@ -1,0 +1,75 @@
+id: task-0122
+account_id: acc-110
+applicable_policies:
+- payment-terms-by-tier
+- expedite-surcharge
+- order-release-threshold
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Request the quickest possible delivery for the torque wrenches and ask
+    for a little longer to pay anything still outstanding.
+  order_id: ord-3421
+  item: torque wrenches
+  order_total_inc_vat: £2,951.34
+  payment_received_inc_vat: £2,641.45
+  payment_date: 9 September 2026
+variants:
+- subject: Urgent delivery request
+  body: 'Hi,
+
+
+    We need the torque wrenches sent as quickly as possible. We paid £2,641.45 on 9 September
+    against the £2,951.34 total, but would like a little longer to pay anything still outstanding.
+    Could you please check whether order ord-3421 can be rushed?
+
+
+    Regards,
+
+    Helen'
+- subject: Please help with an urgent order
+  body: 'Morning,
+
+
+    The torque wrenches are needed urgently, so could you arrange the quickest delivery available
+    for us? We have paid £2,641.45 on 9 September against the £2,951.34 total, and would also
+    appreciate a little extra time to settle whatever remains. The order number is ord-3421.
+
+
+    Thanks in advance,
+
+    Mark'
+- subject: Order needed urgently
+  body: 'Hello,
+
+
+    We are trying to get the torque wrenches in as soon as possible. We paid £2,641.45 on
+    9 September towards the £2,951.34 total. Is there any way to send order ord-3421 quickly,
+    and could we have a little longer to pay the outstanding amount?
+
+
+    Kind regards,
+
+    Sarah'
+expected_obligations:
+- policy: payment-terms-by-tier
+  obligation: Because account acc-110 is tier-A and the customer is asking for longer to pay,
+    the reply must state the applicable terms of 45 days from invoice and pass the request
+    to credit control with a two-working-day response commitment. It must not offer extended,
+    negotiated or one-off terms, move an invoice due date, or predict what credit control
+    will decide.
+- policy: expedite-surcharge
+  obligation: Because the customer is asking for expedited delivery, any expedited delivery
+    offered or agreed must state the £68 surcharge per consignment and explicitly say that
+    it is waived. The waiver applies because acc-110 is tier-A and has 12 years' tenure; order
+    value, volume and urgency must not be given as reasons.
+- policy: order-release-threshold
+  obligation: For ord-3421, the settled total is £2,641.45 against an order total including
+    VAT and delivery of £2,951.34, so release does not yet follow and £14.76 more is required.
+    The reply must confirm the settled amount and remaining balance, must not quote the 90%
+    threshold, and must not commit to dispatch or give any dispatch timing.
+- policy: order-reference-line
+  obligation: ord-3421 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-110, nothing after.
+order_id: ord-3421

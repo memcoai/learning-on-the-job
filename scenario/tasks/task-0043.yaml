@@ -1,0 +1,62 @@
+id: task-0043
+account_id: acc-128
+applicable_policies:
+- credit-hold-handling
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask Fenmoor to remove the nine torque wrench calibration items from the
+    invoice for order ord-3357 and return that part of the charge
+  order_id: ord-3357
+  delivered_date: 20 June
+variants:
+- subject: Query about order ord-3357
+  body: 'Dear Fenmoor team,
+
+
+    Please could you look into removing the nine torque wrench calibration items from the
+    invoice for order ord-3357 and returning that part of the charge? The order was delivered
+    on 20 June.
+
+
+    Regards,
+
+    Martin Cole'
+- subject: Request concerning delivered order
+  body: 'Good morning,
+
+
+    I am writing about order ord-3357, delivered on 20 June. Could you please arrange for
+    the nine torque wrench calibration items to be taken off the invoice and the corresponding
+    amount returned?
+
+
+    Yours faithfully,
+
+    Helen Price'
+- subject: Invoice query — order ord-3357
+  body: 'Dear Customer Services,
+
+
+    I would be grateful if you could review the invoicing for order ord-3357, which was delivered
+    on 20 June. The delivery of the mobile tool cabinets itself was received, but I need the
+    nine torque wrench calibration items dealt with separately. Please could you remove those
+    items from the invoice and return the related charge? I would appreciate confirmation
+    that this has been looked at, as we are trying to close out the paperwork for this delivery.
+
+
+    Yours sincerely,
+
+    David Mercer'
+expected_obligations:
+- policy: credit-hold-handling
+  obligation: Account acc-128 has credit status on-hold, so the reply must consist solely
+    of referring this request to the accounts team, who will be in touch within one working
+    day. The hold must not be disclosed, no reason may be given, and no timing of any kind
+    may appear in the customer-facing reply, including any dates, windows, or statement that
+    timing cannot be given.
+- policy: order-reference-line
+  obligation: ord-3357 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-128, nothing after.
+order_id: ord-3357

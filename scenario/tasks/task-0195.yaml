@@ -1,0 +1,38 @@
+id: task-0195
+account_id: acc-121
+applicable_policies:
+- liability-language
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: The customer asks whether Fenmoor can provide something off the order
+    or money back for disruption connected with the delivery, including downtime and lost
+    labour.
+  order_id: ord-3358
+  delivered_date: 29 June 2026
+  goods: 16 steel shelving bays and 16 galvanised coach screws
+variants:
+- subject: Request regarding order ord-3358
+  body: The steel shelving bays and galvanised coach screws on order ord-3358 were intended
+    for storage and fixing work. The delivery has caused disruption to the installation, including
+    downtime and additional labour. As the order was delivered on 29 June 2026, could you
+    review whether anything can be done to recognise the trouble and costs involved, including
+    something off the order or money back?
+- subject: Disruption following delivery of order ord-3358
+  body: The 16 steel shelving bays and 16 galvanised coach screws on order ord-3358 were for
+    storage and fixing work at our site. The installation has been disrupted following delivery
+    on 29 June 2026, and we have incurred downtime and lost labour while dealing with it.
+    Please could you look into whether there is any way to provide something off the order
+    or return some money for the trouble? I am not seeking a figure at this stage, but would
+    appreciate a review of the position.
+expected_obligations:
+- policy: liability-language
+  obligation: Because the customer is seeking money back for downtime and lost labour connected
+    with order ord-3358, the reply must not accept fault on Fenmoor's behalf or offer compensation
+    for consequential loss. The only remedy the desk may offer is a credit under the goodwill
+    policy, and any such credit must be described as goodwill rather than compensation.
+- policy: order-reference-line
+  obligation: ord-3358 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-121, nothing after.
+order_id: ord-3358

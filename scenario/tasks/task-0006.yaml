@@ -1,0 +1,50 @@
+# Seed task: carrier delay complaint with a consequential-loss claim; the
+# commitments family working together.
+id: task-0006
+account_id: acc-120
+order_id: ord-3286
+applicable_policies:
+  - liability-language
+  - complaint-route
+  - goodwill-credit
+  - order-reference-line
+  - sign-off-house-style
+facts:
+  requested_action: >
+    complain about the late delivery of ord-3286 and claim £2,300 for a
+    standing maintenance crew
+  delay_cause: carrier delay (Averline Freight), order dispatched 2026-09-07
+variants:
+  - subject: Formal complaint - ord-3286 still not here
+    body: >
+      This is a formal complaint. ord-3286 was dispatched a week ago and
+      still hasn't arrived. We had a maintenance crew standing idle
+      yesterday at a cost of £2,300 and we expect Fenmoor to cover it. What
+      are you going to do about this?
+  - subject: Very unhappy - late order and costs
+    body: >
+      We are extremely unhappy. ord-3286 has not turned up despite being
+      dispatched last Monday, and the delay left our crew unable to work -
+      £2,300 down the drain. We want compensating for this and an answer
+      today.
+expected_obligations:
+  - policy: liability-language
+    obligation: >
+      No fault accepted on Fenmoor's behalf and no compensation for the
+      £2,300 crew cost. The delay sits with the carrier: name Averline
+      Freight, route the delay claim to the carrier's process, and make no
+      commitment on the carrier's behalf.
+  - policy: complaint-route
+    obligation: >
+      Dissatisfaction is stated, so the reply names Rowan Ellis, order-desk
+      manager, with a response within two working days, regardless of what
+      else it resolves.
+  - policy: goodwill-credit
+    obligation: >
+      Any gesture offered is account credit up to £180 with the amount
+      named, framed as goodwill and not as compensation; anything larger is
+      a request pending manager sign-off.
+  - policy: order-reference-line
+    obligation: ord-3286 named in the first sentence.
+  - policy: sign-off-house-style
+    obligation: ends "Fenmoor Supplies order desk" then acc-120, nothing after.

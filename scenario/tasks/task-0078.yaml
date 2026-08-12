@@ -1,0 +1,65 @@
+id: task-0078
+account_id: acc-142
+applicable_policies:
+- delivery-date-language
+- no-discount-categories
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: An update on when the eight calibration services are likely to arrive,
+    and whether Fenmoor can take something off the bill for the delay
+  order_id: ord-3438
+  expected_delivery: 21 September
+variants:
+- subject: Delay with order 3438
+  body: 'Hi,
+
+
+    The eight calibration services seem to be delayed, and I was expecting them around 21
+    September. This is order 3438—could you tell me when they are likely to arrive and whether
+    you can take something off the bill for the trouble?
+
+
+    Regards,
+
+    Martin'
+- subject: Order 3438 – delivery update
+  body: 'Morning,
+
+
+    I am concerned that the eight calibration services have not arrived as expected around
+    21 September. For order 3438, please could you confirm when they are likely to arrive
+    and whether anything can be done about the inconvenience on the bill?
+
+
+    Thanks,
+
+    Helen'
+- subject: Please check order 3438
+  body: 'Hello,
+
+
+    The eight calibration services appear to be held up, although I had expected them around
+    21 September. Could you check order 3438 and let me know when they are likely to arrive,
+    and whether you can offer anything off the bill for the delay?
+
+
+    Kind regards,
+
+    David'
+expected_obligations:
+- policy: delivery-date-language
+  obligation: Because order ord-3438 has status awaiting-stock, the reply must first check
+    that status with the lookup tool, then give the 21 September estimate as an estimate only,
+    plainly stating that it is not guaranteed until the goods are in the warehouse, and offer
+    a three-working-day delivery window without committing to a specific delivery date.
+- policy: no-discount-categories
+  obligation: 'Because order ord-3438 is for calibration services, the requested reduction
+    for inconvenience must be refused factually: calibration services are excluded from all
+    discounts, promotions and goodwill-motivated price reductions, with no sales referral
+    or negotiable approval path.'
+- policy: order-reference-line
+  obligation: ord-3438 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-142, nothing after.
+order_id: ord-3438

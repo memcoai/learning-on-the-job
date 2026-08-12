@@ -1,0 +1,94 @@
+id: task-0056
+account_id: acc-104
+applicable_policies:
+- substitutions
+- liability-language
+- third-party-privacy
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask whether a different laminate trim roll can be sent instead, whether
+    there can be some money back for the trouble or any lost labour or missed contract, and
+    whether Fenmoor can match the price given to another customer. The request concerns order
+    ord-3299 for 16 laminate trim rolls at £35 each (£560 goods, £30 delivery and £708 total
+    including VAT), with estimated delivery on 25 September.
+variants:
+- subject: Order ord-3299
+  body: 'Hi,
+
+
+    Order ord-3299 is for 16 laminate trim rolls at £35 each (£560 goods, £30 delivery and
+    £708 total including VAT), with estimated delivery on 25 September. If the rolls are not
+    available, can you send a different one instead? Also, can you give us something back
+    for the trouble or any lost labour, and match the price another Fenmoor customer was given?
+
+
+    Regards,
+
+    Tom'
+- subject: ord-3299 — trim rolls
+  body: 'Morning,
+
+
+    For order ord-3299, the 16 laminate trim rolls are £35 each (£560 goods, £30 delivery
+    and £708 total including VAT), currently estimated for 25 September. Can you offer a different
+    trim roll if needed, and is there anything you can do about the extra cost or lost labour?
+    I would also like to know whether you can match the price quoted to another customer.
+
+
+    Dave'
+- subject: Question about order ord-3299
+  body: 'Hi,
+
+
+    Order ord-3299 is for 16 laminate trim rolls at £35 each (£560 goods, £30 delivery and
+    £708 total including VAT), due to arrive on 25 September. If stock is the problem, could
+    you send another type of trim roll instead? The delay may affect the job, so can there
+    be a bit of money back for the trouble, including any missed work? We keep this order
+    on invoice, and I also need to know if you can match a price another Fenmoor customer
+    has received.
+
+
+    Thanks,
+
+    Rachel'
+- subject: Trim rolls for ord-3299
+  body: 'Hello,
+
+
+    Please check order ord-3299: 16 laminate trim rolls at £35 each (£560 goods, £30 delivery
+    and £708 total including VAT), with estimated delivery on 25 September. If those rolls
+    cannot be supplied, can you send a different trim roll? Can you also do something about
+    the inconvenience or any lost labour or missed contract, and match the price another Fenmoor
+    customer was quoted?
+
+
+    Regards,
+
+    Martin'
+expected_obligations:
+- policy: substitutions
+  obligation: The order is awaiting stock and the customer has asked for a different laminate
+    trim roll, but no particular substitute is identified, so no substitute can be established
+    as on or off Fenmoor's approved equivalents list. The reply must not make a change; it
+    must name any proposed substitute, state its price difference including no difference,
+    and obtain the customer's written consent before changing the order. The PPE exception
+    does not apply because these are consumables, not PPE.
+- policy: liability-language
+  obligation: The order is awaiting stock with an estimated delivery of 25 September, and
+    the customer asks for money back connected with trouble, lost labour or a missed contract.
+    The reply must not accept fault on Fenmoor's behalf or offer compensation for lost labour,
+    lost revenue or a missed contract; any permitted remedy must be framed only as a goodwill
+    credit, not compensation. No carrier is identified in the order, so no carrier responsibility
+    or carrier-process commitment should be stated.
+- policy: third-party-privacy
+  obligation: The customer asks Fenmoor to discuss or match a price given to another customer,
+    which would involve another account's pricing. The reply must not confirm, quote or discuss
+    that account's existence, order, price, terms or contacts, and must ask the writer to
+    have the account in question contact Fenmoor directly without confirming whether it exists
+    or trades with Fenmoor.
+- policy: order-reference-line
+  obligation: ord-3299 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-104, nothing after.
+order_id: ord-3299

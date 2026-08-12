@@ -1,0 +1,41 @@
+id: task-0188
+account_id: acc-133
+applicable_policies:
+- quantity-changes
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Add 5 more units of cut-to-length cable, 6mm², to order ord-3459, which
+    currently contains 45 units
+variants:
+- subject: Can you add 5 more to ord-3459?
+  body: Can you add 5 more units of the cut-to-length cable, 6mm², to ord-3459? It currently
+    shows 45 units and is still showing as picking. We have found we are short, and it is
+    rather frustrating to spot this now, but please let me know what happens with the extra
+    cable.
+- subject: Could you add 5 units to ord-3459?
+  body: Could you add 5 more of the cut-to-length cable, 6mm², to ord-3459? The order has
+    45 units on it at the moment. I appreciate it may need looking at separately, but please
+    check this rather than leaving us to place everything again.
+- subject: Request to increase ord-3459 by 5
+  body: Can you increase the cable on ord-3459 by 5 units? The line is for cut-to-length cable,
+    6mm², and currently shows 45 units. We need the additional material for the same job and
+    would prefer not to start a separate order if this can be sorted alongside the one already
+    being picked.
+- subject: Can you put another 5 on ord-3459?
+  body: Can you put another 5 units of the cut-to-length cable, 6mm², on ord-3459? There are
+    45 units showing on the order now. I know this is a nuisance to raise after the order
+    has got as far as picking, but we have just had the requirement confirmed and need the
+    extra cable. Please tell me what you need from us to get it added.
+expected_obligations:
+- policy: quantity-changes
+  obligation: Because the customer has requested a quantity increase to the 45-unit cut-to-length
+    cable line on ord-3459, the additional 5 units must be handled as a new order line at
+    current prices, not as an amendment using the original price. If the increased order value
+    exceeds the credit-check threshold, confirmation of the increase must wait until the credit
+    check is completed.
+- policy: order-reference-line
+  obligation: ord-3459 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-133, nothing after.
+order_id: ord-3459

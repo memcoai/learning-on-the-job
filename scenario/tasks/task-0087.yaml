@@ -1,0 +1,48 @@
+id: task-0087
+account_id: acc-123
+applicable_policies:
+- goodwill-credit
+- credit-check-threshold
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask whether Fenmoor can do something off the price for the trouble caused
+    by the wait, and provide an update on order ord-3398
+  order_id: ord-3398
+  estimated_delivery: 30 September
+variants:
+- subject: Still waiting on order ord-3398
+  body: Hi there, we're still waiting for the mobile tool cabinets and it's becoming a bit
+    of a headache at our end. This is for order ord-3398, which I understood was due on 30
+    September. Could you let me know what's happening and whether there's anything you can
+    do to take the edge off the trouble? Thanks, Hannah
+- subject: Update needed on ord-3398
+  body: Morning, the wait for our cabinets is causing us some hassle as we had planned around
+    them arriving. The order is ord-3398 and the date we've been given is 30 September. Can
+    you check where things stand and see if there's something you can do for us on the price?
+    Regards, Mark
+- subject: Problem with the wait for ord-3398
+  body: Hi, we're still chasing the cabinets and are finding the delay rather awkward for
+    the team. I'm referring to order ord-3398, currently showing an expected date of 30 September.
+    Any chance you could send me an update and let me know if you can do anything about the
+    inconvenience? Cheers, Louise
+expected_obligations:
+- policy: goodwill-credit
+  obligation: The complaint concerns a service failure arising from the order awaiting stock
+    and its delayed expected delivery, so the goodwill policy applies. Account acc-123 has
+    had two goodwill credits in the twelve months before 14 September 2026, meaning any further
+    goodwill credit is not a desk decision and must be put to the customer as a request pending
+    order-desk manager sign-off. If approved or offered, it may be up to £180, must name the
+    amount, and must be account credit only rather than a cash or card refund; it must not
+    be presented as compensation for consequential loss.
+- policy: credit-check-threshold
+  obligation: Order ord-3398 is already above the internal credit-check threshold because
+    its total including VAT is £7,262.15, and the recorded credit check is completed. The
+    reply must say that confirmation follows the check and must not commit to dispatch or
+    delivery timing until the check has cleared. The £4,800 figure is applied but never quoted,
+    and the existence of a threshold is never explained.
+- policy: order-reference-line
+  obligation: ord-3398 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-123, nothing after.
+order_id: ord-3398

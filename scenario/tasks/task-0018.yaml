@@ -1,0 +1,67 @@
+id: task-0018
+account_id: acc-101
+applicable_policies:
+- substitutions
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask whether the 28 steel shelving bays on order ord-3456 can be changed
+    to a different shelving product, with any proposed alternative identified and its price
+    difference explained.
+  order_id: ord-3456
+  quantity: '28'
+  product: Steel shelving bays
+variants:
+- subject: ord-3456 – change to the shelving
+  body: 'Hi,
+
+
+    Could you let me know whether the 28 steel shelving bays on order ord-3456 can be changed
+    to another shelving product? I would like to see what alternative you have in mind before
+    anything is altered.
+
+
+    Regards,
+
+    Martin'
+- subject: Question about order ord-3456
+  body: 'Morning,
+
+
+    I’m chasing this because I don’t want the shelving order changed without checking it with
+    us first. Is there another shelving product you could suggest instead of the 28 steel
+    shelving bays on ord-3456, and would it cost more or less?
+
+
+    Thanks,
+
+    Elaine'
+- subject: Can the shelving on ord-3456 be changed?
+  body: 'Hi there,
+
+
+    Please could someone come back to me about order ord-3456? We’re wondering whether the
+    28 steel shelving bays could be swapped for a different shelving product. The order is
+    being put through on our usual invoice arrangement, so I’d also need to know how any difference
+    would show on the paperwork. I’m getting fed up of having to chase this, but I’d rather
+    confirm the alternative with you before anything is changed.
+
+
+    Many thanks,
+
+    Rob Davies'
+expected_obligations:
+- policy: substitutions
+  obligation: 'The customer is asking to change the 28 storage-category steel shelving bays
+    on ord-3456, so the substitution procedure applies; the request does not concern PPE.
+    No specific substitute is identified in the records or in the customer''s request, so
+    there is no substitute whose approved-equivalents-list status can be treated as established
+    or approved. The reply must not treat an unspecified alternative as acceptable or change
+    the order: any proposed substitute must be confirmed as being on Fenmoor''s approved equivalents
+    list, named to the customer, and accompanied by its price difference, including no difference,
+    and the customer''s written consent must be obtained before any change is made.'
+- policy: order-reference-line
+  obligation: ord-3456 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-101, nothing after.
+order_id: ord-3456

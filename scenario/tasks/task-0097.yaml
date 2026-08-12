@@ -1,0 +1,54 @@
+id: task-0097
+account_id: acc-112
+applicable_policies:
+- quantity-changes
+- credit-check-threshold
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Add 6 mobile tool cabinets to the 34 already ordered
+  order_id: ord-3466
+  product: Mobile tool cabinets
+  current_quantity: 34
+  additional_quantity: 6
+variants:
+- subject: Add 6 mobile tool cabinets
+  body: 'Hi,
+
+
+    Please add 6 more mobile tool cabinets to the 34 already on order. The order number is
+    ord-3466. Please confirm the price for the extra units and when they will be sent.
+
+
+    Regards,
+
+    Martin Cole'
+- subject: Please add 6 cabinets to the order
+  body: 'Hi,
+
+
+    Please add 6 more mobile tool cabinets to the 34 already on order. The order number is
+    ord-3466. The earlier payment is showing as settled on our side. Please confirm the price
+    for the extra units and when the full order is likely to be sent, as we need to plan space
+    in the stores.
+
+
+    Regards,
+
+    Martin Cole'
+expected_obligations:
+- policy: quantity-changes
+  obligation: Because ord-3466 is still before picking and the customer is asking to increase
+    the existing line from 34 mobile tool cabinets by 6, the increase must be handled as a
+    new order line at current prices rather than as an amendment using the original price;
+    the reply should make that pricing treatment clear.
+- policy: credit-check-threshold
+  obligation: Because ord-3466 already has a total including VAT of £5,783.76 and its credit
+    check is still pending, confirmation of the order increase and any dispatch or delivery
+    timing must wait until the check is complete. The internal £4,800 figure is applied but
+    must not be quoted, and the existence of a threshold must not be explained.
+- policy: order-reference-line
+  obligation: ord-3466 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-112, nothing after.
+order_id: ord-3466

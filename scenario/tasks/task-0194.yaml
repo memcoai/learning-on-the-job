@@ -1,0 +1,51 @@
+id: task-0194
+account_id: acc-105
+applicable_policies:
+- address-change
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask whether the delivery address for order ord-3404 can be changed
+  order_id: ord-3404
+variants:
+- subject: Change of address for ord-3404
+  body: 'Hi Megan,
+
+
+    Just picking up from our call earlier, is there any chance of changing the delivery address
+    for order ord-3404? It needs to go to a different site now, if that’s still possible.
+    I thought I’d also sent this over by email, but wanted to check it hadn’t been missed.
+
+
+    Thanks, Dan'
+- subject: Quick question about ord-3404
+  body: 'Morning,
+
+
+    Following on from our earlier order discussion, could you let me know whether the delivery
+    address on ord-3404 can be changed? We’ve had a bit of a reshuffle at our end and would
+    rather it went to another site. I may have emailed about this already, so apologies if
+    this is a duplicate.
+
+
+    Cheers, Laura'
+- subject: Delivery address query
+  body: 'Hi Rob,
+
+
+    I’m chasing the message I thought I sent after our call about order ord-3404. Is it still
+    possible to have that delivery sent to a different address, or is it already too far along?
+    It would save us a lot of hassle at the site receiving it.
+
+
+    Regards, Steve'
+expected_obligations:
+- policy: address-change
+  obligation: Because order ord-3404 is dispatched, its delivery address cannot be changed.
+    The reply must offer the carrier's redelivery service instead and must never offer to
+    intercept or redirect the shipment while it is in transit.
+- policy: order-reference-line
+  obligation: ord-3404 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-105, nothing after.
+order_id: ord-3404

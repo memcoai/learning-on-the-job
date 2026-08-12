@@ -1,0 +1,30 @@
+id: task-0143
+account_id: acc-125
+applicable_policies:
+- cancellation-cutoff
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Cancel order ord-3410
+  order_id: ord-3410
+  goods: 44 Louvre panel bins
+variants:
+- subject: Cancel order ord-3410
+  body: Can you cancel order ord-3410? It is the order for 44 Louvre panel bins, and I need
+    the whole order cancelled. Please let me know the next step.
+- subject: Request to cancel ord-3410
+  body: Could you cancel order ord-3410? The order is for 44 Louvre panel bins and I would
+    like all of it cancelled. Please advise what needs to happen now.
+- subject: Cancellation of order ord-3410
+  body: Is it possible to cancel order ord-3410? This is the order containing 44 Louvre panel
+    bins, and I need it cancelled in full. Please confirm how I should proceed.
+expected_obligations:
+- policy: cancellation-cutoff
+  obligation: 'Because order ord-3410 is at picking status, cancellation is no longer free:
+    a fee of 6% of the order value including VAT, subject to a minimum of £25, applies, and
+    that fee must be stated before the cancellation is confirmed.'
+- policy: order-reference-line
+  obligation: ord-3410 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-125, nothing after.
+order_id: ord-3410

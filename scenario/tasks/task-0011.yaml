@@ -1,0 +1,76 @@
+id: task-0011
+account_id: acc-111
+applicable_policies:
+- expedite-surcharge
+- payment-terms-by-tier
+- order-release-threshold
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask whether order ord-3451, for 49 cut-to-length 6mm² cables with a total
+    including delivery of £2,505.24, can be sent urgently and whether there is any way to
+    have longer to pay. State that £884.65 was paid on 5 September and £1,436.20 was sent
+    on 12 September, and ask what is still needed before it can be sent.
+variants:
+- subject: ord-3451 — urgent delivery
+  body: 'Hi,
+
+
+    Can order ord-3451 be sent urgently? The total including delivery is £2,505.24. We paid
+    £884.65 on 5 September and sent £1,436.20 on 12 September. Is there any way to have longer
+    to pay, and what is still needed before the order can be sent?
+
+
+    Regards,
+
+    Martin'
+- subject: Urgent request for ord-3451
+  body: 'Morning,
+
+
+    Please confirm whether order ord-3451, comprising 49 cut-to-length 6mm² cables, can go
+    out urgently. The order total including delivery is £2,505.24. We paid £884.65 on 5 September
+    and sent a further £1,436.20 on 12 September. We would also like to know whether we can
+    have longer to pay, and what remains outstanding before you send the order.
+
+
+    Thanks,
+
+    Helen'
+- subject: ord-3451 — payment and sending request
+  body: 'Hi,
+
+
+    We are trying to get order ord-3451 moving as quickly as possible. It is for 49 cut-to-length
+    6mm² cables and the total including delivery is £2,505.24. We paid £884.65 on 5 September,
+    then sent £1,436.20 on 12 September. Please let me know whether the order can be sent
+    urgently, whether there is any option to have longer to pay, and what you still need from
+    us before it can be sent.
+
+
+    Regards,
+
+    Simon'
+expected_obligations:
+- policy: expedite-surcharge
+  obligation: Because acc-111 is tier B with four years' tenure, it does not qualify for the
+    expedited-delivery surcharge waiver. If expedited delivery is offered or agreed in response
+    to the request, the reply must state the £68 surcharge per consignment; it must not waive
+    or silently omit that charge.
+- policy: payment-terms-by-tier
+  obligation: Because acc-111 is tier B, the applicable terms are 21 days from invoice and
+    those terms must be stated because the customer asks for longer to pay. The request to
+    change them must be passed to credit control with a two-working-day response commitment;
+    the reply must not offer extended, negotiated or one-off terms, move an invoice due date,
+    or predict credit control's decision.
+- policy: order-release-threshold
+  obligation: For ord-3451, only the settled payment of £884.65 counts; the £1,436.20 sent
+    on 12 September is not settled and does not count. The reply must state that £884.65 has
+    been received, that £1,370.07 more is required for release, and that release follows once
+    that balance is cleared. It must not quote the 90% threshold or commit to dispatch or
+    give dispatch timing while the settled amount remains below the applied threshold.
+- policy: order-reference-line
+  obligation: ord-3451 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-111, nothing after.
+order_id: ord-3451

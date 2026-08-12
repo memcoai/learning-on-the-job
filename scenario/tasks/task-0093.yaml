@@ -1,0 +1,95 @@
+id: task-0093
+account_id: acc-126
+applicable_policies:
+- restocking-fee
+- damage-shortage-window
+- returns-window
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Arrange the return of the 23 rolls received and resolve the missing roll
+    from order ord-3388
+  order_id: ord-3388
+  item: Masking tape, 48mm
+  ordered_quantity: 24 rolls
+  received_quantity: 23 rolls
+  delivery_date: 31 August
+variants:
+- subject: ord-3388 – missing roll and return
+  body: 'Hi,
+
+
+    The masking tape is for our dental treatment rooms, and work on site is being held up
+    because one roll was missing. Order ord-3388 was for 24 rolls of 48mm tape, but only 23
+    arrived on 31 August. The 23 we received are the right tape, although we no longer have
+    a use for them without the full order. Can you arrange to take those 23 back and sort
+    out the missing roll?
+
+
+    Regards,
+
+    Helen'
+- subject: Problem with ord-3388
+  body: 'Morning,
+
+
+    We need the masking tape for the practices, but one roll was not in the delivery. Order
+    ord-3388 shows 24 rolls of 48mm tape; 23 arrived on 31 August. The rolls that did arrive
+    are the correct ones, but they are no use to us on their own. Could you let me know how
+    to send the 23 back and what happens about the missing roll?
+
+
+    Thanks,
+
+    Martin'
+- subject: ord-3388 delivery query
+  body: 'Hi there,
+
+
+    The tape was meant for the dental rooms and the team has had to put that job on hold.
+    We ordered 24 rolls of 48mm masking tape on ord-3388, but counted only 23 when it arrived
+    on 31 August. They are the tape we ordered, so this is not a case of the wrong product
+    being sent, but I would like to send the 23 rolls back if the order cannot be completed.
+    Please advise what you can do about the missing roll.
+
+
+    Best,
+
+    Sophie'
+- subject: Can you help with ord-3388?
+  body: 'Hello,
+
+
+    We use the masking tape around the surgery, and this delivery has left us in a rather
+    awkward position. There should have been 24 rolls of 48mm tape on ord-3388, but only 23
+    were delivered on 31 August. The 23 rolls are the correct item, but without the last one
+    we cannot use them for the job they were bought for. I am getting increasingly fed up
+    with having to chase this, so could you please explain how we return the 23 rolls and
+    how the missing roll will be dealt with?
+
+
+    Regards,
+
+    David'
+expected_obligations:
+- policy: restocking-fee
+  obligation: The 23 rolls being returned are correctly supplied goods, and the order goods
+    value is £169.20. A 7.5% fee would be £12.69, so the £16 minimum applies; the reply must
+    state that £16 fee and that it is based on the correctly supplied goods. The missing roll
+    is a separate shortage issue and does not waive the fee for the correctly supplied goods.
+- policy: damage-shortage-window
+  obligation: The shortage was reported on 14 September, which is 10 working days after delivery
+    on 31 August, so the four-working-day reporting window has closed. Fenmoor cannot raise
+    a shortage claim; the reply must give the closed window as the reason and route the customer
+    to the carrier's claims process rather than accepting a Fenmoor claim or promising a Fenmoor
+    credit or replacement.
+- policy: returns-window
+  obligation: Delivery was on 31 August and 14 days have elapsed by 14 September. The account
+    is not tier A, so the ordinary 24-day window governs and the return of the stocked, correctly
+    supplied goods is accepted. The tier-A 38-day extension is applied only to eligible accounts
+    and must not be mentioned to this customer.
+- policy: order-reference-line
+  obligation: ord-3388 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-126, nothing after.
+order_id: ord-3388

@@ -1,0 +1,74 @@
+id: task-0092
+account_id: acc-114
+applicable_policies:
+- refund-method
+- damage-shortage-window
+- returns-window
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Report that some of the pallet trucks arrived damaged and ask to return
+    them for a refund rather than a replacement
+  order_id: ord-3272
+  delivered_date: 1 September
+  quantity: 10 pallet trucks
+variants:
+- subject: Damaged pallet trucks
+  body: 'Good morning,
+
+
+    Some of the pallet trucks from our delivery have been damaged, and I would like to return
+    them for a refund rather than receive replacements. The order number is ord-3272, delivered
+    on 1 September, and it was for 10 pallet trucks. Please let me know what arrangements
+    are needed, as the equipment is for our usual site work.
+
+
+    Regards,
+
+    Helen Morris'
+- subject: Problem with pallet truck delivery
+  body: 'Hello,
+
+
+    We have found damage to some of the pallet trucks and would like to send them back and
+    have the money returned instead of having replacements sent out. This relates to order
+    ord-3272, delivered on 1 September, containing 10 pallet trucks. The previous delivery
+    went smoothly, so I would appreciate guidance on the next steps.
+
+
+    Kind regards,
+
+    David Ellison'
+- subject: Request to return damaged goods
+  body: 'Hi,
+
+
+    A number of the pallet trucks arrived damaged, and I am asking to return them for a refund
+    rather than an exchange. The order was ord-3272, delivered on 1 September, for 10 pallet
+    trucks. Please advise how we should proceed with the damaged items.
+
+
+    Thanks in advance,
+
+    Sarah Whitcombe'
+expected_obligations:
+- policy: refund-method
+  obligation: Order ord-3272 was paid by invoice and the account is trading rather than closing,
+    so any refund must be issued as account credit, not as a payment out; the reply must state
+    the account-credit route and its applicable timing, and must not offer cash, a cheque,
+    a bank transfer, or a transfer to a different card.
+- policy: damage-shortage-window
+  obligation: The damage is being reported on 14 September against delivery on 1 September,
+    which is 9 working days later, so the four-working-day damage window is closed; photographs
+    must not be requested for an accepted damage claim, and the customer must instead be directed
+    to the carrier's claims process.
+- policy: returns-window
+  obligation: The requested return concerns stocked pallet trucks delivered on 1 September,
+    with 13 calendar days elapsed by 14 September, so it is within the account's applicable
+    38-day return window and the return is accepted; the tier-A extension to 38 days is applied
+    but must not be advertised to the customer.
+- policy: order-reference-line
+  obligation: ord-3272 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-114, nothing after.
+order_id: ord-3272

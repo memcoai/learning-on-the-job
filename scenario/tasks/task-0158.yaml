@@ -1,0 +1,53 @@
+id: task-0158
+account_id: acc-101
+applicable_policies:
+- quote-validity
+- partial-shipment
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask whether the 42 resin anchor cartridges on order ord-3424 can be sent
+    in stages, with anything available sent first and the remainder later, and ask whether
+    the existing £73.00 delivery charge still applies; the order is estimated for 2 October
+    2026.
+  order_id: ord-3424
+  product: Resin anchor cartridges
+  quantity: 42
+  delivery_charge_ex_vat: £73.00
+  estimated_delivery: 2 October 2026
+variants:
+- subject: Could ord-3424 come in stages?
+  body: Hi—can you send any of the 42 resin anchor cartridges on ord-3424 that you have now,
+    and the rest later? Also, does the £73.00 delivery charge stay the same? I’ve got the
+    order down for 2 October. Thanks, Jamie
+- subject: A question about the resin cartridges
+  body: Hi—can you send what you have of the 42 resin anchor cartridges on ord-3424 now and
+    follow up with the rest? We’re trying to keep the job moving at our workshop. The delivery
+    is showing as 2 October, so could you also confirm whether the £73.00 delivery charge
+    is still right? Cheers, Lisa
+- subject: Can you get some of ord-3424 out sooner?
+  body: Hi—can you send any of the 42 resin anchor cartridges from ord-3424 that are available
+    now, with the balance to follow later? We’ve got a fabrication job waiting on these, and
+    even getting some on site would help us keep things moving rather than waiting for the
+    whole order. The order is currently showing delivery on 2 October. Could you also let
+    me know whether the £73.00 delivery charge remains the same if it comes in more than one
+    delivery? Thanks in advance, Martin
+expected_obligations:
+- policy: quote-validity
+  obligation: Because the customer asks for confirmation of the £73.00 delivery charge, any
+    reply that quotes that charge, or any other price, discount or delivery charge, must state
+    the amount excluding VAT and say that the quoted amount is valid for 17 calendar days
+    from the date of the reply; this also applies if the existing £73.00 figure is merely
+    repeated.
+- policy: partial-shipment
+  obligation: The line on ord-3424 has a 13-working-day backorder, which is beyond nine working
+    days, so the reply must offer staged delivery. It must state that no goods are currently
+    available to ship from the awaiting-stock order, list the 42 resin anchor cartridges as
+    following with the estimated delivery of 2 October 2026, state that the £22 consignment
+    fee is waived because acc-101 is a tier-A account, and confirm that delivery is charged
+    once for the whole order.
+- policy: order-reference-line
+  obligation: ord-3424 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-101, nothing after.
+order_id: ord-3424

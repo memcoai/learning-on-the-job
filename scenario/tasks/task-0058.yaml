@@ -1,0 +1,72 @@
+id: task-0058
+account_id: acc-113
+applicable_policies:
+- damage-shortage-window
+- goodwill-credit
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Report transit damage to some of the thermal curtain strips and ask whether
+    anything can be done for the trouble
+  order_id: ord-3324
+  item: Thermal curtain strips
+  quantity: '6'
+  delivered_date: 8 September
+variants:
+- subject: Damage to order ord-3324
+  body: 'Hi,
+
+
+    I need to report that some of the thermal curtain strips in order ord-3324 arrived damaged.
+    The delivery was received on 8 September, and I would like to know what you need from
+    us to look into this. Given the trouble caused, could you also consider doing something
+    to help make up for it?
+
+
+    Regards,
+
+    Helen Morris'
+- subject: Problem with the thermal curtain strips
+  body: 'Good morning,
+
+
+    Some of the six thermal curtain strips delivered in order ord-3324 were damaged when they
+    arrived on 8 September. Please let me know how we should proceed with this and whether
+    you need any further details from our side. It has caused disruption here, so I would
+    also appreciate it if you could see whether anything can be done for the inconvenience.
+
+
+    Thanks,
+
+    Martin Cole'
+- subject: Order ord-3324 arrived damaged
+  body: 'Hello,
+
+
+    I am getting in touch about order ord-3324, delivered on 8 September. A number of the
+    thermal curtain strips arrived damaged, and I would be grateful if you could advise what
+    happens next. As this has caused us some difficulty, could you look into whether there
+    is anything you can do for the trouble?
+
+
+    Kind regards,
+
+    Rachel Evans'
+expected_obligations:
+- policy: damage-shortage-window
+  obligation: The goods were delivered on 8 September and the reference date is 14 September;
+    counting working days gives 9, 10, 11 and 14 September, so the four-working-day reporting
+    window is still open. The reply must ask for photographs of the damaged goods and their
+    packaging before anything is credited or replaced.
+- policy: goodwill-credit
+  obligation: The account record shows no goodwill credits for acc-113 in the twelve months
+    before 14 September 2026, so a further goodwill credit is a decision the desk may take
+    rather than a request requiring manager sign-off. Any goodwill offered may be up to £180
+    for the incident, must name the amount, must be account credit only rather than a cash
+    or card refund, and must be presented as covering a service failure rather than consequential
+    loss.
+- policy: order-reference-line
+  obligation: ord-3324 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-113, nothing after.
+order_id: ord-3324

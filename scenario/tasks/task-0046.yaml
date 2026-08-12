@@ -1,0 +1,56 @@
+id: task-0046
+account_id: acc-140
+applicable_policies:
+- goodwill-credit
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Something taken off for the inconvenience relating to order ord-3446
+variants:
+- subject: Request about order ord-3446
+  body: 'Hi,
+
+
+    Could you take a bit off for the inconvenience connected with order ord-3446? I would
+    appreciate it if there is anything you can do. Please let me know.
+
+
+    Regards,
+
+    Helen'
+- subject: Order ord-3446
+  body: 'Good morning,
+
+
+    I am writing about order ord-3446 and wondered whether you could do something about the
+    inconvenience. A small amount back would be appreciated if possible. Thanks in advance.
+
+
+    Kind regards,
+
+    Martin'
+- subject: A query on order ord-3446
+  body: 'Hello,
+
+
+    There has been some inconvenience around order ord-3446, so I wanted to ask whether you
+    could take a little off the order. I realise this may need to be looked at, but I would
+    be grateful if you could check.
+
+
+    Regards,
+
+    Sophie'
+expected_obligations:
+- policy: goodwill-credit
+  obligation: The account has received 0 goodwill credits in the twelve months before 14 September
+    2026, so a further goodwill credit is a decision the desk may take rather than a request
+    requiring order-desk manager sign-off, provided the matter is a qualifying service failure.
+    The reply must not treat a general inconvenience or consequential loss as covered; if
+    a qualifying service failure is established, any offer may be up to £180, must state the
+    amount, and must be account credit only, never a cash or card refund.
+- policy: order-reference-line
+  obligation: ord-3446 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-140, nothing after.
+order_id: ord-3446

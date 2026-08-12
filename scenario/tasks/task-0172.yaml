@@ -1,0 +1,57 @@
+id: task-0172
+account_id: acc-138
+applicable_policies:
+- quote-validity
+- restocking-fee
+- returns-window
+- refund-method
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Return the 29 Junction enclosures because they are no longer needed and
+    have the £1,382.46 paid for the order refunded
+  order_id: ord-3387
+  item: 29 Junction enclosures
+  delivered_date: 3 September 2026
+  amount: £1,382.46
+variants:
+- subject: ord-3387 — we no longer need the enclosures
+  body: ord-3387 — we don't need the 29 Junction enclosures any more. They arrived on 3 September,
+    but could you let me know if we can send them back and have the £1,382.46 refunded to
+    the card? The delivery itself was fine; they're simply surplus now.
+- subject: ord-3387 — surplus Junction enclosures
+  body: ord-3387 — the 29 Junction enclosures are no longer needed on our side. They were
+    delivered on 3 September and are still in the original delivery, so we'd like to return
+    them if possible. Could you arrange for the £1,382.46 to go back to the card used for
+    the order? We're tidying up stock across the practices at the moment and this box has
+    ended up being more than we need.
+- subject: ord-3387 — can we return the enclosures?
+  body: ord-3387 — we've got 29 Junction enclosures we don't need now. They were delivered
+    on 3 September and nothing was wrong with the delivery, but could we return them and get
+    the £1,382.46 back on the card, please?
+expected_obligations:
+- policy: quote-validity
+  obligation: Because the reply will quote the monetary restocking fee and any other price,
+    discount or carriage charge, each such figure must be stated as excluding VAT and as valid
+    for 17 calendar days from the date of that reply; this applies even if the reply repeats
+    the customer's £1,382.46 figure.
+- policy: restocking-fee
+  obligation: The requested return concerns correctly supplied goods, with no indication that
+    Fenmoor shipped the wrong item or that the goods arrived damaged, so the fee is not waived.
+    The reply must state a restocking fee of 7.5% of the £1,115.05 goods value, amounting
+    to £83.63, rather than the £16 minimum because 7.5% is higher.
+- policy: returns-window
+  obligation: The order was delivered on 3 September 2026 and 11 days have elapsed by 14 September
+    2026, so the ordinary 24-day window for this non-tier-A account governs and the return
+    is accepted. The tier-A extension to 38 days is applied but never advertised, so the reply
+    must not mention that longer window.
+- policy: refund-method
+  obligation: 'Although ord-3387 was paid by card, acc-138 is closing, so the closing-account
+    exception governs: the applicable refund route is bank transfer within twelve working
+    days. The reply must state that route and timing and must not offer cash, a cheque, or
+    a transfer to a different card.'
+- policy: order-reference-line
+  obligation: ord-3387 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-138, nothing after.
+order_id: ord-3387

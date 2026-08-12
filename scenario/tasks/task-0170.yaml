@@ -1,0 +1,40 @@
+id: task-0170
+account_id: acc-101
+applicable_policies:
+- cancellation-cutoff
+- expedite-surcharge
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask to cancel order ord-3423, or, if that is no longer possible, ask whether
+    it can be delivered faster instead
+  order_id: ord-3423
+  invoice_total_inc_vat: £993.38
+variants:
+- subject: Following up on order ord-3423
+  body: Following our call earlier, could you cancel order ord-3423, please? The invoice total
+    is £993.38. If it has already gone too far to cancel, could you get it to us quicker instead?
+- subject: A quick follow-up on ord-3423
+  body: Following up on the email I thought I sent earlier about order ord-3423. We have had
+    to change the job plan at our end, so I wanted to check whether you could cancel it before
+    it goes any further. The invoice total is £993.38. If cancelling is not possible by now,
+    could you let me know whether there is a way to get it delivered faster? It is for the
+    usual site, and we are trying to keep the work moving rather than hold things up.
+- subject: Can you help with ord-3423?
+  body: 'Picking up from our earlier call about order ord-3423: could you cancel it? The invoice
+    total is £993.38. If that is too late, could you arrange for it to come out quicker instead?'
+expected_obligations:
+- policy: cancellation-cutoff
+  obligation: Because order ord-3423 is currently at picking, cancellation is no longer free
+    and a fee of 6% of the £993.38 order total including VAT, which is £59.60 and above the
+    £25 minimum, applies; the reply must state that fee before cancellation is confirmed.
+- policy: expedite-surcharge
+  obligation: Because Halvern Fabrication Ltd's account acc-101 is tier A and has 11 years'
+    tenure, the £68 per-consignment expedited-delivery surcharge is waived if faster delivery
+    is offered or agreed; the reply must explicitly say that the surcharge is waived rather
+    than omit it silently.
+- policy: order-reference-line
+  obligation: ord-3423 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-101, nothing after.
+order_id: ord-3423

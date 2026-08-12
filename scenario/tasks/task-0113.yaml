@@ -1,0 +1,72 @@
+id: task-0113
+account_id: acc-131
+applicable_policies:
+- order-release-threshold
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Please release and dispatch order ord-3409, which is still showing as
+    picking, after the payment made on 8 September.
+  order_id: ord-3409
+  order_status: picking
+  payment_amount_inc_vat: £2,336.72
+  payment_date: 8 September
+  order_total_inc_vat: £2,665.80
+variants:
+- subject: ord-3409 still showing as picking
+  body: 'Hi, ord-3409 is still showing as picking, although I paid £2,336.72 on 8 September
+    against the order total of £2,665.80. Please can you check this and release it for dispatch?
+    It is becoming rather frustrating having to chase an order that has already been paid
+    for.
+
+
+    Regards,
+
+    Martin'
+- subject: Problem with ord-3409
+  body: 'Morning, ord-3409 is still stuck at picking. I paid £2,336.72 on 8 September, and
+    the order total is £2,665.80. Could someone look into this and get it released for dispatch,
+    please? I would appreciate an update rather than having to keep following up.
+
+
+    Thanks,
+
+    Helen'
+- subject: Please check ord-3409
+  body: 'Hi, ord-3409 is still showing as picking, which doesn''t seem right as £2,336.72
+    was paid on 8 September towards the £2,665.80 order total. Can you check what is holding
+    it up and arrange for it to go out? The last delivery to our foundry went smoothly, so
+    I''m not sure why this one has stalled.
+
+
+    Cheers,
+
+    Dave'
+- subject: ord-3409 has not been released
+  body: 'Hello, ord-3409 is still showing as picking and has not been released for dispatch.
+    I paid £2,336.72 on 8 September against the total of £2,665.80, so please could you investigate
+    this urgently?
+
+
+    We need the torque wrenches for work at the foundry and had expected the order to move
+    on after payment. I appreciate that these things can occasionally take a little time to
+    update, but this is now becoming a nuisance and I would like to know what needs sorting
+    from our side, if anything.
+
+
+    Kind regards,
+
+    Sarah'
+expected_obligations:
+- policy: order-release-threshold
+  obligation: Because order ord-3409 has only £2,336.72 in settled funds against its £2,665.80
+    total including VAT and delivery, the release condition has not yet been met. The reply
+    must acknowledge £2,336.72 received, state that a further £62.50 is required before release,
+    and say that release follows once that balance is received and settled; it must not commit
+    to dispatch or give any dispatch timing. The applicable threshold is used but the 90%
+    figure is never quoted to the customer.
+- policy: order-reference-line
+  obligation: ord-3409 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-131, nothing after.
+order_id: ord-3409

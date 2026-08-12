@@ -1,0 +1,48 @@
+id: task-0077
+account_id: acc-133
+applicable_policies:
+- no-discount-categories
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: A reduction in the price of the 21 arc-flash protection kits because of
+    the delay
+  order_id: ord-3400
+  quantity: 21
+  estimated_delivery: 8 October
+variants:
+- subject: ord-3400 – price query
+  body: 'Hi, could you take something off the price of the 21 arc-flash protection kits on
+    order ord-3400, as they are not due until 8 October?
+
+
+    Regards,
+
+    Martin'
+- subject: Question about order ord-3400
+  body: 'Hello, is there any scope to reduce the price of the 21 arc-flash protection kits
+    on order ord-3400, given the expected delivery date of 8 October?
+
+
+    Kind regards,
+
+    Rachel'
+- subject: ord-3400 delivery delay
+  body: 'Morning, could you offer a reduction on the 21 arc-flash protection kits in order
+    ord-3400 because delivery is not expected until 8 October?
+
+
+    Thanks,
+
+    Peter'
+expected_obligations:
+- policy: no-discount-categories
+  obligation: Because order ord-3400 contains arc-flash protection kits, which are safety-critical
+    PPE, the reply must state factually that discounts, promotions and goodwill-motivated
+    price reductions do not apply, without presenting this as negotiable or routing the request
+    to sales; there is no approval path for this category.
+- policy: order-reference-line
+  obligation: ord-3400 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-133, nothing after.
+order_id: ord-3400

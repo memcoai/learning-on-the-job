@@ -1,0 +1,51 @@
+id: task-0102
+account_id: acc-122
+applicable_policies:
+- expedite-surcharge
+- special-order-lead-time
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask when order ord-3414 is likely to arrive and whether it can be delivered
+    sooner
+  order_id: ord-3414
+variants:
+- subject: Timing of order ord-3414
+  body: 'Hi,
+
+
+    Sorry to chase, but could you please let me know when order ord-3414 is likely to arrive
+    and whether there is any way to get it sooner?
+
+
+    Regards,
+
+    Helen'
+- subject: Order ord-3414 delivery timing
+  body: 'Morning,
+
+
+    Apologies for chasing. Would you please confirm when order ord-3414 is expected and whether
+    an earlier delivery might be possible?
+
+
+    Thanks,
+
+    Martin'
+expected_obligations:
+- policy: expedite-surcharge
+  obligation: The customer is asking whether order ord-3414 can arrive sooner, so expedited
+    delivery is being queried; if expedited delivery were offered or agreed, acc-122's tier
+    B status and five-year tenure do not qualify for a waiver, and the reply must state the
+    £68 surcharge per consignment. The reply must not imply that urgency or this order's value
+    qualifies for a waiver.
+- policy: special-order-lead-time
+  obligation: Order ord-3414 consists of six bespoke tooling jigs recorded as special-order
+    items, so the reply must state the 17-working-day lead time from order confirmation. Because
+    special-order items cannot be expedited or delivered partially early, the reply must not
+    offer expedited delivery, an earlier estimate, or a shortened delivery time.
+- policy: order-reference-line
+  obligation: ord-3414 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-122, nothing after.
+order_id: ord-3414

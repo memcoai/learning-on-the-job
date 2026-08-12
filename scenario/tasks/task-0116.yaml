@@ -1,0 +1,76 @@
+id: task-0116
+account_id: acc-117
+applicable_policies:
+- quote-validity
+- address-change
+- credit-check-threshold
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Change the delivery address for order ord-3308 to the new address referred
+    to in an earlier email, confirm whether this will cost anything, and say when the order
+    is likely to be sent
+  order_id: ord-3308
+variants:
+- subject: Delivery address for order ord-3308
+  body: 'Hello,
+
+
+    Following our call, please could you change the delivery address for order ord-3308 to
+    the new site address I gave in my earlier email? Please also let me know whether there
+    will be any charge for doing this, and when the order is likely to be sent. The site team
+    is expecting the workshop consumables, so I would be grateful if you could check this
+    carefully.
+
+
+    Regards,
+
+    Martin Cole'
+- subject: Request to amend ord-3308
+  body: 'Hi,
+
+
+    Further to my previous email, I am writing to ask for the delivery address on order ord-3308
+    to be changed to the address provided there. Could you confirm whether moving it will
+    incur any cost, and advise when the order is expected to leave you? Our groundworks team
+    has arranged access at the new site, so knowing the position would be helpful.
+
+
+    Thanks in advance,
+
+    Helen Walsh'
+- subject: Address query following earlier order email
+  body: 'Morning,
+
+
+    I believe I sent through a request about the delivery address earlier, but I wanted to
+    follow it up here. Please amend the delivery address for ord-3308 to the new address in
+    that message. Would you let me know if there is anything to pay for the change, and when
+    you expect the order to be sent out? We have had smooth deliveries from you previously,
+    which is why I wanted to make sure this one is recorded correctly.
+
+
+    Kind regards,
+
+    Simon Reed'
+expected_obligations:
+- policy: quote-validity
+  obligation: Because the customer asks about the charge for the address change and the reply
+    must state the applicable charge outcome, every price, discount or carriage charge quoted,
+    including a zero charge if it is expressed as free, must be stated as excluding VAT and
+    as valid for 17 calendar days from the date of that reply.
+- policy: address-change
+  obligation: Order ord-3308 is currently before picking, so the requested delivery-address
+    change is free; the reply must state that no address-change charge applies and handle
+    the change without quoting the later-stage £35 re-routing fee.
+- policy: credit-check-threshold
+  obligation: Order ord-3308 is already above the internal £4,800-including-VAT threshold
+    because its total is £6,204 including VAT. A completed credit check is required before
+    the order is confirmed, so the reply must say that confirmation follows the check and
+    must not commit to dispatch or delivery timing until it has cleared; the £4,800 figure
+    and the existence of a threshold must never be mentioned to the customer.
+- policy: order-reference-line
+  obligation: ord-3308 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-117, nothing after.
+order_id: ord-3308

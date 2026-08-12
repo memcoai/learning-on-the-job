@@ -1,0 +1,40 @@
+# Seed task: discount request that fails twice over; the exclusion is stated
+# without an approval path being invented.
+id: task-0008
+account_id: acc-119
+order_id: ord-3335
+applicable_policies:
+  - no-discount-categories
+  - desk-discount-limit
+  - order-reference-line
+  - sign-off-house-style
+facts:
+  requested_action: a discount on the arc-flash kits on ord-3335
+  customer_expectation: expects tier-A status to earn a discount
+variants:
+  - subject: Pricing on the arc-flash kits
+    body: >
+      Hi, regarding ord-3335 - as a top-tier account we'd expect a better
+      price on the arc-flash kits. Can you apply your usual account discount
+      to this one?
+  - subject: ord-3335 discount request
+    body: >
+      Hello, can you sharpen the pricing on ord-3335? Given our standing
+      with Fenmoor a discount on the arc-flash kits seems reasonable - or
+      pass it to whoever signs these off.
+expected_obligations:
+  - policy: no-discount-categories
+    obligation: >
+      Arc-flash kits are safety-critical PPE: no discount, promotion, or
+      goodwill-motivated reduction whatever the tier, stated factually,
+      presented as non-negotiable, and not referred to sales as though an
+      approval path existed.
+  - policy: desk-discount-limit
+    obligation: >
+      Independently of the category, goods of £860 sit below the £900
+      ex-VAT floor, so no discretionary desk discount could apply to this
+      order in any case.
+  - policy: order-reference-line
+    obligation: ord-3335 named in the first sentence.
+  - policy: sign-off-house-style
+    obligation: ends "Fenmoor Supplies order desk" then acc-119, nothing after.

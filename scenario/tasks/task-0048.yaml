@@ -1,0 +1,48 @@
+id: task-0048
+account_id: acc-133
+applicable_policies:
+- carrier-selection
+- quantity-changes
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: add 5 to the existing quantity of 45 cut-to-length cables on order ord-3459
+    and send the order with Ashcombe Textiles' own carrier
+  order_id: ord-3459
+  current_quantity: '45'
+  additional_quantity: '5'
+  order_value_ex_vat: £1,651.50
+variants:
+- subject: ord-3459 – a couple of changes
+  body: Could you add 5 more to the 45 cut-to-length cables on ord-3459? The order value is
+    £1,651.50 before VAT, and we'd like to use our own carrier for this one if possible. Let
+    me know what you need from me.
+- subject: Quick change to ord-3459
+  body: Can you put another 5 cut-to-length cables onto the 45 already on ord-3459? It currently
+    comes to £1,651.50 before VAT, and our own carrier would be easiest for delivery. We use
+    them regularly, so hopefully that's straightforward.
+- subject: ord-3459 delivery and quantity
+  body: Would it be possible to increase the 45 cables on ord-3459 by 5? The order is £1,651.50
+    before VAT, and could you send it with our own carrier rather than arranging one your
+    side? Give me a shout if there’s a problem.
+- subject: Two little points on ord-3459
+  body: I need to add 5 to the 45 cut-to-length cables on ord-3459, please. The value is £1,651.50
+    before VAT, and we'd prefer to put it through our own carrier as usual. Everything else
+    can stay as it is.
+expected_obligations:
+- policy: carrier-selection
+  obligation: Because ord-3459 has goods value of £1,651.50 excluding VAT, which is above
+    £1,400, and the customer has asked to use its own carrier, the request must be declined
+    without exception and signed-for delivery must be offered as the alternative; the reply
+    must not explain carrier selection as a cost decision or invite the customer to arrange
+    collection.
+- policy: quantity-changes
+  obligation: Because the customer requests an increase from 45 to 50 units on ord-3459, the
+    increase must be handled as a new order line at current prices rather than as an amendment
+    at the original price. If the increase takes the order total above the credit-check threshold,
+    confirmation of the increase must wait for the credit check.
+- policy: order-reference-line
+  obligation: ord-3459 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-133, nothing after.
+order_id: ord-3459

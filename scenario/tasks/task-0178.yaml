@@ -1,0 +1,69 @@
+id: task-0178
+account_id: acc-110
+applicable_policies:
+- quote-validity
+- volume-breaks
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Confirm whether the price charged for 26 packs of cable ties on order
+    ord-3381 was correct and provide the current price for ordering the same quantity again
+  order_id: ord-3381
+  product: Cable ties, mixed packs
+  quantity: '26'
+  unit_price_ex_vat: £7.45 per pack
+  delivered_date: 20 August
+variants:
+- subject: Question about order ord-3381 pricing
+  body: 'Hi,
+
+
+    Following our earlier order, could you confirm whether the price charged for the 26 packs
+    of cable ties on order ord-3381 was correct? They were delivered on 20 August at £7.45
+    per pack, and we may need the same quantity again. Please let me know the current price
+    for that order.
+
+
+    Regards,
+
+    Helen'
+- subject: Checking the price on our previous order
+  body: 'Morning,
+
+
+    I’m following up on order ord-3381, which arrived on 20 August. We paid £7.45 per pack
+    for 26 packs of cable ties, and I’d be grateful if you could confirm that this was the
+    right price and tell me what the same quantity would cost now.
+
+
+    Thanks in advance,
+
+    Mark'
+- subject: Price query following order ord-3381
+  body: 'Hello,
+
+
+    Further to our previous order, could you check the pricing for the 26 packs of cable ties
+    on ord-3381? The delivery came through on 20 August and the unit price shown was £7.45.
+    We may place another order for the same quantity, so please advise the current price.
+
+
+    Kind regards,
+
+    Sophie'
+expected_obligations:
+- policy: quote-validity
+  obligation: Because the customer is asking for the current price for the same quantity,
+    any price, discount or carriage charge quoted in the reply must be stated as excluding
+    VAT and as valid for 17 calendar days from the date of that reply; both details are required
+    for every quoted figure, including the repeated £7.45 price.
+- policy: volume-breaks
+  obligation: Because the order line in ord-3381 contains 26 units, the 50-unit volume break
+    does not apply to that line. The reply must make clear that quantities do not accumulate
+    across lines or orders, and it must not mention or disclose the next break threshold or
+    how many more units would be needed.
+- policy: order-reference-line
+  obligation: ord-3381 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-110, nothing after.
+order_id: ord-3381

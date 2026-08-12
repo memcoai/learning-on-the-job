@@ -1,0 +1,48 @@
+id: task-0074
+account_id: acc-122
+applicable_policies:
+- restocking-fee
+- payment-terms-by-tier
+- returns-window
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Return the 47 Louvre panel bins from order ord-3383, have the money put
+    back against the invoice, and ask for longer to pay while it is sorted.
+  order_id: ord-3383
+  goods: 47 Louvre panel bins
+  delivered_date: 21 August 2026
+  goods_value_ex_vat: £1,264.30
+variants:
+- subject: Return request for ord-3383
+  body: The 47 Louvre panel bins from order ord-3383 were for our signage installation, but
+    a change to the site layout has left them surplus. They were delivered on 21 August, and
+    we would like to send them back and have the money put back against the invoice. The goods
+    value was £1,264.30; please confirm how to arrange this and what would be deducted. We
+    would also like a little longer to pay the invoice while this is sorted.
+- subject: ord-3383 — bins no longer required
+  body: The 47 Louvre panel bins ordered for our signage work are no longer needed following
+    a change on site. They arrived on 21 August under order ord-3383, and we want to return
+    them and have the money put back against the invoice. The goods value was £1,264.30, so
+    please let us know the return arrangements and any deduction. Could we also have a bit
+    longer to pay the invoice while this is dealt with?
+expected_obligations:
+- policy: restocking-fee
+  obligation: The requested return is of correctly supplied goods, with no wrong-item or damage
+    issue stated, and the goods value is £1,264.30, so a 7.5% restocking fee applies and comes
+    to £94.82; the reply must state that fee and amount, with no waiver.
+- policy: payment-terms-by-tier
+  obligation: acc-122 is tier B, so its applicable terms are 21 days from invoice. Because
+    the customer requests longer payment terms, the reply must refer the request to credit
+    control alone and give a two-working-day response commitment; it must not offer extended,
+    negotiated or one-off terms, move the invoice due date, or predict credit control's decision.
+- policy: returns-window
+  obligation: The Louvre panel bins are stocked goods delivered on 21 August, and 24 days
+    have elapsed by 14 September 2026. acc-122 is not tier A, so the ordinary 24-day window
+    governs and the return is accepted; the tier-A 38-day extension is applied but must not
+    be mentioned to the customer.
+- policy: order-reference-line
+  obligation: ord-3383 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-122, nothing after.
+order_id: ord-3383

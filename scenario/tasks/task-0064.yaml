@@ -1,0 +1,72 @@
+id: task-0064
+account_id: acc-105
+applicable_policies:
+- price-match
+- complaint-route
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Match the lower price shown in a screenshot from an online shop
+  order_id: ord-3379
+  invoice_total_inc_vat: £2,864.27
+  delivered_date: 31 July
+  evidence_offered: A screenshot from an online shop
+  dissatisfaction: The customer is dissatisfied and wants to complain
+variants:
+- subject: ord-3379 – can you look at this price?
+  body: 'Hi,
+
+
+    I’m getting increasingly fed up with what we paid on ord-3379. The invoice total was £2,864.27,
+    and the delivery arrived on 31 July. I’ve attached a screenshot from an online shop showing
+    the same sort of pallet racking beams at a lower price. Can you match it or do something
+    about the difference? I’d also like to complain, as this has been a frustrating experience.
+
+
+    Regards,
+
+    Martin Cole'
+- subject: Could you check ord-3379 please
+  body: 'Morning,
+
+
+    Please can someone look into ord-3379? We paid £2,864.27 in total and received the delivery
+    on 31 July, but I’ve since found a lower price online and have attached a screenshot from
+    an online shop. I’m asking whether you can match the price shown. I’m disappointed that
+    I have had to chase this and would like to complain as well.
+
+
+    Thanks,
+
+    Helen'
+- subject: ord-3379 – lower price found online
+  body: 'Hello,
+
+
+    I’m not especially happy about the price on ord-3379. The total on our invoice is £2,864.27,
+    and the order was delivered on 31 July. I have attached a screenshot from an online shop
+    showing the pallet racking beams cheaper elsewhere. Is there anything you can do to match
+    that price? We have generally found deliveries straightforward, which makes this more
+    disappointing, but I would also like to raise a complaint about it.
+
+
+    Best wishes,
+
+    Daniel Price'
+expected_obligations:
+- policy: price-match
+  obligation: The customer is asking Fenmoor to match a lower price and has offered a screenshot
+    from an online shop, which is marketplace or consumer-site evidence and does not count.
+    The reply must say that this evidence is not accepted, ask for a written quote from a
+    trade distributor if the customer wants the request considered, and pass the request to
+    the sales team. The desk must not agree the match, decline it, or estimate the outcome;
+    sales will respond within two working days.
+- policy: complaint-route
+  obligation: The customer has stated dissatisfaction and asked to complain about ord-3379,
+    so the reply must name Rowan Ellis, the order-desk manager, as the complaints route and
+    state that Rowan will respond within two working days, alongside handling the price request.
+- policy: order-reference-line
+  obligation: ord-3379 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-105, nothing after.
+order_id: ord-3379

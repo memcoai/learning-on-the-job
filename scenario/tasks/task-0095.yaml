@@ -1,0 +1,47 @@
+id: task-0095
+account_id: acc-123
+applicable_policies:
+- cancellation-cutoff
+- credit-check-threshold
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Cancel order ord-3396 because it is no longer required
+  order_id: ord-3396
+variants:
+- subject: Order ord-3396 – cancellation request
+  body: 'Hi,
+
+
+    Order ord-3396 is no longer required. Please cancel it before it is sent out.
+
+
+    Regards,
+
+    Martin'
+- subject: Request to cancel order ord-3396
+  body: 'Hello,
+
+
+    There is a problem with order ord-3396 as we no longer need it. Could you please arrange
+    for it to be cancelled?
+
+
+    Thanks,
+
+    Laura'
+expected_obligations:
+- policy: cancellation-cutoff
+  obligation: Order ord-3396 is currently in picking, so cancellation is no longer free. A
+    cancellation fee of 6% of the £4,858.56 order total including VAT, which is £291.51 and
+    above the £25 minimum, applies and must be stated before the cancellation is confirmed.
+- policy: credit-check-threshold
+  obligation: Order ord-3396 has a total including VAT above the internal credit-check threshold,
+    and its credit check is recorded as completed. Confirmation follows that check; the threshold
+    figure and the existence of a threshold must not be quoted or explained, and no dispatch
+    or delivery timing may be committed before the check has cleared.
+- policy: order-reference-line
+  obligation: ord-3396 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-123, nothing after.
+order_id: ord-3396

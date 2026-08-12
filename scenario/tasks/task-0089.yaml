@@ -1,0 +1,50 @@
+id: task-0089
+account_id: acc-106
+applicable_policies:
+- credit-hold-handling
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Confirmation of whether order ord-3394 is still expected to arrive by
+    26 September
+  order_id: ord-3394
+  estimated_delivery: 26 September
+  items: Modular storage racking, folding ear defenders and arc-flash protection kits
+variants:
+- subject: Delivery confirmation for ord-3394
+  body: 'Hi,
+
+
+    Could you please confirm whether order ord-3394 is still expected to arrive by 26 September?
+
+
+    The order includes modular storage racking, folding ear defenders and arc-flash protection
+    kits. We are planning around that date, so an update would be appreciated.
+
+
+    Regards,
+
+    Martin Cole'
+- subject: Ord-3394 expected delivery
+  body: 'Good morning,
+
+
+    Could you tell me if order ord-3394 is due by 26 September? It contains the modular storage
+    racking, folding ear defenders and arc-flash protection kits.
+
+
+    Thanks,
+
+    Sarah Bennett'
+expected_obligations:
+- policy: credit-hold-handling
+  obligation: 'Because account acc-106 has credit status on-hold, the reply must be the referral
+    alone: say that the request has been passed to the accounts team and that they will be
+    in touch within one working day. Do not disclose the hold, give any reason, make any commitment
+    or change, or mention order delivery timing; no order date, timing window, or statement
+    that timing cannot be given may appear.'
+- policy: order-reference-line
+  obligation: ord-3394 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-106, nothing after.
+order_id: ord-3394

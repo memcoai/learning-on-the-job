@@ -1,0 +1,75 @@
+id: task-0098
+account_id: acc-127
+applicable_policies:
+- carrier-selection
+- payment-terms-by-tier
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Use our usual carrier for delivery and allow more time to pay the invoice
+  order_id: ord-3444
+variants:
+- subject: Order ord-3444 – delivery and payment query
+  body: 'Hi,
+
+
+    The modular storage racking in order ord-3444 is for our storage area, and the team is
+    getting the site ready for it. Could you please arrange delivery with our usual carrier
+    rather than whoever you normally use? Also, would it be possible to have a little longer
+    to pay the invoice than we usually do?
+
+
+    Regards,
+
+    Helen'
+- subject: ord-3444 – request about delivery and payment
+  body: 'Good morning,
+
+
+    We are preparing the site for the modular storage racking in order ord-3444. I wanted
+    to ask whether you could send it with our usual carrier. I would also be grateful if you
+    could consider giving us some extra time to settle the invoice on this occasion.
+
+
+    Please let me know what can be arranged.
+
+
+    Kind regards,
+
+    Martin'
+- subject: Delivery arrangements and invoice for ord-3444
+  body: 'Hello,
+
+
+    The modular storage racking from order ord-3444 is intended for the storage area at our
+    site, where the installation space is currently being prepared. Before the order moves
+    on, could you check whether delivery can be made using our usual carrier rather than Fenmoor''s
+    selected carrier? That would fit better with the arrangements already being made on site.
+
+
+    I also wanted to ask about the payment date. We are managing several site costs at present,
+    so could the invoice be allowed a little longer than normal before it has to be paid?
+    I appreciate that this may need to be considered separately, but please could you advise
+    what is possible.
+
+
+    Regards,
+
+    Sarah'
+expected_obligations:
+- policy: carrier-selection
+  obligation: Because the customer is asking to use its own usual carrier for order ord-3444,
+    Fenmoor must decline that request without exception. As the order goods value is £2,157.91
+    excluding VAT, the reply must offer signed-for delivery as the alternative, without explaining
+    carrier selection as a cost decision or inviting the customer to arrange collection.
+- policy: payment-terms-by-tier
+  obligation: Because acc-127 is a tier-A account and the customer is asking for more time
+    to pay, the reply must state that the applicable terms are 45 days from invoice, must
+    not offer extended, negotiated or one-off terms or move the due date, and must pass the
+    request to credit control with a two-working-day response commitment without predicting
+    credit control's decision.
+- policy: order-reference-line
+  obligation: ord-3444 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-127, nothing after.
+order_id: ord-3444

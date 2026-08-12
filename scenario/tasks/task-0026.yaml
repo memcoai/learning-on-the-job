@@ -1,0 +1,48 @@
+id: task-0026
+account_id: acc-116
+applicable_policies:
+- partial-shipment
+- cancellation-cutoff
+- expedite-surcharge
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Send the 12 guillotine blades now and the 20 toner-fix sprays later, ask
+    whether the blades can arrive sooner than usual, and cancel the order if neither option
+    is possible
+  order_id: ord-3345
+  guillotine_blades_quantity: 12
+  toner_fix_sprays_quantity: 20
+  toner_fix_sprays_delay: 11 working days
+variants:
+- subject: Order ord-3345 is delayed
+  body: Order ord-3345 is becoming a nuisance because the 20 toner-fix sprays are showing
+    an 11-working-day delay. Could you send the 12 guillotine blades now and the sprays later,
+    and is there any way to get the blades here sooner than usual? If neither of those options
+    is possible, please cancel the order.
+- subject: Please sort out ord-3345
+  body: The 20 toner-fix sprays on ord-3345 are now showing an 11-working-day delay, which
+    is causing us a bit of trouble. Can you send the 12 guillotine blades ahead of them and
+    let me know whether the blades can arrive sooner than usual? If that cannot be arranged,
+    I would like the order cancelled.
+expected_obligations:
+- policy: partial-shipment
+  obligation: The toner-fix sprays have an 11-working-day backorder, which is beyond nine
+    working days, and the customer has asked for the available goods first, so the reply must
+    offer the 12 guillotine blades shipping now and the 20 toner-fix sprays following with
+    an estimate of 11 working days. The split carries a £22 consignment fee because acc-116
+    is tier B, and the reply must confirm that carriage is charged once for the whole order.
+- policy: cancellation-cutoff
+  obligation: ord-3345 is still before picking, and the customer has asked for cancellation
+    if the alternatives cannot be arranged, so cancellation is free at this point and the
+    reply must state that no cancellation fee applies before confirming cancellation.
+- policy: expedite-surcharge
+  obligation: The customer asks whether delivery can be made sooner than usual, so if expedited
+    delivery is offered or agreed, the reply must state the £68 surcharge per consignment.
+    No waiver applies because acc-116 is tier B with one year of tenure; the order value,
+    volume and urgency do not qualify for one.
+- policy: order-reference-line
+  obligation: ord-3345 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-116, nothing after.
+order_id: ord-3345

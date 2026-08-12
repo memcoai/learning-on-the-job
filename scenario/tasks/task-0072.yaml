@@ -1,0 +1,48 @@
+id: task-0072
+account_id: acc-103
+applicable_policies:
+- non-returnable-categories
+- volume-breaks
+- returns-window
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Return the 200 nitrile work gloves from order ord-3290 for a refund
+  order_id: ord-3290
+  delivered_date: 4 September 2026
+  packaging_condition: unopened
+  goods_condition: as delivered
+variants:
+- subject: ord-3290 — returning the gloves
+  body: Sorry to chase — can we send back the 200 nitrile gloves from ord-3290 for a refund?
+    The packaging is still unopened and the goods are exactly as delivered.
+- subject: Question about ord-3290
+  body: Sorry to chase, but could you let me know how we return the 200 nitrile work gloves
+    from ord-3290? They’re unopened and still in the same condition as when they arrived,
+    and we’d like the money back.
+- subject: ord-3290 return
+  body: Sorry to chase — we need to return the 200 gloves on ord-3290. The pack hasn’t been
+    opened and everything is as delivered. Can you tell me what to do for a refund?
+- subject: Can we send the gloves back? — ord-3290
+  body: Apologies for chasing. Could we send the 200 nitrile work gloves from ord-3290 back
+    for a refund? They’re still sealed and haven’t been changed or used since delivery.
+expected_obligations:
+- policy: non-returnable-categories
+  obligation: Because the goods on ord-3290 are PPE but the packaging is unopened, the PPE
+    category does not make this return ineligible; the reply must not refuse the return on
+    that category and must not offer a goodwill credit as a substitute for an ineligible return.
+- policy: volume-breaks
+  obligation: Because the order has 200 units on one nitrile-glove line, the 50-or-more-unit
+    volume break applies to that line; the reply must confirm plainly that volume pricing
+    applies and state that quantities do not accumulate across lines or orders, without mentioning
+    any next break threshold.
+- policy: returns-window
+  obligation: Because ord-3290 was delivered on 4 September 2026 and today is 14 September
+    2026, 10 days have elapsed, so the ordinary 24-day window for tier-B account acc-103 governs
+    and the return is accepted; the reply must base this on the delivery date, not the invoice
+    or order date, and must not mention the tier-A 38-day extension.
+- policy: order-reference-line
+  obligation: ord-3290 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-103, nothing after.
+order_id: ord-3290

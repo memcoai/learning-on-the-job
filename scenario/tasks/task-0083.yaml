@@ -1,0 +1,79 @@
+id: task-0083
+account_id: acc-108
+applicable_policies:
+- volume-breaks
+- carrier-selection
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Use the customer's own carrier for order ord-3455 and confirm whether
+    the 18 abrasive flap discs at £6.51 each can be supplied at a lower price.
+  order_id: ord-3455
+  quantity: 18 abrasive flap discs, 115mm
+  unit_price_ex_vat: £6.51 each
+variants:
+- subject: Our carrier for order ord-3455
+  body: 'Can you send order ord-3455 with our own carrier, and is £6.51 each really the best
+    price for the 18 abrasive flap discs?
+
+
+    Hi,
+
+
+    I know the order is still being picked, but this is getting a bit frustrating. Please
+    use our usual carrier if possible, and have another look at the price before it goes out.
+
+
+    Regards,
+
+    Martin'
+- subject: Carrier and price query
+  body: 'Can you use our carrier for order ord-3455 and see if there is anything better you
+    can do on the 18 abrasive flap discs at £6.51 each?
+
+
+    Morning,
+
+
+    We have used the same carrier for other deliveries and would rather not have this one
+    sent another way. The order is still being picked, so I thought I would ask now rather
+    than chase it later.
+
+
+    Thanks,
+
+    Elaine'
+- subject: Please check order ord-3455
+  body: 'Can you send order ord-3455 through our own carrier and check whether the price of
+    £6.51 each for the 18 abrasive flap discs can be reduced?
+
+
+    Hi there,
+
+
+    Sorry to chase, but we have had to spend too much time sorting out deliveries recently.
+    As this order is still being picked, could you please arrange it with our carrier and
+    take one more look at the price before it is dispatched?
+
+
+    Best,
+
+    Simon'
+expected_obligations:
+- policy: volume-breaks
+  obligation: The order line contains 18 abrasive flap discs, which is below the 50-unit volume-pricing
+    threshold, so no volume break applies to this line. The reply must say that quantities
+    do not accumulate across lines or orders, and must not mention or trail any next break
+    threshold or how many more units would be needed; if asked about pricing, it should say
+    volume pricing is applied automatically at order time.
+- policy: carrier-selection
+  obligation: Fenmoor selects the carrier for order ord-3455, and the customer's request to
+    use their own carrier must therefore be declined without exception. The order's goods
+    value is £117.18 excluding VAT, below £1,400, so no signed-for delivery alternative is
+    offered; the reply must not explain the decision as a cost decision, invite the customer
+    to arrange collection, or invite them to use their own carrier.
+- policy: order-reference-line
+  obligation: ord-3455 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-108, nothing after.
+order_id: ord-3455

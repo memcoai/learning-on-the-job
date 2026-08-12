@@ -1,0 +1,27 @@
+id: task-0130
+account_id: acc-116
+applicable_policies:
+- complaint-route
+- sign-off-house-style
+facts:
+  requested_action: Information about who to contact to make a complaint
+variants:
+- subject: Who should I speak to about a complaint?
+  body: Who should I speak to if I want to complain? Hi, I’m getting rather fed up and would
+    like to raise my concerns properly. Please let me know who handles this. Regards, Martin
+- subject: How do I make a complaint?
+  body: How do I go about making a complaint? Hello, I’m not happy with how things have been
+    handled and would appreciate being pointed to the right person. I’d rather sort this out
+    properly than keep chasing around. Thanks, Claire
+- subject: Person to contact about an issue
+  body: Who is the right person to contact if I need to complain? Hi, I’m afraid I’m becoming
+    quite frustrated and would like to take this up formally. Could you tell me who I should
+    address it to? Best wishes, Daniel
+expected_obligations:
+- policy: complaint-route
+  obligation: Because the customer states dissatisfaction and asks to complain, the reply
+    must name Rowan Ellis, the order-desk manager, as the complaints contact and state that
+    Rowan will respond within two working days; this must be included alongside any handling
+    of the underlying issue.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-116, nothing after.

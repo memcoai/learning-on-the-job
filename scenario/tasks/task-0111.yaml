@@ -1,0 +1,31 @@
+id: task-0111
+account_id: acc-132
+applicable_policies:
+- credit-hold-handling
+- sign-off-house-style
+facts:
+  requested_action: Ask whether Fenmoor can take a new order for Ivelet Forestry, what information
+    is needed, and when someone will respond.
+variants:
+- subject: Following our call – new order enquiry
+  body: Following our call, I’m checking whether Fenmoor can take a new order for Ivelet Forestry.
+    Please let me know what information you need from us to get this moving. I also want to
+    know when someone will come back to me on it.
+- subject: Further to my email – new order
+  body: Further to the email I sent, I’m checking how to place a new order for Ivelet Forestry.
+    Please confirm what you need from us and when I should expect a response. I’d appreciate
+    a straightforward update.
+- subject: New order enquiry after our earlier call
+  body: As discussed on our earlier call, I’m looking to place a new order for Ivelet Forestry.
+    Please advise what details you need and when someone will get back to me. I sent a note
+    about this as well and do not want it missed.
+expected_obligations:
+- policy: credit-hold-handling
+  obligation: 'Because account acc-132 has a credit status of on-hold, the reply is the referral
+    alone: say that the request has been passed to the accounts team, who will be in touch
+    within one working day. Do not confirm acceptance, changes, dispatch, delivery or any
+    other commitment. Do not disclose the hold, give a reason, or mention any other timing,
+    including dates, windows, or that timing cannot be given; this policy takes precedence
+    over any discussion of checks, confirmation or timing.'
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-132, nothing after.

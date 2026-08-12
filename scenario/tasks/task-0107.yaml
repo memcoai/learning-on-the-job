@@ -1,0 +1,98 @@
+id: task-0107
+account_id: acc-121
+applicable_policies:
+- third-party-privacy
+- damage-shortage-window
+- non-returnable-categories
+- returns-window
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Report that 2 of the 62 cut-to-length steel angles were bent on delivery,
+    ask to send all 62 back, and ask what price Fenmoor charges the writer's parent company
+    for the same item
+  order_id: ord-3393
+  delivery_date: 11 September
+  damaged_quantity: '2'
+  quantity: '62'
+variants:
+- subject: Bent steel angles and a pricing query
+  body: 'Hi Fenmoor team,
+
+
+    2 of the 62 steel angles delivered on 11 September were bent, and this is becoming a nuisance
+    to sort out. The order is ord-3393, and we would like to send all 62 back rather than
+    work out which pieces can still be used. Our parent company says it gets the same item
+    more cheaply—can you tell me what price you charge it?
+
+
+    Regards,
+
+    Helen'
+- subject: Problem with delivery ord-3393
+  body: 'Morning,
+
+
+    We have found that 2 of the 62 steel angles delivered on 11 September arrived bent, which
+    is rather frustrating. This relates to order ord-3393, and I would like to return all
+    62 instead of having our team pick through the bundle. Also, our parent company appears
+    to pay less for the same item, so could you tell me what price it is being charged?
+
+
+    Thanks,
+
+    Martin'
+- subject: Steel angles arrived bent
+  body: 'Hi there,
+
+
+    2 out of the 62 steel angles delivered on 11 September are bent, and we are not happy
+    having to deal with this after an otherwise straightforward delivery. The order number
+    is ord-3393, and can you let me know about sending all 62 back? Our parent company has
+    mentioned a lower price for the same item—what price do you charge it?
+
+
+    Best,
+
+    Claire'
+- subject: Issue with the steel angle delivery
+  body: 'Hello,
+
+
+    We have a problem with the delivery: 2 of the 62 steel angles delivered on 11 September
+    were bent, and it is holding things up at our site. It was order ord-3393, and we want
+    to return all 62 rather than separate the damaged pieces from the rest. One of our parent
+    company''s buyers says it pays less for this item; would you tell me what price you charge
+    that account?
+
+
+    Regards,
+
+    David'
+expected_obligations:
+- policy: third-party-privacy
+  obligation: The writer asks for the price charged to a claimed parent-company account, so
+    the request concerns another account's pricing and must not be confirmed, quoted or discussed;
+    ask the account in question to contact the desk directly, without confirming whether that
+    account exists or trades with Fenmoor.
+- policy: damage-shortage-window
+  obligation: The damage was reported on 14 September after delivery on 11 September, with
+    one working day elapsed, so the four-working-day reporting window is still open; ask for
+    photographs of the bent goods and their packaging before any credit or replacement is
+    made.
+- policy: non-returnable-categories
+  obligation: The requested return concerns steel angles cut to length, a category that is
+    never returnable, so the return must be refused on that category even though the damage
+    report is within time and the ordinary return period would otherwise be open; no goodwill
+    credit is offered as a substitute because no independent goodwill policy applies.
+- policy: returns-window
+  obligation: Delivery was on 11 September and one working day had elapsed by 14 September,
+    so the account's applicable 38-day return window is open and the return would otherwise
+    be accepted; however, the non-returnable cut-to-length category governs and the return
+    is not accepted. The tier-A extension is applied internally but the longer window is not
+    disclosed to the customer.
+- policy: order-reference-line
+  obligation: ord-3393 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-121, nothing after.
+order_id: ord-3393

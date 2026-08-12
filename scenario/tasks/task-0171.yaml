@@ -1,0 +1,68 @@
+id: task-0171
+account_id: acc-133
+applicable_policies:
+- third-party-privacy
+- volume-breaks
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask whether the 33 cut-to-length worktops and 6 workshop wiping rolls
+    can be counted together for a better unit price, and ask what a sister business in the
+    Larkmead group pays for similar goods.
+  order_id: ord-3441
+  account_name: Ashcombe Textiles
+  line_quantities: 33 cut-to-length worktops and 6 workshop wiping rolls
+  third_party_reference: a sister business in the Larkmead group
+variants:
+- subject: Question about order ord-3441 pricing
+  body: 'Hi, can the 33 worktops and 6 wiping rolls be counted together for a better unit
+    price? Also, could you tell me what our sister business in the Larkmead group pays for
+    similar goods? It’s for Ashcombe Textiles, order ord-3441.
+
+
+    Cheers,
+
+    Megan'
+- subject: A quick one on ord-3441
+  body: 'Morning, I’m just checking whether the 33 cut-to-length worktops and 6 workshop wiping
+    rolls on our order can be treated together to get a better price. One of our sister businesses
+    in the Larkmead group buys similar items, so I wondered what price they get and whether
+    you could pass on their contact details.
+
+
+    This is Ashcombe Textiles, order ord-3441. Thanks in advance.
+
+
+    Megan'
+- subject: Pricing query for Ashcombe Textiles order ord-3441
+  body: 'Hi team, I’m trying to tidy up the pricing before this order moves along. Can the
+    33 cut-to-length worktops and 6 workshop wiping rolls be added together when you work
+    out the unit price? I’d also like to know what our sister business in the Larkmead group
+    pays for similar goods, and who I should speak to there if that’s easier.
+
+
+    The card is the payment method we used for this order, so that side should be straightforward.
+    The account is Ashcombe Textiles and the order number is ord-3441.
+
+
+    Many thanks,
+
+    Megan'
+expected_obligations:
+- policy: third-party-privacy
+  obligation: Because the writer is asking about the prices and contacts of another business
+    in the same Larkmead group, the reply must not confirm, quote or discuss that business's
+    orders, prices, terms or contacts, and must not confirm whether the business exists or
+    trades with Fenmoor. It must ask the writer to have the account in question contact the
+    desk directly.
+- policy: volume-breaks
+  obligation: On order ord-3441, the cut-to-length worktop line has 33 units and the workshop
+    wiping-roll line has 6 units, so neither line reaches the 50-unit threshold and no volume
+    break applies. The reply must explain that quantities do not accumulate across lines or
+    across orders, and must not reveal or pre-announce any next threshold or say how many
+    more units would earn a better price.
+- policy: order-reference-line
+  obligation: ord-3441 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-133, nothing after.
+order_id: ord-3441

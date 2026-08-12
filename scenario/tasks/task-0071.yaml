@@ -1,0 +1,74 @@
+id: task-0071
+account_id: acc-121
+applicable_policies:
+- credit-check-threshold
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Add 10 fall-arrest harnesses to order ord-3467 and confirm the revised
+    order and when it may be dispatched
+  order_id: ord-3467
+  additional_quantity: 10 fall-arrest harnesses
+variants:
+- subject: Order ord-3467 – additional harnesses
+  body: 'Hi,
+
+
+    Following our call, please add 10 fall-arrest harnesses to order ord-3467. Could you confirm
+    the revised order and advise when it may be dispatched?
+
+
+    Regards,
+
+    Martin'
+- subject: Request following earlier email – order ord-3467
+  body: 'Good morning,
+
+
+    Further to my earlier email, I would like to add 10 fall-arrest harnesses to order ord-3467.
+    Please confirm that the order has been updated and let me know when we should expect it
+    to leave you.
+
+
+    Thanks,
+
+    Elaine'
+- subject: ord-3467 amendment
+  body: 'Hello,
+
+
+    I am following up on our previous call about order ord-3467. Please add 10 fall-arrest
+    harnesses to the order and confirm the revised details. We are coordinating the work at
+    our usual depot, so an indication of when it may be sent would be useful.
+
+
+    Kind regards,
+
+    Peter'
+- subject: Following up on order ord-3467
+  body: 'Hi,
+
+
+    Following my earlier email, could you arrange an amendment to order ord-3467 by adding
+    10 fall-arrest harnesses? The original order is for our rail maintenance work, and the
+    extra quantity is now needed for the same project. Please confirm the revised order once
+    this has been looked at and advise when it might be dispatched. I appreciate that any
+    change may need to go through your usual checks, but I would be grateful for an update
+    on the position.
+
+
+    Regards,
+
+    Charlotte'
+expected_obligations:
+- policy: credit-check-threshold
+  obligation: The requested addition of 10 fall-arrest harnesses to ord-3467 would take the
+    existing order value above the applicable internal threshold, so confirmation of the amended
+    order must wait until the credit check is completed, and the reply must not commit to
+    dispatch or delivery timing before the check has cleared. The £4,800 figure is applied
+    but never quoted, and the existence of a threshold is never explained.
+- policy: order-reference-line
+  obligation: ord-3467 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-121, nothing after.
+order_id: ord-3467

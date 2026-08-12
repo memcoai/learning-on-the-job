@@ -1,0 +1,47 @@
+id: task-0198
+account_id: acc-112
+applicable_policies:
+- payment-terms-by-tier
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: More time to pay the invoice for order ord-3320
+  order_id: ord-3320
+variants:
+- subject: ord-3320 — payment timing problem
+  body: 'Hi, ord-3320 — the payment timing is causing a problem for us. Could you give us
+    a bit longer to settle the invoice?
+
+
+    Regards,
+
+    Martin'
+- subject: ord-3320 — request for more time to pay
+  body: 'Hello, ord-3320 — we are having difficulty meeting the payment timing attached to
+    this order. The goods are still needed for our site, but the invoice arrangement is not
+    workable for us at present. Could you arrange some extra time for payment?
+
+
+    Regards,
+
+    Martin'
+- subject: ord-3320 — payment timing problem
+  body: 'Hi, ord-3320 — the payment timing is causing a problem for us. Could you give us
+    a bit longer to settle the invoice?
+
+
+    Regards,
+
+    Martin'
+expected_obligations:
+- policy: payment-terms-by-tier
+  obligation: Because account acc-112 is tier-B and order ord-3320 is payable by invoice,
+    the applicable terms are 21 days from invoice and the reply must state those terms. Because
+    the customer is asking to change them, the request must be passed to credit control with
+    a two-working-day response commitment; the desk must not offer extended, negotiated or
+    one-off terms, move the invoice due date, or predict what credit control will decide.
+- policy: order-reference-line
+  obligation: ord-3320 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-112, nothing after.
+order_id: ord-3320

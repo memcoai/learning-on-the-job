@@ -1,0 +1,461 @@
+# The hidden policies of the Fenmoor Supplies order desk.
+#
+# These stand in for the tacit knowledge of an experienced team: things everyone
+# on the desk knows and nobody wrote down. Only the reviewer ever sees this
+# file. The agent must learn each of them from a correction.
+#
+# `statement` is what the reviewer enforces and what a correct lesson should
+# converge towards: the rule with its values, the definitions that make it
+# mechanical, and what the draft must say and must not say. `check_hint` only
+# routes the reviewer's attention; the statement defines correctness.
+#
+# Authoring rules for this file (apply to any future edits):
+#   - One policy per decision, owning one output element. Exceptions to a rule
+#     live inside that rule's statement, never as a competing policy.
+#   - Values are deliberately off-prior (45-day terms, £4,800 thresholds), so
+#     a model cannot score by guessing the industry default.
+#   - For every reachable combination of account and order facts, the correct
+#     draft is unique. Contradictions between grants and prohibitions on the
+#     same output element are design bugs.
+#   - A few policies include never-disclose elements (internal thresholds that
+#     are applied but not quoted to customers). Keep these rare.
+#   - At most two house-style policies, at the end of the file.
+#
+# Families: shipping and delivery; returns and goodwill; credit and payment
+# (the hub family: its policies attach to any request type when the data lines
+# up); pricing and discount authority; order changes and cancellations;
+# commitments, escalation, and house style.
+
+policies:
+
+  # ---------------------------------------------------------------- shipping
+
+  - id: expedite-surcharge
+    title: Expedited delivery carries a surcharge, waived narrowly
+    statement: >
+      Expedited delivery carries a £68 surcharge per consignment, and the
+      charge must be stated whenever expedited delivery is offered or agreed.
+      Waive it only for tier-A accounts, or for accounts whose tenure is six
+      or more years; nothing else qualifies. Order volume, order value, and
+      the customer's urgency never qualify for a waiver, however large the
+      order. Where the waiver applies, say the surcharge is waived rather
+      than silently omitting it.
+    check_hint: >
+      Any expedite or faster-delivery request. Breach if the surcharge is
+      waived outside the two qualifying conditions, omitted where it applies,
+      or waived silently where the waiver does apply.
+
+  - id: delivery-date-language
+    title: Delivery timing is a window, never a date
+    statement: >
+      Never commit to a specific delivery date. Offer a three-working-day
+      window, and only after the order's status has been checked with the
+      lookup tool. For an order with status awaiting-stock, give the estimate
+      and state plainly that it is an estimate, not guaranteed until the goods
+      are in the warehouse. A window given without a status check, or a bare
+      date, is wrong even if it later proves accurate.
+    check_hint: >
+      Any reply discussing delivery timing. Breach on a specific committed
+      date, a window given without checking status, or an awaiting-stock
+      estimate not flagged as unguaranteed.
+
+  - id: carrier-selection
+    title: Fenmoor selects the carrier
+    statement: >
+      Fenmoor selects the carrier, and requests to use the customer's own or
+      a named carrier are declined without exception. For orders above £1,400
+      excluding VAT, offer signed-for delivery as the alternative when a
+      carrier request is declined; below that, decline without an alternative.
+      Do not explain carrier selection as a cost decision or invite the
+      customer to arrange their own collection.
+    check_hint: >
+      Carrier preference or own-carrier requests. Breach if the request is
+      accepted, declined without the signed-for alternative above £1,400, or
+      answered with an offer of customer collection.
+
+  - id: partial-shipment
+    title: Split shipments are offered on long backorders, with a fee
+    statement: >
+      Offer a split shipment when any line is backordered beyond nine working
+      days. The split carries a £22 consignment fee, waived for tier-A
+      accounts; state the fee, or state the waiver, whichever applies. The
+      offer must list what ships now and what follows with its estimate, and
+      confirm that carriage is charged once for the whole order. Do not offer
+      a split for shorter backorders unless the customer asks first.
+    check_hint: >
+      Backorder situations. Breach if a qualifying backorder gets no split
+      offer, the fee or waiver is unstated, the now-versus-follows contents
+      are not listed, or single carriage is not confirmed.
+
+  - id: address-change
+    title: Address changes depend on picking status
+    statement: >
+      A delivery address change is free while the order status is before
+      picking. From picking until dispatch, a £35 re-routing fee applies and
+      must be stated before the change is confirmed. After dispatch the
+      address cannot be changed: offer the carrier's redelivery service
+      instead, and never offer to intercept or redirect a shipment in
+      transit.
+    check_hint: >
+      Address change requests. Breach if the fee is omitted in the picking
+      window, a post-dispatch change is agreed, or interception of a
+      dispatched shipment is offered.
+
+  # ------------------------------------------------------ returns & goodwill
+
+  - id: returns-window
+    title: Returns close 24 days after delivery, 38 for tier-A
+    statement: >
+      A return of stocked goods is accepted within 24 days of the delivery
+      date, extended to 38 days for tier-A accounts. The window runs from
+      delivery, not from invoice or order date. Outside the window, do not
+      offer a return, refund, or credit; point the customer to the
+      manufacturer's warranty. The tier-A extension is applied but never
+      advertised: do not mention the longer window to non-tier-A customers.
+    check_hint: >
+      Any return request. Breach on acceptance outside the applicable window,
+      a window computed from the wrong date, refusal without the warranty
+      route, or the tier-A extension being disclosed to a non-tier-A account.
+    # never-disclose element: the tier-A extension
+
+  - id: restocking-fee
+    title: Correctly supplied returns carry a 7.5% restocking fee
+    statement: >
+      A return of correctly supplied goods carries a restocking fee of 7.5%
+      of the goods value, with a minimum of £16, and the reply must state the
+      fee and the amount it comes to. The fee is waived only where Fenmoor
+      shipped the wrong item or the goods arrived damaged; account tier never
+      waives it. Where the waiver applies, say why the fee does not apply.
+    check_hint: >
+      Return acceptances. Breach if the fee or its amount is unstated, the
+      minimum is ignored, the fee is waived for tier or relationship reasons,
+      or charged where Fenmoor's error caused the return.
+
+  - id: goodwill-credit
+    title: Goodwill is account credit, capped and counted
+    statement: >
+      A goodwill credit of up to £180 per incident may be offered at the
+      desk, as account credit only, never as a cash or card refund. The
+      amount must be named. An account may receive at most two goodwill
+      credits in any rolling twelve months; beyond the cap or the count,
+      put it to the customer as a request pending order-desk manager
+      sign-off, not as a decision. Goodwill covers service failures; it is
+      not compensation for consequential loss.
+    check_hint: >
+      Any goodwill or gesture discussion. Breach on amounts above £180
+      presented as agreed, goodwill as cash or card refund, unnamed amounts,
+      or a third credit inside twelve months offered as decided.
+
+  - id: damage-shortage-window
+    title: Transit damage and shortages have a four-working-day window
+    statement: >
+      Transit damage or a shortage must be reported within four working days
+      of delivery, supported by photographs of the goods and packaging. A
+      reply accepting a claim must ask for the photographs before anything
+      is credited or replaced. Reported later than four working days, the
+      desk cannot raise a claim: give the window as the reason and route the
+      customer to the carrier's claims process instead.
+    check_hint: >
+      Damage or shortage reports. Breach on acceptance outside the window,
+      acceptance without requesting photographs, or a late report refused
+      without the carrier-claims route.
+
+  - id: non-returnable-categories
+    title: Some categories never come back
+    statement: >
+      Three categories are never returnable: PPE once its packaging has been
+      opened, goods cut or mixed to length or measure, and special-order
+      items. Refusals must name the category as the reason. Do not offer a
+      goodwill credit as a substitute for an ineligible return unless the
+      goodwill policy independently applies to a service failure.
+    check_hint: >
+      Return requests in these categories. Breach if such a return is
+      accepted, refused without naming the category rule, or goodwill is
+      offered purely to soften an ineligible return.
+
+  # -------------------------------------------------------- credit & payment
+
+  - id: credit-check-threshold
+    title: Orders above £4,800 wait for a credit check
+    statement: >
+      An order above £4,800 including VAT requires a completed credit check
+      before it is confirmed. The draft must say that confirmation follows
+      the check, and must not commit to dispatch or delivery timing until it
+      has cleared. The £4,800 threshold is internal: apply it, but never
+      quote the figure or explain that a threshold exists. Where a change to
+      an existing order takes its value above £4,800, the same rule applies
+      to confirming the change.
+    check_hint: >
+      Any commitment on orders above £4,800, including changes that cross
+      the threshold. Breach on confirmation or timing before the check, or
+      on the threshold being disclosed.
+    # never-disclose element: the threshold figure
+
+  - id: credit-hold-handling
+    title: On-hold accounts get no commitments and no explanation
+    statement: >
+      When an account's credit status is on-hold, make no new commitment of
+      any kind: no order acceptance, no dispatch or delivery timing, no
+      changes confirmed. The substantive content of the reply is the
+      referral alone: the request has been passed to the accounts team, who
+      will be in touch within one working day. Timing is not mentioned in
+      any form: no dates, no windows, and no statement that timing cannot
+      be given, since announcing the withholding is itself an explanation.
+      Do not state that the account is on hold, and do not give any reason;
+      the accounts team owns that conversation. Where any other policy
+      would require discussing checks, confirmation, or timing, this policy
+      takes precedence for on-hold accounts.
+    check_hint: >
+      Any request from an on-hold account. Breach on any commitment, on any
+      sentence about dispatch or delivery timing including a statement that
+      timing cannot be provided, on the hold or a reason being disclosed,
+      or on the referral lacking the one-working-day contact promise.
+    # never-disclose element: the hold itself
+
+  - id: payment-terms-by-tier
+    title: Payment terms are fixed by tier
+    statement: >
+      Payment terms are 45 days from invoice for tier-A, 21 days for tier-B,
+      and payment before dispatch for tier-C. State the applicable terms when
+      asked. The desk never offers extended, negotiated, or one-off terms,
+      never moves an invoice due date, and never predicts what credit control
+      would decide; requests to change terms are passed to credit control
+      with a two-working-day response commitment.
+    check_hint: >
+      Payment terms questions or extension requests. Breach on wrong terms
+      for the tier, any negotiation or extension at the desk, or a referral
+      without the response commitment.
+
+  - id: order-release-threshold
+    title: Orders release at 90% cleared funds
+    statement: >
+      Orders release for dispatch once cleared payments reach 90% of the
+      order value including VAT and delivery charges. Cleared means settled
+      funds; a payment that has been initiated but not settled does not
+      count. Exactly 90% releases. Below the threshold, the draft must not
+      commit to dispatch or give any dispatch timing. Acknowledge
+      part-payments by confirming the amount received and stating the
+      remaining balance required for release, without estimating when
+      release will happen. The 90% threshold itself is never quoted to
+      customers.
+    check_hint: >
+      Part-payment and release questions. Breach on dispatch commitments
+      below threshold, uncleared payments counted, the balance left
+      unstated, or the threshold disclosed.
+    # never-disclose element: the 90% figure
+
+  - id: refund-method
+    title: Refunds follow the payment route, not the request
+    statement: >
+      Refunds on card payments go to the original card. Refunds on
+      invoice-paid orders are issued as account credit, not as a payment
+      out, regardless of what the customer asks for. The single exception is
+      an account that is closing, which is refunded by bank transfer within
+      twelve working days. Never offer cash, cheque, or a transfer to a
+      different card, and state the applicable route and its timing in the
+      reply.
+    check_hint: >
+      Any refund discussion. Breach on the wrong route for the payment type,
+      a payment-out to an open invoice account, or route and timing left
+      unstated.
+
+  # ------------------------------------------- pricing & discount authority
+
+  - id: desk-discount-limit
+    title: Desk discounts are small, tiered, and floored
+    statement: >
+      The desk may apply a discretionary discount of up to 7% for tier-A and
+      up to 4% for tier-B, only on orders above £900 excluding VAT. Tier-C
+      receives no discretionary discount at the desk. Larger discounts are
+      put to the sales team as a request, never promised or predicted. Any
+      discount given must state the percentage and the order value it
+      applies to.
+    check_hint: >
+      Discount requests. Breach on percentages above the tier limit, any
+      discount below the £900 floor, discretionary discount for tier-C, or
+      larger discounts presented as likely.
+
+  - id: quote-validity
+    title: Quoted prices are ex-VAT and expire in 17 days
+    statement: >
+      Every price, discount, or carriage charge quoted in a reply must be
+      stated as excluding VAT and as valid for 17 calendar days from the
+      date of the reply. Both elements are required each time, including in
+      replies that repeat a previously quoted figure; a repeated quote
+      restarts its own 17 days from the new reply.
+    check_hint: >
+      Any reply quoting a figure. Breach if ex-VAT or the 17-day validity is
+      missing, or a repeated figure is given without a fresh validity.
+
+  - id: price-match
+    title: Price-match requests go to sales, with evidence rules
+    statement: >
+      A price-match request is passed to the sales team, who respond within
+      two working days; the desk never agrees a match, declines one, or
+      estimates the outcome. Only a written quote from a trade distributor
+      counts as evidence, and the reply should ask for it if not provided;
+      marketplace listings and screenshots of consumer sites are not
+      accepted, and the reply must say so when that is what was offered.
+    check_hint: >
+      Price-match requests. Breach on the desk deciding or predicting the
+      outcome, the referral lacking the two-working-day commitment, or
+      marketplace evidence accepted.
+
+  - id: volume-breaks
+    title: Volume pricing is per line, and the next break is never trailed
+    statement: >
+      Volume pricing applies automatically at 50 or more units on a single
+      order line. It is calculated per line: quantities never accumulate
+      across lines or across orders to reach a break. Where a break applies,
+      confirm it plainly. Never pre-announce the next break threshold or
+      tell a customer how many more units would earn a better price; if
+      asked directly, say volume pricing is applied automatically at order
+      time.
+    check_hint: >
+      Volume or bulk pricing discussions. Breach on cross-line or
+      cross-order accumulation, an unconfirmed applicable break, or the
+      next threshold being trailed.
+    # never-disclose element: forthcoming break thresholds
+
+  - id: no-discount-categories
+    title: Safety-critical PPE and calibration are never discounted
+    statement: >
+      Safety-critical PPE and calibration services are excluded from all
+      discounts, promotions, and goodwill-motivated price reductions,
+      whatever the account tier or order value. State the exclusion
+      factually when it bites, without presenting it as negotiable or
+      routing it to sales; there is no approval path for these categories.
+    check_hint: >
+      Discount requests touching these categories. Breach on any reduction,
+      the exclusion presented as negotiable, or the request referred onward
+      as though an approval path existed.
+
+  # ----------------------------------------- order changes & cancellations
+
+  - id: cancellation-cutoff
+    title: Cancellation cost follows order status
+    statement: >
+      Cancellation is free while the order status is before picking. From
+      picking until dispatch, a cancellation fee of 6% of the order value
+      including VAT, minimum £25, applies and must be stated before the
+      cancellation is confirmed. From dispatch onward the order cannot be cancelled: route
+      the customer to the returns process, and never offer to stop, recall,
+      or intercept the shipment.
+    check_hint: >
+      Cancellation requests. Breach on the fee omitted in the picking
+      window, a post-dispatch cancellation agreed, or interception offered.
+
+  - id: quantity-changes
+    title: Decreases reprice, increases are new lines
+    statement: >
+      A quantity decrease before picking is free, but the affected line is
+      repriced at the new quantity: if the decrease drops the line below a
+      volume break, the new unit price must be restated in the reply. A
+      quantity increase is handled as a new order line at current prices,
+      not as an amendment at the original price. Where an increase takes the
+      order's total value above the credit-check threshold, confirmation of
+      the increase waits for the credit check.
+    check_hint: >
+      Quantity change requests. Breach on a decrease without repricing where
+      a break is lost, an increase promised at original prices, or a
+      threshold-crossing increase confirmed without the check.
+
+  - id: substitutions
+    title: Substitutes come from the approved list, with written consent
+    statement: >
+      A product may be substituted only with an item from Fenmoor's approved
+      equivalents list, and only with the customer's written consent given
+      before the change is made. The offer must name the substitute and
+      state the price difference, including no difference. PPE is never
+      substituted, whatever the list says elsewhere; a PPE substitution
+      request is declined with that reason.
+    check_hint: >
+      Substitution offers or requests. Breach on an off-list substitute, a
+      change made or promised before written consent, a missing price
+      difference, or any PPE substitution.
+
+  - id: special-order-lead-time
+    title: Special orders take 17 working days and cannot be hurried
+    statement: >
+      Non-stock and special-order items have a lead time of 17 working days
+      from order confirmation, and the lead time must be stated whenever the
+      customer asks about timing. It cannot be shortened: expediting moves
+      stock, and there is no stock to move, so never offer expedited
+      delivery, partial early delivery, or a shortened estimate for a
+      special-order item.
+    check_hint: >
+      Special-order timing questions. Breach on a shorter estimate, an
+      expedite offer, or the lead time omitted when timing is asked.
+
+  # ------------------------------- commitments, escalation & house style
+
+  - id: liability-language
+    title: The desk never accepts fault or offers compensation
+    statement: >
+      Never accept fault on Fenmoor's behalf and never offer compensation
+      for consequential loss: downtime, lost labour, lost revenue, or missed
+      contracts. The only remedy the desk may offer is a goodwill credit
+      under the goodwill policy, and it must be framed as goodwill, not as
+      compensation. Where a delay or damage sits with the carrier, name the
+      carrier, route the claim to the carrier's process, and make no
+      commitment on the carrier's behalf.
+    check_hint: >
+      Complaints involving loss or fault. Breach on fault accepted,
+      consequential loss compensated or promised, goodwill framed as
+      compensation, or commitments made for the carrier.
+
+  - id: complaint-route
+    title: A complaint gets a named route
+    statement: >
+      When a customer states dissatisfaction or asks to complain, the reply
+      must give the complaints route by name: Rowan Ellis, the order-desk
+      manager, with a response within two working days. This applies
+      alongside whatever the reply does about the underlying issue; solving
+      the problem does not replace naming the route when dissatisfaction has
+      been stated.
+    check_hint: >
+      Stated dissatisfaction or complaints. Breach if the reply omits Rowan
+      Ellis, the title, or the two-working-day response, even where the
+      underlying issue is resolved.
+
+  - id: third-party-privacy
+    title: An account's details stay with that account, group or not
+    statement: >
+      Never confirm, quote, or discuss another account's orders, prices,
+      terms, or contacts, whatever relationship the writer claims. This
+      includes sister companies and parent companies within the same
+      corporate group: group membership does not grant access, and shared
+      ownership is not consent. Ask the writer to have the account in
+      question contact the desk directly, without confirming whether that
+      account exists or trades with Fenmoor.
+    check_hint: >
+      Requests touching another account, including same-group companies.
+      Breach on any detail confirmed or discussed, or on the account's
+      existence confirmed while redirecting.
+
+  - id: order-reference-line
+    title: Name the order number in the first sentence
+    statement: >
+      A reply about a specific order names that order's number in its first
+      sentence, so the customer can see at a glance which order it is
+      about. A greeting on its own counts as the first sentence; the order
+      number belongs in the sentence that opens the reply, greeting
+      included. Replies covering several orders name each order number
+      where that order is first discussed.
+    check_hint: >
+      Any reply about specific orders. Breach if the first sentence lacks
+      the order number, including where the reply opens with a bare
+      greeting, or a multi-order reply leaves an order unnumbered at first
+      mention.
+
+  - id: sign-off-house-style
+    title: The desk's sign-off
+    statement: >
+      Every reply ends with the desk's sign-off: the line "Fenmoor Supplies
+      order desk" followed on the next line by the customer's account
+      number alone, with no label, prefix, or other text on that line, and
+      nothing after it.
+    check_hint: >
+      Every reply. Breach if the closing lines are absent, in the wrong
+      order, followed by anything else, or the account number carries a
+      label or prefix.

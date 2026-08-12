@@ -1,0 +1,72 @@
+id: task-0020
+account_id: acc-115
+applicable_policies:
+- price-match
+- quote-validity
+- sign-off-house-style
+facts:
+  requested_action: Ask whether Fenmoor can match a lower price shown online
+  evidence_offered: A screenshot from a consumer website showing the lower price
+variants:
+- subject: Can you match this online price?
+  body: 'Hi,
+
+
+    I’ve found a lower price online and have attached a screenshot from a consumer website.
+    Can you match the price shown there?
+
+
+    Thanks,
+
+    Tom'
+- subject: Quick question about a lower price
+  body: 'Morning,
+
+
+    Could you have a look at the screenshot I’ve attached from a consumer website? It shows
+    a lower price, and I wanted to ask whether you can match it. This is for the Skelmore
+    Joinery account.
+
+
+    Cheers,
+
+    Nadia'
+- subject: Price I’ve seen online
+  body: 'Hi there,
+
+
+    I’ve spotted a lower price on a consumer website and attached a screenshot for you. Is
+    there any chance you can match the price shown? I’m just checking this for Skelmore Joinery
+    before we go ahead.
+
+
+    Thanks in advance,
+
+    Gareth'
+- subject: Could you check this price for me?
+  body: 'Hello,
+
+
+    I’m looking at a lower price on a consumer website and have attached a screenshot showing
+    it. Would you mind checking whether you can match that price? It’s for the Skelmore Joinery
+    account, and I thought I’d ask you first rather than make a decision elsewhere.
+
+
+    Regards,
+
+    Helen'
+expected_obligations:
+- policy: price-match
+  obligation: The customer has asked whether Fenmoor can match a price and has offered a screenshot
+    from a consumer website; that evidence does not count. The reply must say that a consumer-website
+    screenshot is not accepted, ask for a written quote from a trade distributor if the customer
+    wants the request considered, and pass the request to the sales team, who will respond
+    within two working days. The desk must not agree the match, decline it, or estimate the
+    outcome.
+- policy: quote-validity
+  obligation: The customer has not supplied or requested a specific Fenmoor price, so the
+    reply need not quote one. If the reply includes or repeats any price, discount, or carriage
+    charge, each such figure must be stated as excluding VAT and as valid for 17 calendar
+    days from the date of that reply.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-115, nothing after.

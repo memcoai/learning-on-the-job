@@ -1,0 +1,53 @@
+id: task-0156
+account_id: acc-106
+applicable_policies:
+- credit-hold-handling
+- sign-off-house-style
+facts:
+  requested_action: asking whether Fenmoor can arrange supplies for an upcoming site job
+variants:
+- subject: Following up on our call
+  body: 'Hi,
+
+
+    I’m following up on our call about arranging supplies for an upcoming site job. Could
+    you let me know whether this can be set up and what I need to do next? We have been pleased
+    with how the previous order went.
+
+
+    Regards,
+
+    Martin'
+- subject: 'Re: supplies for site work'
+  body: 'Morning,
+
+
+    I’m writing again about the email I sent concerning supplies for an upcoming site job.
+    Please could you confirm whether Fenmoor is able to arrange this and advise on the next
+    step? The delivery to our site went smoothly last time.
+
+
+    Thanks,
+
+    Helen'
+- subject: Checking the position on supplies
+  body: 'Hi,
+
+
+    Further to my earlier email, I wanted to check whether you can help us arrange supplies
+    for an upcoming site job. Could someone let me know how we should proceed? I’m trying
+    to get the requirements lined up before the work starts.
+
+
+    Regards,
+
+    Simon'
+expected_obligations:
+- policy: credit-hold-handling
+  obligation: 'Because account acc-106 has credit status on-hold, the reply must be the referral
+    alone: the request is passed to the accounts team, who will be in touch within one working
+    day. The hold must never be disclosed, no reason may be given, and no other timing of
+    any kind may appear, including dates, windows, or any statement that timing cannot be
+    given; no new commitment, acceptance, dispatch or delivery timing, or change may be confirmed.'
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-106, nothing after.

@@ -1,0 +1,76 @@
+id: task-0177
+account_id: acc-138
+applicable_policies:
+- damage-shortage-window
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Have the damaged stackable tote crates dealt with, with replacement or
+    money back, and advise what is needed from us
+  order_id: ord-3384
+  delivered_date: 27 August
+variants:
+- subject: Damaged crates from ord-3384
+  body: 'Hi,
+
+
+    A few of the stackable tote crates from order ord-3384 arrived damaged. The order was
+    delivered on 27 August. Could you let me know how this can be sorted, whether the affected
+    crates can be replaced or the amount taken off, and what you need from us?
+
+
+    Regards,
+
+    Helen'
+- subject: Problem with delivery ord-3384
+  body: 'Good morning,
+
+
+    Some of the stackable tote crates in order ord-3384 were damaged when they arrived. This
+    was delivered on 27 August. Please could you advise what happens next and whether you
+    can arrange replacements or return the cost of the affected items?
+
+
+    Thanks,
+
+    Martin'
+- subject: Stackable tote crates damaged
+  body: 'Hello,
+
+
+    We have found damage to some of the stackable tote crates supplied under order ord-3384,
+    delivered on 27 August. They are needed at one of our veterinary sites, so I would be
+    grateful if you could let me know how you propose to deal with the affected items. Please
+    also tell me if you need anything from us.
+
+
+    Kind regards,
+
+    Priya'
+- subject: Issue with order ord-3384
+  body: 'Hi there,
+
+
+    A number of the stackable tote crates from order ord-3384 arrived in poor condition when
+    the delivery came in on 27 August. The rest of the delivery appears fine, but these items
+    cannot be used as they are. Could you advise whether they can be replaced or whether we
+    can have the cost of the damaged items returned, and let me know what information you
+    need?
+
+
+    Best regards,
+
+    James'
+expected_obligations:
+- policy: damage-shortage-window
+  obligation: The order was delivered on 27 August and the report is being made on 14 September
+    2026; counting working days after delivery gives 28 August, 31 August, 1 September and
+    2 September as the four working days, so the four-working-day window is closed. The reply
+    must explain that the desk cannot raise a claim because the report is late and route the
+    customer to the carrier's claims process instead; it must not ask for photographs as the
+    route is the carrier process.
+- policy: order-reference-line
+  obligation: ord-3384 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-138, nothing after.
+order_id: ord-3384

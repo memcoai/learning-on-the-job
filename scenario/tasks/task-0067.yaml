@@ -1,0 +1,50 @@
+id: task-0067
+account_id: acc-109
+applicable_policies:
+- damage-shortage-window
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Report that two of the four sample vial trays in order ord-3322 were damaged
+    on delivery and ask for replacements or another way to resolve it.
+  order_id: ord-3322
+  delivered_date: 2 September
+  damaged_quantity: Two of four sample vial trays
+variants:
+- subject: Damaged trays in order ord-3322
+  body: 'Hi,
+
+
+    I''m getting rather fed up with order ord-3322, delivered on 2 September. Two of the four
+    sample vial trays were damaged when the box arrived, so please tell me what you can do
+    about replacing them. This has taken long enough already and I''d appreciate a prompt
+    answer.
+
+
+    Regards,
+
+    Martin Cole'
+- subject: Please sort out the damaged trays
+  body: 'Morning,
+
+
+    Order ord-3322 was delivered on 2 September, but two of the four sample vial trays were
+    damaged. Could you arrange replacements, or let me know what other way you intend to sort
+    this out? I don''t really want to keep chasing this, so a prompt response would be appreciated.
+
+
+    Thanks,
+
+    Priya Shah'
+expected_obligations:
+- policy: damage-shortage-window
+  obligation: The order was delivered on 2 September and the reference date is 14 September;
+    the four working days after delivery were 3, 4, 7 and 8 September, so the four-working-day
+    window is closed. The reply must explain that a claim cannot be raised because the damage
+    was reported late and route Lanthorne Labs to the carrier's claims process instead; photographs
+    are not requested by Fenmoor because the claim is not being accepted.
+- policy: order-reference-line
+  obligation: ord-3322 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-109, nothing after.
+order_id: ord-3322

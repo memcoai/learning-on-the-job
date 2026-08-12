@@ -1,0 +1,49 @@
+id: task-0086
+account_id: acc-112
+applicable_policies:
+- quote-validity
+- substitutions
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask Fenmoor to suggest an alternative junction enclosure for order ord-3462
+    and confirm any price difference before changing it.
+  order_id: ord-3462
+  product: Junction enclosures
+variants:
+- subject: Alternative for order ord-3462
+  body: Hi, the junction enclosures on order ord-3462 are for an installation on site, and
+    the team is now waiting to finish that part. If the exact ones are holding things up,
+    could you suggest a different enclosure you can supply instead and let me know whether
+    that would alter the price before anything is changed? It would be helpful to get this
+    moving, as the delay is becoming rather frustrating. Regards, Martin
+- subject: Question about the junction enclosures on ord-3462
+  body: Morning, the junction enclosures on order ord-3462 are needed for work taking place
+    on site, and the installers are currently waiting on this part. Could you see whether
+    there is another enclosure you can supply instead, and confirm if there would be any difference
+    in price before making a change? We have already lost enough time on this, so I would
+    appreciate a prompt answer. Thanks, Elaine
+- subject: Could you check an alternative for ord-3462?
+  body: Hello, the junction enclosures on order ord-3462 are for an installation on site,
+    and this part of the job cannot be finished while we are waiting for them. Is there a
+    suitable different enclosure you could offer instead, with any change in price explained
+    before you alter the order? I am trying to avoid holding the site up any further. Best,
+    Simon
+expected_obligations:
+- policy: quote-validity
+  obligation: Because the customer is asking about the price effect of an alternative for
+    order ord-3462, every price, discount or carriage charge quoted in the reply must be stated
+    as excluding VAT and as valid for 17 calendar days from the date of that reply, including
+    any repeated price.
+- policy: substitutions
+  obligation: The order contains junction enclosures in the consumables category, not PPE,
+    but no specific substitute is named in the request, so the substitute's status on Fenmoor's
+    approved equivalents list is not yet established as on or off the list. The reply must
+    not change the order unless a named substitute is confirmed as being on the approved equivalents
+    list and the customer gives written consent beforehand; any offer must name the substitute
+    and state the price difference, including no difference.
+- policy: order-reference-line
+  obligation: ord-3462 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-112, nothing after.
+order_id: ord-3462

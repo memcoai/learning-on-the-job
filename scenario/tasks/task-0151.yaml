@@ -1,0 +1,70 @@
+id: task-0151
+account_id: acc-106
+applicable_policies:
+- credit-hold-handling
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: An update on order ord-3394, including when it is expected to arrive
+  order_id: ord-3394
+variants:
+- subject: Update requested on order ord-3394
+  body: 'Dear Customer Services,
+
+
+    Apologies for chasing, but could you please provide an update on order ord-3394 and let
+    me know when it is expected to arrive?
+
+
+    Regards,
+
+    Martin Cole'
+- subject: Ord-3394 — request for an update
+  body: 'Hello,
+
+
+    Sorry to chase this. Please could you confirm the current position with order ord-3394
+    and advise when we should expect it to arrive?
+
+
+    Many thanks,
+
+    Sarah Bennett'
+- subject: Could you update me on ord-3394?
+  body: 'Good morning,
+
+
+    Apologies for following up, but I would be grateful for an update on order ord-3394, particularly
+    when it is expected to arrive. The order includes the modular storage racking and protective
+    equipment, so I am trying to coordinate the work at our end.
+
+
+    Yours sincerely,
+
+    David Hughes'
+- subject: Chasing order ord-3394
+  body: 'Dear Fenmoor Supplies,
+
+
+    Please accept my apologies for chasing. Could you let me know where things stand with
+    order ord-3394 and when it is expected to arrive? I would appreciate an update so that
+    we can plan accordingly.
+
+
+    Kind regards,
+
+    Helen Price'
+expected_obligations:
+- policy: credit-hold-handling
+  obligation: 'Because account acc-106 has credit status on-hold, the reply is the referral
+    alone: it must say that the request has been passed to the accounts team and that they
+    will be in touch within one working day. The on-hold status must not be disclosed to the
+    customer, no reason may be given, and no order acceptance, change confirmation, dispatch
+    commitment or arrival timing may be provided. No timing of any kind about the order may
+    appear, including dates, windows, or a statement that timing cannot be given; the only
+    permitted timing is that the accounts team will be in touch within one working day.'
+- policy: order-reference-line
+  obligation: ord-3394 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-106, nothing after.
+order_id: ord-3394

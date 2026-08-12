@@ -1,0 +1,74 @@
+id: task-0032
+account_id: acc-133
+applicable_policies:
+- partial-shipment
+- credit-check-threshold
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask whether the 21 arc-flash protection kits on order ord-3400 can be
+    sent in separate deliveries, with any available kits sent first and the remainder later
+  order_id: ord-3400
+  quantity: 21 arc-flash protection kits
+  order_total_inc_vat: £5,584.32
+  estimated_delivery: 8 October
+  payment_method: invoice
+variants:
+- subject: Order ord-3400 – delivery query
+  body: 'Hi,
+
+
+    Could you send any of the 21 arc-flash protection kits on order ord-3400 now, and send
+    the rest later? The order total including VAT is £5,584.32 and the delivery estimate showing
+    is 8 October.
+
+
+    Regards,
+
+    Martin'
+- subject: ord-3400 – can this arrive in parts?
+  body: 'Morning,
+
+
+    Is it possible to send the 21 arc-flash protection kits from ord-3400 in more than one
+    delivery, with whatever is ready coming first and the balance afterwards? The total is
+    £5,584.32 including VAT, and I have 8 October noted as the estimated delivery date. This
+    is an invoice order, so please let me know how the arrangements would work.
+
+
+    Thanks,
+
+    Claire'
+- subject: Please send part of ord-3400 sooner
+  body: 'Hi,
+
+
+    Could you check whether any of the 21 arc-flash protection kits on ord-3400 are available
+    to send before the rest, rather than holding the whole order until everything is ready?
+    The order total including VAT is £5,584.32, with 8 October currently shown as the estimated
+    delivery. It is being paid by invoice. If sending it in parts is possible, please let
+    me know what would go first and when the remainder might arrive.
+
+
+    Regards,
+
+    Daniel'
+expected_obligations:
+- policy: partial-shipment
+  obligation: The 21-kit line is backordered for 16 working days, which is beyond nine working
+    days, and the customer has also asked for goods to be sent separately, so the reply must
+    offer a split shipment. Because acc-133 is tier B, it must state the £22 consignment fee.
+    The offer must identify what quantity of the arc-flash protection kits can ship now, what
+    quantity follows, give the later shipment's estimate, and confirm that carriage is charged
+    once for the whole order.
+- policy: credit-check-threshold
+  obligation: Order ord-3400 totals £5,584.32 including VAT, so it is already above the internal
+    threshold. The reply must say that confirmation follows completion of the credit check
+    and must not commit to dispatch or delivery timing, including timing for a split shipment,
+    until the check has cleared. The £4,800 figure is applied but must never be quoted, and
+    the existence of a threshold must not be explained.
+- policy: order-reference-line
+  obligation: ord-3400 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-133, nothing after.
+order_id: ord-3400

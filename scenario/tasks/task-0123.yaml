@@ -1,0 +1,69 @@
+id: task-0123
+account_id: acc-119
+applicable_policies:
+- no-discount-categories
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: The customer asks whether Fenmoor can take something off the price because
+    the order seems more expensive than expected.
+  order_id: ord-3335
+  items: 4 Arc-flash protection kits at £215 each
+  goods_value_ex_vat: £860
+  delivery_charge_ex_vat: £35
+  total_inc_vat: £1,074
+variants:
+- subject: ord-3335 pricing query
+  body: 'Dear Fenmoor team,
+
+
+    ord-3335 has come through at £215 each for the 4 Arc-flash protection kits, which makes
+    the goods total £860 ex VAT, and it is higher than we had expected. Could you see whether
+    there is something you can take off the price? The £35 delivery charge and £1,074 total
+    including VAT are noted, but it is the kit price that concerns us. As this is being paid
+    by invoice, I would be grateful if you could check it before the order moves further.
+
+
+    Yours faithfully,
+
+    Helen Morris'
+- subject: Question about order ord-3335
+  body: 'Hello,
+
+
+    ord-3335 appears more expensive than anticipated: the 4 Arc-flash protection kits are
+    shown at £215 each, giving £860 ex VAT for the goods. Would you please check whether anything
+    can be taken off for the difficulty this has caused? I understand the order also shows
+    £35 for delivery and £1,074 including VAT. We normally place these requirements on invoice,
+    so I would appreciate a careful review before it is processed.
+
+
+    Kind regards,
+
+    Peter Lawson'
+- subject: Please review ord-3335
+  body: 'Good morning,
+
+
+    ord-3335 is priced higher than we had allowed for, with 4 Arc-flash protection kits at
+    £215 each and a goods value of £860 ex VAT. Is there any scope to reduce the price a little?
+    The order total is £1,074 including VAT, with £35 delivery, and I would be grateful if
+    you could look at the figures before picking. We are trying to keep this purchase within
+    the amount set aside for it.
+
+
+    Regards,
+
+    Sarah Whitfield'
+expected_obligations:
+- policy: no-discount-categories
+  obligation: The order contains Arc-flash protection kits in the safety-critical PPE category,
+    so the requested price reduction is excluded from all discounts, promotions and goodwill-motivated
+    reductions regardless of the account or order value. The reply must state that exclusion
+    factually, refuse the requested reduction, and must not present it as negotiable or route
+    it to sales because there is no approval path for this category.
+- policy: order-reference-line
+  obligation: ord-3335 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-119, nothing after.
+order_id: ord-3335

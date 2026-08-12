@@ -1,0 +1,72 @@
+id: task-0148
+account_id: acc-123
+applicable_policies:
+- credit-check-threshold
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Confirmation that order ord-3398 is going ahead and whether delivery is
+    still expected on 30 September
+  order_id: ord-3398
+  order_total_inc_vat: £7,262.15
+  estimated_delivery: 30 September
+variants:
+- subject: ord-3398 confirmation
+  body: 'Hi,
+
+
+    Following our call, please confirm that order ord-3398 for £7,262.15 is going ahead and
+    whether delivery is still expected on 30 September.
+
+
+    Regards,
+
+    Martin'
+- subject: Checking on our previous order
+  body: 'Morning,
+
+
+    Further to my previous email, can you confirm the position on ord-3398? The order total
+    is £7,262.15, and I need to know whether 30 September remains the expected delivery date.
+
+
+    Thanks,
+
+    Rachel'
+- subject: Please confirm order status
+  body: 'Hi,
+
+
+    I’m following up on the order we discussed. Please confirm that ord-3398, totalling £7,262.15,
+    is being processed and let me know if 30 September is still the expected delivery date.
+    We are arranging site cover around that date, so an update would be useful.
+
+
+    Regards,
+
+    Dave'
+- subject: Follow-up to earlier email about ord-3398
+  body: 'Hello,
+
+
+    I’m chasing the email I sent about ord-3398. We need confirmation that the order for £7,262.15
+    is going ahead, together with an update on the expected delivery date of 30 September.
+    The goods are for our treatment site, and we are trying to plan the installation work
+    around their arrival. Please let me know the current position.
+
+
+    Regards,
+
+    Helen'
+expected_obligations:
+- policy: credit-check-threshold
+  obligation: Order ord-3398 has a total including VAT of £7,262.15, so it is already above
+    the internal threshold; although the required check is recorded as completed, the reply
+    must say that confirmation follows the check and must not commit to dispatch or delivery
+    timing until the check has cleared. The internal £4,800 figure is applied but never quoted,
+    and the existence of a threshold is never explained.
+- policy: order-reference-line
+  obligation: ord-3398 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-123, nothing after.
+order_id: ord-3398

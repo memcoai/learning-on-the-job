@@ -1,0 +1,59 @@
+id: task-0066
+account_id: acc-127
+applicable_policies:
+- cancellation-cutoff
+- complaint-route
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Cancel order ord-3418 and make a complaint about how it has been handled
+  order_id: ord-3418
+variants:
+- subject: Cancellation and complaint — ord-3418
+  body: 'Hi,
+
+
+    Please cancel order ord-3418. I’m unhappy with how this has been handled and want to make
+    a complaint.
+
+
+    Regards,
+
+    Martin'
+- subject: Order ord-3418
+  body: 'Morning,
+
+
+    I want order ord-3418 cancelled. I’m not satisfied with the handling of this order and
+    would like to complain.
+
+
+    Thanks,
+
+    Helen'
+- subject: Please cancel ord-3418
+  body: 'Hello,
+
+
+    I understand order ord-3418 has already gone out, but I still need to ask for it to be
+    cancelled. I’m unhappy with the way this has been handled and want to make a complaint
+    as well. Please let me know what I need to do next.
+
+
+    Regards,
+
+    Simon'
+expected_obligations:
+- policy: cancellation-cutoff
+  obligation: Order ord-3418 is already dispatched, so it cannot be cancelled; the reply must
+    route the customer to the returns process and must not offer to stop, recall or intercept
+    the shipment.
+- policy: complaint-route
+  obligation: The customer has stated dissatisfaction and asked to complain, so alongside
+    addressing the cancellation issue the reply must name Rowan Ellis, the order-desk manager,
+    as the complaints route and state that Rowan will respond within two working days.
+- policy: order-reference-line
+  obligation: ord-3418 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-127, nothing after.
+order_id: ord-3418

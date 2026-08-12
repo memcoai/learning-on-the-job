@@ -1,0 +1,60 @@
+id: task-0088
+account_id: acc-120
+applicable_policies:
+- quantity-changes
+- no-discount-categories
+- liability-language
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Reduce the calibration quantity on order ord-3413 from 26 to 20 and ask
+    whether anything can be taken off for the hassle
+  order_id: ord-3413
+  current_quantity: 26
+  requested_quantity: 20
+variants:
+- subject: A quick change to order ord-3413
+  body: Hi, we’ve realised we only need 20 calibration jobs rather than 26. Could you change
+    that before it goes any further and let me know what it does to the price? Also, is there
+    a bit you can take off for the hassle? Thanks, Dan
+- subject: Can we trim order ord-3413?
+  body: 'Morning, we’ve had a rethink and only need 20 of the calibration jobs, not 26. Would
+    you be able to sort that out and confirm the new price? It’s a bit of a nuisance having
+    to change it, so could you do anything on the cost as well?
+
+
+    Cheers,
+
+    Helen'
+- subject: Small amendment to ord-3413
+  body: 'Hiya, we’ve realised that 26 calibration jobs is more than we need, so we’d like
+    to bring it down to 20. The rest can stay as it is, and I’m hoping this is still early
+    enough to change things. Could you let me know the price for 20 and whether there’s anything
+    you can do about the hassle of having to revise it? We speak most weeks, so I thought
+    I’d drop you a quick note rather than ring.
+
+
+    Thanks in advance,
+
+    Martin'
+expected_obligations:
+- policy: quantity-changes
+  obligation: Because order ord-3413 is currently picking and the customer is asking to decrease
+    the calibration quantity from 26 to 20, the change is free, but the affected line must
+    be repriced at quantity 20; if that quantity falls below a volume break, the reply must
+    state the new unit price.
+- policy: no-discount-categories
+  obligation: Because the affected goods are calibration services, they are excluded from
+    all discounts, promotions and goodwill-motivated price reductions regardless of the account's
+    tier or order value; the reply must state this factually and non-negotiably, without routing
+    the request to sales or presenting an approval path.
+- policy: liability-language
+  obligation: Because the customer asks for money off for the hassle, the reply must not accept
+    fault on Fenmoor's behalf or offer compensation for consequential loss; any remedy the
+    desk may offer must be framed as a goodwill credit rather than compensation, while the
+    calibration-category exclusion prevents a goodwill-motivated price reduction.
+- policy: order-reference-line
+  obligation: ord-3413 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-120, nothing after.
+order_id: ord-3413

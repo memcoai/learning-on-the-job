@@ -1,0 +1,31 @@
+# Seed task: on-hold account asks a routine question; the hold governs and is
+# never disclosed.
+id: task-0003
+account_id: acc-106
+order_id: ord-3301
+applicable_policies:
+  - credit-hold-handling
+  - order-reference-line
+  - sign-off-house-style
+facts:
+  requested_action: confirm when ord-3301 will be delivered
+variants:
+  - subject: Delivery date for ord-3301?
+    body: >
+      Hi, just chasing ord-3301 - when will it be with us? We've got a crew
+      booked for next week and want to plan around it.
+  - subject: When is our order arriving
+    body: >
+      Hello, can you tell us when ord-3301 is due to arrive? We need to line
+      up labour on site, so a firm date would help.
+expected_obligations:
+  - policy: credit-hold-handling
+    obligation: >
+      acc-106 is on credit hold, so no dispatch or delivery timing of any
+      kind; say the request has been passed to the accounts team who will be
+      in touch within one working day, without stating that the account is on
+      hold or why.
+  - policy: order-reference-line
+    obligation: ord-3301 named in the first sentence.
+  - policy: sign-off-house-style
+    obligation: ends "Fenmoor Supplies order desk" then acc-106, nothing after.

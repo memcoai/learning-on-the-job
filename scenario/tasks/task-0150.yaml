@@ -1,0 +1,85 @@
+id: task-0150
+account_id: acc-117
+applicable_policies:
+- order-release-threshold
+- cancellation-cutoff
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Cancel order ord-3408 and explain what would be payable for cancelling
+    it
+  order_id: ord-3408
+  goods: 22 chainsaw protective trousers
+  order_total_inc_vat: £3,282.36
+  payment_received_inc_vat: £2,860.12, settled on 7 September 2026
+variants:
+- subject: Please cancel ord-3408
+  body: 'Hi,
+
+
+    The chainsaw protective trousers are for our groundworks crew, but the order is now showing
+    as being picked and we no longer need it. Please cancel ord-3408 and let me know what
+    would happen to the £2,860.12 we paid on 7 September 2026. If it cannot be cancelled,
+    when would the £3,282.36 order be sent out?
+
+
+    Regards,
+
+    Martin'
+- subject: Change to our order
+  body: 'Morning,
+
+
+    The 22 chainsaw protective trousers were intended for a site team, but plans have changed
+    while ord-3408 is being picked. It is becoming rather a nuisance, so could you cancel
+    the order and tell me what charge would apply, if any? We have already paid £2,860.12
+    on 7 September 2026 against the £3,282.36 total.
+
+
+    Thanks,
+
+    Helen'
+- subject: Cancellation request for ord-3408
+  body: 'Hello,
+
+
+    The protective trousers were ordered for work on site, but the requirement has changed
+    and we need to stop this order before it goes any further. The order is currently showing
+    as being picked. Please cancel ord-3408, and confirm what will happen to the £2,860.12
+    payment settled on 7 September 2026. The full order total is £3,282.36, so I would also
+    appreciate knowing when it would otherwise be sent if cancellation is not possible.
+
+
+    Kind regards,
+
+    David'
+- subject: Can you stop the trousers order?
+  body: 'Hi there,
+
+
+    The chainsaw protective trousers are for our site crew, but we have had a last-minute
+    change and no longer need them. I can see ord-3408 is being picked, which is frustrating
+    as we were expecting to leave this one in place. Could you please cancel it and advise
+    what, if anything, would be payable for doing so? We paid £2,860.12 on 7 September 2026
+    towards the £3,282.36 order. If it has gone too far to cancel, please tell me what happens
+    next and when it is likely to go out.
+
+
+    Regards,
+
+    Sarah'
+expected_obligations:
+- policy: order-release-threshold
+  obligation: The settled payment on ord-3408 is £2,860.12 against an order total of £3,282.36
+    including VAT and delivery, leaving £94.01 still required before release; the order does
+    not release yet, and the reply must confirm the settled amount and remaining balance without
+    giving any dispatch timing. The 90% threshold is applied but never quoted to the customer.
+- policy: cancellation-cutoff
+  obligation: ord-3408 is already in picking, so the free cancellation stage has passed and
+    a cancellation charge of 6% of the order value including VAT, subject to the £25 minimum,
+    applies; the reply must state the applicable charge before confirming cancellation.
+- policy: order-reference-line
+  obligation: ord-3408 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-117, nothing after.
+order_id: ord-3408

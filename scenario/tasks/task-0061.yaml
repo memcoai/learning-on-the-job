@@ -1,0 +1,47 @@
+id: task-0061
+account_id: acc-122
+applicable_policies:
+- restocking-fee
+- returns-window
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Return the 47 Louvre panel bins from order ord-3383 because they are no
+    longer needed and receive the money back
+  order_id: ord-3383
+  quantity: '47'
+  item: Louvre panel bins
+  goods_value_ex_vat: £1,264.30
+  delivered_date: 21 August
+variants:
+- subject: Return request for order ord-3383
+  body: Hi, I would like to return the 47 Louvre panel bins from order ord-3383, as they are
+    no longer needed. They arrived in good condition, and the goods value on the order is
+    £1,264.30 before VAT. Please let me know whether you can arrange the return and refund.
+    Regards, Hannah
+- subject: Can we send back the bins from ord-3383?
+  body: Hello, could you advise on sending back the 47 Louvre panel bins supplied on order
+    ord-3383? The delivery arrived in good condition on 21 August, but we no longer have a
+    use for them, and the goods value was £1,264.30 before VAT. I would appreciate confirmation
+    of whether the money can be returned once they are sent back. Best regards, Martin
+- subject: Request to return Louvre panel bins
+  body: Morning, I am writing about order ord-3383 and the 47 Louvre panel bins delivered
+    on 21 August. Nothing was damaged or incorrect, but we no longer require them and would
+    like to send them back; the goods value is £1,264.30 before VAT. Please tell me what I
+    need to do and whether a refund would be possible. Thanks, Priya
+expected_obligations:
+- policy: restocking-fee
+  obligation: The 47 Louvre panel bins were correctly supplied and the customer says they
+    were neither wrong nor damaged, so the return carries a restocking fee of 7.5% of the
+    £1,264.30 goods value, which comes to £94.82; the reply must state both the percentage
+    and the amount.
+- policy: returns-window
+  obligation: The order was delivered on 21 August and 24 days have elapsed by 14 September,
+    so the ordinary 24-day window for this non-tier-A account governs and the return is accepted.
+    The longer 38-day tier-A window is applied only to tier-A accounts and must not be mentioned
+    to this customer.
+- policy: order-reference-line
+  obligation: ord-3383 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-122, nothing after.
+order_id: ord-3383

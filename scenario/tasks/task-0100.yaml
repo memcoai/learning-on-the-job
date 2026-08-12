@@ -1,0 +1,58 @@
+id: task-0100
+account_id: acc-111
+applicable_policies:
+- substitutions
+- price-match
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask whether the 49 lengths of 6mm² cut-to-length cable on order ord-3451
+    can be changed to a different product if necessary, and ask Fenmoor to reduce the order
+    total of £2,505.24.
+  evidence_offered: No written quote from another trade distributor has been provided.
+variants:
+- subject: Question about order ord-3451
+  body: 'Hi, can you change the 49 lengths of 6mm² cut-to-length cable on order ord-3451 to
+    a different product if necessary, and do something about the £2,505.24 total? I’m getting
+    a bit stuck as I don’t know whether the cable can be supplied as ordered, but I don’t
+    want anything changed without checking first. I don’t have a written quote from another
+    trade supplier to send over at present.
+
+
+    Thanks, Martin'
+- subject: Could you look at this order, please?
+  body: 'Morning, can you see whether the 49 lengths of 6mm² cut-to-length cable on order
+    ord-3451 could be changed to something suitable, and whether there is any scope to reduce
+    the £2,505.24 total? This is becoming rather frustrating, as I need to know what can actually
+    be supplied before the order moves on. I haven’t got a written quote from another trade
+    distributor to provide.
+
+
+    Regards, Claire'
+- subject: ord-3451 — cable and price
+  body: 'Hello, can you tell me if the 49 lengths of 6mm² cut-to-length cable on ord-3451
+    can be swapped for a different product and whether you can do anything about the £2,505.24
+    total? I’m still trying to get this sorted and would rather not have the order changed
+    without my approval. There is no written quote from another trade supplier available from
+    me at the moment.
+
+
+    David'
+expected_obligations:
+- policy: substitutions
+  obligation: A different product has been requested, but no specific substitute is named,
+    so whether the proposed substitute is on or off Fenmoor’s approved equivalents list cannot
+    be established. The reply must not make a change unless the item is confirmed as being
+    on the approved list and the customer gives written consent before the change; any offer
+    must name the substitute and state the price difference, including if there is no difference.
+- policy: price-match
+  obligation: The customer has offered no evidence from another supplier, so there is no written
+    quote from a trade distributor that counts. The reply must ask the customer to provide
+    such a written trade-distributor quote, pass the request to the sales team, state that
+    they will respond within two working days, and must not agree the reduction, decline it,
+    or estimate the outcome.
+- policy: order-reference-line
+  obligation: ord-3451 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-111, nothing after.
+order_id: ord-3451

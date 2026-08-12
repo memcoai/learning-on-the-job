@@ -1,0 +1,74 @@
+id: task-0162
+account_id: acc-122
+applicable_policies:
+- damage-shortage-window
+- restocking-fee
+- returns-window
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Return the 47 Louvre panel bins from order ord-3383, and get help with
+    one damaged bin and one missing bin
+  order_id: ord-3383
+  quantity: 47 Louvre panel bins
+  delivered_date: 21 August
+  reported_issues: one damaged bin and one missing bin
+variants:
+- subject: ord-3383 – return request
+  body: 'Hi, sorry for chasing. Could you let me know how to return the 47 Louvre panel bins
+    from order ord-3383, delivered on 21 August? One bin was damaged and one is missing, so
+    I’d appreciate your help with those too.
+
+
+    Regards,
+
+    Claire'
+- subject: Returning the Louvre panel bins
+  body: 'Morning, apologies for chasing this up. I need to return the 47 Louvre panel bins
+    on ord-3383, delivered on 21 August. We also found one damaged bin and one missing bin—please
+    could you advise what happens next?
+
+
+    Thanks,
+
+    Martin'
+- subject: Order ord-3383
+  body: 'Hello, sorry to chase, but could you arrange the return of the 47 Louvre panel bins
+    from ord-3383, delivered on 21 August? There is also one damaged bin and one missing from
+    the delivery, which I need to report.
+
+
+    Regards,
+
+    Helen'
+- subject: Louvre panel bins delivered 21 August
+  body: 'Hi, apologies for chasing. I’d like to send back the 47 Louvre panel bins from ord-3383,
+    delivered on 21 August. One arrived damaged and one was not there, so please let me know
+    how these can be dealt with as well.
+
+
+    Best wishes,
+
+    Tom'
+expected_obligations:
+- policy: damage-shortage-window
+  obligation: The damage and shortage were reported on 14 September, 16 working days after
+    delivery on 21 August, so the four-working-day window is closed. The reply must give that
+    window as the reason Fenmoor cannot raise a claim and route the customer to the carrier's
+    claims process, rather than ask for photographs or offer a credit or replacement.
+- policy: restocking-fee
+  obligation: The correctly supplied goods being returned are subject to a restocking fee
+    of 7.5% of the £1,264.30 goods value, which comes to £94.82; the reply must state that
+    fee and amount. The fee is not waived for the correctly supplied goods merely because
+    this is a tier-B account, while the damaged bin is covered by the damage exception and
+    does not attract the fee.
+- policy: returns-window
+  obligation: The delivery date was 21 August and 24 days have elapsed by 14 September, so
+    the ordinary 24-day window for this non-tier-A account still applies and the return is
+    accepted. The tier-A 38-day extension is applied only to tier-A accounts and must not
+    be mentioned to this customer.
+- policy: order-reference-line
+  obligation: ord-3383 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-122, nothing after.
+order_id: ord-3383

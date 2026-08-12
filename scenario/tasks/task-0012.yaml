@@ -1,0 +1,73 @@
+id: task-0012
+account_id: acc-101
+applicable_policies:
+- volume-breaks
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask whether the quantities on order ord-3423 qualify for a lower price,
+    covering 11 junction enclosures, 24 rolls of masking tape, 48mm, and 9 laminate trim rolls.
+  order_id: ord-3423
+  line_quantities: 11 junction enclosures; 24 rolls of masking tape, 48mm; 9 laminate trim
+    rolls
+variants:
+- subject: Question about order ord-3423
+  body: 'Hello,
+
+
+    Could you check whether the quantities on order ord-3423 qualify for a lower price? The
+    order has 11 junction enclosures, 24 rolls of masking tape, 48mm, and 9 laminate trim
+    rolls.
+
+
+    Regards,
+
+    Martin'
+- subject: Order ord-3423 pricing query
+  body: 'Hi,
+
+
+    Please could you look at order ord-3423 and let me know whether the quantities qualify
+    for any better pricing? There are 11 junction enclosures, 24 rolls of masking tape, 48mm,
+    and 9 laminate trim rolls.
+
+
+    Thanks,
+
+    Eleanor'
+- subject: Pricing on ord-3423
+  body: 'Morning,
+
+
+    I wanted to ask whether the quantities on order ord-3423 mean that a lower price should
+    apply. The lines are 11 junction enclosures, 24 rolls of masking tape, 48mm, and 9 laminate
+    trim rolls.
+
+
+    Kind regards,
+
+    David'
+- subject: Can you review order ord-3423?
+  body: 'Hello,
+
+
+    Would you mind checking the pricing on order ord-3423? We have ordered 11 junction enclosures,
+    24 rolls of masking tape, 48mm, and 9 laminate trim rolls, so I wondered whether that
+    qualifies for a better price.
+
+
+    Regards,
+
+    Sophie'
+expected_obligations:
+- policy: volume-breaks
+  obligation: Because order ord-3423 has 11 junction enclosures, 24 rolls of masking tape,
+    48mm, and 9 laminate trim rolls, no individual order line reaches the quantity needed
+    for volume pricing. The reply must state plainly that no volume pricing applies, explain
+    that quantities are assessed separately and do not accumulate across lines or orders,
+    and must not mention or hint at the next break or how many more units would be needed.
+- policy: order-reference-line
+  obligation: ord-3423 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-101, nothing after.
+order_id: ord-3423

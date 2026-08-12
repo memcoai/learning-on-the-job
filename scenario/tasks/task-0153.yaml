@@ -1,0 +1,43 @@
+id: task-0153
+account_id: acc-121
+applicable_policies:
+- goodwill-credit
+- no-discount-categories
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Something off the bill for the trouble with order ord-3467
+  order_id: ord-3467
+variants:
+- subject: A little help with order ord-3467
+  body: 'Hi, could you do something off the bill for the trouble with order ord-3467?
+
+
+    Regards,
+
+    Martin Cole'
+- subject: Request concerning order ord-3467
+  body: 'Morning, is there anything you can take off the bill for the trouble with order ord-3467?
+
+
+    Thanks,
+
+    Helen Price'
+expected_obligations:
+- policy: goodwill-credit
+  obligation: The customer is asking for compensation for trouble with ord-3467, which invokes
+    the goodwill-credit process; acc-121 has had 0 goodwill credits in the twelve months before
+    14 September 2026, so a further credit would ordinarily be a desk decision within the
+    limit of up to £180, provided it relates to a service failure. If offered, it must be
+    account credit only, never cash or a card refund, the exact amount must be stated, and
+    it must not be framed as compensation for consequential loss.
+- policy: no-discount-categories
+  obligation: ord-3467 contains fall-arrest harnesses in the safety-PPE category, so safety-critical
+    PPE is excluded from all discounts, promotions and goodwill-motivated price reductions
+    regardless of account tier or order value; this exclusion governs the request, must be
+    stated factually, and must not be presented as negotiable or routed to sales.
+- policy: order-reference-line
+  obligation: ord-3467 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-121, nothing after.
+order_id: ord-3467

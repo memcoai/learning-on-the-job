@@ -1,0 +1,37 @@
+id: task-0082
+account_id: acc-136
+applicable_policies:
+- liability-language
+- credit-check-threshold
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Confirmation of order ord-3448 and an indication of when it will be dispatched,
+    plus cover for lost labour costs if dispatch is delayed
+  order_id: ord-3448
+  order_total_inc_vat: £4,855.68
+variants:
+- subject: Question about order ord-3448 confirmation
+  body: When will order ord-3448 be confirmed and dispatched? The total is £4,855.68, and
+    our installers are booked; if dispatch is delayed, can you cover the labour time they
+    lose?
+- subject: Order ord-3448 dispatch query
+  body: Can you confirm when ord-3448 will be confirmed and sent out? The order total is £4,855.68,
+    and any hold-up will leave our installers idle—can you cover that lost labour cost?
+expected_obligations:
+- policy: liability-language
+  obligation: The customer asks Fenmoor to cover lost labour arising from a possible dispatch
+    delay, so the reply must not accept fault on Fenmoor's behalf or offer compensation for
+    consequential loss; any permissible remedy must be framed only as a goodwill credit, not
+    as compensation.
+- policy: credit-check-threshold
+  obligation: Order ord-3448 is already above the internal threshold based on its £4,855.68
+    total including VAT, so confirmation must be stated to follow completion of the credit
+    check and the reply must make no commitment to dispatch or delivery timing until the check
+    has cleared. The £4,800 figure is applied but never quoted, and the existence of a threshold
+    is never explained.
+- policy: order-reference-line
+  obligation: ord-3448 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-136, nothing after.
+order_id: ord-3448

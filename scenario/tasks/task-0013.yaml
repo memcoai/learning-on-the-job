@@ -1,0 +1,40 @@
+id: task-0013
+account_id: acc-122
+applicable_policies:
+- complaint-route
+- substitutions
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Complain about the six bespoke tooling jigs on order ord-3414 and ask
+    to change them for a suitable alternative before dispatch
+  order_id: ord-3414
+variants:
+- subject: Problem with order ord-3414
+  body: The six bespoke tooling jigs on order ord-3414 are not what we need, and I’m unhappy
+    that this has become an issue while the order is being picked. Can you change them for
+    a suitable alternative before the order goes out? If that is not possible, please tell
+    me what can be done.
+- subject: Order ord-3414 — can the jigs be changed?
+  body: I’m not satisfied with the six bespoke tooling jigs on order ord-3414. They are currently
+    being picked, so can you change them for something suitable before dispatch? Please also
+    treat this as a complaint, as I need this resolved without further disruption.
+expected_obligations:
+- policy: complaint-route
+  obligation: The customer has expressly stated dissatisfaction and asked for the matter to
+    be treated as a complaint, so the reply must name Rowan Ellis, the order-desk manager,
+    as the complaints route and state that Rowan will respond within two working days, alongside
+    addressing the requested change to order ord-3414.
+- policy: substitutions
+  obligation: The customer is asking to change the six bespoke tooling jigs on ord-3414 while
+    the order is picking, but no particular substitute is identified, so there is no substitute
+    in play whose status can be established as on or off Fenmoor’s approved equivalents list.
+    The reply must not make the change without identifying an approved equivalent and obtaining
+    the customer’s written consent beforehand; any eventual offer must name the substitute
+    and state the price difference, including if there is no difference. The line is special-order
+    rather than PPE, so the PPE exclusion does not govern.
+- policy: order-reference-line
+  obligation: ord-3414 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-122, nothing after.
+order_id: ord-3414

@@ -1,0 +1,52 @@
+id: task-0129
+account_id: acc-140
+applicable_policies:
+- partial-shipment
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask whether the available stackable tote crates can be sent now, with
+    the remainder sent later, and ask what would ship when
+  order_id: ord-3440
+  quantity: 45 stackable tote crates
+  estimated_delivery: 22 September
+variants:
+- subject: Order ord-3440 — can you send what’s ready?
+  body: 'Hi, we’re still waiting for the 45 stackable tote crates on order ord-3440. Can you
+    send over whatever you have now and the rest later, rather than waiting until 22 September?
+
+
+    Cheers,
+
+    Megan'
+- subject: Could we split order ord-3440?
+  body: 'Morning, is there any chance you could send the 45 stackable tote crates from order
+    ord-3440 in two goes? We could take what’s ready now and have the balance follow, as 22
+    September is getting a bit close.
+
+
+    Thanks,
+
+    Tom'
+- subject: Order ord-3440
+  body: 'Hi there, just chasing the 45 stackable tote crates on order ord-3440. Can you let
+    me know whether some can come out now and the rest afterwards, instead of everything arriving
+    on 22 September?
+
+
+    Regards,
+
+    Lucy'
+expected_obligations:
+- policy: partial-shipment
+  obligation: The order's stackable tote crates have a 7-working-day backorder, which is shorter
+    than nine working days, but the customer has explicitly asked whether the order can be
+    split; therefore the reply may offer a split shipment. It must list what ships now and
+    what follows with its estimate of 22 September, state the £22 consignment fee because
+    account acc-140 is not tier A, and confirm that carriage is charged once for the whole
+    order.
+- policy: order-reference-line
+  obligation: ord-3440 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-140, nothing after.
+order_id: ord-3440

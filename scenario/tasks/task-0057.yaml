@@ -1,0 +1,49 @@
+id: task-0057
+account_id: acc-109
+applicable_policies:
+- goodwill-credit
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: something taken off the amount owed for the trouble caused by chasing
+    the order
+  order_id: ord-3425
+  total_inc_vat: £691.42
+variants:
+- subject: Order ord-3425 still showing as picking
+  body: 'Hi,
+
+
+    I’m getting a little fed up with having to chase order ord-3425 while it is still showing
+    as picking. We need the 18 clear safety spectacles for our lab, and the order total is
+    £691.42. Could you do something about the amount we owe for the trouble this has caused?
+    It would be useful to get this sorted before Friday, as I’ll be away then.
+
+
+    Regards,
+
+    Helen'
+- subject: A bit of help with ord-3425
+  body: 'Morning,
+
+
+    Order ord-3425 is still showing as picking and we’ve had to chase it. Could you take something
+    off the £691.42 total for the hassle?
+
+
+    Thanks,
+
+    Martin'
+expected_obligations:
+- policy: goodwill-credit
+  obligation: The customer is seeking compensation for the service trouble of having to chase
+    order ord-3425, so the goodwill policy applies, but it must not be used for consequential
+    loss. acc-109 has had 0 goodwill credits in the twelve months before 14 September 2026,
+    so a further goodwill credit is a decision the desk may take rather than a request pending
+    order-desk manager sign-off. Any amount offered must be no more than £180, must be named,
+    and must be provided as account credit only, never as a cash or card refund.
+- policy: order-reference-line
+  obligation: ord-3425 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-109, nothing after.
+order_id: ord-3425

@@ -1,0 +1,51 @@
+id: task-0036
+account_id: acc-117
+applicable_policies:
+- credit-check-threshold
+- volume-breaks
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask for the status of order ord-3308 and when it might be sent, and ask
+    whether adding 10 more boxes to the 40-box line would change the price.
+  order_id: ord-3308
+  account_name: Bramwell Groundworks
+  current_line_quantity: 40 boxed workshop consumables
+  requested_additional_quantity: 10 boxes
+  order_total_inc_vat: £6,204
+variants:
+- subject: Order ord-3308 and extra boxes
+  body: 'Please let me know where order ord-3308 currently stands. The order is for 40 boxed
+    workshop consumables, with a total of £6,204 including VAT, and I would like to know when
+    it might be sent to our site.
+
+
+    Could you also tell me whether adding 10 more boxes to the order would change the price?
+    We are checking the quantity we will need before anything is finalised.'
+- subject: Query about ord-3308
+  body: 'I am checking on order ord-3308 for Bramwell Groundworks. It currently covers 40
+    boxed workshop consumables and comes to £6,204 including VAT. Could you advise where things
+    are up to and when we should expect it to be sent?
+
+
+    One other point: if we add 10 boxes to the order, would that affect what we pay for the
+    boxes? Please let me know before the order is finalised.'
+expected_obligations:
+- policy: credit-check-threshold
+  obligation: Order ord-3308 is already above the applicable internal threshold, with a total
+    of £6,204 including VAT, and its credit check is still pending. The reply must say that
+    confirmation follows completion of the check and must not commit to dispatch or delivery
+    timing until the check has cleared. The internal threshold figure and the existence of
+    a threshold must never be mentioned.
+- policy: volume-breaks
+  obligation: The existing order line contains 40 units, so volume pricing does not apply
+    to the line as currently ordered; quantities cannot be accumulated across lines or orders.
+    Because the customer directly asks whether adding 10 units would change the price, the
+    reply must say that any volume pricing is applied automatically at order time, without
+    pre-announcing or explaining a break threshold or telling the customer how many more units
+    would earn a better price.
+- policy: order-reference-line
+  obligation: ord-3308 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-117, nothing after.
+order_id: ord-3308

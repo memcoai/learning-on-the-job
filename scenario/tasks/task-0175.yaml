@@ -1,0 +1,72 @@
+id: task-0175
+account_id: acc-140
+applicable_policies:
+- partial-shipment
+- quote-validity
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask whether the available stackable tote crates can be sent now and the
+    remainder sent later
+  order_id: ord-3440
+  quantity: 45 stackable tote crates
+  estimated_delivery: 22 September
+  order_status: awaiting stock
+variants:
+- subject: ord-3440 delivery query
+  body: 'Hi,
+
+
+    Sorry to chase this, but could you let me know whether the 45 stackable tote crates on
+    order ord-3440 can be sent as soon as any are available, with the remainder to follow?
+    The order is currently showing as awaiting stock and the estimated delivery is 22 September.
+
+
+    Regards,
+
+    Helen'
+- subject: Could ord-3440 be sent in stages?
+  body: 'Morning,
+
+
+    Apologies for chasing. Please could you check whether the 45 stackable tote crates on
+    ord-3440 can be sent in stages, with anything available sent now and the balance to follow?
+    I can see the order is awaiting stock and is currently estimated for delivery on 22 September.
+
+
+    Thanks in advance,
+
+    Martin Cole'
+- subject: Update requested on order ord-3440
+  body: 'Hello,
+
+
+    Sorry to chase for an update. We are trying to plan space at our site and wanted to ask
+    whether the 45 stackable tote crates on order ord-3440 could be sent in more than one
+    delivery, with any stock you have now coming first and the rest following afterwards.
+    The order is showing as awaiting stock, and we understand the estimated delivery is 22
+    September. Please let me know what might be possible and whether this would affect the
+    delivery arrangements.
+
+
+    Kind regards,
+
+    Sarah Bennett'
+expected_obligations:
+- policy: partial-shipment
+  obligation: The line is awaiting stock for a backorder of seven working days, which is shorter
+    than the usual nine-working-day trigger, but the customer has asked for staged delivery,
+    so a split shipment may be offered. Because acc-140 is tier B, the £22 consignment fee
+    applies and is not waived; the reply must say what ships now and what follows, give the
+    following estimate of 22 September, and confirm that carriage is charged once for the
+    whole order.
+- policy: quote-validity
+  obligation: If the reply quotes the £22 consignment fee or any other price, discount, or
+    carriage charge, each quoted amount must be stated as excluding VAT and as valid for 17
+    calendar days from the date of that reply; repeating a previously quoted figure starts
+    a new 17-day validity period.
+- policy: order-reference-line
+  obligation: ord-3440 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-140, nothing after.
+order_id: ord-3440

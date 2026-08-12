@@ -1,0 +1,67 @@
+id: task-0124
+account_id: acc-133
+applicable_policies:
+- delivery-date-language
+- goodwill-credit
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: An estimated indication of when ord-3463 might arrive and something off
+    for the delay
+  order_id: ord-3463
+  problem: The order is still before picking
+variants:
+- subject: ord-3463 still not picked
+  body: 'Hi,
+
+
+    ord-3463 is still showing as before picking. When do you think it might arrive? It is
+    holding things up here, so is there anything you can do to take a bit off for the delay?
+
+
+    Regards,
+
+    Martin'
+- subject: Problem with ord-3463
+  body: 'Hello,
+
+
+    ord-3463 has not been picked yet. Please let me know when it is likely to arrive, as we
+    need to plan around it. Given the delay, could you do something about the cost for us?
+
+
+    Thanks,
+
+    Martin'
+- subject: ord-3463 delivery query
+  body: 'Morning,
+
+
+    ord-3463 is still before picking and we have not had a useful indication of when it will
+    arrive. This is beginning to disrupt our plans, so could you check where things stand
+    and let me know roughly when we should expect it? Also, is there anything you can do to
+    put a bit of money back against the order for the trouble?
+
+
+    Regards,
+
+    Martin'
+expected_obligations:
+- policy: delivery-date-language
+  obligation: Because ord-3463 is recorded as before-picking, the reply must first check its
+    status with the lookup tool and must not give a specific delivery date or an unqualified
+    timing statement. After the status check it may offer only a three-working-day delivery
+    window; if the checked status is awaiting-stock, that window must plainly be described
+    as an estimate and not guaranteed until the goods are in the warehouse.
+- policy: goodwill-credit
+  obligation: Because the customer is complaining about the delay with ord-3463 and asking
+    for something off, the request is for a service-failure goodwill remedy rather than compensation
+    for consequential loss. The account record shows acc-133 has had zero goodwill credits
+    in the preceding twelve months, so a further credit is a decision the desk may take, up
+    to £180; any amount offered must be named and provided as account credit only, never as
+    a cash or card refund. The reply must not present consequential-loss compensation as available.
+- policy: order-reference-line
+  obligation: ord-3463 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-133, nothing after.
+order_id: ord-3463

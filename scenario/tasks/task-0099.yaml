@@ -1,0 +1,74 @@
+id: task-0099
+account_id: acc-109
+applicable_policies:
+- delivery-date-language
+- expedite-surcharge
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: urgent delivery and an indication of when order ord-3425 might arrive,
+    including whether this would cost extra
+  order_id: ord-3425
+variants:
+- subject: Urgent delivery query
+  body: 'Hello,
+
+
+    We need these goods sent urgently and would like to know when they might arrive, including
+    whether there would be an extra charge. This is regarding order ord-3425.
+
+
+    Regards,
+
+    Helen'
+- subject: Request for faster delivery
+  body: 'Good morning,
+
+
+    Could you please let me know whether this order can be sent urgently and when it might
+    reach us? Please also advise if that would involve an additional charge. The order number
+    is ord-3425.
+
+
+    Yours sincerely,
+
+    Martin'
+- subject: Delivery timing for our order
+  body: 'Hi,
+
+
+    We are rather pressed for these goods and would appreciate an indication of the earliest
+    possible arrival, along with any extra cost. I am contacting you about order ord-3425.
+
+
+    Thank you,
+
+    Priya'
+- subject: Can this order arrive sooner?
+  body: 'Morning,
+
+
+    Please could you tell me if the goods can be sent out urgently and when we might receive
+    them? I would also like to know whether there is an additional charge. This relates to
+    order ord-3425.
+
+
+    Kind regards,
+
+    David'
+expected_obligations:
+- policy: delivery-date-language
+  obligation: Because the customer asks when order ord-3425 might arrive, and the order record
+    shows it is picking, the reply must first check the order status with the lookup tool,
+    then may offer only a three-working-day delivery window; it must not commit to a specific
+    delivery date.
+- policy: expedite-surcharge
+  obligation: Because the customer requests urgent delivery, any expedited delivery offered
+    or agreed must state the £68 surcharge per consignment. Account acc-109 is tier B with
+    three years' tenure, so it does not qualify for a waiver; urgency, order volume and order
+    value do not change that.
+- policy: order-reference-line
+  obligation: ord-3425 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-109, nothing after.
+order_id: ord-3425

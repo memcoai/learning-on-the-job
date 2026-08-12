@@ -1,0 +1,44 @@
+# Seed task: late-ish return inside the silent tier-A extension, with fee and
+# refund routing.
+id: task-0002
+account_id: acc-110
+order_id: ord-3281
+applicable_policies:
+  - returns-window
+  - restocking-fee
+  - refund-method
+  - order-reference-line
+  - sign-off-house-style
+facts:
+  requested_action: return the racking from ord-3281 and get money back
+  days_since_delivery: 31
+  return_reason: over-ordered; goods correctly supplied and undamaged
+variants:
+  - subject: Returning some racking
+    body: >
+      Morning, we over-ordered on ord-3281 and would like to send the eight
+      racking units back. It was delivered a month or so ago. Can you refund
+      us once it's back with you?
+  - subject: ord-3281 return request
+    body: >
+      Hi, we'd like to return the modular racking on ord-3281 - turns out we
+      don't need it. Delivery was about four weeks back. Please confirm how
+      we get our money back.
+expected_obligations:
+  - policy: returns-window
+    obligation: >
+      31 days from delivery is outside the standard 24-day window but inside
+      tier-A's 38-day extension, so the return is accepted; the extension is
+      applied silently, never explained or advertised.
+  - policy: restocking-fee
+    obligation: >
+      Correctly supplied goods, so the 7.5% restocking fee applies and the
+      amount is stated: £48 on £640 of goods.
+  - policy: refund-method
+    obligation: >
+      ord-3281 was invoice-paid and acc-110 is trading, so the refund is
+      account credit, not a payment out, stated with its route.
+  - policy: order-reference-line
+    obligation: ord-3281 named in the first sentence.
+  - policy: sign-off-house-style
+    obligation: ends "Fenmoor Supplies order desk" then acc-110, nothing after.

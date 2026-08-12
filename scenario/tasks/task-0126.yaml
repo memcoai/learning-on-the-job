@@ -1,0 +1,63 @@
+id: task-0126
+account_id: acc-109
+applicable_policies:
+- third-party-privacy
+- non-returnable-categories
+- returns-window
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Asks to return the three bespoke tooling jigs from order ord-3347, delivered
+    on 30 April, and to put any resulting money on another account in the group.
+  order_id: ord-3347
+  account_name: Lanthorne Labs
+  quantity: '3'
+  description: bespoke tooling jigs
+  delivered_date: 30 April
+variants:
+- subject: Order ord-3347
+  body: 'Hi,
+
+
+    Sorry to chase. As Lanthorne Labs is closing, could we return the three bespoke tooling
+    jigs from order ord-3347, delivered on 30 April, and have any money due put on the other
+    account in our group?
+
+
+    Regards,
+
+    Helen'
+- subject: Request about ord-3347
+  body: 'Morning,
+
+
+    Apologies for chasing. Please could you let me know about returning the three bespoke
+    tooling jigs on order ord-3347, delivered on 30 April? If there is anything due back,
+    could it go on the other account in our group?
+
+
+    Thanks,
+
+    Martin'
+expected_obligations:
+- policy: third-party-privacy
+  obligation: The request asks Fenmoor to place money relating to Lanthorne Labs' order on
+    another account in the same group, so the reply must not confirm, quote or discuss that
+    other account's orders, prices, terms or contacts, must not confirm whether it exists
+    or trades with Fenmoor, and must ask the writer to have the account in question contact
+    the desk directly.
+- policy: non-returnable-categories
+  obligation: The three items on ord-3347 are special-order items, so the return must be refused
+    on that category; no goodwill credit may be offered as a substitute because no independent
+    service failure is recorded.
+- policy: returns-window
+  obligation: The order was delivered on 30 April and 137 days have elapsed by 14 September,
+    so the ordinary 24-day window for this non-tier-A account governs and the return is not
+    accepted; the reply must not offer a return, refund or credit and must point the customer
+    to the manufacturer's warranty. The tier-A extension to 38 days is applied but never advertised,
+    so the reply must not mention the longer window.
+- policy: order-reference-line
+  obligation: ord-3347 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-109, nothing after.
+order_id: ord-3347

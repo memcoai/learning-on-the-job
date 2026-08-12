@@ -1,0 +1,46 @@
+id: task-0186
+account_id: acc-119
+applicable_policies:
+- partial-shipment
+- substitutions
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Send any available folding ear defenders now and the remaining units later,
+    or change them to a different ear-defender model if that would get them sooner; confirm
+    whether the price would change
+  order_id: ord-3443
+  quantity: 33 folding ear defenders
+  estimated_delivery: 24 September
+variants:
+- subject: Stock problem with order 3443
+  body: We appear to be short of the folding ear defenders needed for this order. Could you
+    send any of the 33 units that are available now and the rest later, with the balance still
+    due by 24 September? If none can be sent yet, could you change them to a different ear-defender
+    model that is available sooner, and let me know whether that would alter the price? This
+    is being processed through our usual invoice arrangement.
+- subject: Order 3443 — folding ear defenders
+  body: The folding ear defenders seem to be waiting for stock. Can you send any of the 33
+    now and the remainder later, with the balance expected by 24 September? If that is not
+    possible, could you use a different ear-defender model instead and confirm whether the
+    price would change? It is for our normal invoice order.
+expected_obligations:
+- policy: partial-shipment
+  obligation: The line is backordered for exactly nine working days, which is not beyond nine,
+    but the customer has expressly asked whether available goods can be sent first, so a split
+    shipment may be offered. The order is awaiting stock, so the reply must state that nothing
+    is available to ship now and that all 33 folding ear defenders follow with the estimated
+    delivery of 24 September; it must also state that the £22 consignment fee is waived because
+    acc-119 is tier A, and that carriage is charged once for the whole order.
+- policy: substitutions
+  obligation: The customer has requested a different model of ear defender, but no specific
+    substitute is named, so there is no substitute whose approved-equivalents-list status
+    can be established from the records. In any event, the line is PPE, which is never substituted
+    regardless of whether an item appears on Fenmoor's approved equivalents list; the reply
+    must decline that request for the PPE reason and must not seek consent, name a substitute,
+    or quote a price difference.
+- policy: order-reference-line
+  obligation: ord-3443 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-119, nothing after.
+order_id: ord-3443

@@ -1,0 +1,66 @@
+id: task-0059
+account_id: acc-131
+applicable_policies:
+- refund-method
+- complaint-route
+- returns-window
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Return the three stainless bolts from order ord-3389 and receive the £29.10
+    paid back; complain about the order
+  order_id: ord-3389
+  amount: £29.10 including VAT
+  delivered_date: 7 September 2026
+variants:
+- subject: Can I send the bolts back?
+  body: 'Hi, I’m not happy with order ord-3389 and would like to complain. It was delivered
+    on 7 September and I’d like to send the three stainless bolts back and get the £29.10
+    back, if possible. Could you let me know what I need to do?
+
+
+    Cheers,
+
+    Tom'
+- subject: Problem with order ord-3389
+  body: 'Morning, I’ve got a bit of a problem with order ord-3389 and want to raise a complaint.
+    The three stainless bolts arrived on 7 September, but I’d like to return them and have
+    the £29.10 including VAT put back somehow. Please tell me the next step when you get a
+    chance.
+
+
+    Thanks,
+
+    Sarah'
+- subject: Return request for the bolts
+  body: 'Hi there, I’m afraid I’m not pleased with order ord-3389 and would like to complain
+    about it. It came in on 7 September, and I’m hoping I can send the three stainless bolts
+    back and get the £29.10 refunded. Can you let me know whether that’s possible and how
+    to arrange it?
+
+
+    Regards,
+
+    Martin'
+expected_obligations:
+- policy: refund-method
+  obligation: The order record shows ord-3389 was paid by invoice and account acc-131 is trading
+    rather than closing, so any refund must be issued as account credit, not paid out as cash,
+    cheque, bank transfer or to another card. The reply must state the account-credit route
+    and the applicable timing for issuing it; the twelve-working-day bank-transfer exception
+    does not apply.
+- policy: complaint-route
+  obligation: The customer has expressly stated dissatisfaction and asked to complain, so
+    alongside handling the return and refund request the reply must name Rowan Ellis, the
+    order-desk manager, as the complaints route and state that Rowan will respond within two
+    working days.
+- policy: returns-window
+  obligation: The order record shows stocked fixings in ord-3389 were delivered on 7 September
+    2026, and today is 14 September 2026, so 7 days have elapsed against acc-131’s tier-A
+    38-day return window. The return is therefore accepted. The tier-A extension is applied
+    internally but must not be advertised or mentioned to the customer.
+- policy: order-reference-line
+  obligation: ord-3389 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-131, nothing after.
+order_id: ord-3389

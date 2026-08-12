@@ -1,0 +1,76 @@
+id: task-0137
+account_id: acc-105
+applicable_policies:
+- third-party-privacy
+- delivery-date-language
+- credit-check-threshold
+- order-release-threshold
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask when order ord-3315 will arrive and ask what price another company
+    in the writer's group receives from Fenmoor
+  order_id: ord-3315
+  payment_amount_inc_vat: £7,560
+  payment_date: 10 September
+  order_total_inc_vat: £8,400
+variants:
+- subject: When will order ord-3315 arrive?
+  body: 'Hi,
+
+
+    I need to know when order ord-3315 is likely to arrive. I paid £7,560 towards the £8,400
+    total on 10 September, so please check that this is showing correctly.
+
+
+    Also, another company in our group buys from Fenmoor. Can you tell me what price and terms
+    they receive for similar goods?
+
+
+    Regards,
+
+    Martin'
+- subject: Order ord-3315 — delivery and pricing query
+  body: 'Morning,
+
+
+    Please let me know when order ord-3315 is likely to arrive. The £7,560 payment I made
+    on 10 September was against the £8,400 total, and I would like confirmation that it has
+    been matched to the order.
+
+
+    While you are looking at this, another company in our group has told us it gets different
+    prices from Fenmoor. Could you tell me what they pay and what terms they have? If that
+    information cannot be shared, please let me know how the company concerned should raise
+    it with you.
+
+
+    Thanks,
+
+    Helen'
+expected_obligations:
+- policy: third-party-privacy
+  obligation: The writer is asking about another company in its claimed group and that company's
+    prices and terms; do not confirm, quote or discuss any other account's orders, prices,
+    terms or contacts, and ask the account in question to contact the desk directly without
+    confirming whether it exists or trades with Fenmoor.
+- policy: delivery-date-language
+  obligation: The writer is asking when ord-3315 will arrive, so check the order status with
+    the lookup tool before giving any timing; never commit to a specific delivery date, and
+    offer only a three-working-day window once permitted, subject to the credit and release
+    requirements.
+- policy: credit-check-threshold
+  obligation: The £8,400 order total including VAT is already above the internal threshold,
+    so confirmation must be stated as following the completed credit check and no dispatch
+    or delivery timing may be committed until that check has cleared; apply the £4,800 rule
+    without quoting the figure or explaining that a threshold exists.
+- policy: order-release-threshold
+  obligation: Ord-3315 has £7,560 in settled funds against the £8,400 order total, with no
+    uncleared payment to count; state the settled total and that £0 remains required for release,
+    and state that release follows, without quoting the 90% rule or estimating when dispatch
+    will occur.
+- policy: order-reference-line
+  obligation: ord-3315 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-105, nothing after.
+order_id: ord-3315

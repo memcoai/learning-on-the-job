@@ -1,0 +1,68 @@
+id: task-0104
+account_id: acc-105
+applicable_policies:
+- order-release-threshold
+- price-match
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Confirm release of order ord-3315 and consider matching a lower price
+    shown on a screenshot of a consumer website
+  order_id: ord-3315
+  payment_received_inc_vat: £7,560
+  order_total_inc_vat: £8,400
+  price_evidence: Screenshot of a consumer website showing a lower price
+variants:
+- subject: ord-3315 still waiting for release
+  body: 'ord-3315 is still before picking. Hi Megan,
+
+
+    I’ve paid £7,560 against the £8,400 total, so please confirm that the order will now be
+    released. I’ve also attached a screenshot of a consumer website showing a lower price
+    for the same racking uprights. Can you match it?
+
+
+    Regards,
+
+    Tom'
+- subject: ord-3315 has not moved
+  body: 'ord-3315 has not moved into picking. Hi,
+
+
+    The payment made was £7,560 and the order total is £8,400. Please check that this is enough
+    for release. I’d also like you to look at the screenshot I’ve attached from a consumer
+    website and see if you can match the price shown there.
+
+
+    Thanks,
+
+    Rachel'
+- subject: ord-3315 release and lower price
+  body: 'ord-3315 is still showing as before picking. Hi Daniel,
+
+
+    I’ve paid £7,560 of the £8,400 order total and need confirmation that it can be released.
+    Alongside that, please see the screenshot of a consumer website with a lower price for
+    these racking uprights and let me know whether you can match it. The delivery is for our
+    north warehouse; the last order arrived there without any problems.
+
+
+    Regards,
+
+    Simon'
+expected_obligations:
+- policy: order-release-threshold
+  obligation: The settled payment on ord-3315 is £7,560 against an order total of £8,400 including
+    VAT and delivery, leaving £0 still required for release; because the cleared amount reaches
+    the release requirement exactly, the reply must confirm that release follows. The applied
+    threshold is never quoted to the customer.
+- policy: price-match
+  obligation: The customer has offered a screenshot of a consumer website, which is not accepted
+    evidence; the reply must say that it does not count and ask for a written quote from a
+    trade distributor instead. The request must be passed to the sales team, who respond within
+    two working days; the desk must not agree a match, decline it, or estimate the outcome.
+- policy: order-reference-line
+  obligation: ord-3315 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-105, nothing after.
+order_id: ord-3315

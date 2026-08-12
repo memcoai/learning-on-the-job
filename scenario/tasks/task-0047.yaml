@@ -1,0 +1,67 @@
+id: task-0047
+account_id: acc-101
+applicable_policies:
+- special-order-lead-time
+- liability-language
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask when order ord-3305 is expected and whether Fenmoor can do something
+    about the extra cost caused by fitters waiting
+  order_id: ord-3305
+  goods: 6 bespoke bench frames
+  consequential_loss: fitters waiting and associated extra cost
+variants:
+- subject: Order ord-3305
+  body: 'Hi,
+
+
+    Could you please confirm when the six bespoke bench frames on order ord-3305 are expected?
+    Our fitters are waiting, so is there anything you can do about the extra cost this has
+    caused?
+
+
+    Regards,
+
+    Martin'
+- subject: Update requested on ord-3305
+  body: 'Morning,
+
+
+    Please let me know when order ord-3305, for six bespoke bench frames, is likely to arrive.
+    We have had fitters standing by and would appreciate knowing whether anything can be done
+    about the resulting cost.
+
+
+    Thanks,
+
+    Helen'
+- subject: Expected delivery for bespoke bench frames
+  body: 'Hello,
+
+
+    Can you advise when the six bespoke bench frames on ord-3305 are due? The delay has left
+    our installation team waiting, and I wanted to ask whether you can help with the additional
+    expense.
+
+
+    Regards,
+
+    Simon'
+expected_obligations:
+- policy: special-order-lead-time
+  obligation: Order ord-3305 contains six bespoke bench frames recorded as special-order goods,
+    and the customer is asking about timing, so the reply must state a lead time of 17 working
+    days from order confirmation. Because these goods are special-order with no stock to move,
+    the reply must not offer expedited delivery, partial early delivery or any shortened estimate.
+- policy: liability-language
+  obligation: The customer refers to fitters waiting and the resulting extra cost, which is
+    a consequential-loss concern, so the reply must not accept fault on Fenmoor's behalf or
+    offer compensation for downtime, lost labour, lost revenue or missed contracts. If any
+    remedy is offered, it may only be a goodwill credit under the goodwill policy and must
+    be framed as goodwill rather than compensation.
+- policy: order-reference-line
+  obligation: ord-3305 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-101, nothing after.
+order_id: ord-3305

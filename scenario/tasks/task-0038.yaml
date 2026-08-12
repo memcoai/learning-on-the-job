@@ -1,0 +1,55 @@
+id: task-0038
+account_id: acc-108
+applicable_policies:
+- desk-discount-limit
+- address-change
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask whether Fenmoor can take something off order ord-3319 and change its
+    delivery address before it is sent
+  order_id: ord-3319
+  order_value_inc_vat: £1,812
+  goods_value_ex_vat: £1,450
+variants:
+- subject: Order ord-3319 – delivery address and price
+  body: 'Hi,
+
+
+    I’m chasing order ord-3319, which comes to £1,812 including VAT. It has not been sent
+    yet, so could you change the delivery address and let me know what you need from me for
+    that? Also, is there any chance of taking a little off the £1,450 goods value, as this
+    order has already been more trouble than it should be?
+
+
+    Regards,
+
+    Martin'
+- subject: A couple of queries about ord-3319
+  body: 'Morning,
+
+
+    Please could you look at order ord-3319 for me? The total is £1,812 including VAT, and
+    I need the delivery address changed before it goes out; it would be helpful if you could
+    confirm whether that can still be done. While you’re checking it, can you see if there
+    is anything you can do on the £1,450 goods value to make up for the hassle?
+
+
+    Thanks,
+
+    Helen'
+expected_obligations:
+- policy: desk-discount-limit
+  obligation: Because acc-108 is tier-B and order ord-3319 has a goods value of £1,450 excluding
+    VAT, the order qualifies for a discretionary desk discount of up to 4%; any discount actually
+    given must state the percentage and the order value it applies to, while any request above
+    4% must be referred to the sales team without promising or predicting the larger discount.
+- policy: address-change
+  obligation: Because order ord-3319 is currently before picking, its delivery address may
+    be changed free of charge; the reply should explain that no re-routing fee applies at
+    this stage and obtain or confirm the replacement address before making the change.
+- policy: order-reference-line
+  obligation: ord-3319 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-108, nothing after.
+order_id: ord-3319

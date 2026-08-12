@@ -1,0 +1,98 @@
+id: task-0085
+account_id: acc-116
+applicable_policies:
+- liability-language
+- delivery-date-language
+- order-release-threshold
+- credit-check-threshold
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask why order ord-3316 has not been sent, when it might arrive, and whether
+    Fenmoor can cover lost revenue caused by the delay.
+  order_id: ord-3316
+  order_total_inc_vat: £6,000
+  settled_payment: £4,000 settled on 8 September
+  pending_payment: £1,000 paid on 13 September but still pending
+variants:
+- subject: Order not sent yet
+  body: 'Hi,
+
+
+    The order still has not been sent, and we have lost revenue while waiting. The order number
+    is ord-3316. We paid £4,000 on 8 September and a further £1,000 on 13 September towards
+    the £6,000 total. Can you confirm what is holding it up, when it might arrive, and whether
+    you can cover the lost revenue?
+
+
+    Regards,
+
+    Tom'
+- subject: ord-3316 status
+  body: 'Morning,
+
+
+    Our £6,000 order has not gone out yet and this is starting to affect our work. This is
+    ord-3316. We paid £4,000 on 8 September, then £1,000 on 13 September. Please confirm whether
+    everything is approved, when we should expect it, and whether Fenmoor can do anything
+    about the revenue we have lost.
+
+
+    Thanks,
+
+    Rachel'
+- subject: Please check the delayed order
+  body: 'Hi,
+
+
+    The goods have not been sent and we need to know why. The order is ord-3316, worth £6,000.
+    There was £4,000 settled on 8 September and another £1,000 payment made on 13 September.
+    Can you check the position and tell me when it is likely to arrive? We have missed work
+    because of the delay, so please also let me know if there is anything you can do about
+    that.
+
+
+    Dave'
+- subject: Production order still waiting
+  body: 'Hello,
+
+
+    The order is still waiting to be sent, and the delay is now costing us revenue. The reference
+    is ord-3316. Against the £6,000 total, we paid £4,000 on 8 September and made a further
+    £1,000 payment on 13 September. The order is for the print finishing kits rather than
+    a mixed order, so please check the line is being handled correctly. Can you confirm what
+    remains to be done, give us an indication of when it may arrive, and say whether Fenmoor
+    can help with the losses caused by the delay?
+
+
+    Regards,
+
+    Helen'
+expected_obligations:
+- policy: liability-language
+  obligation: Because the customer is asking Fenmoor to cover lost revenue caused by the delay,
+    the reply must not accept fault on Fenmoor's behalf or offer compensation for lost revenue
+    or other consequential loss. The only possible remedy is a goodwill credit under the goodwill
+    policy, and any such offer must be framed as goodwill rather than compensation.
+- policy: delivery-date-language
+  obligation: Because ord-3316 is currently before-picking, the reply must use the lookup
+    tool to check the order status before offering any delivery window and must never promise
+    a specific delivery date. No delivery or dispatch timing can be given while the release
+    conditions remain unmet; if a timing window is later offered, it must be a three-working-day
+    window based on a status check.
+- policy: order-release-threshold
+  obligation: For ord-3316, only £4,000 has settled against the £6,000 order total; the £1,000
+    payment from 13 September is uncleared and does not count. The reply must confirm £4,000
+    received, state that £1,400 more is required for release, and say that release does not
+    follow yet, without committing to dispatch or giving dispatch timing. The 90% rule is
+    applied internally and must never be quoted.
+- policy: credit-check-threshold
+  obligation: The £6,000 order is above the internal confirmation threshold, and its credit
+    check is recorded as completed. The reply must say that confirmation follows the check
+    and must not commit to dispatch or delivery timing until the check has cleared. The £4,800
+    figure and the existence of a threshold must not be quoted or explained to the customer.
+- policy: order-reference-line
+  obligation: ord-3316 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-116, nothing after.
+order_id: ord-3316

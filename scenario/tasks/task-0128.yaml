@@ -1,0 +1,45 @@
+id: task-0128
+account_id: acc-131
+applicable_policies:
+- damage-shortage-window
+- payment-terms-by-tier
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Report that 3 M10 stainless bolts on order ord-3389 arrived damaged, and
+    ask when the £29.10 invoice is due; the order was delivered on 7 September.
+  order_id: ord-3389
+  quantity: '3'
+  description: M10 stainless bolts
+  total_inc_vat: £29.10
+  delivered_date: 7 September
+variants:
+- subject: Damage on ord-3389
+  body: ord-3389 arrived with 3 M10 stainless bolts damaged when it was delivered on 7 September.
+    Can you let me know what happens with that, and when I need to pay the £29.10 invoice?
+- subject: ord-3389 damaged goods
+  body: ord-3389 was delivered on 7 September, but 3 of the M10 stainless bolts are damaged.
+    Could you check this for me and confirm when the £29.10 invoice needs paying?
+- subject: Problem with ord-3389
+  body: 'There’s a problem with ord-3389: 3 M10 stainless bolts arrived damaged on 7 September.
+    Also, when is the £29.10 invoice due?'
+- subject: ord-3389 delivery issue
+  body: ord-3389 turned up on 7 September with 3 damaged M10 stainless bolts. Can you advise
+    on the damage and tell me when the £29.10 invoice is payable?
+expected_obligations:
+- policy: damage-shortage-window
+  obligation: Because ord-3389 was delivered on 7 September and the reference date is 14 September,
+    four working days have elapsed (8, 9, 10 and 11 September), so the four-working-day damage-reporting
+    window is closed. The reply must give that window as the reason Fenmoor cannot raise a
+    claim and route the customer to the carrier’s claims process rather than accepting the
+    claim or offering a credit or replacement.
+- policy: payment-terms-by-tier
+  obligation: Because account acc-131 is tier A, uses invoice payment, and the customer asks
+    when the £29.10 invoice is due, the reply must state that payment is due 45 days from
+    invoice. It must not offer extended, negotiated or one-off terms, move the due date, or
+    predict what credit control would decide.
+- policy: order-reference-line
+  obligation: ord-3389 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-131, nothing after.
+order_id: ord-3389

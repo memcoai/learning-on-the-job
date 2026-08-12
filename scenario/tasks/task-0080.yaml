@@ -1,0 +1,62 @@
+id: task-0080
+account_id: acc-127
+applicable_policies:
+- expedite-surcharge
+- credit-check-threshold
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Add two cordless impact drivers to the order and arrange delivery sooner
+    than usual
+  order_id: ord-3465
+variants:
+- subject: More drivers and quicker delivery
+  body: 'Hi,
+
+
+    We need two more cordless impact drivers and would also like the order delivered sooner
+    than usual. The order number is ord-3465.
+
+
+    Regards,
+
+    Helen'
+- subject: Urgent change to our order
+  body: 'Morning,
+
+
+    Could you add two cordless impact drivers and get the order here as soon as possible?
+    The order number is ord-3465.
+
+
+    Thanks,
+
+    Martin'
+- subject: Request to amend delivery and quantity
+  body: 'Hello,
+
+
+    Please could you add two cordless impact drivers to our order and arrange an earlier delivery?
+    This is for order ord-3465.
+
+
+    Best regards,
+
+    Ruth'
+expected_obligations:
+- policy: expedite-surcharge
+  obligation: The request for delivery sooner than usual means expedited delivery may be offered
+    or agreed, so the reply must state the £68 surcharge per consignment; because Larkmead
+    Conservation Studios is tier A and has seven years' tenure, the surcharge may be waived,
+    but the reply must explicitly say that it is waived rather than omit it.
+- policy: credit-check-threshold
+  obligation: Adding two drivers to ord-3465 would take the changed order above the internal
+    credit-check threshold, so confirmation of the change and the order must follow a completed
+    credit check, and the reply must not commit to dispatch or delivery timing until the check
+    has cleared. The £4,800 figure must be applied but never quoted, and the existence of
+    a threshold must not be explained.
+- policy: order-reference-line
+  obligation: ord-3465 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-127, nothing after.
+order_id: ord-3465

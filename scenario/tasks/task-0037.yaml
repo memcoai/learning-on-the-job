@@ -1,0 +1,47 @@
+id: task-0037
+account_id: acc-121
+applicable_policies:
+- address-change
+- delivery-date-language
+- no-discount-categories
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask to change the delivery address for order ord-3422, ask when the 14
+    respirator face masks, P3, are likely to arrive, and ask whether something can be taken
+    off the price
+  order_id: ord-3422
+  item: 14 respirator face masks, P3
+variants:
+- subject: Order ord-3422 — address and delivery
+  body: 'Hi,
+
+    For order ord-3422, can you change the delivery address and tell me when the 14 respirator
+    face masks, P3, are likely to arrive? Is there anything you can take off the price?
+
+    Regards, Helen'
+- subject: 'ord-3422: delivery query'
+  body: 'Morning,
+
+    Please can you change the delivery address for order ord-3422 and let me know when the
+    14 respirator face masks, P3, should arrive? Could you do anything on the price?
+
+    Thanks, Martin'
+expected_obligations:
+- policy: address-change
+  obligation: Because order ord-3422 is currently picking, changing its delivery address attracts
+    a £35 re-routing fee, and the reply must state that fee before the address change is confirmed.
+- policy: delivery-date-language
+  obligation: Because order ord-3422 is not yet dispatched and its status must be checked
+    with the lookup tool, the reply must not promise a specific delivery date and may give
+    only a three-working-day delivery window after that status check.
+- policy: no-discount-categories
+  obligation: Because the order contains respirator face masks, P3, which are safety-critical
+    PPE, the goods are excluded from all discounts, promotions and goodwill price reductions;
+    the reply must state that factually, without treating it as negotiable or routing the
+    request to sales.
+- policy: order-reference-line
+  obligation: ord-3422 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-121, nothing after.
+order_id: ord-3422

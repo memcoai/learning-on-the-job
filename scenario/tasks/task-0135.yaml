@@ -1,0 +1,57 @@
+id: task-0135
+account_id: acc-113
+applicable_policies:
+- credit-check-threshold
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: An update on why the order has not been confirmed and when it is likely
+    to be sent
+  order_id: ord-3429
+variants:
+- subject: Still waiting for order confirmation
+  body: 'Hi,
+
+
+    This is getting a bit frustrating — I still have no confirmation or indication of when
+    this will be sent. It relates to order ord-3429; could you please check what is holding
+    it up?
+
+
+    Regards,
+
+    Claire'
+- subject: Update needed on our order
+  body: 'Morning,
+
+
+    I’m chasing this as we’ve not had confirmation and don’t know when to expect it. The order
+    is ord-3429 — can you let me know what’s delaying things?
+
+
+    Thanks,
+
+    Martin'
+- subject: No confirmation received
+  body: 'Hi,
+
+
+    We’re still waiting for confirmation and some idea of when the goods might leave, which
+    is becoming inconvenient. Please look into order ord-3429 and let me know what is happening.
+
+
+    Regards,
+
+    Helen'
+expected_obligations:
+- policy: credit-check-threshold
+  obligation: Order ord-3429 is already above the internal threshold because its total including
+    VAT is £4,920.88; the credit check is recorded as completed, so the reply must say that
+    confirmation follows the check and must not commit to dispatch or delivery timing until
+    the check has cleared. The £4,800 figure is applied but never quoted to the customer,
+    and the existence of a threshold is never explained.
+- policy: order-reference-line
+  obligation: ord-3429 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-113, nothing after.
+order_id: ord-3429

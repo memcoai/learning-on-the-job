@@ -1,0 +1,79 @@
+id: task-0121
+account_id: acc-118
+applicable_policies:
+- liability-language
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: something off for downtime and lost labour caused by the delay involving
+    Brantham Haulage
+  order_id: ord-3460
+  carrier: Brantham Haulage
+variants:
+- subject: ord-3460 – Brantham Haulage delay
+  body: 'Hi,
+
+
+    Following our call, can you do something about the delay with Brantham Haulage on order
+    ord-3460? It has left us with downtime and lost labour, so I would like to know whether
+    you can give us something off.
+
+
+    Regards,
+
+    Martin Cole'
+- subject: Request about order ord-3460
+  body: 'Morning,
+
+
+    Further to my email about ord-3460, the delay involving Brantham Haulage has caused downtime
+    and lost labour here. Can you offer anything back for the trouble?
+
+
+    Thanks,
+
+    Helen Price'
+- subject: Brantham Haulage issue – ord-3460
+  body: 'Hi,
+
+
+    I am chasing the point raised on our earlier call about order ord-3460. The Brantham Haulage
+    delay has disrupted our work and we have had downtime and lost labour as a result. Please
+    let me know if there is anything you can do about that, rather than leaving us to absorb
+    the cost.
+
+
+    Regards,
+
+    Simon Reed'
+- subject: ord-3460 follow-up
+  body: 'Hello,
+
+
+    Following my previous email, I need an answer on the Brantham Haulage delay affecting
+    ord-3460. The disruption has meant downtime and lost labour for us. I am not asking you
+    to revisit the order itself; I am asking whether Fenmoor can give us something off for
+    the trouble caused by the delay.
+
+
+    Please also tell me how this should be taken up with Brantham Haulage, as that is the
+    carrier involved.
+
+
+    Regards,
+
+    Claire Morris'
+expected_obligations:
+- policy: liability-language
+  obligation: Because order ord-3460 is dispatched with Brantham Haulage and the customer
+    is seeking money for downtime and lost labour connected with the carrier delay, the reply
+    must not accept fault on Fenmoor's behalf or offer compensation for consequential loss;
+    any permitted remedy must be a goodwill credit under the goodwill policy and must be described
+    as goodwill rather than compensation. Because the issue is attributed to Brantham Haulage,
+    the reply must name Brantham Haulage, route the claim through the carrier's process, and
+    make no commitment on the carrier's behalf.
+- policy: order-reference-line
+  obligation: ord-3460 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-118, nothing after.
+order_id: ord-3460

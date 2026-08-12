@@ -1,0 +1,26 @@
+id: task-0073
+account_id: acc-128
+applicable_policies:
+- credit-hold-handling
+- sign-off-house-style
+facts:
+  requested_action: Guidance on who can help with a new requirement that is not yet linked
+    to an order
+variants:
+- subject: Question about a new requirement
+  body: Sorry to chase, but I wanted to ask about a new requirement that hasn't been placed
+    as an order yet. Could you let me know who would be best to speak to about it? I wasn't
+    sure whether to come through to you or someone else, so any direction would be appreciated.
+- subject: Who should I speak to about a new requirement?
+  body: Sorry to chase, but I've got a new requirement to discuss and haven't raised an order
+    for it yet. Could you point me towards the right person to help with this? It would be
+    useful to know who I should deal with before I send the details over.
+expected_obligations:
+- policy: credit-hold-handling
+  obligation: 'acc-128 has credit status on-hold, so the substantive reply is the referral
+    alone: the request has been passed to the accounts team, who will be in touch within one
+    working day. The hold must never be disclosed, no reason may be given, and no other timing
+    of any kind may appear, including dates, windows, or any statement that timing cannot
+    be given; no new commitment, acceptance, dispatch, delivery timing, or change may be confirmed.'
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-128, nothing after.

@@ -1,0 +1,61 @@
+id: task-0029
+account_id: acc-105
+applicable_policies:
+- desk-discount-limit
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask whether some money can be taken off the price of the order
+  order_id: ord-3315
+  goods_value_ex_vat: £6,800 excluding VAT
+variants:
+- subject: Order ord-3315 – request about price
+  body: 'Dear Fenmoor Supplies,
+
+
+    Please could you review order ord-3315, which is for £6,800 excluding VAT, and let me
+    know whether there is any scope to take something off the price? We are keen to proceed,
+    but a reduction would be helpful on this purchase. I would be grateful if you could come
+    back to me when convenient.
+
+
+    Regards,
+
+    Helen Morris'
+- subject: Regarding order ord-3315
+  body: 'Good morning,
+
+
+    I am writing about order ord-3315 for £6,800 excluding VAT. Would you please check whether
+    anything can be taken off the price before the order is processed? We have been pleased
+    with the service from Fenmoor Supplies and would appreciate anything you may be able to
+    do.
+
+
+    Yours sincerely,
+
+    Martin Cole'
+- subject: Order ord-3315
+  body: 'Hello Fenmoor team,
+
+
+    Could you let me know if there is any possibility of reducing the price on order ord-3315?
+    The order value is £6,800 excluding VAT, and even a small reduction would help us on this
+    occasion. Please review it and let me know what may be possible.
+
+
+    Kind regards,
+
+    Sarah Whitfield'
+expected_obligations:
+- policy: desk-discount-limit
+  obligation: Because account acc-105 is tier A and order ord-3315 has a goods value of £6,800
+    excluding VAT, the desk may apply a discretionary reduction of up to 7% on the order.
+    Any request for a larger reduction must be referred to the sales team, with no larger
+    reduction promised or predicted; if any reduction is given, the reply must state the percentage
+    and the order value to which it applies.
+- policy: order-reference-line
+  obligation: ord-3315 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-105, nothing after.
+order_id: ord-3315

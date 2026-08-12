@@ -1,0 +1,49 @@
+id: task-0023
+account_id: acc-121
+applicable_policies:
+- returns-window
+- non-returnable-categories
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Return the 62 cut-to-length steel angle pieces from order ord-3393 and
+    receive back the £2,464.50 goods charge
+  order_id: ord-3393
+  quantity: '62'
+  delivered_date: 11 September 2026
+  goods_value_ex_vat: £2,464.50
+variants:
+- subject: Return of order ord-3393
+  body: I need to send back the 62 cut-to-length steel angle pieces from order ord-3393, delivered
+    on 11 September 2026. Please let me know how to arrange this and whether the £2,464.50
+    goods charge can be returned. They are unused, if that helps.
+- subject: Can we return ord-3393?
+  body: Can you arrange a return for the 62 cut-to-length steel angle pieces on order ord-3393,
+    delivered on 11 September 2026? I would also like the £2,464.50 goods charge put back.
+    Please confirm what you need from me.
+- subject: Request to send back steel angle
+  body: I want to return the 62 cut-to-length steel angle pieces supplied under ord-3393 and
+    have the £2,464.50 goods charge refunded. The delivery arrived on 11 September 2026. Please
+    advise on the next step.
+- subject: ord-3393 return query
+  body: Please tell me whether I can send back the 62 cut-to-length steel angle pieces from
+    ord-3393, delivered on 11 September 2026. I am looking to recover the £2,464.50 goods
+    charge. Let me know if you need photographs or any other details.
+expected_obligations:
+- policy: returns-window
+  obligation: Because acc-121 is tier A and order ord-3393 was delivered on 11 September 2026,
+    only 3 days have elapsed by 14 September 2026 and the return is within the applicable
+    38-day timing; however, the tier-A extension is applied internally and must not be advertised
+    or mentioned to the customer, and the reply must determine acceptance in conjunction with
+    the category rule.
+- policy: non-returnable-categories
+  obligation: Because the 62 items in order ord-3393 are cut-to-length steel angle, they fall
+    into the category of goods cut to length or measure and are never returnable; this category
+    rule governs despite the request being within the applicable timing, so refuse the return
+    and any refund or credit for it, naming the cut-to-length category as the reason, with
+    no goodwill credit substitute because no independent service failure is present.
+- policy: order-reference-line
+  obligation: ord-3393 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-121, nothing after.
+order_id: ord-3393

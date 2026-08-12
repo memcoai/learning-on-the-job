@@ -1,0 +1,68 @@
+id: task-0155
+account_id: acc-112
+applicable_policies:
+- restocking-fee
+- damage-shortage-window
+- returns-window
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Arrange the return of the damaged junction enclosures and send replacements
+  customer_reported_issue: Part of the junction enclosures arrived damaged
+  order_id: ord-3295
+  delivery_date: 9 September
+variants:
+- subject: Damaged items from order ord-3295
+  body: 'Hi,
+
+
+    Part of the junction enclosures from the delivery arrived damaged. Can you arrange for
+    them to be returned and replaced? This is order ord-3295, delivered 9 September.
+
+
+    Regards,
+
+    Martin Cole'
+- subject: Order ord-3295 — damaged junction enclosures
+  body: 'Morning,
+
+
+    Some of the junction enclosures arrived damaged and need sending back. Please tell me
+    what you need from me and whether replacements can be sent. Order number ord-3295; delivery
+    was 9 September.
+
+
+    Thanks,
+
+    Priya Shah'
+- subject: Replacement request for order ord-3295
+  body: 'Hi,
+
+
+    Part of the junction enclosures delivered on 9 September arrived damaged. I need to return
+    the affected items and have replacements sent, so please let me know the next step and
+    anything you need me to provide. This is order ord-3295, which was placed on invoice.
+
+
+    Regards,
+
+    Lewis Grant'
+expected_obligations:
+- policy: restocking-fee
+  obligation: The customer reports that the goods arrived damaged, so the restocking fee is
+    waived; the reply must say that the fee does not apply because the goods arrived damaged.
+- policy: damage-shortage-window
+  obligation: From delivery on 9 September to the reference date of 14 September, three working
+    days have elapsed, so the four-working-day reporting window is still open. The reply accepting
+    the damage claim must ask for photographs of the goods and packaging before anything is
+    credited or replaced.
+- policy: returns-window
+  obligation: The consumable goods were delivered on 9 September and five calendar days have
+    elapsed by 14 September, so the ordinary 24-day return window applies and the return is
+    accepted. The tier-A extension is applied only to eligible accounts and must not be mentioned
+    to this non-tier-A customer.
+- policy: order-reference-line
+  obligation: ord-3295 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-112, nothing after.
+order_id: ord-3295

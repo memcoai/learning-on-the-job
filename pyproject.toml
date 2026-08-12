@@ -1,0 +1,42 @@
+[project]
+name = "memco-harness"
+version = "0.1.0"
+description = "A harness that teaches an agent a business's unwritten policies from the corrections its reviewers already make."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+dependencies = [
+    "anthropic>=0.40",
+    # 2.x only: 1.x spells the transport streamablehttp_client and returns
+    # camelCase result fields, both of which this client relies on having moved.
+    "mcp>=2.0,<3",
+    "openai>=1.40",
+    "python-dotenv>=1.0",
+    "pyyaml>=6.0",
+]
+
+[project.scripts]
+memco-harness = "memco_harness.cli:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["memco_harness"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

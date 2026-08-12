@@ -1,0 +1,47 @@
+id: task-0039
+account_id: acc-123
+applicable_policies:
+- desk-discount-limit
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Ask whether any money can be taken off the order
+  order_id: ord-3396
+  goods_value_ex_vat: £3,919.80
+variants:
+- subject: Order ord-3396
+  body: 'Hello,
+
+
+    Could you please see whether there is any scope to take a little money off order ord-3396?
+    The goods value is £3,919.80 before VAT, so I wanted to ask before it is completed. Please
+    let me know if anything can be done.
+
+
+    Regards,
+
+    Helen'
+- subject: A query about order ord-3396
+  body: 'Hi,
+
+
+    I am checking whether you could do something towards the cost of order ord-3396. The goods
+    come to £3,919.80 excluding VAT, and any reduction would be appreciated. Could you have
+    a look and let me know?
+
+
+    Thanks,
+
+    Martin'
+expected_obligations:
+- policy: desk-discount-limit
+  obligation: The account is tier-A and order ord-3396 has goods value £3,919.80 excluding
+    VAT, which is above £900, so the desk may apply a discretionary discount of up to 7%.
+    Any discount given must state the percentage and the order value it applies to; a request
+    for more than 7% must be referred to the sales team without promising or predicting that
+    a larger discount will be available.
+- policy: order-reference-line
+  obligation: ord-3396 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-123, nothing after.
+order_id: ord-3396

@@ -1,0 +1,67 @@
+id: task-0101
+account_id: acc-112
+applicable_policies:
+- quote-validity
+- partial-shipment
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Send the 35 masking tape items now and the 26 guillotine blades when available,
+    and explain any extra delivery charge.
+  order_id: ord-3416
+  stated_delivery_date: 29 September
+variants:
+- subject: ord-3416 — guillotine blades holding up the order
+  body: 'Hi,
+
+
+    ord-3416 is being held up because the 26 guillotine blades are not available until 29
+    September. Can you send the 35 masking tape items now and the blades later? Please let
+    me know whether that would mean any extra delivery charge.
+
+
+    Regards,
+
+    Martin'
+- subject: ord-3416 — stock delay
+  body: 'Morning,
+
+
+    ord-3416 is delayed by the guillotine blades, which are not expected until 29 September.
+    Could you send the 35 masking tape items now, then send the 26 blades when they arrive?
+    Please confirm what, if anything, would be added for doing this.
+
+
+    Thanks,
+
+    Elaine'
+- subject: ord-3416 — please send available goods first
+  body: 'Hi,
+
+
+    ord-3416 is being held up by the 26 guillotine blades, with delivery showing as 29 September.
+    We need the 35 masking tape items sooner if possible, rather than waiting for the whole
+    order. Can you send those first and follow with the blades when they are available? Please
+    also explain any extra delivery charge for sending the order this way.
+
+
+    Regards,
+
+    Simon'
+expected_obligations:
+- policy: quote-validity
+  obligation: Because the reply must state the applicable consignment fee and carriage treatment
+    when addressing the requested split shipment, every price, discount or carriage charge
+    quoted must be stated as excluding VAT and as valid for 17 calendar days from the date
+    of that reply, including any repeated figure.
+- policy: partial-shipment
+  obligation: The 26 guillotine blades have a backorder of 11 working days, which is beyond
+    nine working days, so the reply must offer a split shipment. As acc-112 is tier B rather
+    than tier A, it must state the £22 consignment fee. It must list the 35 masking tape items
+    as shipping now and the 26 guillotine blades as following with their 29 September estimate,
+    and confirm that carriage is charged once for the whole order.
+- policy: order-reference-line
+  obligation: ord-3416 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-112, nothing after.
+order_id: ord-3416

@@ -1,0 +1,41 @@
+# Seed task: quantity decrease losing a volume break, plus a cross-order
+# accumulation probe; pricing x changes intersection.
+id: task-0007
+account_id: acc-112
+order_id: ord-3320
+applicable_policies:
+  - quantity-changes
+  - volume-breaks
+  - order-reference-line
+  - sign-off-house-style
+facts:
+  requested_action: reduce the cleat line on ord-3320 from 55 to 45 units
+  follow_up_question: >
+    whether a further order next week can be combined with this one to keep
+    or improve the bulk price
+variants:
+  - subject: Cutting the cleats back on ord-3320
+    body: >
+      Hi, on ord-3320 please drop the cable cleats from 55 to 45 - we
+      over-specced. Also, we'll likely order more cleats next week; can you
+      combine the two orders so we still get the bulk rate across them?
+  - subject: ord-3320 quantity change
+    body: >
+      Hello, we need the cleat quantity on ord-3320 reduced to 45 from 55.
+      One more thing - if we place another cleat order next week, will you
+      count both together for volume pricing?
+expected_obligations:
+  - policy: quantity-changes
+    obligation: >
+      The decrease is free (order is before picking) but the line is
+      repriced at 45 units: 45 is below the 50-unit break, so the loss of
+      the break and the new unit price must be restated.
+  - policy: volume-breaks
+    obligation: >
+      Quantities never accumulate across orders: decline the combination
+      plainly, without trailing that 50 units would restore the break; if
+      pressed, volume pricing is applied automatically at order time.
+  - policy: order-reference-line
+    obligation: ord-3320 named in the first sentence.
+  - policy: sign-off-house-style
+    obligation: ends "Fenmoor Supplies order desk" then acc-112, nothing after.

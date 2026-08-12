@@ -1,0 +1,62 @@
+id: task-0110
+account_id: acc-140
+applicable_policies:
+- desk-discount-limit
+- order-reference-line
+- sign-off-house-style
+facts:
+  requested_action: Asks whether the amount can be reduced because of the trouble with order
+    ord-3446
+  order_id: ord-3446
+  goods_value_ex_vat: £1,433.16
+variants:
+- subject: Order ord-3446
+  body: 'Hi,
+
+
+    Following our call, I wanted to ask whether there is any way to reduce the amount on order
+    ord-3446. The goods total is £1,433.16 before VAT, and I wondered if you could do something
+    off for the trouble.
+
+
+    Regards,
+
+    Martin'
+- subject: A question about order ord-3446
+  body: 'Good morning,
+
+
+    Further to my earlier email, could you let me know whether anything can be taken off order
+    ord-3446? The goods value is £1,433.16 excluding VAT. The order is still waiting to be
+    picked, so I thought I would check before it moves any further.
+
+
+    Thanks in advance,
+
+    Helen'
+- subject: Following up on our call
+  body: 'Hello,
+
+
+    I am following up on our call about order ord-3446. The goods come to £1,433.16 before
+    VAT, and I would appreciate it if you could see whether there is any scope to bring the
+    amount down given the trouble we have had. I appreciate this may need checking, but please
+    let me know what can be done. The order is for the junction enclosures, and payment was
+    made by card as usual.
+
+
+    Kind regards,
+
+    David'
+expected_obligations:
+- policy: desk-discount-limit
+  obligation: Because account acc-140 is tier-B and order ord-3446 has goods value £1,433.16
+    excluding VAT, the order qualifies for a discretionary desk discount of up to 4%; any
+    discount given must state the percentage and that it applies to the £1,433.16 order value.
+    Any request for more than 4% must be referred to the sales team, without promising or
+    predicting a larger discount.
+- policy: order-reference-line
+  obligation: ord-3446 named in the first sentence.
+- policy: sign-off-house-style
+  obligation: ends "Fenmoor Supplies order desk" then acc-140, nothing after.
+order_id: ord-3446
