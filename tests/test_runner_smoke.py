@@ -520,8 +520,13 @@ def test_the_standing_prompt_asks_for_two_searches_without_naming_a_policy(scena
         assert word not in text, f"{word!r} is scenario vocabulary and steers the agent"
 
 
-def test_both_searches_are_recorded_with_their_own_sessions(tmp_path, scenario):
-    """Feedback is scoped to a session, so the two searches must not be conflated."""
+def test_both_searches_belong_to_the_episodes_session(tmp_path, scenario):
+    """An episode is one task's work, so its searches share one session.
+
+    That is what lets the store withhold from the second search whatever the
+    first already returned, and what makes a lesson both searches found earn one
+    verdict for the episode rather than one per search.
+    """
     def two_searches(system, messages):
         calls = [m for m in messages if m.role == "tool_result"]
         if not calls:
@@ -556,12 +561,42 @@ def test_both_searches_are_recorded_with_their_own_sessions(tmp_path, scenario):
     for record in result.records:
         assert len(record["searches"]) == 2
         sessions = [s["session_id"] for s in record["searches"]]
-        assert len(set(sessions)) == 2, "each search opens its own session"
+        assert len(set(sessions)) == 1, "both searches belong to the same episode"
+        assert len(record["feedback_calls"]) <= 1, "one session, so one call"
+
+    # Episodes do not share a session with each other, though: a session is one
+    # task's work, and two tasks are two.
+    all_sessions = [s["session_id"] for r in result.records for s in r["searches"]]
+    assert len(set(all_sessions)) == len(result.records)
 
     # Feedback must be attributed to the session that returned the lesson.
     for session_id, _entry in memory.feedback:
-        assert session_id in {s for r in result.records for s in
-                              [x["session_id"] for x in r["searches"]]}
+        assert session_id in set(all_sessions)
+
+
+def test_lessons_are_written_into_the_episodes_session(tmp_path, scenario):
+    """A lesson belongs to the work that produced it.
+
+    Naming the episode's session on the write is what records it as part of that
+    task rather than as a standalone memory that happens to exist. Nothing fails
+    if it is left off — which is exactly why it is asserted here.
+    """
+    memory = FakeMemcoClient()
+    provider = build_provider()
+    result = run(
+        RunConfig(task_count=2, seed=7, memory_enabled=True, pace_seconds=0,
+                  results_dir=tmp_path),
+        scenario=scenario,
+        agent_provider=provider,
+        reviewer_provider=provider,
+        reflection_provider=provider,
+        memory=memory,
+        report=lambda line: None,
+    )
+    assert memory.written, "the corrected drafts should have produced lessons"
+    episode_sessions = {s["session_id"] for r in result.records for s in r["searches"]}
+    for session_id, stored in memory.written:
+        assert session_id in episode_sessions, f"{stored.title!r} was written outside its episode"
 
 
 def test_an_inapplicable_lesson_is_marked_irrelevant_not_incorrect(tmp_path, scenario):
@@ -639,13 +674,12 @@ def test_lessons_retrieved_without_a_session_are_reported_not_swallowed(tmp_path
     )
     real_search = memory.search
 
-    def search_without_session(query, tags=None):
-        found = real_search(query, tags=tags)
+    def search_without_session(query, tags=None, session_id=None):
+        found = real_search(query, tags=tags, session_id=session_id)
         return type(found)(
             session_id=None,
             memories=found.memories,
             insights=found.insights,
-            text=found.text,
         )
 
     memory.search = search_without_session
@@ -889,13 +923,13 @@ def failing_memory(after: int) -> FakeMemcoClient:
     real = memory.search
     calls = {"n": 0}
 
-    def search(query, tags=None):
+    def search(query, tags=None, session_id=None):
         calls["n"] += 1
         if calls["n"] > after:
-            found = real(query, tags=tags)
-            return type(found)(session_id=None, memories=(), insights=(),
-                               text="", error="daily search limit reached")
-        return real(query, tags=tags)
+            return type(real(query, tags=tags, session_id=session_id))(
+                session_id=None, memories=(), insights=(),
+                error="daily search limit reached")
+        return real(query, tags=tags, session_id=session_id)
 
     memory.search = search
     return memory
@@ -928,12 +962,12 @@ def test_one_bad_task_does_not_stop_a_run(tmp_path, scenario):
     real = memory.search
     calls = {"n": 0}
 
-    def search(query, tags=None):
+    def search(query, tags=None, session_id=None):
         calls["n"] += 1
-        found = real(query, tags=tags)
+        found = real(query, tags=tags, session_id=session_id)
         if calls["n"] == 3:  # one bad search, then healthy again
             return type(found)(session_id=None, memories=(), insights=(),
-                               text="", error="a transient fault")
+                               error="a transient fault")
         return found
 
     memory.search = search

@@ -13,7 +13,7 @@ import json
 from dataclasses import dataclass, field
 from typing import Any
 
-from .memco_client import Insight, MemcoClient, stamp
+from .memco_client import Insight, MemorySession, Tag, stamp
 from .providers import Completion, Message, Provider, ToolCall, ToolDef
 from .scenario import Scenario, Task, Variant
 from .stems import CRAFT_STEM, SITUATION_STEM
@@ -170,7 +170,7 @@ LOOKUP_ORDER = ToolDef(
 # No topic here: the client pins that to memco_client.TOPIC for every call, and
 # drops any other, because the knowledge domain treats topic as a hard filter.
 MEMORY_TAGS = [
-    '<tag type="task" name="draft-reply" />',
+    Tag(type="task", value="draft-reply"),
 ]
 
 
@@ -212,7 +212,7 @@ def draft_reply(
     variant: Variant,
     scenario: Scenario,
     provider: Provider,
-    memory: MemcoClient | None,
+    memory: MemorySession | None,
 ) -> Draft:
     """Draft a reply to one customer email.
 
@@ -226,9 +226,12 @@ def draft_reply(
     system = system_prompt(scenario.reference_date, memory=memory is not None)
     messages = [Message(role="user", text=_email(task, variant))]
     searches: list[SearchRecord] = []
-    # Which lessons this episode has already put in front of the agent. Each
-    # search response is deduplicated by the server, but two searches overlap,
-    # and concatenating them repeats whatever they share.
+    # Which lessons this episode has already put in front of the agent. Inside
+    # one session the server does this itself: a memory an earlier search
+    # returned comes back as a reference carrying no insights, so the overlap
+    # never reaches here. This is the fallback for the episode whose session
+    # could not be opened, where each search runs in a session of its own and
+    # the overlap does return.
     shown: set[tuple[str, str]] = set()
     call_count = 0
 
@@ -284,7 +287,7 @@ def _assistant_turn(completion: Completion) -> Message:
 def _run_tool(
     call: ToolCall,
     scenario: Scenario,
-    memory: MemcoClient | None,
+    memory: MemorySession | None,
     searches: list[SearchRecord],
     shown: set[tuple[str, str]],
 ) -> str:
@@ -329,9 +332,16 @@ def _render_lessons(insights: tuple[Insight, ...], shown: set[tuple[str, str]]) 
 
     A lesson already shown this episode is left out of the second search's
     results. The searches overlap by design and the repeats are pure noise in
-    the agent's context; what they are not is a reason to hide the overlap from
-    the feedback job, which still grades the insight in every session that
-    returned it.
+    the agent's context. Within one session the server withholds them first, so
+    this mostly has nothing left to do; it still covers the episode whose
+    session failed to open.
+
+    One consequence is worth naming, because it changed a measurement. An
+    insight both searches return is now graded once for the episode rather than
+    once per search: there is one session, it is returned once, and the second
+    search reports it as a reference. That is the more honest count — two
+    ratings for one judgement inflated whatever the store makes of them — but it
+    is a different number from the one earlier runs recorded.
     """
     fresh = []
     for insight in insights:
