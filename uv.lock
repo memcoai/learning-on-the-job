@@ -315,44 +315,12 @@ wheels = [
 ]
 
 [[package]]
-name = "memco"
-version = "0.1.0"
-source = { editable = "../memco/python" }
-dependencies = [
-    { name = "googleapis-common-protos" },
-    { name = "grpcio" },
-    { name = "grpcio-health-checking" },
-    { name = "grpcio-status" },
-    { name = "protobuf" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "furo", marker = "extra == 'docs'", specifier = ">=2024.1" },
-    { name = "googleapis-common-protos", specifier = ">=1.60.0,<2" },
-    { name = "grpcio", specifier = ">=1.76.0,<2" },
-    { name = "grpcio-health-checking", specifier = ">=1.76.0,<2" },
-    { name = "grpcio-status", specifier = ">=1.76.0,<2" },
-    { name = "langchain", marker = "extra == 'dev'", specifier = ">=1.0" },
-    { name = "mypy", marker = "extra == 'dev'", specifier = ">=1.11" },
-    { name = "protobuf", specifier = ">=6.31.1,<8" },
-    { name = "pytest", marker = "extra == 'dev'", specifier = ">=8" },
-    { name = "pytest-asyncio", marker = "extra == 'dev'", specifier = ">=0.24" },
-    { name = "pytest-cov", marker = "extra == 'dev'", specifier = ">=5" },
-    { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.6" },
-    { name = "sphinx", marker = "extra == 'docs'", specifier = ">=7.3" },
-    { name = "sphinx-markdown-builder", marker = "extra == 'docs'", specifier = ">=0.6.8" },
-    { name = "types-protobuf", marker = "extra == 'dev'" },
-]
-provides-extras = ["dev", "docs"]
-
-[[package]]
 name = "memco-harness"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "anthropic" },
-    { name = "memco" },
+    { name = "memcoai" },
     { name = "openai" },
     { name = "python-dotenv" },
     { name = "pyyaml" },
@@ -367,7 +335,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "anthropic", specifier = ">=0.40" },
-    { name = "memco", editable = "../memco/python" },
+    { name = "memcoai", specifier = ">=0.2" },
     { name = "openai", specifier = ">=1.40" },
     { name = "python-dotenv", specifier = ">=1.0" },
     { name = "pyyaml", specifier = ">=6.0" },
@@ -377,6 +345,22 @@ requires-dist = [
 dev = [
     { name = "pytest", specifier = ">=8.0" },
     { name = "ruff", specifier = ">=0.6" },
+]
+
+[[package]]
+name = "memcoai"
+version = "0.2.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "googleapis-common-protos" },
+    { name = "grpcio" },
+    { name = "grpcio-health-checking" },
+    { name = "grpcio-status" },
+    { name = "protobuf" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/f1/2c/9e401851777d2e34d0f4bd4019489d05eff76d60b67808274cf8a6b85ca7/memcoai-0.2.0.tar.gz", hash = "sha256:4a095a7150f79dce2a4e6e3aba542f89e90e544ef08b2d270b5f4892f42889f2", size = 496555, upload-time = "2026-09-30T06:57:52.493Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/a0/05/b5585f051fdcefc874bb94bc2c9beffd0246cf5a6cb7ff128586c56c2208/memcoai-0.2.0-py3-none-any.whl", hash = "sha256:a0eb01468122d265c990637bdd4470e12c797cdd7d78259bb8f996e5661f6a02", size = 170369, upload-time = "2026-09-30T06:57:50.812Z" },
 ]
 
 [[package]]

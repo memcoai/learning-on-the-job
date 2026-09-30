@@ -16,12 +16,13 @@ from typing import Any
 
 import grpc
 import pytest
-from memco import types as sdk
-from memco.errors import (
+from memcoai import types as sdk
+from memcoai.errors import (
     MemcoResourceExhaustedError,
     MemcoUnavailableError,
     ResourceExhaustedKind,
 )
+from memcoai.operations import Session
 
 from memco_harness.memco_client import (
     DEFAULT_DOMAIN,
@@ -324,7 +325,7 @@ def test_domain_defaults_to_the_knowledge_store():
 
 def test_an_open_session_is_named_by_every_call_made_through_it():
     client = RecordingClient(
-        result=sdk.Session(session_id="session-41", instructions=INSTRUCTIONS)
+        result=Session(None, "session-41", INSTRUCTIONS, tool_catalog=None)
     )
     session = client.open_session()
     assert session.session_id == "session-41"

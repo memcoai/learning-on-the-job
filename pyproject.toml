@@ -7,7 +7,7 @@ requires-python = ">=3.11"
 license = { file = "LICENSE" }
 dependencies = [
     "anthropic>=0.40",
-    "memco>=0.1",
+    "memcoai>=0.2",
     "openai>=1.40",
     "python-dotenv>=1.0",
     "pyyaml>=6.0",
@@ -15,13 +15,6 @@ dependencies = [
 
 [project.scripts]
 memco-harness = "memco_harness.cli:main"
-
-# TEMPORARY, and the reason this work is on a branch: `memco` is not on PyPI
-# yet. Until it is published, the SDK is taken from the sibling checkout, which
-# means `uv sync` here needs ../memco/python to exist. Delete this table when
-# the release lands and the version floor above will resolve from the index.
-[tool.uv.sources]
-memco = { path = "../memco/python", editable = true }
 
 [dependency-groups]
 dev = [

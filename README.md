@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/memcoai/learning-on-the-job/actions/workflows/ci.yml/badge.svg)](https://github.com/memcoai/learning-on-the-job/actions/workflows/ci.yml)
 
-Compounding intelligence, demonstrated: an agent that learns a business's unwritten policies from the corrections its human reviewers make, using the Memco [Python SDK](https://github.com/memcoai/memco/tree/main/python) for Shared Memory.
+Compounding intelligence, demonstrated: an agent that learns a business's unwritten policies from the corrections its human reviewers make, using the Memco [Python SDK](https://github.com/memcoai/memcoai/tree/main/python) for Shared Memory.
 
 On the shipped scenario, a 100-task paired run takes the agent from 20% policy compliance to 64%: a memory advantage of 47 percentage points (95% CI 41–52), measured against a control arm answering the same emails without memory.
 
@@ -46,12 +46,6 @@ Everything behind that is recorded per task in `results/<run>.jsonl`, one line p
 ## Quickstart
 
 Requirements: [uv](https://docs.astral.sh/uv/) (which fetches the right Python for you), an LLM provider API key (Anthropic or any OpenAI-compatible endpoint, including Mistral), and a Memco API key for a workspace with the Knowledge Work domain enabled.
-
-> **This branch does not install from PyPI yet.** The `memco` SDK has not been
-> published, so `pyproject.toml` takes it from a sibling checkout of
-> [`memcoai/memco`](https://github.com/memcoai/memco) at `../memco/python`.
-> Clone that next to this repository before `uv sync`. When the SDK is released,
-> delete the `[tool.uv.sources]` table and the version floor resolves normally.
 
 ```bash
 uv sync
@@ -151,7 +145,7 @@ correct its content.
 
 - Paper: [Learning on the Job](https://arxiv.org/abs/2607.22157)
 - Memco: [memco.ai](https://memco.ai)
-- Python SDK: [`memco`](https://github.com/memcoai/memco/tree/main/python)
+- Python SDK: [`memcoai`](https://pypi.org/project/memcoai/) ([source](https://github.com/memcoai/memcoai/tree/main/python))
 
 ## Licence
 

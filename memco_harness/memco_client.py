@@ -32,14 +32,14 @@ from dataclasses import dataclass, field
 from datetime import UTC, datetime
 from typing import Any
 
-from memco import Memco
-from memco.errors import (
+from memcoai import Memco
+from memcoai.errors import (
     MemcoConfigError,
     MemcoError,
     MemcoResourceExhaustedError,
     ResourceExhaustedKind,
 )
-from memco.types import DataSource, FeedbackRating, Tag
+from memcoai.types import DataSource, FeedbackRating, Tag
 
 __all__ = [
     "DEFAULT_DOMAIN",
@@ -296,7 +296,7 @@ class MemcoClient:
         outcome = self._call("start_session", self.ops.start_session, self.domain)
         if outcome.error:
             return MemorySession(client=self, error=outcome.error)
-        return MemorySession(client=self, session_id=outcome.value.session_id)
+        return MemorySession(client=self, session_id=outcome.value.id)
 
     def search(
         self,
