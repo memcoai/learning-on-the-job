@@ -52,7 +52,7 @@ def make_run(records, memory_enabled=True):
 # --- reconciliation ------------------------------------------------------------
 
 
-def stored_result(*titles, impressions=1):
+def stored_result(*titles, times_served=1):
     insights = tuple(
         Insight(idx=f"memory-{i}-insight-0", memory_idx=f"memory-{i}", title=t, content="")
         for i, t in enumerate(titles)
@@ -60,7 +60,7 @@ def stored_result(*titles, impressions=1):
     return SearchResult(
         session_id="session-1",
         memories=tuple(
-            Memory(idx=i.memory_idx, insights=(i,), impressions=impressions) for i in insights
+            Memory(idx=i.memory_idx, insights=(i,), times_served=times_served) for i in insights
         ),
         insights=insights,
     )
@@ -82,8 +82,8 @@ def test_reconciliation_reports_what_the_store_kept():
     assert "Dropped lesson" in render_reconciliation(result)
 
 
-def test_consolidation_is_not_inferred_from_the_impressions_count():
-    """`impressions` rises on retrieval, not only on a duplicate write.
+def test_consolidation_is_not_inferred_from_the_times_served_count():
+    """`times_served` rises on retrieval, not only on a duplicate write.
 
     Measured on a live server: three consecutive read-only searches for the same
     entry returned 34, 35, 36. Counting merges with it would count our own
@@ -94,7 +94,7 @@ def test_consolidation_is_not_inferred_from_the_impressions_count():
             {"title": "Seen often", "query": "q", "op_id": "create-a-1", "content": ""}
         ])
     ])
-    result = reconcile(run, lambda q: stored_result("Seen often", impressions=36))
+    result = reconcile(run, lambda q: stored_result("Seen often", times_served=36))
     assert result.stored == 1
     assert not hasattr(result, "merged"), "a popularity count cannot count merges"
 

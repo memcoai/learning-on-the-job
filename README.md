@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/memcoai/learning-on-the-job/actions/workflows/ci.yml/badge.svg)](https://github.com/memcoai/learning-on-the-job/actions/workflows/ci.yml)
 
-Compounding intelligence, demonstrated: an agent that learns a business's unwritten policies from the corrections its human reviewers make, using the Memco Memory MCP.
+Compounding intelligence, demonstrated: an agent that learns a business's unwritten policies from the corrections its human reviewers make, using the Memco [Python SDK](https://github.com/memcoai/memcoai/tree/main/python) for Shared Memory.
 
 On the shipped scenario, a 100-task paired run takes the agent from 20% policy compliance to 64%: a memory advantage of 47 percentage points (95% CI 41–52), measured against a control arm answering the same emails without memory.
 
@@ -14,7 +14,7 @@ This repository is a practical runnable companion to our paper [Learning on the 
 
 It serves three purposes, and you can use it for any one of them:
 
-- **A tutorial.** The code shows, end to end, how to build an agent that uses the Memco Memory MCP for the Knowledge Work domain: searching memory while working, and writing back lessons that can be reused.
+- **A tutorial.** The code shows, end to end, how to build an agent that uses Memco Shared Memory for the Knowledge Work domain: opening a session per task, searching memory while working, rating what came back, and writing lessons that can be reused.
 - **An example harness.** The scenario, tasks, and policies are data, kept apart from the code. You can extend the shipped scenario or replace it with your own domain without touching the harness.
 - **A measurement framework.** Every run records what happened per task, renders a learning curve, and includes a no-memory control arm, so the value of memory is measured rather than asserted.
 
@@ -45,11 +45,11 @@ Everything behind that is recorded per task in `results/<run>.jsonl`, one line p
 
 ## Quickstart
 
-Requirements: [uv](https://docs.astral.sh/uv/) (which fetches the right Python for you), an LLM provider API key (Anthropic or any OpenAI-compatible endpoint, including Mistral), and a Memco workspace with the Knowledge Work domain enabled.
+Requirements: [uv](https://docs.astral.sh/uv/) (which fetches the right Python for you), an LLM provider API key (Anthropic or any OpenAI-compatible endpoint, including Mistral), and a Memco API key for a workspace with the Knowledge Work domain enabled.
 
 ```bash
 uv sync
-cp .env.example .env   # add your API keys and Memco MCP details
+cp .env.example .env   # add your API keys and your Memco API token
 uv run memco-harness run --tasks 50 --seed 42 --paired
 ```
 
@@ -145,6 +145,7 @@ correct its content.
 
 - Paper: [Learning on the Job](https://arxiv.org/abs/2607.22157)
 - Memco: [memco.ai](https://memco.ai)
+- Python SDK: [`memcoai`](https://pypi.org/project/memcoai/) ([source](https://github.com/memcoai/memcoai/tree/main/python))
 
 ## Licence
 

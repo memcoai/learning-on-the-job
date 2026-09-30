@@ -24,7 +24,7 @@ import json
 from dataclasses import dataclass, field
 
 from .agent import Draft, SearchRecord
-from .memco_client import FeedbackEntry, MemcoClient, stamp
+from .memco_client import DataSource, FeedbackEntry, MemorySession, Tag, stamp
 from .providers import Message, Provider
 from .reviewer import Review
 from .scenario import Policy, Task, Variant
@@ -167,7 +167,7 @@ Give one judgement per lesson, in the order the lessons were given."""
 # No topic here: the client pins that to memco_client.TOPIC for every call, and
 # drops any other, because the knowledge domain treats topic as a hard filter.
 MEMORY_TAGS = [
-    '<tag type="task" name="draft-reply" />',
+    Tag(type="task", value="draft-reply"),
 ]
 
 
@@ -210,8 +210,15 @@ class Reflection:
 
 @dataclass
 class Reflector:
+    """Turns one review into feedback and lessons.
+
+    The session is a parameter of `reflect` rather than a field, because it
+    belongs to the episode being reflected on and not to the reflector: one of
+    these serves a whole run, and every episode in it writes into a session of
+    its own.
+    """
+
     provider: Provider
-    memory: MemcoClient
 
     def reflect(
         self,
@@ -220,11 +227,12 @@ class Reflector:
         draft: Draft,
         review: Review,
         policies: dict[str, Policy],
+        memory: MemorySession,
     ) -> Reflection:
         errors: list[str] = []
         calls: list[FeedbackCall] = []
-        feedback = self._feedback(task, draft, review, policies, errors, calls)
-        lessons = self._write_lessons(variant, draft, review, errors)
+        feedback = self._feedback(task, draft, review, policies, errors, calls, memory)
+        lessons = self._write_lessons(variant, draft, review, errors, memory)
         return Reflection(
             lessons_written=tuple(lessons),
             feedback_sent=tuple(feedback),
@@ -242,8 +250,14 @@ class Reflector:
         policies: dict[str, Policy],
         errors: list[str],
         calls: list[FeedbackCall],
+        memory: MemorySession,
     ) -> list[FeedbackEntry]:
-        sent: list[FeedbackEntry] = []
+        # Judged per search, because a verdict is about what that search put in
+        # front of the agent. Sent per session, because that is what a rating
+        # attaches to. An episode that opened a session has one of the latter
+        # for several of the former, so a lesson both searches found is rated
+        # once for the episode rather than once per search.
+        by_session: dict[str, list[FeedbackEntry]] = {}
         for search in draft.searches:
             if not search.insights:
                 continue  # nothing retrieved, so nothing to grade
@@ -259,18 +273,27 @@ class Reflector:
             entries = self._judge(task, search, draft, review, policies, errors)
             if not entries:
                 continue
-            result = self.memory.share_feedback(search.session_id, entries)
+            by_session.setdefault(search.session_id, []).extend(entries)
+
+        sent: list[FeedbackEntry] = []
+        for session_id, entries in by_session.items():
+            # One verdict per lesson per session. The server withholds a repeat
+            # within a session, so there is normally nothing to drop here; this
+            # is what keeps two verdicts for one handle out of a single call if
+            # it ever sends one anyway.
+            deduped = list({entry.idx: entry for entry in entries}.values())
+            result = memory.share_feedback(session_id, deduped)
             if not result.ok:
                 errors.append(f"share_feedback: {result.error}")
                 continue
             calls.append(
                 FeedbackCall(
-                    session_id=search.session_id,
-                    entries=len(entries),
+                    session_id=session_id,
+                    entries=len(deduped),
                     detail=result.detail,
                 )
             )
-            sent.extend(entries)
+            sent.extend(deduped)
         return sent
 
     def _judge(
@@ -373,6 +396,7 @@ class Reflector:
         draft: Draft,
         review: Review,
         errors: list[str],
+        memory: MemorySession,
     ) -> list[WrittenLesson]:
         if not review.breaches:
             return []
@@ -400,12 +424,12 @@ class Reflector:
             if not title or not content:
                 continue
             query = str(item.get("query", "")).strip() or title
-            result = self.memory.create_memory(
+            result = memory.create_memory(
                 query=query,
                 title=title,
                 content=content,
                 tags=MEMORY_TAGS,
-                source="agent",
+                source=DataSource.AGENT,
             )
             if not result.ok:
                 errors.append(f"create_memory: {result.error}")

@@ -359,7 +359,7 @@ class StoredLesson:
     query: str
     op_id: str | None
     found: bool
-    impressions: int = 0
+    times_served: int = 0
 
 
 @dataclass(frozen=True)
@@ -376,7 +376,7 @@ class Reconciliation:
     each lesson's own query, so `absent` is a floor rather than a fact: a lesson
     the server kept under a rewritten title looks absent here. And consolidation
     is not counted, because nothing observable distinguishes it: the store's
-    `impressions` figure rises on retrieval as well as on a duplicate write, so
+    `times_served` figure rises on retrieval as well as on a duplicate write, so
     counting merges with it would count this reconciliation's own probes. What
     an absent title means is settled by asking the store the question that
     lesson answers, which is a judgement for the reader, not a number.
@@ -410,6 +410,15 @@ def reconcile(
     offline and so the caller owns the credentials. Nothing in this path writes
     or sends feedback: reconciliation must not change what it is measuring.
 
+    Each probe must run in a session of its own, which is what passing no
+    session id gets. This is the one place in the harness where that is right.
+    Inside a single session the store withholds a memory an earlier search
+    already returned, sending a reference in place of its content: no insights,
+    and no delivery counted. Probing a hundred lessons through one session would
+    therefore report every repeat as absent and leave its count frozen — a
+    measurement failure that looks exactly like the store having dropped the
+    writes.
+
     Probes are paced for the same reason episodes are, and identical queries are
     asked once, because several lessons about the same thing tend to share one.
     """
@@ -433,7 +442,7 @@ def reconcile(
         for memory in getattr(result, "memories", ()) or ():
             for insight in memory.insights:
                 seen[_key(insight.title)] = max(
-                    seen.get(_key(insight.title), 0), memory.impressions
+                    seen.get(_key(insight.title), 0), memory.times_served
                 )
 
     lessons = tuple(
@@ -442,7 +451,7 @@ def reconcile(
             query=lesson.get("query", ""),
             op_id=lesson.get("op_id"),
             found=_key(lesson["title"]) in seen,
-            impressions=seen.get(_key(lesson["title"]), 0),
+            times_served=seen.get(_key(lesson["title"]), 0),
         )
         for lesson in written
     )

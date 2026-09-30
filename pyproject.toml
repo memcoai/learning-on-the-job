@@ -7,9 +7,7 @@ requires-python = ">=3.11"
 license = { file = "LICENSE" }
 dependencies = [
     "anthropic>=0.40",
-    # 2.x only: 1.x spells the transport streamablehttp_client and returns
-    # camelCase result fields, both of which this client relies on having moved.
-    "mcp>=2.0,<3",
+    "memcoai>=0.2",
     "openai>=1.40",
     "python-dotenv>=1.0",
     "pyyaml>=6.0",

@@ -155,8 +155,8 @@ def _reconcile(args: argparse.Namespace) -> int:
         print(f"no results found for {args.run_id or 'any run'}", file=sys.stderr)
         return 1
 
-    client = build_client()
-    result = reconcile(run, client.search, pace=sleep, pace_seconds=args.pace_seconds)
+    with build_client() as client:
+        result = reconcile(run, client.search, pace=sleep, pace_seconds=args.pace_seconds)
     print(f"run {run.run_id}")
     print(render_reconciliation(result))
     return 0

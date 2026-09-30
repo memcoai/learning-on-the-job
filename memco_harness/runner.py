@@ -142,10 +142,39 @@ def run(
 
     Everything the run depends on can be passed in, which is how the tests run
     the whole loop offline.
+
+    A client built here is also closed here, so the connection lasts exactly as
+    long as the run that needs it. One passed in belongs to the caller and is
+    left alone.
     """
-    scenario = scenario or load_scenario(config.scenario_root)
+    owned: MemcoClient | None = None
     if config.memory_enabled and memory is None:
-        memory = build_client()
+        memory = owned = build_client()
+    try:
+        return _run_episodes(
+            config,
+            scenario=scenario,
+            agent_provider=agent_provider,
+            reviewer_provider=reviewer_provider,
+            reflection_provider=reflection_provider,
+            memory=memory,
+            report=report,
+        )
+    finally:
+        if owned is not None:
+            owned.close()
+
+
+def _run_episodes(
+    config: RunConfig,
+    scenario: Scenario | None = None,
+    agent_provider: Provider | None = None,
+    reviewer_provider: Provider | None = None,
+    reflection_provider: Provider | None = None,
+    memory: MemcoClient | None = None,
+    report: Callable[[str], None] = print,
+) -> RunResult:
+    scenario = scenario or load_scenario(config.scenario_root)
     if not config.memory_enabled:
         memory = None
 
@@ -165,7 +194,7 @@ def run(
         reference_date=scenario.reference_date,
     )
     reflector = (
-        Reflector(provider=providers.reflection, memory=memory)
+        Reflector(provider=providers.reflection)
         if memory is not None and providers.reflection is not None
         else None
     )
@@ -674,15 +703,25 @@ def _run_task(
     order = scenario.order_for(task)
 
     started_at = stamp()
-    draft = draft_reply(task, variant, scenario, providers.agent, memory)
+    # One session for the whole episode. The searches the agent makes while
+    # drafting, the ratings those searches earn, and the lessons written from
+    # the correction afterwards are all one task's work, and naming the session
+    # on each of them is what records them as one task's work rather than as
+    # unrelated calls that happen to be adjacent. The blind arm has no memory,
+    # and so no session.
+    session = memory.open_session() if memory is not None else None
+    draft = draft_reply(task, variant, scenario, providers.agent, session)
     review = reviewer.review(task, variant, draft.text, account, order)
     reflection = (
-        reflector.reflect(task, variant, draft, review, scenario.policies)
-        if reflector and not review.failed
+        reflector.reflect(task, variant, draft, review, scenario.policies, session)
+        if reflector and session is not None and not review.failed
         else Reflection()
     )
 
-    errors = [*draft.memory_errors, *reflection.errors]
+    errors: list[str] = []
+    if session is not None and session.error:
+        errors.append(session.error)
+    errors += [*draft.memory_errors, *reflection.errors]
     if review.error:
         errors.append(f"reviewer: {review.error}")
     if draft.truncated:
